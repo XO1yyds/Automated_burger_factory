@@ -1,0 +1,2234 @@
+{
+  "date": "2026-10-18",
+  "timezone": "Asia/Shanghai",
+  "version": "V0.2 logical logistics",
+  "development_status": "Logistics complete and accepted by user; subsequent development stopped",
+  "user_acceptance": {
+    "date": "2026-10-18",
+    "status": "accepted",
+    "confirmation": "全部验收完毕",
+    "per_case_raw_records_provided": false,
+    "new_runtime_checks_run_for_this_update": false
+  },
+  "executor": "Current Codex desktop chat; no CLI delegation",
+  "qa": {
+    "session_id": "eb938a95-d57d-4981-9cc7-980a1030c4ad",
+    "reload_id": 3,
+    "passed": 353,
+    "failed": 0,
+    "baseline_checks": 275,
+    "new_logistics_checks": 78,
+    "groups": {
+      "V02 Line QA": 43,
+      "V02 Route QA": 35,
+      "Phase1 QA": 10,
+      "Phase2 QA": 29,
+      "Phase3 QA": 37,
+      "Phase4 QA": 40,
+      "Phase3 Route QA": 11,
+      "Phase4 Route QA": 14,
+      "Phase6-7 QA": 24,
+      "Phase5-7 Route QA": 58,
+      "Phase8 QA": 52
+    },
+    "checks": [
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "new production line is stopped",
+        "cursor": 462
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "self link rejected",
+        "cursor": 463
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "missing endpoint rejected",
+        "cursor": 464
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "cross-area link rejected",
+        "cursor": 465
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "raw meat cannot bypass cooker into assembler",
+        "cursor": 466
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "ingredient cannot go to burger output",
+        "cursor": 467
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "depot cannot be a source",
+        "cursor": 468
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "source cannot be a destination",
+        "cursor": 469
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "raw supply connects to cooker",
+        "cursor": 470
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "duplicate link rejected",
+        "cursor": 471
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "cooker connects to assembler",
+        "cursor": 472
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "bun supply connects to assembler",
+        "cursor": 473
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "lettuce supply connects to assembler",
+        "cursor": 474
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "assembler connects to depot",
+        "cursor": 475
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "stopped links do not create ingredients",
+        "cursor": 476
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "negative timestep cannot transfer",
+        "cursor": 477
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "link waits until transfer interval",
+        "cursor": 478
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "one tick feeds raw bun and lettuce",
+        "cursor": 479
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "logistics cannot access player's held item",
+        "cursor": 480
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "unfinished raw meat is not an output",
+        "cursor": 481
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "logistics rejects manually allowed raw assembler input",
+        "cursor": 482
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "complete chain fills shared output to five",
+        "cursor": 483
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "full output retains next finished burger",
+        "cursor": 484
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "production count equals depot plus retained burger",
+        "cursor": 485
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "cooker never exceeds its three slots",
+        "cursor": 486
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "saturated line does not discard burgers or grow stock",
+        "cursor": 487
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "UI status explains full output",
+        "cursor": 488
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "held item still unchanged after long simulation",
+        "cursor": 489
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "freeing one output slot resumes transfer",
+        "cursor": 490
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "stop prevents all further transfers",
+        "cursor": 491
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "stopped link status is explicit",
+        "cursor": 492
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "disconnect removes exactly one link",
+        "cursor": 493
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "disconnect unknown id is harmless",
+        "cursor": 494
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "deleting endpoint removes all adjacent links",
+        "cursor": 495
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "disconnect never clears stored output",
+        "cursor": 496
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "competing destinations alternate first access",
+        "cursor": 497
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "moved endpoint cannot retain a cross-area transfer",
+        "cursor": 498
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "missing runtime endpoint does not crash scheduler",
+        "cursor": 499
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "shop footprint unchanged",
+        "cursor": 500
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "workshop has independent same-size footprint",
+        "cursor": 501
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "space between areas is not buildable",
+        "cursor": 502
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "partial outside footprint is rejected",
+        "cursor": 503
+      },
+      {
+        "group": "V02 Line QA",
+        "result": "PASS",
+        "name": "map edge does not introduce a five-grid radius",
+        "cursor": 504
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "sample starts with five stopped links",
+        "cursor": 506
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "ground item in portal takes priority over teleport",
+        "cursor": 507
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "portal floor item remains retrievable by F",
+        "cursor": 508
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "full arrival footprint cancels teleport safely",
+        "cursor": 509
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "failed teleport retains held entity",
+        "cursor": 510
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "standing in entrance selects portal",
+        "cursor": 511
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "F dispatcher enters workshop",
+        "cursor": 512
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "area switch preserves real held node",
+        "cursor": 513
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "workshop camera recenters without changing angle",
+        "cursor": 514
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "workshop arrival is within reserved return footprint",
+        "cursor": 515
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "configuration opens and building mode closes",
+        "cursor": 516
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "all workshop supply and machine endpoints are listed",
+        "cursor": 517
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "source button invokes real selection command",
+        "cursor": 518
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "link button disconnects without removing devices",
+        "cursor": 519
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "UI reconnects compatible selected endpoints",
+        "cursor": 520
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "UI rejects incompatible connection",
+        "cursor": 521
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "ESC closes configuration before pause",
+        "cursor": 522
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "workshop building has no five-grid distance limit",
+        "cursor": 523
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "new workshop machine can be built",
+        "cursor": 524
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "new machine appears as a logistics endpoint",
+        "cursor": 525
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "deleting connected device succeeds",
+        "cursor": 526
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "deletion removes adjacent links",
+        "cursor": 527
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "building cannot occupy portal arrival",
+        "cursor": 528
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "building cannot occupy inter-area void",
+        "cursor": 529
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "real workshop produces into shared depot",
+        "cursor": 530
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "workshop continues outside current camera area",
+        "cursor": 531
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "shared depot respects capacity",
+        "cursor": 532
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "pause freezes both machines and transfers",
+        "cursor": 533
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "settlement also freezes automation",
+        "cursor": 534
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "next day retains connection identities and enabled state",
+        "cursor": 535
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "next day resets production counts only",
+        "cursor": 536
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "time expiry clears orders but retains line",
+        "cursor": 537
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "return portal is also selected from inside footprint",
+        "cursor": 538
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "return F dispatch recenters shop camera",
+        "cursor": 539
+      },
+      {
+        "group": "V02 Route QA",
+        "result": "PASS",
+        "name": "restart restores clean V0.2 defaults",
+        "cursor": 548
+      },
+      {
+        "group": "Phase1 QA",
+        "result": "PASS",
+        "name": "W projects upwards / D projects rightwards",
+        "cursor": 549
+      },
+      {
+        "group": "Phase1 QA",
+        "result": "PASS",
+        "name": "front raw station found",
+        "cursor": 550
+      },
+      {
+        "group": "Phase1 QA",
+        "result": "PASS",
+        "name": "behind station excluded",
+        "cursor": 551
+      },
+      {
+        "group": "Phase1 QA",
+        "result": "PASS",
+        "name": "out-of-range station excluded",
+        "cursor": 552
+      },
+      {
+        "group": "Phase1 QA",
+        "result": "PASS",
+        "name": "camera is vertical, orthographic and unrotated",
+        "cursor": 553
+      },
+      {
+        "group": "Phase1 QA",
+        "result": "PASS",
+        "name": "assembly/grill/sources ordered left to right",
+        "cursor": 554
+      },
+      {
+        "group": "Phase1 QA",
+        "result": "PASS",
+        "name": "cashier left of delivery and below work row",
+        "cursor": 555
+      },
+      {
+        "group": "Phase1 QA",
+        "result": "PASS",
+        "name": "diagonal travel uses normalized speed",
+        "cursor": 646
+      },
+      {
+        "group": "Phase1 QA",
+        "result": "PASS",
+        "name": "station physically blocks movement",
+        "cursor": 647
+      },
+      {
+        "group": "Phase1 QA",
+        "result": "PASS",
+        "name": "room boundary physically blocks movement",
+        "cursor": 772
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "five independent item types",
+        "cursor": 774
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "empty-hand Q has no effect",
+        "cursor": 775
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "cooked meat cannot be obtained at a raw source",
+        "cursor": 776
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "empty hand takes one bun",
+        "cursor": 777
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "source swap rejects missing placement context",
+        "cursor": 778
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "full hand swaps at unlimited source",
+        "cursor": 779
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "source swap leaves old held item on valid nearby ground",
+        "cursor": 780
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "source swap with no free ground retains original hand",
+        "cursor": 781
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "full hand swaps with ground item",
+        "cursor": 782
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "ground swap preserves exact position",
+        "cursor": 783
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "repeated ground swap reverses without duplication",
+        "cursor": 784
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "blocked drop retains hand and all ground items",
+        "cursor": 785
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "Q creates one entity and empties hand",
+        "cursor": 786
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "empty hand picks ground raw meat",
+        "cursor": 787
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "same ground entity cannot be picked twice",
+        "cursor": 788
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "entity/hand/drop round trip: bun",
+        "cursor": 789
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "entity/hand/drop round trip: cooked_beef",
+        "cursor": 790
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "entity/hand/drop round trip: burger",
+        "cursor": 791
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "entity/hand/drop round trip: raw_beef",
+        "cursor": 792
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "entity/hand/drop round trip: lettuce",
+        "cursor": 793
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "source has no depletion or stock limit",
+        "cursor": 794
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "drop positions reject outside room",
+        "cursor": 795
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "drop positions reject workstations",
+        "cursor": 796
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "square items do not cut workstation corners",
+        "cursor": 797
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "square ground items cannot overlap diagonally",
+        "cursor": 798
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "ground detection selects front and excludes rear",
+        "cursor": 799
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "ground detection rejects far-away targets",
+        "cursor": 800
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "ground interaction cannot pass through cashier",
+        "cursor": 801
+      },
+      {
+        "group": "Phase2 QA",
+        "result": "PASS",
+        "name": "reset releases all held and ground entities",
+        "cursor": 802
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "no Phase2 ground fixtures at start",
+        "cursor": 804
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "empty grill rejects empty hand",
+        "cursor": 805
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "consume validates type without losing held node",
+        "cursor": 806
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "grill rejects wrong material without loss",
+        "cursor": 807
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "raw insertion transfers one entity out of hand",
+        "cursor": 808
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "placement hold cannot begin cooking before release",
+        "cursor": 809
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "single grill slot rejects second meat without loss",
+        "cursor": 810
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "raw grill cannot be taken out",
+        "cursor": 811
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "less than three seconds keeps raw meat",
+        "cursor": 812
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "F release resets progress and retains meat",
+        "cursor": 813
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "lost interaction target resets progress",
+        "cursor": 814
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "blocked input resets progress",
+        "cursor": 815
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "occupied hand cannot cook",
+        "cursor": 816
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "three continuous seconds converts raw to cooked",
+        "cursor": 817
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "cooked meat is stable after release and leaving",
+        "cursor": 818
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "cooked output requires empty hand",
+        "cursor": 819
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "empty hand collects cooked output once",
+        "cursor": 820
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "second output collection does not duplicate",
+        "cursor": 821
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "cooked meat enters assembly slot",
+        "cursor": 822
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "bun input alone does not complete recipe",
+        "cursor": 823
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "duplicate material preserves held item",
+        "cursor": 824
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "final ingredient generates one burger immediately",
+        "cursor": 825
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "uncollected burger blocks new input",
+        "cursor": 826
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "burger output transfers to real held entity",
+        "cursor": 827
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "repeated output action does not duplicate burger",
+        "cursor": 828
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "crafted burger can be dropped and picked up",
+        "cursor": 829
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "raw meat cannot substitute for cooked recipe",
+        "cursor": 830
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "partial inputs can be retrieved in stable order",
+        "cursor": 831
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "remaining partial material is recoverable",
+        "cursor": 832
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "empty assembly gives no phantom item",
+        "cursor": 833
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "recipe works in order lettuce/bun/cooked_beef",
+        "cursor": 834
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "recipe works in order cooked_beef/lettuce/bun",
+        "cursor": 835
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "recipe works in order bun/cooked_beef/lettuce",
+        "cursor": 836
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "recipe works in order bun/lettuce/cooked_beef",
+        "cursor": 837
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "recipe works in order lettuce/cooked_beef/bun",
+        "cursor": 838
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "recipe works in order cooked_beef/bun/lettuce",
+        "cursor": 839
+      },
+      {
+        "group": "Phase3 QA",
+        "result": "PASS",
+        "name": "reset clears both workstations and item ownership",
+        "cursor": 840
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "empty cooker returns no item",
+        "cursor": 842
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "wrong cooker input retains real held entity",
+        "cursor": 843
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "first raw input occupies one slot and empties hand",
+        "cursor": 844
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "three inputs have independent start times",
+        "cursor": 845
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "full cooker rejects fourth input without loss",
+        "cursor": 846
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "only earliest slot finishes at its three-second boundary",
+        "cursor": 847
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "cooked slot still blocks fourth input",
+        "cursor": 848
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "empty hand takes cooked meat before raw",
+        "cursor": 849
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "without cooked meat latest raw input is retrieved",
+        "cursor": 850
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "reinserting early raw starts from zero",
+        "cursor": 851
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "older second slot finishes before reinserted first slot",
+        "cursor": 852
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "cooked retrieval ignores slot index",
+        "cursor": 853
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "all three slots finish independently without F",
+        "cursor": 854
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "equal completion times use insertion order",
+        "cursor": 855
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "old completed slot is taken before a newly completed low-index slot",
+        "cursor": 856
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "HUD reports each slot remaining time",
+        "cursor": 857
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "negative timestep cannot reverse cooking",
+        "cursor": 858
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "separate machines own separate slots",
+        "cursor": 859
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "empty assembler creates no output",
+        "cursor": 860
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "burger is rejected as assembler ingredient",
+        "cursor": 861
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "wrong raw meat is stored in the single meat slot",
+        "cursor": 862
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "raw meat recipe never starts or generates burger",
+        "cursor": 863
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "raw and cooked meat cannot occupy two meat slots",
+        "cursor": 864
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "idle retrieval prioritizes wrong raw meat",
+        "cursor": 865
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "corrected recipe starts automatic two-second processing",
+        "cursor": 866
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "recipe is not finished before two seconds",
+        "cursor": 867
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "processing blocks empty-hand retrieval",
+        "cursor": 868
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "processing blocks input and retains held entity",
+        "cursor": 869
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "two seconds consumes recipe and creates exactly one cached burger",
+        "cursor": 870
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "cached output does not disappear or duplicate",
+        "cursor": 871
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "output cannot swap with occupied hand",
+        "cursor": 872
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "duplicate next-batch material is rejected without loss",
+        "cursor": 873
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "full next recipe waits while cached output occupies capacity",
+        "cursor": 874
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "cached burger is taken before next-batch ingredients",
+        "cursor": 875
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "collecting output permits next batch to finish once",
+        "cursor": 876
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "incomplete recipe permits material recovery",
+        "cursor": 877
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "last incomplete ingredient is recoverable",
+        "cursor": 878
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "automatic recipe accepts order bun/cooked_beef/lettuce",
+        "cursor": 879
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "automatic recipe accepts order lettuce/cooked_beef/bun",
+        "cursor": 880
+      },
+      {
+        "group": "Phase4 QA",
+        "result": "PASS",
+        "name": "reset removes all machine contents and processing",
+        "cursor": 881
+      },
+      {
+        "group": "Phase3 Route QA",
+        "result": "PASS",
+        "name": "front source resolves and dispatches raw acquisition",
+        "cursor": 922
+      },
+      {
+        "group": "Phase3 Route QA",
+        "result": "PASS",
+        "name": "front grill dispatches raw insertion",
+        "cursor": 923
+      },
+      {
+        "group": "Phase3 Route QA",
+        "result": "PASS",
+        "name": "aiming another workstation resets real grill progress",
+        "cursor": 924
+      },
+      {
+        "group": "Phase3 Route QA",
+        "result": "PASS",
+        "name": "cooked meat has visible station entity",
+        "cursor": 925
+      },
+      {
+        "group": "Phase3 Route QA",
+        "result": "PASS",
+        "name": "grill dispatches cooked output",
+        "cursor": 926
+      },
+      {
+        "group": "Phase3 Route QA",
+        "result": "PASS",
+        "name": "assembly dispatches cooked input",
+        "cursor": 927
+      },
+      {
+        "group": "Phase3 Route QA",
+        "result": "PASS",
+        "name": "source to assembly routes bun",
+        "cursor": 928
+      },
+      {
+        "group": "Phase3 Route QA",
+        "result": "PASS",
+        "name": "third material generates burger through F dispatcher",
+        "cursor": 929
+      },
+      {
+        "group": "Phase3 Route QA",
+        "result": "PASS",
+        "name": "recipe replaces three inputs with one visible burger",
+        "cursor": 930
+      },
+      {
+        "group": "Phase3 Route QA",
+        "result": "PASS",
+        "name": "assembly output dispatches real held burger",
+        "cursor": 931
+      },
+      {
+        "group": "Phase3 Route QA",
+        "result": "PASS",
+        "name": "route fixtures clean up without leftover station contents",
+        "cursor": 932
+      },
+      {
+        "group": "Phase4 Route QA",
+        "result": "PASS",
+        "name": "fixture footprints block item placement",
+        "cursor": 934
+      },
+      {
+        "group": "Phase4 Route QA",
+        "result": "PASS",
+        "name": "front source to automatic cooker dispatches first raw input",
+        "cursor": 935
+      },
+      {
+        "group": "Phase4 Route QA",
+        "result": "PASS",
+        "name": "second source trip dispatches to another slot",
+        "cursor": 936
+      },
+      {
+        "group": "Phase4 Route QA",
+        "result": "PASS",
+        "name": "third source trip fills three independent slots",
+        "cursor": 937
+      },
+      {
+        "group": "Phase4 Route QA",
+        "result": "PASS",
+        "name": "three raw inputs produce three visible machine entities",
+        "cursor": 938
+      },
+      {
+        "group": "Phase4 Route QA",
+        "result": "PASS",
+        "name": "independent completion changes only one visible meat",
+        "cursor": 939
+      },
+      {
+        "group": "Phase4 Route QA",
+        "result": "PASS",
+        "name": "automatic cooker output dispatches cooked meat",
+        "cursor": 940
+      },
+      {
+        "group": "Phase4 Route QA",
+        "result": "PASS",
+        "name": "automatic assembler accepts cooked output through F route",
+        "cursor": 941
+      },
+      {
+        "group": "Phase4 Route QA",
+        "result": "PASS",
+        "name": "bun source and assembler dispatch route succeeds",
+        "cursor": 942
+      },
+      {
+        "group": "Phase4 Route QA",
+        "result": "PASS",
+        "name": "lettuce route starts automatic assembly",
+        "cursor": 943
+      },
+      {
+        "group": "Phase4 Route QA",
+        "result": "PASS",
+        "name": "F route cannot take materials while processing",
+        "cursor": 944
+      },
+      {
+        "group": "Phase4 Route QA",
+        "result": "PASS",
+        "name": "completed assembly replaces recipe with one visible burger",
+        "cursor": 945
+      },
+      {
+        "group": "Phase4 Route QA",
+        "result": "PASS",
+        "name": "assembler output route creates real held burger",
+        "cursor": 946
+      },
+      {
+        "group": "Phase4 Route QA",
+        "result": "PASS",
+        "name": "automatic route leaves empty machines and no fixture items",
+        "cursor": 947
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "first order waits at least five seconds",
+        "cursor": 949
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "day one creates a one-burger order",
+        "cursor": 950
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "active orders stop at five and suspend countdown",
+        "cursor": 951
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "full queue does not generate hidden orders",
+        "cursor": 952
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "delivery requires an explicit selection",
+        "cursor": 953
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "complete order is removed and selection cleared",
+        "cursor": 954
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "freed full queue restarts fresh random wait",
+        "cursor": 955
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "new order is not immediate after queue frees",
+        "cursor": 956
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "queue resumes with a new unique order id",
+        "cursor": 957
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "stale selection cannot deliver",
+        "cursor": 958
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "random interval can wait fifteen seconds",
+        "cursor": 959
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "fifteen-second boundary produces first order",
+        "cursor": 960
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "day two quantity is capped at two",
+        "cursor": 961
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "day three quantity is capped at three",
+        "cursor": 962
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "partial delivery consumes only available stock",
+        "cursor": 963
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "delivery retains burgers beyond remaining need",
+        "cursor": 964
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "completed order cannot receive extra delivery",
+        "cursor": 965
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "depot rejects non-burger without destroying hand",
+        "cursor": 966
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "depot holds exactly five burger entities",
+        "cursor": 967
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "sixth depot input preserves hand",
+        "cursor": 968
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "empty hand can retrieve a deposited burger",
+        "cursor": 969
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "empty depot cannot duplicate output",
+        "cursor": 970
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "day-end hook clears orders and selection but preserves stock",
+        "cursor": 971
+      },
+      {
+        "group": "Phase6-7 QA",
+        "result": "PASS",
+        "name": "closed day hook stops generation",
+        "cursor": 972
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "ordinary movement speed is four meters per second",
+        "cursor": 974
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "held shift doubles movement speed",
+        "cursor": 975
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "diagonal sprint is normalized",
+        "cursor": 976
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "release shift restores ordinary speed",
+        "cursor": 977
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "sprint does not move player in building or cashier state",
+        "cursor": 978
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "no aimed device displays exact empty-device message",
+        "cursor": 979
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "aimed cooker displays only cooker information",
+        "cursor": 980
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "aimed assembler displays only assembler information",
+        "cursor": 981
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "hover selects building type without advancing preview",
+        "cursor": 982
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "building button callback enters preview without placing",
+        "cursor": 983
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "right back from preview reaches building home",
+        "cursor": 984
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "right back from building home exits",
+        "cursor": 985
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "escape from preview reaches building home",
+        "cursor": 986
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "second escape from building home exits",
+        "cursor": 987
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "near candidate with legal footprint is allowed",
+        "cursor": 988
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "beyond five-grid candidate is allowed",
+        "cursor": 989
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "whole rotated footprint must stay inside map",
+        "cursor": 990
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "fixed buildings and entry zone reject overlap",
+        "cursor": 991
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "player footprint blocks construction",
+        "cursor": 992
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "ground items block construction",
+        "cursor": 993
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "candidate snaps to a one-meter grid",
+        "cursor": 994
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "ninety-degree rotation swaps nonsquare footprint",
+        "cursor": 995
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "merged preview can move and rotate without creating a building",
+        "cursor": 996
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "construction creates real free workstation and collision",
+        "cursor": 997
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "confirmation returns to continuous preview",
+        "cursor": 998
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "new building background belongs to world root",
+        "cursor": 999
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "world name uses stronger stroke and a noncolliding backdrop",
+        "cursor": 1000
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "created building has a world text child",
+        "cursor": 1001
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "camera pan and zoom do not move world-name anchor",
+        "cursor": 1002
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "nearby building world name becomes visible",
+        "cursor": 1003
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "world name hides when player leaves",
+        "cursor": 1004
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "processing machine cannot enter move mode",
+        "cursor": 1005
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "processing machine cannot be deleted",
+        "cursor": 1006
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "cancel move preserves original pose and completed contents",
+        "cursor": 1007
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "right back from editing returns to management",
+        "cursor": 1008
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "escape from editing skips to building home",
+        "cursor": 1009
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "confirm move preserves real machine contents",
+        "cursor": 1010
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "moving a building returns to management",
+        "cursor": 1011
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "world nickname travels with building parent",
+        "cursor": 1012
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "distant building can be selected for editing",
+        "cursor": 1013
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "failed content spill cancels deletion without loss",
+        "cursor": 1014
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "distant deletion releases cached contents and retains hand",
+        "cursor": 1015
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "deletion returns to management for another selection",
+        "cursor": 1016
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "full production route deposits one real burger",
+        "cursor": 1017
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "opening cashier does not auto-select an order",
+        "cursor": 1018
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "actual order-row callback selects intended order",
+        "cursor": 1019
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "actual delivery-button callback applies partial delivery",
+        "cursor": 1020
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "complete route removes order and retains excess burger",
+        "cursor": 1021
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "completion does not auto-select or deliver another order",
+        "cursor": 1022
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "depot F route can recover leftover burger",
+        "cursor": 1023
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "acceptance fixtures clean up for ordinary gameplay",
+        "cursor": 1024
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "empty trash interaction does not invent or delete items",
+        "cursor": 1025
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "trash F destroys held bun",
+        "cursor": 1026
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "trash F destroys held raw_beef",
+        "cursor": 1027
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "trash F destroys held cooked_beef",
+        "cursor": 1028
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "trash F destroys held lettuce",
+        "cursor": 1029
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "trash F destroys held burger",
+        "cursor": 1030
+      },
+      {
+        "group": "Phase5-7 Route QA",
+        "result": "PASS",
+        "name": "trash leaves unrelated ground items",
+        "cursor": 1031
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "default day lasts 300 seconds across three days",
+        "cursor": 1187
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "first order waits random interval",
+        "cursor": 1188
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "Day1 needs exactly one burger",
+        "cursor": 1189
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "paused time orders and production counters freeze",
+        "cursor": 1190
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "cashier cannot end before zero even when paused",
+        "cursor": 1191
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "pause can end early",
+        "cursor": 1192
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "summary snapshots completions and production split",
+        "cursor": 1193
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "settlement simulation freezes",
+        "cursor": 1194
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "repeated end cannot add a duplicate summary",
+        "cursor": 1195
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "Day2 resets clock wait and daily statistics retains depot",
+        "cursor": 1196
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "Day2 supports two-burger orders",
+        "cursor": 1197
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "partial delivery does not count as complete",
+        "cursor": 1198
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "positive fractional last second remains active",
+        "cursor": 1199
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "exact expiry clears all orders and selection",
+        "cursor": 1200
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "post expiry never generates orders and no false completion",
+        "cursor": 1201
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "production after zero still belongs to current day",
+        "cursor": 1202
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "cashier ending allowed only after zero",
+        "cursor": 1203
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "prior summary remains unchanged",
+        "cursor": 1204
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "Day3 supports three-burger orders",
+        "cursor": 1205
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "third settlement leads to completion without Day4",
+        "cursor": 1206
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "completed demo cannot continue or simulate",
+        "cursor": 1207
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "actual pause command displays modal and disables physics",
+        "cursor": 1208
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "scene pause freezes machine manual time order and player",
+        "cursor": 1209
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "actual resume callback restores physics",
+        "cursor": 1210
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "resume frame preserves manual progress and paused time",
+        "cursor": 1211
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "automatic processing resumes original progress",
+        "cursor": 1212
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "actual hand assembly records at creation",
+        "cursor": 1213
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "collecting burger does not count twice",
+        "cursor": 1214
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "assembly freezes without completing during pause",
+        "cursor": 1215
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "actual automatic assembly counted at completion",
+        "cursor": 1216
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "deleting output does not subtract production stats",
+        "cursor": 1217
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "actual cashier button cannot end early",
+        "cursor": 1218
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "cashier keeps daily time running",
+        "cursor": 1219
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "building menu keeps daily time running",
+        "cursor": 1220
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "actual early-end callback displays frozen settlement",
+        "cursor": 1221
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "actual settlement has manual1 automatic1 total2",
+        "cursor": 1222
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "next-day callback retains scene contents and building pose",
+        "cursor": 1223
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "next-day resets daily counts and restores physics",
+        "cursor": 1224
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "next-day transition retains unfinished machine and manual progress",
+        "cursor": 1225
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "actual expiry clears selected order and unlocks end button",
+        "cursor": 1226
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "expiry wins over delivery on the same frame",
+        "cursor": 1227
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "actual cashier end goes to settlement",
+        "cursor": 1228
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "Day3 callback enters third day only",
+        "cursor": 1229
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "completion page shows all three summaries and restart",
+        "cursor": 1230
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "restart callback recreates scene player camera and Day1",
+        "cursor": 1238
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "restart clears hand floor stock orders summaries stats",
+        "cursor": 1239
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "restart restores original shop and workshop machines and pose",
+        "cursor": 1240
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "restart restores input physics and closes modal cashier",
+        "cursor": 1241
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "escape from building home closes mode before pause",
+        "cursor": 1242
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "next escape opens pause",
+        "cursor": 1243
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "escape in pause resumes",
+        "cursor": 1244
+      },
+      {
+        "group": "Phase8 QA",
+        "result": "PASS",
+        "name": "escape closes cashier before pause",
+        "cursor": 1245
+      }
+    ],
+    "deduplication": "Only [lua] channel QA lines; engine mirror excluded",
+    "initial_issue": "Strict floating-point equality assertion replaced with tolerance; initial reload0 failed one check, reload1 and final reload3 passed",
+    "final_changes_after_qa": "Development switches only restored to false; ordinary reload4 verified loaded without QA"
+  },
+  "static": {
+    "files": 14,
+    "total": 157,
+    "errors": 0,
+    "warnings": 99,
+    "info": 0,
+    "hints": 58
+  },
+  "development_switches": {
+    "RUN_SMOKE_CHECKS": "false",
+    "RUN_ITEM_CHECKS": "false",
+    "RUN_MANUAL_CHECKS": "false",
+    "RUN_AUTOMATIC_CHECKS": "false",
+    "RUN_STAGE_CHECKS": "false",
+    "RUN_LOOP_CHECKS": "false",
+    "RUN_HUD_DIAGNOSIS": "false",
+    "RUN_V02_CHECKS": "false",
+    "RUN_BUILDING_LABEL_CHECKS": "false"
+  },
+  "source_sha256": {
+    "scripts/Factory/AutomaticChecks.lua": "443cc7e5faea6e32a270838073f628bc9f54b7ef87b667f4c79c70b764da27c2",
+    "scripts/Factory/AutomaticWorkstation.lua": "ca46dd7057dcabeaa03bc755c5a5558665a8687e71ccccb325f8382d16a39638",
+    "scripts/Factory/AutomationArea.lua": "8bf10d6878429304a3e978e8b9b2013cf4daa24b827eee51580f9e85c739df75",
+    "scripts/Factory/AutomationInterface.lua": "bcac7f0d45409280da47cd85795582bb6cbcd5078221398fde891b4a18909195",
+    "scripts/Factory/Buildings.lua": "3d235b759acd33d8b2dc37e77901f807fc444a9168eb1e1136057d31d62e5dd5",
+    "scripts/Factory/CommerceChecks.lua": "340dc341ce8f064de833cedc809fb3c513fd7d43a6383289949e841f2776de81",
+    "scripts/Factory/GameLoop.lua": "df990f69e51ecb38de44c4e50d87ccff4db30225d4ddefe6ef14d66a14b0f543",
+    "scripts/Factory/HudDiagnostics.lua": "410cc151d442a13a8438ede906c89971d9d1e2f75fdaece50ec4250ceda0be80",
+    "scripts/Factory/Interface.lua": "62600c4e4e6a53b72d396a357f40f8fc55ccd7b62a4e78dd6f1572f519b1e56a",
+    "scripts/Factory/ItemChecks.lua": "10c8dc9ddaede49fa8c61c748eaee377c79127652328db8146de617a74f1cf21",
+    "scripts/Factory/Items.lua": "8b6ede1720a506eb62f142f78bbec90b05a3e87687542b3661166d66e96d0ad5",
+    "scripts/Factory/LoopChecks.lua": "cbfd2fc493bee5dc9230cb016c2e87c0e5c157348293d0fbc6b37fccc49d6db9",
+    "scripts/Factory/ManualChecks.lua": "b6e5724ab31cb8520c32eee7dbb5588e6deea7c32cbcb06619dc573622063c20",
+    "scripts/Factory/ManualProduction.lua": "90e6fb9c5a33402104c08b14d34fc0b2e0cf3385874a1f3e4e1f2cc570644caf",
+    "scripts/Factory/Orders.lua": "44c4c3f03381a11fea56eee1a1c45837be175ae731284601e8a09c47b74baccf",
+    "scripts/Factory/Phase1.lua": "bf8f9bad8cc748f3f5b83d30636d1713f2ba3219888be2465ce2546fdb05fbb9",
+    "scripts/Factory/ProductionLine.lua": "a42d7c5a305f95e0dab6de4b60a0016aad2ceaecfc3ec7052503c65fc8da5acc",
+    "scripts/Factory/ProductionLineChecks.lua": "64f1f7544f2be49ba5354c71c192124cbb5d7a1b6b357f206db2d9b13efe39e3",
+    "scripts/Factory/StageChecks.lua": "5dffdede734bb8b0b6f2c25ed6b7aebf54b536549105c968d0770e0f751cb326",
+    "scripts/main.lua": "ed60544eb2b5e8d9d8c35e07db44794fa9fbc6968f81b6ce80e17101dbc46543"
+  },
+  "visual": {
+    "method": "computer-use native window observation",
+    "observed": [
+      "Workshop layout",
+      "Production-line configuration with source/destination lists",
+      "Connection status and moved counts",
+      "Running line and shared 5/5 depot",
+      "Normal gameplay window"
+    ],
+    "input_limit": "Concurrent user input caused automation to reject some key attempts; observation is not a claim that those keys or all manual acceptance actions succeeded",
+    "persistent_screenshot_file": null
+  },
+  "normal_preview": {
+    "session_id": "eb938a95-d57d-4981-9cc7-980a1030c4ad",
+    "reload_id": 4,
+    "process_alive": true,
+    "ready": false,
+    "check_result": "FAIL",
+    "errors": [
+      "[2026-10-18 09_37_52_442][0] ERROR: Could not find resource Cube/Day/DaySpecularHDR.dds\r",
+      "[2026-10-18 09_37_52_490][0] ERROR: Can not load themis_x64.dll.\r",
+      "[2026-10-18 09_38_03_954][590] ERROR: Could not find resource Cube/Day/DaySpecularHDR.dds\r"
+    ]
+  },
+  "points": {
+    "paid_generation_called": false,
+    "balance": "未取得",
+    "maker_cost": "平台未返回",
+    "remote_build": false,
+    "commit_or_push": false
+  },
+  "remaining": [
+    "Existing DDS/DLL environment errors; not repaired",
+    "All post-logistics development stopped"
+  ]
+}

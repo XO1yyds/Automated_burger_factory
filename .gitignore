@@ -1,0 +1,43 @@
+# Local Maker tooling, credentials, and generated state
+.maker/
+.maker-mcp/
+.agents/
+.claude/
+.cli/
+.codex/
+.cursor/
+.emmylua/
+.gemini/
+.installer/
+.project/
+AGENTS.md
+CLAUDE.md
+engine-docs/
+editor-docs/
+examples/
+schemas/
+skills/
+templates/
+tools/
+urhox-libs/
+# Local artifacts
+.tmp/
+.build/
+dist/
+logs/
+node_modules/
+__pycache__/
+*.pyc
+docs/cli-cao/
+docs/checkpoints/
+# Never commit credentials
+.env
+.env.*
+!.env.example
+.git-credentials
+*.pem
+*.key
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini

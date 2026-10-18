@@ -1,0 +1,156 @@
+{
+  "runtime": "Lua 5.4",
+  "passed": 37,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "reference U route starts legal",
+      "passed": true
+    },
+    {
+      "name": "moving U corner propagates the neighboring vertical run",
+      "passed": true
+    },
+    {
+      "name": "overlapping reverse runs collapse to one L route",
+      "passed": true
+    },
+    {
+      "name": "inverse keyboard movement restores original U without extra corners",
+      "passed": true
+    },
+    {
+      "name": "repeated opposite keystrokes do not grow a spiral",
+      "passed": true
+    },
+    {
+      "name": "ending edit releases original snapshot",
+      "passed": true
+    },
+    {
+      "name": "dragging return segment onto outgoing segment merges it",
+      "passed": true
+    },
+    {
+      "name": "segment reverse restores original shape and endpoint ports",
+      "passed": true
+    },
+    {
+      "name": "interior corner moves both adjacent straight runs",
+      "passed": true
+    },
+    {
+      "name": "corner sweep keeps routes orthogonal attached and loop free",
+      "passed": true
+    },
+    {
+      "name": "large drag and exact return restores original route",
+      "passed": true
+    },
+    {
+      "name": "first segment creates a connected orthogonal offset",
+      "passed": true
+    },
+    {
+      "name": "first segment offset retracts without an extra loop",
+      "passed": true
+    },
+    {
+      "name": "last segment remains attached to input port",
+      "passed": true
+    },
+    {
+      "name": "last segment inverse retracts",
+      "passed": true
+    },
+    {
+      "name": "W chooses a visually higher target",
+      "passed": true
+    },
+    {
+      "name": "S chooses a visually lower target",
+      "passed": true
+    },
+    {
+      "name": "A chooses a visually left target",
+      "passed": true
+    },
+    {
+      "name": "D chooses a visually right target",
+      "passed": true
+    },
+    {
+      "name": "direction with no target stays selected instead of wrapping",
+      "passed": true
+    },
+    {
+      "name": "after A selection an uncommitted preview follows the cursor",
+      "passed": true
+    },
+    {
+      "name": "cursor movement replaces preview without placing cargo or belts",
+      "passed": true
+    },
+    {
+      "name": "hovering B snaps preview to its actual border",
+      "passed": true
+    },
+    {
+      "name": "hover alone never confirms destination or placement",
+      "passed": true
+    },
+    {
+      "name": "confirmed belt starts fresh A selection",
+      "passed": true
+    },
+    {
+      "name": "a second placement round has a new source preview",
+      "passed": true
+    },
+    {
+      "name": "back clears provisional destination preview",
+      "passed": true
+    },
+    {
+      "name": "unfixed building preview follows mouse",
+      "passed": true
+    },
+    {
+      "name": "scene click pins preview but creates no building",
+      "passed": true
+    },
+    {
+      "name": "pinned preview ignores later mouse motion",
+      "passed": true
+    },
+    {
+      "name": "clicking pinned projection or occupied world keeps pin",
+      "passed": true
+    },
+    {
+      "name": "blank scene click only unlocks pinned preview",
+      "passed": true
+    },
+    {
+      "name": "mouse tracking resumes after unlock",
+      "passed": true
+    },
+    {
+      "name": "keyboard nudge keeps mouse pin",
+      "passed": true
+    },
+    {
+      "name": "pinning does not bypass confirm button gate",
+      "passed": true
+    },
+    {
+      "name": "confirm places once and resets pin for continuous building",
+      "passed": true
+    },
+    {
+      "name": "canceling building preview clears pin",
+      "passed": true
+    }
+  ],
+  "scope": "Real Lua domain and building pointer controller; not native OS input"
+}

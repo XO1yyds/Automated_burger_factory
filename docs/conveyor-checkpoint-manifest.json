@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-18",
+  "source_sha256": {
+    "scripts/Factory/AutomaticChecks.lua": "443cc7e5faea6e32a270838073f628bc9f54b7ef87b667f4c79c70b764da27c2",
+    "scripts/Factory/AutomaticWorkstation.lua": "ca46dd7057dcabeaa03bc755c5a5558665a8687e71ccccb325f8382d16a39638",
+    "scripts/Factory/AutomationArea.lua": "86640d780e7d12d57546e364740a3404525c66086b4535426e0b7455fb542502",
+    "scripts/Factory/BufferStorage.lua": "51b2fca07c0ac3afacd95f76300ca2a4cbad124232cb910b8742dba59479532f",
+    "scripts/Factory/Buildings.lua": "cd90189a55d0e6fb686dc6558c0df6918981d7d91fde11e1ef9ecb3256b00dcb",
+    "scripts/Factory/CommerceChecks.lua": "340dc341ce8f064de833cedc809fb3c513fd7d43a6383289949e841f2776de81",
+    "scripts/Factory/ConveyorBuilder.lua": "dccaae4a8ef1ca4c5e5d2dcd9af5fdb0f6e7082a292eb0ec7afcaea52437c217",
+    "scripts/Factory/ConveyorChecks.lua": "80fedc1df9bcb83516e9a73e4b701cf373f53a878a2d3b2ce73ae4748318b496",
+    "scripts/Factory/ConveyorControl.lua": "e4e7c06b48cbfa0e8ee4b8f193f3b8fb3f43a8d32fd77c32046c10f46b251bea",
+    "scripts/Factory/ConveyorGeometry.lua": "005d659cbb1d890ef63c10ef789b5c3d39959a6cefceb5addb23f5d3e6cf1719",
+    "scripts/Factory/ConveyorNetwork.lua": "a9d1a6e5798c9aea57ace3d53734b3a97384fd7e0a88ba106e3cc1a2ec5b6b56",
+    "scripts/Factory/ConveyorWorld.lua": "f9bf092516d6eb6b5a168bde14f2b2f6055d06941aa80c0c51f205b6c5113fd3",
+    "scripts/Factory/GameLoop.lua": "df990f69e51ecb38de44c4e50d87ccff4db30225d4ddefe6ef14d66a14b0f543",
+    "scripts/Factory/HudDiagnostics.lua": "410cc151d442a13a8438ede906c89971d9d1e2f75fdaece50ec4250ceda0be80",
+    "scripts/Factory/Interface.lua": "9a6328dea5b2e12b6032e1b5ed3dd3a5c3fe66984f5b288123d01162c0f84e30",
+    "scripts/Factory/ItemChecks.lua": "10c8dc9ddaede49fa8c61c748eaee377c79127652328db8146de617a74f1cf21",
+    "scripts/Factory/Items.lua": "8b6ede1720a506eb62f142f78bbec90b05a3e87687542b3661166d66e96d0ad5",
+    "scripts/Factory/LoopChecks.lua": "cbfd2fc493bee5dc9230cb016c2e87c0e5c157348293d0fbc6b37fccc49d6db9",
+    "scripts/Factory/ManualChecks.lua": "b6e5724ab31cb8520c32eee7dbb5588e6deea7c32cbcb06619dc573622063c20",
+    "scripts/Factory/ManualProduction.lua": "90e6fb9c5a33402104c08b14d34fc0b2e0cf3385874a1f3e4e1f2cc570644caf",
+    "scripts/Factory/Orders.lua": "44c4c3f03381a11fea56eee1a1c45837be175ae731284601e8a09c47b74baccf",
+    "scripts/Factory/Phase1.lua": "fa4e86e587b25804b85bef9988c5f42b4ea664170a537d80d3a4ebed14786190",
+    "scripts/Factory/StageChecks.lua": "5dffdede734bb8b0b6f2c25ed6b7aebf54b536549105c968d0770e0f751cb326",
+    "scripts/main.lua": "ed60544eb2b5e8d9d8c35e07db44794fa9fbc6968f81b6ce80e17101dbc46543"
+  },
+  "self_checks": {
+    "passed": 222,
+    "failed": 0
+  },
+  "final_user_acceptance": "pending",
+  "developer_flags": "all false"
+}

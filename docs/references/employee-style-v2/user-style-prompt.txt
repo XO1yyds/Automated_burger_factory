@@ -1,0 +1,156 @@
+这五张图的风格和你上一组参考图有明显区别。上一组更偏“低饱和、粗线条、纸片人网络动画”，这一组则更接近 **高识别度Q版同人动画 + 手绘涂鸦感 + 视频封面式高情绪表达**。
+
+整体可以总结成：
+
+**“Q版同人动画风 + 粗黑描边 + 高饱和撞色 + 手绘蜡笔/彩铅质感 + 夸张表情 + 视频缩略图构图”**
+
+其中前两张更偏剧情动画，后三张更偏封面/缩略图，但角色造型语言是一致的。
+
+### 核心画风特征
+
+人物比例明显Q版化，头大身小，头部通常占整体高度约 1/3～1/2。四肢简化，手部经常只画成几块形状，但头发、眼睛、眉毛会被明显强化。
+
+眼睛是最关键的识别点之一。眼睛通常采用：
+
+**大面积纯黑或深色轮廓 + 高饱和彩色瞳孔 + 少量白色高光。**
+
+常见蓝色、黄色、红色、橙色等异色瞳设计，颜色非常鲜艳，因此哪怕画面很小，人物表情仍然容易辨认。
+
+头发通常由很多尖锐、块状的发束构成，尤其是白发人物，边缘非常不规则，有一种“炸毛”“刺状头发”的感觉。
+
+线稿特点是：
+
+**粗黑外轮廓 + 内部细一些的黑线 + 不完全平滑的手绘感。**
+
+不是标准矢量卡通，而是能看到明显的手工勾线感。部分区域甚至像马克笔、蜡笔或者数位板硬笔刷直接绘制。
+
+颜色方面则比上一组鲜艳很多。常见组合是：
+
+**白色头发 + 黑色轮廓 + 青蓝色衣服 + 黄色/橙色强调 + 红色辅助色。**
+
+背景也经常使用很鲜艳的：
+
+- 黄色
+- 橙色
+- 青蓝色
+- 红色
+
+尤其是视频封面中，会直接使用大面积纯色或渐变背景，使缩略图在信息流里非常醒目。
+
+阴影处理仍然比较简单，不追求写实。通常采用：
+
+**平涂 + 一两块硬边阴影 + 彩铅式杂乱笔触。**
+
+一些白色头发上能看到浅灰、淡蓝、浅橙的线条式阴影，故意保留“草稿感”和“涂鸦感”。
+
+### 表情语言
+
+这组画风非常强调“梗图感”。
+
+人物经常出现：
+
+- 极粗的斜眉
+- 张大嘴巴
+- 死鱼眼
+- 豆豆眼
+- 半月眼
+- 眼神突然变黑
+- 夸张笑脸
+- 生气符号
+- 星星眼
+- 汗滴
+- 灵魂出窍式表情
+
+所以它的重点并不是精致五官，而是：
+
+**一眼看懂角色现在是什么情绪。**
+
+这也非常适合做搞笑动画、游戏二创、视频封面、剧情漫画。
+
+---
+
+## 可以直接使用的完整提示词
+
+如果你之后要把真人、游戏角色或者原创人物转换成这种画风，可以用下面这版。
+
+> **2D hand-drawn chibi web animation style, cute exaggerated cartoon character, oversized head and small simplified body, thick irregular black outlines, rough hand-drawn linework, slightly sketchy and imperfect strokes, flat cel coloring, vivid high-saturation colors, strong black-white-blue-orange-yellow color contrast, spiky stylized hair made of large sharp hair clumps, oversized expressive anime-inspired eyes with bright colorful irises and solid dark pupils, simple nose, exaggerated mouth, highly expressive eyebrows, comedic facial expression, simplified hands and limbs, playful indie animation aesthetic, colorful fan-animation style, digital marker and colored-pencil texture, visible rough shading strokes, minimal realistic lighting, hard-edged simple shadows, lively energetic composition, humorous internet animation feeling, bold graphic shapes, clean readable silhouette, highly recognizable character design**
+
+如果想更接近你这五张图里的 **白发角色风格**，可以追加：
+
+> **messy fluffy white hair, large jagged white hair tufts, pale gray and light blue sketch shading on the hair, heterochromia eyes, one bright yellow-orange eye and one cyan-blue eye, thick black eyebrows, strong expressive face, teal and dark blue clothing with orange-yellow accents**
+
+---
+
+## 更接近“剧情动画截图”的版本
+
+对应第一张这种感觉，可以使用：
+
+> **simple 2D chibi animated short style, hand-drawn internet cartoon, large-headed small-bodied characters, thick rough black outlines, very simple anatomy, white spiky hair, colorful oversized eyes, flat pastel coloring, light colored-pencil texture, pale yellow-green background, minimal perspective, simple props, simplified cashier or indoor environment, expressive conversation pose, comedic animated storyboard feeling, deliberately naive hand-drawn quality, slightly uneven lines, low-detail background, character-focused composition**
+
+这一版应该保留一些“画得没那么精细”的感觉。
+
+因为第一张的魅力就在于：
+
+**像个人动画作者自己画出来的，而不是商业插画。**
+
+如果提示词里加太多：
+
+> masterpiece, ultra detailed, highly polished
+
+反而会跑偏。
+
+---
+
+## 更接近第二张“插画/动画定格”的版本
+
+第二张明显更精细，可以写：
+
+> **chibi adventure character illustration, hand-drawn anime parody style, oversized head, small body, messy white spiky hair, thick black outlines, vivid cyan blue and orange color accents, large colorful eyes, exaggerated confident expression, flat cel shading mixed with colored-pencil scratch texture, energetic cartoon composition, rough sketch highlights, humorous fantasy adventure aesthetic, indie fan animation style, bold readable silhouette, slightly imperfect handcrafted linework**
+
+如果有动物搭档，可以加入：
+
+> **small cute animal companion perched beside the character, simplified cartoon anatomy, matching thick outline and exaggerated expression**
+
+---
+
+## 视频封面 / 缩略图专用提示词
+
+后三张的构图重点其实和普通插画不同，它们非常明显是在服务“缩略图点击率”。
+
+可以写：
+
+> **YouTube / Bilibili gaming animation thumbnail style, chibi cartoon characters with oversized heads, exaggerated funny facial expressions, thick bold black outlines, bright white hair, vivid cyan blue, orange, yellow and red palette, extremely strong contrast, large readable character silhouettes, dynamic diagonal composition, characters filling most of the frame, playful chaos, comic reaction poses, colorful simple background, bold graphic shapes, energetic internet meme aesthetic, hand-drawn fan animation style, rough colored-pencil texture, strong visual storytelling, instantly readable at small thumbnail size**
+
+这几个关键词很重要：
+
+**characters filling most of the frame**
+
+**instantly readable at small thumbnail size**
+
+因为缩略图和普通插画的设计逻辑并不一样。
+
+---
+
+## 负面提示词
+
+为了避免模型画成常规日漫、精致立绘或者3D，可以增加：
+
+> **no photorealism, no realistic anatomy, no 3D render, no smooth vector art, no polished commercial anime rendering, no detailed realistic skin, no complex cinematic lighting, no painterly realism, no realistic hair strands, no overly detailed background, no glossy game character render, no soft realistic shading**
+
+还可以追加：
+
+> **keep rough hand-drawn imperfections, avoid overly clean lines**
+
+---
+
+## 我建议你最终固定成这一版“风格母提示词”
+
+如果你接下来准备连续把很多人物转成这一套风格，我建议长期使用这一版：
+
+> **2D hand-drawn chibi internet animation style, oversized head and small simplified body, thick irregular black outlines, rough slightly wobbly hand-drawn linework, large jagged stylized hair clumps, oversized colorful expressive eyes, extremely simple nose and mouth, exaggerated eyebrows and comedic expressions, flat cel coloring, vivid cyan-blue, orange, yellow, red, black and white palette, strong color contrast, colored-pencil and digital-marker texture, visible rough shading strokes, minimal realistic lighting, simple hard-edged shadows, simplified anatomy and hands, playful fan-animation aesthetic, humorous game parody feeling, energetic graphic composition, highly readable silhouette, intentionally imperfect handcrafted quality, no photorealism, no 3D, no polished realistic anime rendering**
+
+这五张图的画风 DNA 可以进一步压缩成八个词：
+
+**大头Q版、白发炸毛、粗黑描边、彩色大眼、高饱和撞色、彩铅涂鸦、夸张表情、同人动画感。**
+
+其中真正决定“像不像”的不是单纯的Q版，而是 **“粗糙手绘感 + 高饱和异色眼 + 尖锐块状头发 + 极度夸张的表情”**。这四点建议在任何后续提示词里都保留。

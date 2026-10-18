@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-16",
+  "tool": "TapTap Maker edit_image",
+  "name": "burger_shop_employee_chibi_v2",
+  "original": "assets/image/burger_shop_employee_chibi_v1_20261015162853.png",
+  "style_references": [
+    "docs/references/employee-style-v2/reference-1.png",
+    "docs/references/employee-style-v2/reference-2.png",
+    "docs/references/employee-style-v2/reference-3.png",
+    "docs/references/employee-style-v2/reference-4.png"
+  ],
+  "user_style_text": "docs/references/employee-style-v2/user-style-prompt.txt",
+  "prompt": "编辑目标：将原图中的原创汉堡店员工进行显著画风重绘，输出V2单角色完整全身透明立绘。\n输入角色图是旧版本，负责提供职业身份、制服、道具与大致动作。附加参考1–4只提供造型语言和笔触，不复制其中具体人物身份、服装、场景、同伴、文字、字幕、平台水印或标志。用户只提供4张风格参考图，按这4张处理。\n必须保留：原创汉堡店员工、橙色汉堡图案员工帽、黄色上衣、湖蓝围裙和一个大口袋、红领巾、深灰短裤、黑白鞋、一手举小煎铲一手端汉堡餐盘，完整全身与透明背景。汉堡图案是通用手绘食物符号，不含文字。手指和道具要简化，不要精雕。\n核心变化（不要只对旧图增加噪点）：遵循参考的2D hand-drawn chibi internet animation style，oversized head and very small simplified body, thick irregular black outlines, rough slightly wobbly hand-drawn linework, large jagged stylized hair clumps, oversized colorful expressive eyes, extremely simple nose and mouth, exaggerated eyebrows and comedic expressions, flat cel coloring, vivid cyan-blue, orange, yellow, red, black and white palette, strong color contrast, colored-pencil and digital-marker texture, visible rough shading strokes, minimal realistic lighting, simple hard-edged shadows, simplified anatomy and hands, playful fan-animation aesthetic, humorous game parody feeling, highly readable silhouette, intentionally imperfect handcrafted quality.\n头部（含帽与头发）占总高约45%，约2头身，身体和四肢比原图更短小、更像独立网络动画的纸片角色；脸型简单，避免旧版婴儿玩偶般的圆鼓立体质感。短发改成蓬松白色块状炸毛，从橙帽两侧与额头露出，少数大而不规则的尖角发束，不是细碎毛发。头发内用淡灰、淡蓝和少量淡橙的彩铅排线表现阴影，白色是主色。\n眼睛必须由大块纯黑粗轮廓、鲜亮黄橙色与青蓝色的异色虹膜、简单纯黑瞳孔构成；偏参考3的长方/椭圆简化眼型，眼皮和眉毛产生强烈表情，不画旧图那种巨大黑色玻璃眼和细腻反光。只保留极少高光。极粗黑眉，一边挑起一边斜压；嘴是简单夸张的大开口/歪嘴笑，单块白色牙齿和红粉色口腔，极简小点鼻；用少量脸颊短线与一滴夸张汗滴，呈现“忙着做汉堡还嘴硬自信”的搞笑神态，鲜明但友善。\n线条与上色：粗黑外轮廓，内部线稍细，明显的轻微抖动、断续、重复勾线和粗细变化，像硬笔刷、蜡笔和马克笔直接绘成。线条有意不完美，但轮廓仍清楚。大面积平涂纯色，仅少量一两块硬边阴影；衣服、帽和白发上可见稀疏的彩铅划痕，纹理服务于手绘感，不要整图均匀叠噪点。高饱和湖蓝/橙黄/红与黑白撞色；不要回到旧版低对比度商业卡通。服饰无密集布料褶皱和真实体积光，汉堡由几块大胆简单食物色块组成。\n构图：近正面轻微三分之四角度，保留举煎铲和端汉堡的职业姿态，可适度压缩四肢，双脚完整，周围留透明安全边距。只画1个人物，不画三视图、分镜、多表情表、背景、地板或大标题。透明背景真实alpha，不画棋盘格。\n避免：no photorealism, no 3D render, no smooth vector art, no polished commercial anime rendering, no detailed realistic skin, no complex cinematic lighting, no painterly realism, no realistic hair strands, no overly detailed background, no glossy game character render, no soft realistic shading, no gradients, no airbrush, no plush toy look。不要使用“masterpiece, ultra detailed, highly polished”方向；重点是像个人动画作者自己用粗笔画出来的、简单有梗、可重复画帧的角色。",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"success\": true,\n  \"name\": \"burger_shop_employee_chibi_v2\",\n  \"prompt\": \"编辑目标：将原图中的原创汉堡店员工进行显著画风重绘，输出V2单角色完整全身透明立绘。\\n输入角色图是旧版本，负责提供职业身份、制服、道具与大致动作。附加参考1–4只提供造型语言和笔触，不复制其中具体人物身份、服装、场景、同伴、文字、字幕、平台水印或标志。用户只提供4张风格参考图，按这4张处理。\\n必须保留：原创汉堡店员工、橙色汉堡图案员工帽、黄色上衣、湖蓝围裙和一个大口袋、红领巾、深灰短裤、黑白鞋、一手举小煎铲一手端汉堡餐盘，完整全身与透明背景。汉堡图案是通用手绘食物符号，不含文字。手指和道具要简化，不要精雕。\\n核心变化（不要只对旧图增加噪点）：遵循参考的2D hand-drawn chibi internet animation style，oversized head and very small simplified body, thick irregular black outlines, rough slightly wobbly hand-drawn linework, large jagged stylized hair clumps, oversized colorful expressive eyes, extremely simple nose and mouth, exaggerated eyebrows and comedic expressions, flat cel coloring, vivid cyan-blue, orange, yellow, red, black and white palette, strong color contrast, colored-pencil and digital-marker texture, visible rough shading strokes, minimal realistic lighting, simple hard-edged shadows, simplified anatomy and hands, playful fan-animation aesthetic, humorous game parody feeling, highly readable silhouette, intentionally imperfect handcrafted quality.\\n头部（含帽与头发）占总高约45%，约2头身，身体和四肢比原图更短小、更像独立网络动画的纸片角色；脸型简单，避免旧版婴儿玩偶般的圆鼓立体质感。短发改成蓬松白色块状炸毛，从橙帽两侧与额头露出，少数大而不规则的尖角发束，不是细碎毛发。头发内用淡灰、淡蓝和少量淡橙的彩铅排线表现阴影，白色是主色。\\n眼睛必须由大块纯黑粗轮廓、鲜亮黄橙色与青蓝色的异色虹膜、简单纯黑瞳孔构成；偏参考3的长方/椭圆简化眼型，眼皮和眉毛产生强烈表情，不画旧图那种巨大黑色玻璃眼和细腻反光。只保留极少高光。极粗黑眉，一边挑起一边斜压；嘴是简单夸张的大开口/歪嘴笑，单块白色牙齿和红粉色口腔，极简小点鼻；用少量脸颊短线与一滴夸张汗滴，呈现“忙着做汉堡还嘴硬自信”的搞笑神态，鲜明但友善。\\n线条与上色：粗黑外轮廓，内部线稍细，明显的轻微抖动、断续、重复勾线和粗细变化，像硬笔刷、蜡笔和马克笔直接绘成。线条有意不完美，但轮廓仍清楚。大面积平涂纯色，仅少量一两块硬边阴影；衣服、帽和白发上可见稀疏的彩铅划痕，纹理服务于手绘感，不要整图均匀叠噪点。高饱和湖蓝/橙黄/红与黑白撞色；不要回到旧版低对比度商业卡通。服饰无密集布料褶皱和真实体积光，汉堡由几块大胆简单食物色块组成。\\n构图：近正面轻微三分之四角度，保留举煎铲和端汉堡的职业姿态，可适度压缩四肢，双脚完整，周围留透明安全边距。只画1个人物，不画三视图、分镜、多表情表、背景、地板或大标题。透明背景真实alpha，不画棋盘格。\\n避免：no photorealism, no 3D render, no smooth vector art, no polished commercial anime rendering, no detailed realistic skin, no complex cinematic lighting, no painterly realism, no realistic hair strands, no overly detailed background, no glossy game character render, no soft realistic shading, no gradients, no airbrush, no plush toy look。不要使用“masterpiece, ultra detailed, highly polished”方向；重点是像个人动画作者自己用粗笔画出来的、简单有梗、可重复画帧的角色。\",\n  \"previewUrl\": \"https://tapcode-sce.spark.xd.com/tapcode-images/63df608d-db4d-44f1-904a-d5b833ad592f.png\",\n  \"actualSize\": \"1536x2304\",\n  \"localPath\": \"assets/image/burger_shop_employee_chibi_v2_20261015163345.png\",\n  \"absolutePath\": \"D:\\\\MyWork\\\\聚光灯game\\\\CodexDocu\\\\assets\\\\image\\\\burger_shop_employee_chibi_v2_20261015163345.png\",\n  \"download\": {\n    \"success\": true\n  }\n}"
+      }
+    ],
+    "structuredContent": {
+      "success": true,
+      "name": "burger_shop_employee_chibi_v2",
+      "prompt": "编辑目标：将原图中的原创汉堡店员工进行显著画风重绘，输出V2单角色完整全身透明立绘。\n输入角色图是旧版本，负责提供职业身份、制服、道具与大致动作。附加参考1–4只提供造型语言和笔触，不复制其中具体人物身份、服装、场景、同伴、文字、字幕、平台水印或标志。用户只提供4张风格参考图，按这4张处理。\n必须保留：原创汉堡店员工、橙色汉堡图案员工帽、黄色上衣、湖蓝围裙和一个大口袋、红领巾、深灰短裤、黑白鞋、一手举小煎铲一手端汉堡餐盘，完整全身与透明背景。汉堡图案是通用手绘食物符号，不含文字。手指和道具要简化，不要精雕。\n核心变化（不要只对旧图增加噪点）：遵循参考的2D hand-drawn chibi internet animation style，oversized head and very small simplified body, thick irregular black outlines, rough slightly wobbly hand-drawn linework, large jagged stylized hair clumps, oversized colorful expressive eyes, extremely simple nose and mouth, exaggerated eyebrows and comedic expressions, flat cel coloring, vivid cyan-blue, orange, yellow, red, black and white palette, strong color contrast, colored-pencil and digital-marker texture, visible rough shading strokes, minimal realistic lighting, simple hard-edged shadows, simplified anatomy and hands, playful fan-animation aesthetic, humorous game parody feeling, highly readable silhouette, intentionally imperfect handcrafted quality.\n头部（含帽与头发）占总高约45%，约2头身，身体和四肢比原图更短小、更像独立网络动画的纸片角色；脸型简单，避免旧版婴儿玩偶般的圆鼓立体质感。短发改成蓬松白色块状炸毛，从橙帽两侧与额头露出，少数大而不规则的尖角发束，不是细碎毛发。头发内用淡灰、淡蓝和少量淡橙的彩铅排线表现阴影，白色是主色。\n眼睛必须由大块纯黑粗轮廓、鲜亮黄橙色与青蓝色的异色虹膜、简单纯黑瞳孔构成；偏参考3的长方/椭圆简化眼型，眼皮和眉毛产生强烈表情，不画旧图那种巨大黑色玻璃眼和细腻反光。只保留极少高光。极粗黑眉，一边挑起一边斜压；嘴是简单夸张的大开口/歪嘴笑，单块白色牙齿和红粉色口腔，极简小点鼻；用少量脸颊短线与一滴夸张汗滴，呈现“忙着做汉堡还嘴硬自信”的搞笑神态，鲜明但友善。\n线条与上色：粗黑外轮廓，内部线稍细，明显的轻微抖动、断续、重复勾线和粗细变化，像硬笔刷、蜡笔和马克笔直接绘成。线条有意不完美，但轮廓仍清楚。大面积平涂纯色，仅少量一两块硬边阴影；衣服、帽和白发上可见稀疏的彩铅划痕，纹理服务于手绘感，不要整图均匀叠噪点。高饱和湖蓝/橙黄/红与黑白撞色；不要回到旧版低对比度商业卡通。服饰无密集布料褶皱和真实体积光，汉堡由几块大胆简单食物色块组成。\n构图：近正面轻微三分之四角度，保留举煎铲和端汉堡的职业姿态，可适度压缩四肢，双脚完整，周围留透明安全边距。只画1个人物，不画三视图、分镜、多表情表、背景、地板或大标题。透明背景真实alpha，不画棋盘格。\n避免：no photorealism, no 3D render, no smooth vector art, no polished commercial anime rendering, no detailed realistic skin, no complex cinematic lighting, no painterly realism, no realistic hair strands, no overly detailed background, no glossy game character render, no soft realistic shading, no gradients, no airbrush, no plush toy look。不要使用“masterpiece, ultra detailed, highly polished”方向；重点是像个人动画作者自己用粗笔画出来的、简单有梗、可重复画帧的角色。",
+      "previewUrl": "https://tapcode-sce.spark.xd.com/tapcode-images/63df608d-db4d-44f1-904a-d5b833ad592f.png",
+      "actualSize": "1536x2304",
+      "localPath": "assets/image/burger_shop_employee_chibi_v2_20261015163345.png",
+      "absolutePath": "D:\\MyWork\\聚光灯game\\CodexDocu\\assets\\image\\burger_shop_employee_chibi_v2_20261015163345.png",
+      "download": {
+        "success": true
+      }
+    }
+  },
+  "file": "assets/image/burger_shop_employee_chibi_v2_20261015163345.png",
+  "verification": {
+    "size": [
+      1536,
+      2304
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "visual": "白色块状头发、黄蓝异色瞳、粗黑手绘轮廓、彩铅涂鸦笔触、大头小身、简化平涂；帽/围裙/煎铲/汉堡保留，人物完整，无文字或水印。"
+  },
+  "points": "平台未返回",
+  "balance": "未取得",
+  "scope": "仅生成修改版形象，原版保留，未接入游戏或提交构建。"
+}

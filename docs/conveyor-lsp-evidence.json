@@ -1,0 +1,8 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"ok\": true, \"result\": {\"kind\": \"full\", \"summary\": {\"files\": 17, \"total\": 258, \"errors\": 0, \"warnings\": 192, \"info\": 0, \"hints\": 66}, \"items\": []}}"
+    }
+  ]
+}

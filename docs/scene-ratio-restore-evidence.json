@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-14",
+  "timezone": "Asia/Shanghai",
+  "task": "按用户要求恢复建筑标签修复前场景比例",
+  "changes": [
+    "撤销 camera.autoAspectRatio=false",
+    "撤销初始化 camera.aspectRatio 写入",
+    "撤销每帧 camera.aspectRatio 写入"
+  ],
+  "label_rule_retained": true,
+  "visual_verification": "UNDETERMINED: 恢复后的场景与标签需用户视觉验收，之前六项标签通过结果不适用于此版本。",
+  "lua_errors": 0,
+  "session_id": "5db4f9c8-3f4b-464e-b2e7-6fc23726e4af",
+  "reload_id": 17,
+  "process_alive": true,
+  "script_ready": [
+    "[2026-10-14 13_49_53_206][488][Script] [Phase1] READY: room=18x14, grid=1m, orthographic=top-down90, collision=Bullet, targets=7, layout=reference2",
+    "[2026-10-14 13_49_53_207][488][Script] [Phase2] READY: item_types=5, hand_capacity=1, sources=3, F=take/pickup, Q=drop",
+    "[2026-10-14 13_49_53_207][488][Script] [Phase3] READY: manual_cook=3s_continuous, assembly=instant, fixtures=removed",
+    "[lua] [2026-10-14 13_49_53_206][488][Script] [Phase1] READY: room=18x14, grid=1m, orthographic=top-down90, collision=Bullet, targets=7, layout=reference2",
+    "[lua] [2026-10-14 13_49_53_207][488][Script] [Phase2] READY: item_types=5, hand_capacity=1, sources=3, F=take/pickup, Q=drop",
+    "[lua] [2026-10-14 13_49_53_207][488][Script] [Phase3] READY: manual_cook=3s_continuous, assembly=instant, fixtures=removed"
+  ],
+  "cli_check": "FAIL",
+  "runtime_errors": [
+    "[2026-10-14 13_49_43_949][0] ERROR: Could not find resource Cube/Day/DaySpecularHDR.dds\r",
+    "[2026-10-14 13_49_44_008][0] ERROR: Can not load themis_x64.dll.\r",
+    "[2026-10-14 13_49_53_193][488] ERROR: Could not find resource Cube/Day/DaySpecularHDR.dds\r"
+  ],
+  "paid_generation": false
+}

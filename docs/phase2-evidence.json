@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-14",
+  "timezone": "Asia/Shanghai",
+  "phase": 2,
+  "qa_session": {
+    "session_id": "5db4f9c8-3f4b-464e-b2e7-6fc23726e4af",
+    "reload_id": 3
+  },
+  "phase1_pass_count": 10,
+  "phase2_pass_count": 24,
+  "checks": [
+    "[Phase1 QA] PASS W projects upwards / D projects rightwards",
+    "[Phase1 QA] PASS front raw station found",
+    "[Phase1 QA] PASS behind station excluded",
+    "[Phase1 QA] PASS out-of-range station excluded",
+    "[Phase1 QA] PASS camera is vertical, orthographic and unrotated",
+    "[Phase1 QA] PASS assembly/grill/sources ordered left to right",
+    "[Phase1 QA] PASS cashier left of delivery and below work row",
+    "[Phase1 QA] PASS diagonal travel uses normalized speed",
+    "[Phase1 QA] PASS station physically blocks movement",
+    "[Phase1 QA] PASS room boundary physically blocks movement",
+    "[Phase1 QA] COMPLETE failures=0",
+    "[Phase2 QA] PASS five independent item types",
+    "[Phase2 QA] PASS empty-hand Q has no effect",
+    "[Phase2 QA] PASS cooked meat cannot be obtained at a raw source",
+    "[Phase2 QA] PASS empty hand takes one bun",
+    "[Phase2 QA] PASS full hand refuses another source",
+    "[Phase2 QA] PASS full hand refuses ground pickup without deleting it",
+    "[Phase2 QA] PASS blocked drop retains hand and all ground items",
+    "[Phase2 QA] PASS Q creates one entity and empties hand",
+    "[Phase2 QA] PASS empty hand picks ground raw meat",
+    "[Phase2 QA] PASS same ground entity cannot be picked twice",
+    "[Phase2 QA] PASS entity/hand/drop round trip: bun",
+    "[Phase2 QA] PASS entity/hand/drop round trip: burger",
+    "[Phase2 QA] PASS entity/hand/drop round trip: lettuce",
+    "[Phase2 QA] PASS entity/hand/drop round trip: cooked_beef",
+    "[Phase2 QA] PASS entity/hand/drop round trip: raw_beef",
+    "[Phase2 QA] PASS source has no depletion or stock limit",
+    "[Phase2 QA] PASS drop positions reject outside room",
+    "[Phase2 QA] PASS drop positions reject workstations",
+    "[Phase2 QA] PASS square items do not cut workstation corners",
+    "[Phase2 QA] PASS square ground items cannot overlap diagonally",
+    "[Phase2 QA] PASS ground detection selects front and excludes rear",
+    "[Phase2 QA] PASS ground detection rejects far-away targets",
+    "[Phase2 QA] PASS ground interaction cannot pass through cashier",
+    "[Phase2 QA] PASS reset releases all held and ground entities",
+    "[Phase2 QA] COMPLETE checks=24 failures=0"
+  ],
+  "final_session": {
+    "session_id": "5db4f9c8-3f4b-464e-b2e7-6fc23726e4af",
+    "reload_id": 4,
+    "state": "running",
+    "process_alive": true,
+    "ready": false
+  },
+  "final_ready_logs": [
+    "[2026-10-14 12_44_08_507][576][Script] [Phase2] READY: item_types=5, hand_capacity=1, sources=3, F=take/pickup, Q=drop",
+    "[lua] [2026-10-14 12_44_08_507][576][Script] [Phase2] READY: item_types=5, hand_capacity=1, sources=3, F=take/pickup, Q=drop"
+  ],
+  "runtime_errors": [
+    "[2026-10-14 12_43_57_843][0] ERROR: Could not find resource Cube/Day/DaySpecularHDR.dds\r",
+    "[2026-10-14 12_43_57_893][0] ERROR: Can not load themis_x64.dll.\r",
+    "[2026-10-14 12_44_08_492][576] ERROR: Could not find resource Cube/Day/DaySpecularHDR.dds\r"
+  ],
+  "cli_check": {
+    "result": "FAIL",
+    "reason": "Runtime reported a failure.",
+    "evidence_available": false
+  },
+  "lua_diagnostics": {
+    "errors": 0,
+    "warnings": 4,
+    "hints": 1
+  },
+  "visual_verification": "UNDETERMINED",
+  "automatic_checks_enabled": false,
+  "phase2_sample_items": 5,
+  "samples_to_remove_in_phase": 3,
+  "remote_build": false,
+  "generated_assets": false
+}

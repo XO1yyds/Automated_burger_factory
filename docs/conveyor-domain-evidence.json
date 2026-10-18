@@ -1,0 +1,261 @@
+{
+  "runtime": "Lua 5.4",
+  "passed": 63,
+  "failed": 0,
+  "duration_seconds": 0.682,
+  "checks": [
+    {
+      "name": "grid ports remain on building border",
+      "passed": true
+    },
+    {
+      "name": "route has one input and one output",
+      "passed": true
+    },
+    {
+      "name": "physical length is measured",
+      "passed": true
+    },
+    {
+      "name": "cargo moves half a grid each second",
+      "passed": true
+    },
+    {
+      "name": "no instantaneous source-to-destination transfer",
+      "passed": true
+    },
+    {
+      "name": "cargo arrives only after traversing its route",
+      "passed": true
+    },
+    {
+      "name": "storage capacity remains six",
+      "passed": true
+    },
+    {
+      "name": "n occupied grid cells hold at most n cargo",
+      "passed": true
+    },
+    {
+      "name": "downstream saturation stops source pickup",
+      "passed": true
+    },
+    {
+      "name": "saturated inventory does not grow or disappear",
+      "passed": true
+    },
+    {
+      "name": "freeing destination resumes blocked output",
+      "passed": true
+    },
+    {
+      "name": "same path cannot be stacked",
+      "passed": true
+    },
+    {
+      "name": "source cannot be an input endpoint",
+      "passed": true
+    },
+    {
+      "name": "self connection is rejected",
+      "passed": true
+    },
+    {
+      "name": "cross-area connection rejected",
+      "passed": true
+    },
+    {
+      "name": "cargo identities are unique",
+      "passed": true
+    },
+    {
+      "name": "belts do not filter incompatible material",
+      "passed": true
+    },
+    {
+      "name": "machine rejects illegal input at belt tail",
+      "passed": true
+    },
+    {
+      "name": "whole-belt removal returns every cargo in queue order",
+      "passed": true
+    },
+    {
+      "name": "removing belt clears occupied footprint",
+      "passed": true
+    },
+    {
+      "name": "input-only junction remains buildable but passive",
+      "passed": true
+    },
+    {
+      "name": "three-in one-out merge transports all three types",
+      "passed": true
+    },
+    {
+      "name": "merge does not introduce a material filter",
+      "passed": true
+    },
+    {
+      "name": "merge fairly arbitrates simultaneously ready inputs",
+      "passed": true
+    },
+    {
+      "name": "junction has no extra inventory or movement speed",
+      "passed": true
+    },
+    {
+      "name": "one output is the merge throughput bottleneck",
+      "passed": true
+    },
+    {
+      "name": "one-in three-out splitter serves every branch",
+      "passed": true
+    },
+    {
+      "name": "splitter distributes equally on available outputs",
+      "passed": true
+    },
+    {
+      "name": "ordinary two-in two-out combination rejected",
+      "passed": true
+    },
+    {
+      "name": "straight isolator supports independent two-in two-out",
+      "passed": true
+    },
+    {
+      "name": "isolator channels never cross-contaminate",
+      "passed": true
+    },
+    {
+      "name": "isolator has no shared or per-channel inventory",
+      "passed": true
+    },
+    {
+      "name": "corner channel pairs north-east",
+      "passed": true
+    },
+    {
+      "name": "corner channel pairs south-west independently",
+      "passed": true
+    },
+    {
+      "name": "rotating corner rotates pairing",
+      "passed": true
+    },
+    {
+      "name": "directed loops are rejected even through buffers",
+      "passed": true
+    },
+    {
+      "name": "deleting junction retains belts and queued items",
+      "passed": true
+    },
+    {
+      "name": "dangling belt blocks without hidden transfer",
+      "passed": true
+    },
+    {
+      "name": "replacement junction reattaches dangling ends",
+      "passed": true
+    },
+    {
+      "name": "reattached line resumes without losing cargo",
+      "passed": true
+    },
+    {
+      "name": "one end reattaches while opposite building is still absent",
+      "passed": true
+    },
+    {
+      "name": "two rebuilt junctions restore their dangling route",
+      "passed": true
+    },
+    {
+      "name": "buffer rejects seventh item",
+      "passed": true
+    },
+    {
+      "name": "buffer output follows last-in first-out order",
+      "passed": true
+    },
+    {
+      "name": "stale buffer selection cannot swap another item",
+      "passed": true
+    },
+    {
+      "name": "valid selection swaps held and stored item",
+      "passed": true
+    },
+    {
+      "name": "empty-hand selection retrieves exact chosen item",
+      "passed": true
+    },
+    {
+      "name": "selection cannot retrieve the same item twice",
+      "passed": true
+    },
+    {
+      "name": "held material can be deposited into selected empty slot",
+      "passed": true
+    },
+    {
+      "name": "builder starts with world source selection",
+      "passed": true
+    },
+    {
+      "name": "source selection advances to destination",
+      "passed": true
+    },
+    {
+      "name": "destination selection generates adjustment preview",
+      "passed": true
+    },
+    {
+      "name": "F without confirm-button focus cannot place",
+      "passed": true
+    },
+    {
+      "name": "focused confirm places and starts the next source selection",
+      "passed": true
+    },
+    {
+      "name": "right back from adjustment returns destination selection",
+      "passed": true
+    },
+    {
+      "name": "right back from destination returns source selection",
+      "passed": true
+    },
+    {
+      "name": "right back from source returns building home signal",
+      "passed": true
+    },
+    {
+      "name": "no legal path still returns editable preview",
+      "passed": true
+    },
+    {
+      "name": "invalid preview cannot be confirmed",
+      "passed": true
+    },
+    {
+      "name": "segment drag produces orthogonal path with attached endpoints",
+      "passed": true
+    },
+    {
+      "name": "segment drag changes intermediate shape",
+      "passed": true
+    },
+    {
+      "name": "preview direction reversal exchanges endpoint roles",
+      "passed": true
+    },
+    {
+      "name": "cancel never removes committed belts",
+      "passed": true
+    }
+  ],
+  "scope": "Real production Lua domain code; no engine rendering or native input verification"
+}

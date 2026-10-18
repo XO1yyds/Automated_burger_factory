@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-15",
+  "project_id": "985f14a8-5c6a-40fe-8303-32adaed37f1d",
+  "source_dir": "D:\\MyWork\\聚光灯game\\CodexDocu",
+  "submission_dir": "D:\\MyWork\\聚光灯game\\CodexDocu\\.tmp\\maker-submit-20261015",
+  "source_files_hash_matched": 18,
+  "lua_diagnostic": {
+    "errors": 0,
+    "warnings": 81,
+    "hints": 51
+  },
+  "commit": "5982c19",
+  "initial_blocked_attempt": {
+    "content": [
+      {
+        "type": "text",
+        "text": "✗ Maker project submit blocked before commit/push; remote build was not started\n- project_root: D:\\MyWork\\聚光灯game\\CodexDocu\n- project_id: 985f14a8-5c6a-40fe-8303-32adaed37f1d\n- failure_stage: code_submit\n- code_submit_status: failed\n- remote_build_status: not_started\n- branch: main\n- status: clean\n- committed: no\n- git_state: ## main...origin/main [behind 1]\n- elapsed_ms: 4126\n- elapsed: 4s\n- progress_events: 5\n- last_progress: [pull] 15% Fast-forwarding Maker project from origin/main\nnote: Maker build was not started because submit did not produce a pushed state.\nfailure:\n- stage: pull\n- classification: unknown\n- retryable: no\n- exit_code: 1\n- command: git merge --ff-only origin/main\n- stderr:\n  error: The following untracked working tree files would be overwritten by merge:\n  \t.gitignore\n  Please move or remove them before you merge.\n  Aborting\n- stdout:\n  Updating f58d71f..e2e011a\n- next_action: Maker 远端有新提交，但自动 fast-forward 会覆盖本地修改，因此已在提交前停止。请先处理提示的冲突文件，再重试 maker_build_current_directory。\nlocal_execution_check:\n- restriction_signal: not_detected\n- assessment: Maker cannot inspect the AI client access-mode setting, so the current build failure does not confirm whether local execution is restricted.\n- windows_check: Check whether the AI client is running Windows PowerShell, CLI, Git, or MCP commands in a sandbox or restricted mode.\n- next_action: Check the AI client sandbox/access setting. For a trusted project, enable Full Access mode (\"完全访问模式\"), reconnect MCP, and retry after confirming local commands can execute.\n- evidence_rule: This is a diagnostic check, not proof that sandbox restrictions caused this failure."
+      }
+    ],
+    "isError": true
+  },
+  "successful_attempt": {
+    "content": [
+      {
+        "type": "text",
+        "text": "✓ Maker project submitted, then remote Maker build finished\n\n- project_root: D:\\MyWork\\聚光灯game\\CodexDocu\\.tmp\\maker-submit-20261015\n- project_id: 985f14a8-5c6a-40fe-8303-32adaed37f1d\n- maker_url: https://maker.taptap.cn/app/985f14a8-5c6a-40fe-8303-32adaed37f1d?localDev=1\n- project_path: 985f14a8-5c6a-40fe-8303-32adaed37f1d/workspace\n- timeout_ms: 180000\n- build_args: {\"entry\":\"main.lua\",\"scriptsPath\":\"scripts\"}\n- preview_refresh: ok\n- preview_refresh_status: 200\n- preview_refresh_url: https://maker.taptap.cn/api/v1/apps/985f14a8-5c6a-40fe-8303-32adaed37f1d/preview-refresh\n- elapsed_ms: 31109\n- elapsed: 31s\n- progress_events: 17\n- last_progress: [remote_build] 100% 构建流程全部完成\n\nruntime_logs:\n- watch_started: yes\n- watch_pid: 41168\n- watch_command: taptap-maker logs watch --target-dir D:\\MyWork\\聚光灯game\\CodexDocu\\.tmp\\maker-submit-20261015 --reset --interval 5s\n- actual_watch_command: \"C:\\\\Program Files\\\\nodejs\\\\node.exe\" C:\\Users\\X01\\.taptap-maker\\mcp-runtime\\0.0.36\\dist\\maker.js logs watch --target-dir D:\\MyWork\\聚光灯game\\CodexDocu\\.tmp\\maker-submit-20261015 --reset --interval 5s --env production --server-url https://maker.taptap.cn/mcp/v1\n- local_file: D:\\MyWork\\聚光灯game\\CodexDocu\\.tmp\\maker-submit-20261015\\.maker\\logs\\runtime\\runtime.log\n- watcher_stdout: D:\\MyWork\\聚光灯game\\CodexDocu\\.tmp\\maker-submit-20261015\\.maker\\logs\\runtime\\watcher.out.log\n- watcher_stderr: D:\\MyWork\\聚光灯game\\CodexDocu\\.tmp\\maker-submit-20261015\\.maker\\logs\\runtime\\watcher.err.log\n- watcher_pid_file: D:\\MyWork\\聚光灯game\\CodexDocu\\.tmp\\maker-submit-20261015\\.maker\\logs\\runtime\\watcher.pid\n- state_file: D:\\MyWork\\聚光灯game\\CodexDocu\\.tmp\\maker-submit-20261015\\.maker\\logs\\runtime\\state.json\n- note: 构建成功后已启动本地 CLI watcher，正在清理历史日志并每 5 秒持续追加 Lua 运行日志。\n- next_action: 如需分析游戏运行结果或报错，请读取 runtime_logs.local_file；如需判断 watcher 是否正常，请读取 runtime_logs.state_file。\n\nsubmit_result:\n  - branch: main\n  - status: pushed\n  - committed: yes\n  - commit_hash: 5982c19\n  - commit_message: 提交已验收的自动化汉堡工厂 Demo V0.1：阶段1–8玩法、第一轮修正及建筑UI设计资源\nremote_result:\n  # 🎉 项目构建成功\n  \n  ## 📊 构建信息\n  \n  | 项目 | 值 |\n  |------|-----|\n  | 入口脚本 | `main.lua` |\n  | 脚本目录 | `scripts` |\n  \n  <details>\n  <summary><sub>📋 Runtime Logs</sub></summary>\n  \n  <sub>\n  \n  - `/opt/log/dev/{topic}.log` — e.g. engine.log, user_script.log, official_script.log\n  \n  </sub>\n  </details>"
+      }
+    ],
+    "isError": false
+  },
+  "verification": {
+    "source_unchanged": true,
+    "submitted_paths": [
+      ".gitignore",
+      "scripts",
+      "assets"
+    ],
+    "staging_git_status": "clean",
+    "runtime_log_file_created": false,
+    "watcher_consecutive_failures": 0,
+    "watcher_last_error": null,
+    "local_project_json_present": false,
+    "visual_gameplay_verified": false
+  },
+  "notes": [
+    "临时独立检出规避原目录未跟踪.gitignore与远端新提交的覆盖冲突",
+    "官方init首轮fetch失败，临时检出仓库改用HTTP/1.1后重试成功",
+    "临时检出的开发技能安装器报错但CLI明确允许clone继续，未影响构建；未修改原项目技能目录",
+    "构建成功但本地.project/project.json仍缺失，按规则未自动重复构建",
+    "原开发目录仍为源文件工作目录，其HEAD未前移；后续同步需保留本地工具目录，可复用提交检出并重新逐文件核对"
+  ]
+}

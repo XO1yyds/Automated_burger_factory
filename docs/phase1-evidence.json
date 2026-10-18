@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-14",
+  "timezone": "Asia/Shanghai",
+  "phase": 1,
+  "qa_session": {
+    "session_id": "58a91ec3-4513-4c26-a541-42ea8b45785b",
+    "reload_id": 1
+  },
+  "runtime_checks": [
+    "[lua] [2026-10-14 11_37_28_384][497][Script] [Phase1 QA] PASS W projects upwards / D projects rightwards",
+    "[lua] [2026-10-14 11_37_28_384][497][Script] [Phase1 QA] PASS front raw station found",
+    "[lua] [2026-10-14 11_37_28_384][497][Script] [Phase1 QA] PASS behind station excluded",
+    "[lua] [2026-10-14 11_37_28_384][497][Script] [Phase1 QA] PASS out-of-range station excluded",
+    "[lua] [2026-10-14 11_37_28_858][525][Script] [Phase1 QA] PASS diagonal travel uses normalized speed",
+    "[lua] [2026-10-14 11_37_29_862][585][Script] [Phase1 QA] PASS station physically blocks movement",
+    "[lua] [2026-10-14 11_37_30_873][645][Script] [Phase1 QA] PASS room boundary physically blocks movement",
+    "[lua] [2026-10-14 11_37_30_873][645][Script] [Phase1 QA] COMPLETE failures=0"
+  ],
+  "final_session": {
+    "session_id": "58a91ec3-4513-4c26-a541-42ea8b45785b",
+    "reload_id": 2,
+    "state": "running",
+    "process_alive": true,
+    "ready": false
+  },
+  "final_logs": [
+    "[2026-10-14 11_39_28_826][600][Script] [Phase1] READY: room=18x14, grid=1m, orthographic=45/35.264, collision=Bullet, stations=7",
+    "[lua] [2026-10-14 11_39_28_826][600][Script] [Phase1] READY: room=18x14, grid=1m, orthographic=45/35.264, collision=Bullet, stations=7"
+  ],
+  "runtime_errors": [
+    "[2026-10-14 11_39_17_783][0] ERROR: Could not find resource Cube/Day/DaySpecularHDR.dds\r",
+    "[2026-10-14 11_39_17_832][0] ERROR: Can not load themis_x64.dll.\r",
+    "[2026-10-14 11_39_28_813][600] ERROR: Could not find resource Cube/Day/DaySpecularHDR.dds\r"
+  ],
+  "cli_check": {
+    "result": "FAIL",
+    "reason": "Runtime reported a failure.",
+    "scope": "readiness_and_evidence_only",
+    "evidence_available": false
+  },
+  "visual_verification": "UNDETERMINED",
+  "remote_build": false,
+  "generated_assets": false
+}

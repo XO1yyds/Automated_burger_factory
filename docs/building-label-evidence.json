@@ -1,0 +1,103 @@
+{
+  "date": "2026-10-14",
+  "timezone": "Asia/Shanghai",
+  "task": "建筑近距名称与镜头拖动偏移修复",
+  "rules": {
+    "near_distance_to_footprint_m": 1,
+    "requires_facing": false,
+    "label_font_size_ui": 12,
+    "label_height_ui": 18,
+    "gap_physical_pixels": 5,
+    "label_anchor": "建筑屏幕轮廓上边缘，水平居中",
+    "ground_name": "屏幕上侧正中对准名称",
+    "camera_aspect": "每帧显式同步窗口宽高比",
+    "update_event": "PostUpdate",
+    "screen_layer": "独立零原点层，HUD 保留安全区"
+  },
+  "qa": {
+    "session_id": "5db4f9c8-3f4b-464e-b2e7-6fc23726e4af",
+    "reload_id": 15,
+    "pass": 6,
+    "fail": 0,
+    "lines": [
+      "[Building Label QA] PASS distant building names hidden",
+      "[Building Label QA] PASS near building name visible without facing it",
+      "[Building Label QA] METRIC stage=1 layout=(968.000,112.000,160.000,18.000) scale=1.000 edge=(2.701,6.706) expected=(2.700,6.700)",
+      "[Building Label QA] PASS initial center and five pixel edge gap",
+      "[Building Label QA] METRIC stage=2 layout=(710.000,306.000,160.000,18.000) scale=1.000 edge=(2.697,6.691) expected=(2.700,6.700)",
+      "[Building Label QA] PASS panned camera center and five pixel gap",
+      "[Building Label QA] METRIC stage=3 layout=(684.000,175.000,160.000,18.000) scale=1.000 edge=(2.697,6.701) expected=(2.700,6.700)",
+      "[Building Label QA] PASS zoomed camera center and five pixel gap",
+      "[Building Label QA] PASS building name hides again after leaving",
+      "[Building Label QA] COMPLETE checks=6 failures=0"
+    ],
+    "method": "真实 Yoga 布局 + GetScreenRay 独立反算标签底边加5px；比较建筑上边缘世界坐标，允许像素舍入误差。"
+  },
+  "failed_rounds": [
+    {
+      "reload_id": 13,
+      "lines": [
+        "[Building Label QA] PASS distant building names hidden",
+        "[Building Label QA] PASS near building name visible without facing it",
+        "[Building Label QA] METRIC stage=1 layout=(968.000,112.000,160.000,18.000) scale=1.000 edge=(4.802,6.706) expected=(2.700,6.700)",
+        "[Building Label QA] FAIL initial center and five pixel edge gap",
+        "[Building Label QA] METRIC stage=2 layout=(710.000,306.000,160.000,18.000) scale=1.000 edge=(2.462,6.691) expected=(2.700,6.700)",
+        "[Building Label QA] FAIL panned camera center and five pixel gap",
+        "[Building Label QA] METRIC stage=3 layout=(684.000,175.000,160.000,18.000) scale=1.000 edge=(2.462,6.701) expected=(2.700,6.700)",
+        "[Building Label QA] FAIL zoomed camera center and five pixel gap",
+        "[Building Label QA] PASS building name hides again after leaving",
+        "[Building Label QA] COMPLETE checks=6 failures=3"
+      ]
+    },
+    {
+      "reload_id": 14,
+      "lines": [
+        "[Building Label QA] PASS distant building names hidden",
+        "[Building Label QA] PASS near building name visible without facing it",
+        "[Building Label QA] METRIC stage=1 layout=(968.000,112.000,160.000,18.000) scale=1.000 edge=(4.802,6.706) expected=(2.700,6.700)",
+        "[Building Label QA] FAIL initial center and five pixel edge gap",
+        "[Building Label QA] METRIC stage=2 layout=(710.000,306.000,160.000,18.000) scale=1.000 edge=(2.462,6.691) expected=(2.700,6.700)",
+        "[Building Label QA] FAIL panned camera center and five pixel gap",
+        "[Building Label QA] METRIC stage=3 layout=(684.000,175.000,160.000,18.000) scale=1.000 edge=(2.462,6.701) expected=(2.700,6.700)",
+        "[Building Label QA] FAIL zoomed camera center and five pixel gap",
+        "[Building Label QA] PASS building name hides again after leaving",
+        "[Building Label QA] COMPLETE checks=6 failures=3"
+      ]
+    }
+  ],
+  "normal_preview": {
+    "session_id": "5db4f9c8-3f4b-464e-b2e7-6fc23726e4af",
+    "reload_id": 16,
+    "process_alive": true,
+    "ready": false,
+    "check_result": "FAIL",
+    "runtime_errors": [
+      "[2026-10-14 13_41_40_950][0] ERROR: Could not find resource Cube/Day/DaySpecularHDR.dds\r",
+      "[2026-10-14 13_41_41_013][0] ERROR: Can not load themis_x64.dll.\r",
+      "[2026-10-14 13_41_59_889][1067] ERROR: Could not find resource Cube/Day/DaySpecularHDR.dds\r"
+    ],
+    "script_ready": [
+      "[2026-10-14 13_41_59_903][1067][Script] [Phase1] READY: room=18x14, grid=1m, orthographic=top-down90, collision=Bullet, targets=7, layout=reference2",
+      "[2026-10-14 13_41_59_904][1067][Script] [Phase2] READY: item_types=5, hand_capacity=1, sources=3, F=take/pickup, Q=drop",
+      "[2026-10-14 13_41_59_904][1067][Script] [Phase3] READY: manual_cook=3s_continuous, assembly=instant, fixtures=removed",
+      "[lua] [2026-10-14 13_41_59_903][1067][Script] [Phase1] READY: room=18x14, grid=1m, orthographic=top-down90, collision=Bullet, targets=7, layout=reference2",
+      "[lua] [2026-10-14 13_41_59_904][1067][Script] [Phase2] READY: item_types=5, hand_capacity=1, sources=3, F=take/pickup, Q=drop",
+      "[lua] [2026-10-14 13_41_59_904][1067][Script] [Phase3] READY: manual_cook=3s_continuous, assembly=instant, fixtures=removed"
+    ],
+    "developer_checks": false
+  },
+  "lua_diagnostics": {
+    "files": 3,
+    "total": 18,
+    "errors": 0,
+    "warnings": 5,
+    "info": 0,
+    "hints": 13
+  },
+  "visual_verification": "UNDETERMINED: CLI 不提供截图/实际鼠标自动化；几何检查通过，用户需验收实际画面。",
+  "paid_generation": false,
+  "actual_cost": "平台未返回",
+  "balance": "未取得",
+  "remote_build": false,
+  "phase4_started": false
+}
