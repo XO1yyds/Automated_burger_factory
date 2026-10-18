@@ -1,0 +1,1996 @@
+{
+  "captured_at": "2026-10-18T19:58:15.7791381+08:00",
+  "session_id": "7802cb5a-819d-4abc-b838-a3ccee03aea0",
+  "reload_id": 7,
+  "scope": "Windows native Lua services, actual scene and UI action callbacks, plus synthesized pointer controller events; does not validate Android hardware touch",
+  "completed": true,
+  "passed": 379,
+  "failed": 0,
+  "unique_assertions": 379,
+  "suites": [
+    {
+      "suite": "Phase2 QA",
+      "checks": 29,
+      "failures": 0
+    },
+    {
+      "suite": "Phase3 QA",
+      "checks": 37,
+      "failures": 0
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "checks": 24,
+      "failures": 0
+    },
+    {
+      "suite": "Phase4 QA",
+      "checks": 40,
+      "failures": 0
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "checks": 30,
+      "failures": 0
+    },
+    {
+      "suite": "UI Policy QA",
+      "checks": 29,
+      "failures": 0
+    },
+    {
+      "suite": "Conveyor QA",
+      "checks": 63,
+      "failures": 0
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "checks": 37,
+      "failures": 0
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "checks": 54,
+      "failures": 0
+    },
+    {
+      "suite": "Phase8 QA",
+      "checks": 36,
+      "failures": 0
+    }
+  ],
+  "checks": [
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "sample contains five physical directed routes",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "full sample footprint and ports validate",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "workshop shared delivery station removed",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "offscreen complete production chain fills buffer",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "sample only delivers finished burgers",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "offscreen cargo animation is disabled",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "pause freezes cargo machine clock and transfers",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "settlement retains buffers belts and queued items",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "next day retains production state",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "workshop portal recenters accepted camera",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "workshop physical belts become visible",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "first buffer interaction enters selection without taking",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "buffer F retrieves selected burger and exits",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "empty selected buffer slot accepts manual deposit",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "held item exchanges selected stored item",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "concurrent output invalidates stable selection",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "stale buffer confirmation cannot duplicate items",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "unfocused placement F cannot create a building",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "UI confirm creates exactly one building",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "deletion returns to persistent management mode",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "destination selection renders provisional A-to-hovered-B belt",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "UI belt confirmation continues directly to fresh source selection",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "connected building requires removing belts before move",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "building UI opens world endpoint selection",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "cancel button works before choosing either endpoint",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "ESC returns conveyor substate to building home",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "spill overflow continues and reports exact types and counts",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "loaded belt demolition removes whole route and keeps management",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "remaining belt cargo is ordered and capacity bounded",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Runtime QA",
+      "name": "top down camera and accepted player speed preserved",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "five independent item types",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "empty-hand Q has no effect",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "cooked meat cannot be obtained at a raw source",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "empty hand takes one bun",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "source swap rejects missing placement context",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "full hand swaps at unlimited source",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "source swap leaves old held item on valid nearby ground",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "source swap with no free ground retains original hand",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "full hand swaps with ground item",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "ground swap preserves exact position",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "repeated ground swap reverses without duplication",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "blocked drop retains hand and all ground items",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "Q creates one entity and empties hand",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "empty hand picks ground raw meat",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "same ground entity cannot be picked twice",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "entity/hand/drop round trip: raw_beef",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "entity/hand/drop round trip: bun",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "entity/hand/drop round trip: cooked_beef",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "entity/hand/drop round trip: burger",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "entity/hand/drop round trip: lettuce",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "source has no depletion or stock limit",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "drop positions reject outside room",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "drop positions reject workstations",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "square items do not cut workstation corners",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "square ground items cannot overlap diagonally",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "ground detection selects front and excludes rear",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "ground detection rejects far-away targets",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "ground interaction cannot pass through cashier",
+      "passed": true
+    },
+    {
+      "suite": "Phase2 QA",
+      "name": "reset releases all held and ground entities",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "no Phase2 ground fixtures at start",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "empty grill rejects empty hand",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "consume validates type without losing held node",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "grill rejects wrong material without loss",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "raw insertion transfers one entity out of hand",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "placement hold cannot begin cooking before release",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "single grill slot rejects second meat without loss",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "raw grill cannot be taken out",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "less than three seconds keeps raw meat",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "F release resets progress and retains meat",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "lost interaction target resets progress",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "blocked input resets progress",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "occupied hand cannot cook",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "three continuous seconds converts raw to cooked",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "cooked meat is stable after release and leaving",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "cooked output requires empty hand",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "empty hand collects cooked output once",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "second output collection does not duplicate",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "cooked meat enters assembly slot",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "bun input alone does not complete recipe",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "duplicate material preserves held item",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "final ingredient generates one burger immediately",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "uncollected burger blocks new input",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "burger output transfers to real held entity",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "repeated output action does not duplicate burger",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "crafted burger can be dropped and picked up",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "raw meat cannot substitute for cooked recipe",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "partial inputs can be retrieved in stable order",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "remaining partial material is recoverable",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "empty assembly gives no phantom item",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "recipe works in order lettuce/bun/cooked_beef",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "recipe works in order cooked_beef/lettuce/bun",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "recipe works in order bun/cooked_beef/lettuce",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "recipe works in order bun/lettuce/cooked_beef",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "recipe works in order lettuce/cooked_beef/bun",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "recipe works in order cooked_beef/bun/lettuce",
+      "passed": true
+    },
+    {
+      "suite": "Phase3 QA",
+      "name": "reset clears both workstations and item ownership",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "first order waits at least five seconds",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "day one creates a one-burger order",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "active orders stop at five and suspend countdown",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "full queue does not generate hidden orders",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "delivery requires an explicit selection",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "complete order is removed and selection cleared",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "freed full queue restarts fresh random wait",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "new order is not immediate after queue frees",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "queue resumes with a new unique order id",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "stale selection cannot deliver",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "random interval can wait fifteen seconds",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "fifteen-second boundary produces first order",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "day two quantity is capped at two",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "day three quantity is capped at three",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "partial delivery consumes only available stock",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "delivery retains burgers beyond remaining need",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "completed order cannot receive extra delivery",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "depot rejects non-burger without destroying hand",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "depot holds exactly five burger entities",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "sixth depot input preserves hand",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "empty hand can retrieve a deposited burger",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "empty depot cannot duplicate output",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "day-end hook clears orders and selection but preserves stock",
+      "passed": true
+    },
+    {
+      "suite": "Phase6-7 QA",
+      "name": "closed day hook stops generation",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "empty cooker returns no item",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "wrong cooker input retains real held entity",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "first raw input occupies one slot and empties hand",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "three inputs have independent start times",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "full cooker rejects fourth input without loss",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "only earliest slot finishes at its three-second boundary",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "cooked slot still blocks fourth input",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "empty hand takes cooked meat before raw",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "without cooked meat latest raw input is retrieved",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "reinserting early raw starts from zero",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "older second slot finishes before reinserted first slot",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "cooked retrieval ignores slot index",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "all three slots finish independently without F",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "equal completion times use insertion order",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "old completed slot is taken before a newly completed low-index slot",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "HUD reports each slot remaining time",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "negative timestep cannot reverse cooking",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "separate machines own separate slots",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "empty assembler creates no output",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "burger is rejected as assembler ingredient",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "wrong raw meat is stored in the single meat slot",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "raw meat recipe never starts or generates burger",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "raw and cooked meat cannot occupy two meat slots",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "idle retrieval prioritizes wrong raw meat",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "corrected recipe starts automatic two-second processing",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "recipe is not finished before two seconds",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "processing blocks empty-hand retrieval",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "processing blocks input and retains held entity",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "two seconds consumes recipe and creates exactly one cached burger",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "cached output does not disappear or duplicate",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "output cannot swap with occupied hand",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "duplicate next-batch material is rejected without loss",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "full next recipe waits while cached output occupies capacity",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "cached burger is taken before next-batch ingredients",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "collecting output permits next batch to finish once",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "incomplete recipe permits material recovery",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "last incomplete ingredient is recoverable",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "automatic recipe accepts order bun/cooked_beef/lettuce",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "automatic recipe accepts order lettuce/cooked_beef/bun",
+      "passed": true
+    },
+    {
+      "suite": "Phase4 QA",
+      "name": "reset removes all machine contents and processing",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "pause overrides construction",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "settings overrides paused parent",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "buffer owns gameplay input",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "orders browse is an explicit state",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "managed selection is distinct from movement",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "normal grid hidden",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "editing grid visible",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "empty hand occupied slot retrieves",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "held occupied slot swaps",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "held empty slot deposits",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "empty and stale actions disabled",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "preferences clamp valid ranges",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "preferences whitelist no gameplay state",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "NaN preferences become defaults",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "layout modal contained 1280x720",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "layout modal contained 1560x720",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "layout modal contained 1600x720",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "layout modal contained 760x360",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "joystick dead zone releases speed",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "joystick inner ring walks",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "outer ring starts sprint",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "sprint hysteresis avoids jitter",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "inner return stops sprint",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "joystick never counted as camera finger",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "two scene fingers generate pan pinch",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "camera movement prevents release click",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "joystick up stops all movement",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "object owner blocks competing camera",
+      "passed": true
+    },
+    {
+      "suite": "UI Policy QA",
+      "name": "focus reset clears every owner",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "grid ports remain on building border",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "route has one input and one output",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "physical length is measured",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "cargo moves half a grid each second",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "no instantaneous source-to-destination transfer",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "cargo arrives only after traversing its route",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "storage capacity remains six",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "n occupied grid cells hold at most n cargo",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "downstream saturation stops source pickup",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "saturated inventory does not grow or disappear",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "freeing destination resumes blocked output",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "same path cannot be stacked",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "source cannot be an input endpoint",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "self connection is rejected",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "cross-area connection rejected",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "cargo identities are unique",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "belts do not filter incompatible material",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "machine rejects illegal input at belt tail",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "whole-belt removal returns every cargo in queue order",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "removing belt clears occupied footprint",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "input-only junction remains buildable but passive",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "three-in one-out merge transports all three types",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "merge does not introduce a material filter",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "merge fairly arbitrates simultaneously ready inputs",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "junction has no extra inventory or movement speed",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "one output is the merge throughput bottleneck",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "one-in three-out splitter serves every branch",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "splitter distributes equally on available outputs",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "ordinary two-in two-out combination rejected",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "straight isolator supports independent two-in two-out",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "isolator channels never cross-contaminate",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "isolator has no shared or per-channel inventory",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "corner channel pairs north-east",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "corner channel pairs south-west independently",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "rotating corner rotates pairing",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "directed loops are rejected even through buffers",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "deleting junction retains belts and queued items",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "dangling belt blocks without hidden transfer",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "replacement junction reattaches dangling ends",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "reattached line resumes without losing cargo",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "one end reattaches while opposite building is still absent",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "two rebuilt junctions restore their dangling route",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "buffer rejects seventh item",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "buffer output follows last-in first-out order",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "stale buffer selection cannot swap another item",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "valid selection swaps held and stored item",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "empty-hand selection retrieves exact chosen item",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "selection cannot retrieve the same item twice",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "held material can be deposited into selected empty slot",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "builder starts with world source selection",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "source selection advances to destination",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "destination selection generates adjustment preview",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "F without confirm-button focus cannot place",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "focused confirm places and starts the next source selection",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "right back from adjustment returns destination selection",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "right back from destination returns source selection",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "right back from source returns building home signal",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "no legal path still returns editable preview",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "invalid preview cannot be confirmed",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "segment drag produces orthogonal path with attached endpoints",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "segment drag changes intermediate shape",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "preview direction reversal exchanges endpoint roles",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor QA",
+      "name": "cancel never removes committed belts",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "reference U route starts legal",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "moving U corner propagates the neighboring vertical run",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "overlapping reverse runs collapse to one L route",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "inverse keyboard movement restores original U without extra corners",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "repeated opposite keystrokes do not grow a spiral",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "ending edit releases original snapshot",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "dragging return segment onto outgoing segment merges it",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "segment reverse restores original shape and endpoint ports",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "interior corner moves both adjacent straight runs",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "corner sweep keeps routes orthogonal attached and loop free",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "large drag and exact return restores original route",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "first segment creates a connected orthogonal offset",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "first segment offset retracts without an extra loop",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "last segment remains attached to input port",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "last segment inverse retracts",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "W chooses a visually higher target",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "S chooses a visually lower target",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "A chooses a visually left target",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "D chooses a visually right target",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "direction with no target stays selected instead of wrapping",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "after A selection an uncommitted preview follows the cursor",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "cursor movement replaces preview without placing cargo or belts",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "hovering B snaps preview to its actual border",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "hover alone never confirms destination or placement",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "confirmed belt starts fresh A selection",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "a second placement round has a new source preview",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "back clears provisional destination preview",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "unfixed building preview follows mouse",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "scene click pins preview but creates no building",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "pinned preview ignores later mouse motion",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "clicking pinned projection or occupied world keeps pin",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "blank scene click only unlocks pinned preview",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "mouse tracking resumes after unlock",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "keyboard nudge keeps mouse pin",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "pinning does not bypass confirm button gate",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "confirm places once and resets pin for continuous building",
+      "passed": true
+    },
+    {
+      "suite": "Conveyor Editing QA",
+      "name": "canceling building preview clears pin",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "shop initial automated fixtures removed",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "retained workshop fixtures exist",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "walk speed four sprint eight normalized",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "blocked player velocity is zero",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "shop cannot enter construction",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "construction opens production category without placing",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "enter construction captures camera once",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "card only selects kind",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "explicit enter button opens projection",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "submode does not zoom repeatedly",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "valid workshop projection accepted",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "scene pin never creates a real object",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "unfocused direct F cannot place",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "real main button places exactly one object",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "success retains fixed same-position projection",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "same-position repeat placement disabled",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "management selection does not enter move",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "demolition waits half second",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "cancel movement preserves original entity",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "confirmed movement updates original object",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "deletion continues management",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "exit construction restores camera",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "source click progresses to destination only",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "destination hover keeps a physical preview from A",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "blank destination click never confirms B",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "valid B opens path tools with enabled confirmation",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "first node tap selects without editing or placing",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "node drag release never commits belt",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "path confirmation places one and continues selecting A",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "native camera receives two scene pointer pinch",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "background clears all input and pauses",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "source dispatches real raw material",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "workshop cooking accepts real hand material",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "complete workshop hand route produces burger",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "buffer first entry does not transfer",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "select occupied slot only selects",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "explicit buffer button retrieves then exits",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "empty slot manual deposit supported",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "occupied slot exchanges real held material",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "concurrent belt output invalidates selected token",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "stale confirmation cannot duplicate",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "order browser selects but cannot deliver",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "cashier retains still-valid browsed order",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "cashier partially delivers without false completion",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "cashier end stays disabled before zero",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "explicit in-range target wins nearest automatic target",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "explicit click cannot remotely interact with workshop source",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "releasing completed touch hold does not retrieve meat",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "next complete interaction retrieves cooked meat",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "trash deletes real held burger",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "settings updates only UI preferences",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "UI preferences persist and reload on native host",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "statistics separates actual data and device rules",
+      "passed": true
+    },
+    {
+      "suite": "Phase5-7 Route QA",
+      "name": "resume restores normal state",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "default day lasts 300 seconds across three days",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "first order waits random interval",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "Day1 needs exactly one burger",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "paused time orders and production counters freeze",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "cashier cannot end before zero even when paused",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "pause can end early",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "summary snapshots completions and production split",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "settlement simulation freezes",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "repeated end cannot add a duplicate summary",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "Day2 resets clock wait and daily statistics retains depot",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "Day2 supports two-burger orders",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "partial delivery does not count as complete",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "positive fractional last second remains active",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "exact expiry clears all orders and selection",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "post expiry never generates orders and no false completion",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "production after zero still belongs to current day",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "cashier ending allowed only after zero",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "prior summary remains unchanged",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "Day3 supports three-burger orders",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "third settlement leads to completion without Day4",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "completed demo cannot continue or simulate",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "pause action freezes simulation and renders modal",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "statistics remains paused",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "settings remains paused",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "early end first requests concrete confirmation",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "cancel early end preserves day",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "confirmed early end creates one settlement",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "settlement freezes machines",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "next day preserves machine contents",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "expiry clears pending orders but allows organizing",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "cashier ends only expired day",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "third settlement renders complete page",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "restart requires confirmation",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "restart cancellation retains completion",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "restart reconstructs accepted V0.3 map",
+      "passed": true
+    },
+    {
+      "suite": "Phase8 QA",
+      "name": "restart clears production orders hand and history",
+      "passed": true
+    }
+  ],
+  "environment_errors": [
+    "Could not find resource Cube/Day/DaySpecularHDR.dds",
+    "Can not load themis_x64.dll."
+  ],
+  "qa_source_sha256": {
+    "scripts/main.lua": "ed60544eb2b5e8d9d8c35e07db44794fa9fbc6968f81b6ce80e17101dbc46543",
+    "scripts/Factory/AutomaticChecks.lua": "443cc7e5faea6e32a270838073f628bc9f54b7ef87b667f4c79c70b764da27c2",
+    "scripts/Factory/AutomaticWorkstation.lua": "ca46dd7057dcabeaa03bc755c5a5558665a8687e71ccccb325f8382d16a39638",
+    "scripts/Factory/AutomationArea.lua": "86640d780e7d12d57546e364740a3404525c66086b4535426e0b7455fb542502",
+    "scripts/Factory/BufferStorage.lua": "51b2fca07c0ac3afacd95f76300ca2a4cbad124232cb910b8742dba59479532f",
+    "scripts/Factory/Buildings.lua": "f5dd7d3832e35bde472881cf1d7c95587fe29c4a14bbdeae019d1fad9676adfa",
+    "scripts/Factory/CommerceChecks.lua": "340dc341ce8f064de833cedc809fb3c513fd7d43a6383289949e841f2776de81",
+    "scripts/Factory/ConveyorBuilder.lua": "2f02bde3e78dc8f2b2e04e10d64a43d6e31ad38977e9503f255aa05ad0fe54ac",
+    "scripts/Factory/ConveyorChecks.lua": "239eff611322b4241f83cd49e1401a7618d6f2ce01a14641265419b4f5cac500",
+    "scripts/Factory/ConveyorControl.lua": "0c048b843c83beb75ea87899926ab8e48c6513e6657b9ea4fd6f6d0fea81e0d1",
+    "scripts/Factory/ConveyorEditingChecks.lua": "b99f3b1a2584840f4b1051ae3fbbeb88dc1eeb0ba990cf3bb82c611f769881ac",
+    "scripts/Factory/ConveyorGeometry.lua": "81ae26406517979ef805206e8a95d43c193d5934640798d4332c693f2608916c",
+    "scripts/Factory/ConveyorNetwork.lua": "a9d1a6e5798c9aea57ace3d53734b3a97384fd7e0a88ba106e3cc1a2ec5b6b56",
+    "scripts/Factory/ConveyorWorld.lua": "54f592c06d53605cb6c70afaf0dfe205ed90b894f7838ae7a4ff7a613ba04e17",
+    "scripts/Factory/GameLoop.lua": "df990f69e51ecb38de44c4e50d87ccff4db30225d4ddefe6ef14d66a14b0f543",
+    "scripts/Factory/HudDiagnostics.lua": "410cc151d442a13a8438ede906c89971d9d1e2f75fdaece50ec4250ceda0be80",
+    "scripts/Factory/Interface.lua": "4b861ebca49586955da9a31d0c4b0db3e728f2b2c6244f9288faf488593e6f9c",
+    "scripts/Factory/InterfaceV3.lua": "b51561dac4683917788db79fe92124d5b1b8f883925c7db528379112e7ded612",
+    "scripts/Factory/ItemChecks.lua": "10c8dc9ddaede49fa8c61c748eaee377c79127652328db8146de617a74f1cf21",
+    "scripts/Factory/Items.lua": "8b6ede1720a506eb62f142f78bbec90b05a3e87687542b3661166d66e96d0ad5",
+    "scripts/Factory/LoopChecks.lua": "525d2014d0d82bc264868c263e749c084c03397e526880f40ea27681464573f8",
+    "scripts/Factory/ManualChecks.lua": "b6e5724ab31cb8520c32eee7dbb5588e6deea7c32cbcb06619dc573622063c20",
+    "scripts/Factory/ManualProduction.lua": "90e6fb9c5a33402104c08b14d34fc0b2e0cf3385874a1f3e4e1f2cc570644caf",
+    "scripts/Factory/Orders.lua": "44c4c3f03381a11fea56eee1a1c45837be175ae731284601e8a09c47b74baccf",
+    "scripts/Factory/Phase1.lua": "350bd224da748ea8c669c853d6c35ff5e945de4ba9311849e9d377a4964b23f6",
+    "scripts/Factory/StageChecks.lua": "d11f84d5b34de44f97dbd7dcc16fd686a358a3382ff1f9b48d9c2191529a40df",
+    "scripts/Factory/TouchInput.lua": "b0f238ec86fdccfc8775562d655837d04d72bb7ac59b25119d7ed74c31b37dde",
+    "scripts/Factory/UIChecks.lua": "f9e391801a35b8934be5215a12139e25a972654646bdbf6090d7bb021e28806b",
+    "scripts/Factory/UIController.lua": "610eb16a64916b033ef11b2b3b6286f327d45a402c5481a08b2052e84b0c46b6",
+    "scripts/Factory/UIPreferences.lua": "70de5ff588680bcf56770e316e64b2a1c1942c72c11b2e1a49f5c3f783d38ace",
+    "scripts/Factory/UIState.lua": "6d7e743f0fb35bf72a20d60a4afcd1ac7870ff5e533132186fedd71b6fa943a9"
+  }
+}

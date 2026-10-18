@@ -1,0 +1,592 @@
+{
+  "date": "2026-10-18T20:53:06.203629+08:00",
+  "archive": "待回收/2026-10-18-v0.3",
+  "operation": "move_only_no_deletion",
+  "units": 50,
+  "files": 71,
+  "bytes": 88280704,
+  "sha256_verified": true,
+  "runtime_files_unchanged": 45,
+  "maker_git_binding_preserved": true,
+  "entries": [
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg/_definitions.py",
+      "bytes": 2041,
+      "sha256": "5206f96cb45bc27c4e314d39c03e4d3b45df17deaff3d6881e9f45702d169e32",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg/_definitions.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg/_definitions.py",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg/_io.py",
+      "bytes": 27048,
+      "sha256": "1a006dd17e5c54ffc66a2b40b6db5586e76e598e1ca15f301e3b70c86b43dfe9",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg/_io.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg/_io.py",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg/_parsing.py",
+      "bytes": 6840,
+      "sha256": "514b583f26f3bfdbd0e2c28fc189514f268ffe4f64a0a5df97ecc8e919b8429a",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg/_parsing.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg/_parsing.py",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg/_utils.py",
+      "bytes": 3833,
+      "sha256": "7951789f2f733f78cf7de608c25e957d5f53d6fdf84bac944560bf462194345f",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg/_utils.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg/_utils.py",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg/__init__.py",
+      "bytes": 227,
+      "sha256": "41afc231dfeca422c692f9a219b51778b7560c5c4dffa097bf92f80872d1fd8a",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg/__init__.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg/__init__.py",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v7.1.exe",
+      "bytes": 87638016,
+      "sha256": "2ce797a0f88d7f067180338fb227f7b1928ea727bd9a4d7a1d022f7c52af71a3",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v7.1.exe",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v7.1.exe",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg/binaries/README.md",
+      "bytes": 45,
+      "sha256": "b0d36dfb1ba1ea5ca873a6f6dbcc2295b7a7944aea875071d91a6aad1870e77d",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg/binaries/README.md",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg/binaries/README.md",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg/binaries/__init__.py",
+      "bytes": 45,
+      "sha256": "ce39d166833a6d050160e237d07a73229e1c934edb3b2e28c5707e6f0377356f",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg/binaries/__init__.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg/binaries/__init__.py",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg/binaries/__pycache__/__init__.cpython-312.pyc",
+      "bytes": 195,
+      "sha256": "0bad0fc2e5a75e6370d7a7d86f5a20ebb612abc3460621bc40cf36bc9d5c90e4",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg/binaries/__pycache__/__init__.cpython-312.pyc",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg/binaries/__pycache__/__init__.cpython-312.pyc",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg/__pycache__/_definitions.cpython-312.pyc",
+      "bytes": 2055,
+      "sha256": "b6e2a1b3d6592e2a88fce7b86a2c6167e4e9979499dd0033dc9852d4930607ed",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg/__pycache__/_definitions.cpython-312.pyc",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg/__pycache__/_definitions.cpython-312.pyc",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg/__pycache__/_io.cpython-312.pyc",
+      "bytes": 27162,
+      "sha256": "c955b928976e04e830fd618137f77b7f82f10c62210db105b483ee39e568f15c",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg/__pycache__/_io.cpython-312.pyc",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg/__pycache__/_io.cpython-312.pyc",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg/__pycache__/_parsing.cpython-312.pyc",
+      "bytes": 9332,
+      "sha256": "352778111f8160b53c8686f608b03f159ce44374b84695b598e243c72cf0d86c",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg/__pycache__/_parsing.cpython-312.pyc",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg/__pycache__/_parsing.cpython-312.pyc",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg/__pycache__/_utils.cpython-312.pyc",
+      "bytes": 5398,
+      "sha256": "b460f78f5deaa7db6d1067c562d69116756fa65b90acff2273dc406ea19332b4",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg/__pycache__/_utils.cpython-312.pyc",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg/__pycache__/_utils.cpython-312.pyc",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg/__pycache__/__init__.cpython-312.pyc",
+      "bytes": 479,
+      "sha256": "7374874773daa4d5e625712eb32f4664e2c128a7e733ff6123e1b45ab47db3fd",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg/__pycache__/__init__.cpython-312.pyc",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg/__pycache__/__init__.cpython-312.pyc",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/INSTALLER",
+      "bytes": 4,
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/INSTALLER",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/INSTALLER",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/LICENSE",
+      "bytes": 1317,
+      "sha256": "eca73421d0c905a92e952a553d4d58919c5a507c2c2c76e3c0cf9ba408c299e4",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/LICENSE",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/LICENSE",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/METADATA",
+      "bytes": 1528,
+      "sha256": "c9697b379419a64049d99e2248c4cba963e03b5cad1dc65e10a887d1da7651ee",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/METADATA",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/METADATA",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/RECORD",
+      "bytes": 1661,
+      "sha256": "dd017b4a6285acb6f00ade542aec52646fe418a08fae11261aa033f91e85a15b",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/RECORD",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/RECORD",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/REQUESTED",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/REQUESTED",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/REQUESTED",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/top_level.txt",
+      "bytes": 15,
+      "sha256": "38341851861bb63f48d528c0484318ee1f10f2168bae630d5114829f4144075f",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/top_level.txt",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/top_level.txt",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/WHEEL",
+      "bytes": 96,
+      "sha256": "6fafbf711b1164d3388325c31053f775bb03d78ae7eb932a662aa6d9b551ba14",
+      "original": ".tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/WHEEL",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_tooling/imageio_ffmpeg-0.6.0.dist-info/WHEEL",
+      "reason": "已放弃自动录制流程留下的FFmpeg/Python工具；脚本与启动入口无引用"
+    },
+    {
+      "path": ".tmp/promo_backup/main.lua",
+      "bytes": 280,
+      "sha256": "ed60544eb2b5e8d9d8c35e07db44794fa9fbc6968f81b6ce80e17101dbc46543",
+      "original": ".tmp/promo_backup/main.lua",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_backup/main.lua",
+      "reason": "宣传录制前的Lua备份，保留旧副本供恢复，非当前入口"
+    },
+    {
+      "path": ".tmp/promo_backup/Phase1.lua",
+      "bytes": 65704,
+      "sha256": "95bad47ec8b9a71f318a46e7aa75f5ad715d0be7d48f3f8975c1a592605c2af3",
+      "original": ".tmp/promo_backup/Phase1.lua",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/promo_backup/Phase1.lua",
+      "reason": "宣传录制前的Lua备份，保留旧副本供恢复，非当前入口"
+    },
+    {
+      "path": ".tmp/add-conveyor-runtime-checks.py",
+      "bytes": 7024,
+      "sha256": "404dda284331d39c105dfe7ecae38db731d267d309d0d0d9c03251b5cffbd563",
+      "original": ".tmp/add-conveyor-runtime-checks.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/add-conveyor-runtime-checks.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/check-editing-log-count.py",
+      "bytes": 456,
+      "sha256": "ba9944653957882d931dfcd91eb27815e9b5bd0209d6179dec0cdc583c8ec92d",
+      "original": ".tmp/check-editing-log-count.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/check-editing-log-count.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/check-ui-v03-delivery.py",
+      "bytes": 915,
+      "sha256": "c1b799273ac3648019a68b4795b20117e2d849a50d7192c84d71cf35314a9272",
+      "original": ".tmp/check-ui-v03-delivery.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/check-ui-v03-delivery.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/close-conveyor-checks.py",
+      "bytes": 695,
+      "sha256": "dc737191549ba34fd40467f13696d1a9ebf62b7dfdf9c9560886da5fa63007f4",
+      "original": ".tmp/close-conveyor-checks.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/close-conveyor-checks.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/close-editing-regression.py",
+      "bytes": 288,
+      "sha256": "098099eb2d20266191524af125af18272886cbefb78432604a2419470fd39acc",
+      "original": ".tmp/close-editing-regression.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/close-editing-regression.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/complete-ui-requirements.py",
+      "bytes": 39949,
+      "sha256": "1d69ccb2d0371e16750d0bef984629c377f7db68838306cf1e33a063484812b0",
+      "original": ".tmp/complete-ui-requirements.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/complete-ui-requirements.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/correct-manifest-newlines.py",
+      "bytes": 390,
+      "sha256": "4b726f06bc7f58cd2fcb5080bdc7eae7a1ceb60dcf794fd95ec7783e9e83b289",
+      "original": ".tmp/correct-manifest-newlines.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/correct-manifest-newlines.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/deliver-ui-v03.py",
+      "bytes": 5796,
+      "sha256": "967d365432391b35565658a1143bfe3bb41ddb5e728ad5f516b8405741a59e5e",
+      "original": ".tmp/deliver-ui-v03.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/deliver-ui-v03.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/enable-editing-regression.py",
+      "bytes": 208,
+      "sha256": "a15c43df33585ae84d776a59c50a8fa148ee299edb75df93bc78fdd59e3fed87",
+      "original": ".tmp/enable-editing-regression.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/enable-editing-regression.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/extend-ui-checks.py",
+      "bytes": 4690,
+      "sha256": "de3715136d3b9117ea779645a9059ab12cfe7c6358988fd2aaa5e27570fdeab4",
+      "original": ".tmp/extend-ui-checks.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/extend-ui-checks.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/final-ui-annotations.py",
+      "bytes": 1258,
+      "sha256": "f909b93fec7100a66dd494bd1cbd4b75791a11963deed9cdb469138968721669",
+      "original": ".tmp/final-ui-annotations.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/final-ui-annotations.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/final-ui-doc-finish.py",
+      "bytes": 780,
+      "sha256": "0cb039eac5a355aa57e23c3aacfe85f3e89d71adcc54db89bb3e4744ecf27988",
+      "original": ".tmp/final-ui-doc-finish.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/final-ui-doc-finish.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/final-ui-input-compatibility.py",
+      "bytes": 2443,
+      "sha256": "99aa87366ab94839dd22e9c270ecbaaa7476c5e4215f6b59c27fd0ebe1bd82a1",
+      "original": ".tmp/final-ui-input-compatibility.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/final-ui-input-compatibility.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/final-ui-route-title.py",
+      "bytes": 838,
+      "sha256": "bf4be33f8b1a914eb1eee20903ca2c4846d2f7e0de13b752adcd5c1818159ad0",
+      "original": ".tmp/final-ui-route-title.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/final-ui-route-title.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/final-ui-sample-regression.py",
+      "bytes": 609,
+      "sha256": "219be2b21168f77884c356abb09d586032d5fd2f89e89d4391593afaaf480b86",
+      "original": ".tmp/final-ui-sample-regression.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/final-ui-sample-regression.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/final-ui-scroll-types.py",
+      "bytes": 620,
+      "sha256": "7a1d33a4aa72923c1b57cd839fce9344f94b8c85f715b045b9c412aae38bc104",
+      "original": ".tmp/final-ui-scroll-types.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/final-ui-scroll-types.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/final-ui-selection-consistency.py",
+      "bytes": 4603,
+      "sha256": "c13646b033c154a8e2c479ab7c575a8c2bfdadf37c7f71d49a27b110a26f6bb8",
+      "original": ".tmp/final-ui-selection-consistency.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/final-ui-selection-consistency.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/final-ui-typebinding.py",
+      "bytes": 491,
+      "sha256": "3ffaed78e3d03dcb9f78f41293ffc174d196f59e54a409a22c344be599656ce8",
+      "original": ".tmp/final-ui-typebinding.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/final-ui-typebinding.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/finalize-conveyor-spec.py",
+      "bytes": 2863,
+      "sha256": "3cfb2cf6bddc7d62dacf28fd4e1a15888df194188bb4de7fe863f42ecdce0208",
+      "original": ".tmp/finalize-conveyor-spec.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/finalize-conveyor-spec.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/finalize-ui-v03-evidence.py",
+      "bytes": 4974,
+      "sha256": "35b75518901e38fe21dd8c941d97e964726ad72790933c0f56f39b82e023c2a9",
+      "original": ".tmp/finalize-ui-v03-evidence.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/finalize-ui-v03-evidence.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/integrate-conveyors.py",
+      "bytes": 16885,
+      "sha256": "a17aaaa74bafc1e5424772a223e95660ae681798d826dfe12964085a6c9a6a0d",
+      "original": ".tmp/integrate-conveyors.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/integrate-conveyors.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/integrate-ui-v03.py",
+      "bytes": 8697,
+      "sha256": "230803b22769a9ea5465fdc1d242791609f4379cb7fb17c4d837a8ce15c849b0",
+      "original": ".tmp/integrate-ui-v03.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/integrate-ui-v03.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/modify-ui-review-fixes.py",
+      "bytes": 6104,
+      "sha256": "1b33a46ff7f58ab16c2d8f10d2fc3cee1e8a94b92f8b2f8f4e00583638b41fed",
+      "original": ".tmp/modify-ui-review-fixes.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/modify-ui-review-fixes.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/package-conveyor-checkpoint.py",
+      "bytes": 5325,
+      "sha256": "7077f7cd08006d10d9041f3571e2ad831e44ec303f58dc9e81eba65f95f415aa",
+      "original": ".tmp/package-conveyor-checkpoint.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/package-conveyor-checkpoint.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/package-editing-r4.py",
+      "bytes": 4394,
+      "sha256": "803bd81caee36329837b2b85955bfad2e083d397c033e32f4e65778e11b4f5cb",
+      "original": ".tmp/package-editing-r4.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/package-editing-r4.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/prepare-ui-checks.py",
+      "bytes": 7653,
+      "sha256": "9ba2091b0158896b44dd53b221f741364bbcf6352090fb6177aef64222562dac",
+      "original": ".tmp/prepare-ui-checks.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/prepare-ui-checks.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/refine-ui-building-cards.py",
+      "bytes": 1804,
+      "sha256": "68a6694de5219b7471469901edfa58ec457f45ca5cb3ca6f6b5bdf3ab9c24335",
+      "original": ".tmp/refine-ui-building-cards.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/refine-ui-building-cards.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/refine-ui-final-layout.py",
+      "bytes": 5378,
+      "sha256": "eec236d28f20df554f007bf396cc51165514500f2f7dd396a56818db2422b5c9",
+      "original": ".tmp/refine-ui-final-layout.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/refine-ui-final-layout.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/refine-ui-layout.py",
+      "bytes": 6500,
+      "sha256": "506a69a9d3952d515fe73941de07b8e2b21bfe1b58d8df84370d848be92cae14",
+      "original": ".tmp/refine-ui-layout.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/refine-ui-layout.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/refine-ui-types-final.py",
+      "bytes": 2358,
+      "sha256": "3a4edc6f573a1697adcf02cf0b993739cb792581c3def87b51566d6abe374adb",
+      "original": ".tmp/refine-ui-types-final.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/refine-ui-types-final.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/refine-ui-types.py",
+      "bytes": 4137,
+      "sha256": "ac5f9cd1c9bc417324452ece6355fc851899fba78302810e45e39571179ebc7f",
+      "original": ".tmp/refine-ui-types.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/refine-ui-types.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/refine-ui-v03.py",
+      "bytes": 1110,
+      "sha256": "61e88ea8308dfadd0db841252d3cee3e7184f1b2516e23c3183ea25cf8312f10",
+      "original": ".tmp/refine-ui-v03.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/refine-ui-v03.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/save-ui-review-delivery.py",
+      "bytes": 3031,
+      "sha256": "20fd3e402a88ec9899b75fbdb75d90fc2c8146eae65c0f6f6630d59e6634bfa3",
+      "original": ".tmp/save-ui-review-delivery.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/save-ui-review-delivery.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/save-ui-review-evidence.py",
+      "bytes": 2310,
+      "sha256": "719b049b45df26e001db1807af7630cfe30caa5f8ea6345b6146143b7011860a",
+      "original": ".tmp/save-ui-review-evidence.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/save-ui-review-evidence.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/summarize-conveyor-evidence.py",
+      "bytes": 1700,
+      "sha256": "4ed4627d7f18876683274904052f6c8585c346693ce2fc35cec6acb799f878d1",
+      "original": ".tmp/summarize-conveyor-evidence.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/summarize-conveyor-evidence.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/summarize-editing-final.py",
+      "bytes": 2217,
+      "sha256": "ca5f271a9ac71dea885ef017ca0d2dffe371ad3b95dbde78b4a1f1ba9028a773",
+      "original": ".tmp/summarize-editing-final.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/summarize-editing-final.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/update-editing-spec.py",
+      "bytes": 3710,
+      "sha256": "87b8c734efcb011b2bbad9808783f0f8845b6d8faafe56de5da5648ba17c3d03",
+      "original": ".tmp/update-editing-spec.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/update-editing-spec.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/update-interface.py",
+      "bytes": 2130,
+      "sha256": "a0e8692d2dafd5ee4a332af84ec34a9b1c372765cd12248cd122588d5a389db4",
+      "original": ".tmp/update-interface.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/update-interface.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/update-ui-review-docs.py",
+      "bytes": 7405,
+      "sha256": "f554b9f47563d2b8869829e371e0f5049f088dd27a4fb79f262ef4b82780a2a6",
+      "original": ".tmp/update-ui-review-docs.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/update-ui-review-docs.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/verify-ui-review-fixes.py",
+      "bytes": 3795,
+      "sha256": "a2e53fb19b4bfdc65399939ff8a7ae5eedde1e1a9b72609b1758d38e724f0cce",
+      "original": ".tmp/verify-ui-review-fixes.py",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/verify-ui-review-fixes.py",
+      "reason": "已完成的单次修改/封装/证据整理脚本；再次运行可能覆盖当前版本"
+    },
+    {
+      "path": ".tmp/ui-v03-final-preview.json",
+      "bytes": 5099,
+      "sha256": "2278c260fc6febc2615553f28f3ac304cf94560cf3ebefcf3a213fdd6410463a",
+      "original": ".tmp/ui-v03-final-preview.json",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/ui-v03-final-preview.json",
+      "reason": "V0.3早期/中间轮原始预览日志，当前证据已保存在docs；历史保留待回收"
+    },
+    {
+      "path": ".tmp/ui-v03-live-logs-next.json",
+      "bytes": 70306,
+      "sha256": "a8ab7289005d3cb3ee31738a1c99cf0ed228a1d8c92b9ed35e1479e8aebbadbf",
+      "original": ".tmp/ui-v03-live-logs-next.json",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/ui-v03-live-logs-next.json",
+      "reason": "V0.3早期/中间轮原始预览日志，当前证据已保存在docs；历史保留待回收"
+    },
+    {
+      "path": ".tmp/ui-v03-live-logs-third.json",
+      "bytes": 30598,
+      "sha256": "4a9edf50328916c911738b71c55de7387e9086b51822ca617a44632c32c86cf4",
+      "original": ".tmp/ui-v03-live-logs-third.json",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/ui-v03-live-logs-third.json",
+      "reason": "V0.3早期/中间轮原始预览日志，当前证据已保存在docs；历史保留待回收"
+    },
+    {
+      "path": ".tmp/ui-v03-live-logs.json",
+      "bytes": 67680,
+      "sha256": "6097b2fbd11e69516eb53d4b1185f97b82721f666481d3d7f00d70dcdf5573d0",
+      "original": ".tmp/ui-v03-live-logs.json",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/ui-v03-live-logs.json",
+      "reason": "V0.3早期/中间轮原始预览日志，当前证据已保存在docs；历史保留待回收"
+    },
+    {
+      "path": ".tmp/ui-v03-ordinary-check.json",
+      "bytes": 5312,
+      "sha256": "f8fde28c68ddfcacb0feede9df731a754647e2c92ebf03b50c581ebd823bc9e2",
+      "original": ".tmp/ui-v03-ordinary-check.json",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/ui-v03-ordinary-check.json",
+      "reason": "V0.3早期/中间轮原始预览日志，当前证据已保存在docs；历史保留待回收"
+    },
+    {
+      "path": ".tmp/ui-v03-ordinary-logs.json",
+      "bytes": 63908,
+      "sha256": "917cd6010411d8357d6f077e799c5151e4f813cf39ca1b551743aeb9abc3f635",
+      "original": ".tmp/ui-v03-ordinary-logs.json",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/ui-v03-ordinary-logs.json",
+      "reason": "V0.3早期/中间轮原始预览日志，当前证据已保存在docs；历史保留待回收"
+    },
+    {
+      "path": ".tmp/ui-v03-round-final-0.json",
+      "bytes": 67635,
+      "sha256": "253b7bcc3f5b7bb4403b781c4830efe0505fadf4533bb99f7a3a421bbfd7cf29",
+      "original": ".tmp/ui-v03-round-final-0.json",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/ui-v03-round-final-0.json",
+      "reason": "V0.3早期/中间轮原始预览日志，当前证据已保存在docs；历史保留待回收"
+    },
+    {
+      "path": ".tmp/github-backup-commit-message.txt",
+      "bytes": 312,
+      "sha256": "772d4af87d3b583e1883c8afaa70ffba1cb39e66348d530f69d836ef65146cb5",
+      "original": ".tmp/github-backup-commit-message.txt",
+      "archived": "待回收/2026-10-18-v0.3/.tmp/github-backup-commit-message.txt",
+      "reason": "V0.2上传时的一次性提交说明；GitHub历史已有记录"
+    }
+  ],
+  "retained": [
+    "scripts/",
+    "assets/",
+    "docs/ (含历史证据、参考及已停用CLI审计记录)",
+    ".tmp/conveyor-test-runtime/",
+    ".tmp/maker-submit-20261015/",
+    ".tmp/github-upload-20261018/",
+    ".tmp/ui-v03-review-fixes/base/",
+    ".tmp/promo_work/sky_probe.png",
+    "logs/及Maker/引擎工具目录"
+  ]
+}

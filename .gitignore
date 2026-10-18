@@ -41,3 +41,6 @@ docs/checkpoints/
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# Recoverable local cleanup content stays off GitHub
+/待回收/

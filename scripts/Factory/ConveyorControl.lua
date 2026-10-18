@@ -17,6 +17,7 @@ local Definitions = require("Factory/Items").Definitions
 ---@field selectedToken integer?
 ---@field selectedBelt integer?
 ---@field dragging boolean
+---@field v3 boolean?
 ---@field toolbar Panel
 ---@field hint Label
 ---@field buttons Button[]
@@ -286,7 +287,7 @@ end
 function Control:Refresh()
     local b,build=self.builder,self.context.buildings
     local active=b.mode~="idle" or build.mode=="preview" or build.mode=="move"
-    self.toolbar:SetVisible(active)
+    self.toolbar:SetVisible(not self.v3 and active)
     local texts={"确认摆放","反转方向","类型：基础带","取消布置"}
     local focused=b.mode=="adjust" and b.focus=="buttons" and b.button or (build.confirmFocus and 1 or 0)
     for i,button in ipairs(self.buttons) do

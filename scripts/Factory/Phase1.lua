@@ -21,7 +21,14 @@ local ConveyorChecks = require("Factory/ConveyorChecks")
 local ConveyorEditingChecks = require("Factory/ConveyorEditingChecks")
 local BufferService = require("Factory/BufferStorage")
 local Grid = require("Factory/ConveyorGeometry")
+local UIController = require("Factory/UIController")
 local Phase1 = {}
+---@type FactoryUIController?
+local uiController = nil
+local gridNodes = {}
+---@type Node?
+local playerVisual = nil
+local presentationEditing = false
 
 ---@type table<string, FactoryItemType>
 local SOURCE_TYPES = { bun = "bun", raw = "raw_beef", lettuce = "lettuce",
@@ -67,13 +74,10 @@ local stations = {
     { id = "delivery", name = "交付区域", x = 2.95, z = -2.5, width = 5.5, depth = 1.8, color = Color(0.39, 0.58, 0.61) },
     { id = "entry", name = "自动化区域入口", x = -6.7, z = 4.2, width = 4.4, depth = 5.5, color = Color(0.61, 0.65, 0.68), marker = true, destination = "workshop" },
     { id = "trash", name = "垃圾桶", x = -8.1, z = -0.9, width = 0.85, depth = 0.85, color = Color(0.42, 0.44, 0.46), cylinder = true },
-    -- Initial ordinary buildings; they use the same move/delete state as new ones.
-    { id = "auto_grill", name = "自动烹饪台", x = -5, z = 0, width = 2.4, depth = 1.5, color = Color(0.40, 0.47, 0.52), automaticKind = "cooker" },
-    { id = "auto_assembly", name = "自动汉堡组合台", x = -5, z = -3, width = 2.4, depth = 1.5, color = Color(0.48, 0.56, 0.48), automaticKind = "assembler" },
+    -- V0.3: shop retains manual stations; automatic equipment lives in workshop.
 }
 
--- Keep unmodified definitions: restart reconstructs the original map, including
--- the two empty preview machines, rather than reusing moved/deleted records.
+-- Restart reconstructs the V0.3 initial map, without shop automatic fixtures.
 ---@type FactoryStation[]
 local initialStations = {}
 for _, definition in ipairs(stations) do
@@ -173,6 +177,8 @@ local RUN_STAGE_CHECKS = false
 local RUN_LOOP_CHECKS = false
 local RUN_HUD_DIAGNOSIS = false
 local RUN_CONVEYOR_CHECKS = false
+local RUN_UI_V3_CHECKS = false
+local uiV3ChecksDone=false
 local RUN_CONVEYOR_VISUAL = false
 local conveyorRestarting = false
 local conveyorChecksDone = false
@@ -294,6 +300,7 @@ local function CreateStation(station)
 end
 
 local function CreateScene()
+    gridNodes = {}
     scene = Scene()
     scene:CreateComponent("Octree")
     physics = scene:CreateComponent("PhysicsWorld")
@@ -306,10 +313,10 @@ local function CreateScene()
     MakeBox(scene, "Floor", Vector3(0, -0.15, 0), Vector3(CONFIG.roomWidth, 0.3, CONFIG.roomDepth), Color(0.72, 0.73, 0.73), true)
     local lineColor = Color(0.55, 0.57, 0.58)
     for x = -9, 9 do
-        MakeBox(scene, "GridX", Vector3(x, 0.025, 0), Vector3(0.012, 0.012, 14), lineColor, false)
+        table.insert(gridNodes, MakeBox(scene, "GridX", Vector3(x, 0.025, 0), Vector3(0.012, 0.012, 14), lineColor, false))
     end
     for z = -7, 7 do
-        MakeBox(scene, "GridZ", Vector3(0, 0.025, z), Vector3(18, 0.012, 0.012), lineColor, false)
+        table.insert(gridNodes, MakeBox(scene, "GridZ", Vector3(0, 0.025, z), Vector3(18, 0.012, 0.012), lineColor, false))
     end
     local wallColor = Color(0.50, 0.52, 0.54)
     MakeBox(scene, "NorthWall", Vector3(0, 0.45, 7.15), Vector3(18.6, 0.9, 0.3), wallColor, true)
@@ -320,8 +327,8 @@ local function CreateScene()
     MakeBox(assert(scene), 'EntryEdge', Vector3(-5.8, 0.07, 2.1), Vector3(0.08, 0.04, 1.3), Color(0.35, 0.37, 0.39), false)
     local center = AreaService.WorkshopCenter
     MakeBox(scene, "WorkshopFloor", Vector3(center, -0.15, 0), Vector3(18, 0.3, 14), Color(0.54, 0.61, 0.63), true)
-    for x = -9, 9 do MakeBox(scene, "WorkshopGridX", Vector3(center + x, 0.025, 0), Vector3(0.012, 0.012, 14), lineColor, false) end
-    for z = -7, 7 do MakeBox(scene, "WorkshopGridZ", Vector3(center, 0.025, z), Vector3(18, 0.012, 0.012), lineColor, false) end
+    for x = -9, 9 do table.insert(gridNodes, MakeBox(scene, "WorkshopGridX", Vector3(center + x, 0.025, 0), Vector3(0.012, 0.012, 14), lineColor, false)) end
+    for z = -7, 7 do table.insert(gridNodes, MakeBox(scene, "WorkshopGridZ", Vector3(center, 0.025, z), Vector3(18, 0.012, 0.012), lineColor, false)) end
     MakeBox(scene, "WorkshopNorth", Vector3(center, 0.45, 7.15), Vector3(18.6, 0.9, 0.3), wallColor, true)
     MakeBox(scene, "WorkshopSouth", Vector3(center, 0.45, -7.15), Vector3(18.6, 0.9, 0.3), wallColor, true)
     MakeBox(scene, "WorkshopEast", Vector3(center + 9.15, 0.45, 0), Vector3(0.3, 0.9, 14), wallColor, true)
@@ -332,7 +339,7 @@ local function CreateCharacter()
     assert(scene, "Scene must exist before creating the player")
     player = scene:CreateChild("Player")
     player.position = Vector3(0, 0.55, 1)
-    MakeBox(player, "PlayerVisual", Vector3.ZERO, Vector3(0.55, 1.1, 0.55), Color(0.20, 0.37, 0.56), false)
+    playerVisual = MakeBox(player, "PlayerVisual", Vector3.ZERO, Vector3(0.55, 1.1, 0.55), Color(0.20, 0.37, 0.56), false)
     facingMarker = MakeBox(player, "FacingMarker", facing * 0.40 + Vector3(0, 0.40, 0), Vector3(0.18, 0.12, 0.18), Color(0.98, 0.93, 0.66), false)
     playerBody = player:CreateComponent("RigidBody")
     playerBody.mass = 1
@@ -366,15 +373,7 @@ local function CreateUI()
     promptLabel, feedbackLabel, heldLabel = interface.prompt, interface.feedback, interface.held
     grillStatusLabel, assemblyStatusLabel = interface.grill, interface.assembly
     autoCookerStatusLabel, autoAssemblyStatusLabel = interface.cooker, interface.automaticAssembly
-    aimNameLabel = UI.Label { text = "", fontSize = 22, textAlign = "center", width = 320, height = 46,
-        position = "absolute", top = 14, left = graphics:GetWidth() / UI.GetScale() / 2 - 160,
-        padding = 8, backgroundColor = { 28, 31, 35, 230 }, pointerEvents = "none" }
-    aimNameLabel:SetVisible(false)
-    UI.GetRoot():AddChild(aimNameLabel)
-    areaLabel = UI.Label { text = "汉堡店 · 左上入口 F 进入自动化车间 · B 建筑", fontSize = 14,
-        position = "absolute", bottom = 116, right = 18, padding = 8,
-        backgroundColor = { 25, 31, 37, 230 }, pointerEvents = "none" }
-    UI.GetRoot():AddChild(areaLabel)
+    aimNameLabel, areaLabel = nil, nil
 end
 ---@param position Vector3
 ---@param radius number
@@ -490,6 +489,7 @@ local function UpdateProductionVisuals()
 end
 
 local function Feedback(message)
+    if uiController then uiController:Notify(message) end
     if feedbackLabel then feedbackLabel:SetText(message) end
     messageUntil = elapsed + 3
 end
@@ -601,16 +601,22 @@ local function UpdateBuildingGhost()
     end
     local width, depth = buildings:Dimensions()
     local valid = buildings:Validate(player.position)
-    local signature = buildings.kind .. ":" .. buildings.x .. ":" .. buildings.z .. ":" .. buildings.quarter .. tostring(valid)
+    local signature = buildings.kind .. ":" .. buildings.x .. ":" .. buildings.z .. ":" .. buildings.quarter .. tostring(valid)..tostring(buildings.previewPinned)
     if signature ~= ghostSignature then
         if buildingGhost then buildingGhost:Remove() end
-        local color = valid and Color(0.35, 0.8, 0.5, 0.45) or Color(0.95, 0.2, 0.2, 0.45)
+        local alpha=buildings.previewPinned and 0.5 or 0.25
+        local color = valid and Color(0.35, 0.8, 0.5, alpha) or Color(0.95, 0.2, 0.2, alpha)
         buildingGhost = MakeBox(assert(scene), "BuildingProjection", Vector3(buildings.x, 0.53, buildings.z), Vector3(width, 1.02, depth), color, false)
         local model = buildingGhost:GetComponent("StaticModel") --[[@as StaticModel]]
         local material = Material:new()
         material:SetTechnique(0, cache:GetResource("Technique", "Techniques/PBR/PBRNoTextureAlpha.xml"))
         material:SetShaderParameter("MatDiffColor", Variant(color))
         model:SetMaterial(material)
+        if buildings.previewPinned then
+            for _,edge in ipairs({{0,0.52,-0.5,1,0.02,0.025},{0,0.52,0.5,1,0.02,0.025},{-0.5,0.52,0,0.025,0.02,1},{0.5,0.52,0,0.025,0.02,1}}) do
+                MakeBox(buildingGhost,"PinnedOutline",Vector3(edge[1],edge[2],edge[3]),Vector3(edge[4],edge[5],edge[6]),Color(0.95,0.95,0.95),false)
+            end
+        end
         ghostSignature = signature
     end
 end
@@ -637,8 +643,8 @@ local function Interact()
         if orders and target.id == "delivery" then return orders:InteractDepot() end
         if orders and target.id == "cashier" then
             cashierOpen = true
-            orders:Select(nil)
-            return true, "收银台已打开，请主动选择订单。"
+            orders:Select(orders.selectedId)
+            return true, "收银台已打开，请选择订单后交付。"
         end
         return false, target.name .. "的生产或交付功能将在后续阶段加入。"
     end
@@ -649,7 +655,7 @@ end
 ---@param direction Vector3
 ---@return FactoryStation?
 ---@return number
-local function FindTarget(position, direction)
+local function FindTarget(position, direction, preferredId)
     if not physics then return nil, math.huge end
     local nearestDistance = CONFIG.interactionRange + 0.001
     ---@type FactoryStation?
@@ -659,12 +665,14 @@ local function FindTarget(position, direction)
         local pz = math.max(station.z - station.depth / 2, math.min(position.z, station.z + station.depth / 2))
         local delta = Vector3(px - position.x, 0, pz - position.z)
         local distance = delta:Length()
-        if station.marker and station.destination and distance < nearestDistance
+        if station.marker and station.destination and distance < (station.id==preferredId and CONFIG.interactionRange+0.001 or nearestDistance)
             and (distance <= 0.001 or delta:Normalized():DotProduct(direction) >= 0.5) then
+            if station.id==preferredId then return station,distance end
             nearest, nearestDistance = station, distance
-        elseif station.interactive ~= false and distance > 0.001 and distance < nearestDistance and delta:Normalized():DotProduct(direction) >= 0.5 then
+        elseif station.interactive ~= false and distance > 0.001 and distance < (station.id==preferredId and CONFIG.interactionRange+0.001 or nearestDistance) and delta:Normalized():DotProduct(direction) >= 0.5 then
             local hit = physics:RaycastSingle(Ray(Vector3(position.x, 0.55, position.z), delta:Normalized()), distance + 0.02, 1)
             if hit.body and hit.body:GetNode() == station.node then
+                if station.id==preferredId then return station,distance end
                 nearest = station
                 nearestDistance = distance
             end
@@ -676,7 +684,8 @@ end
 local function ResolveInteractionTarget()
     if not player or not items then return end
     local stationDistance
-    target, stationDistance = FindTarget(player.position, facing)
+    target, stationDistance = FindTarget(player.position, facing, uiController and uiController.inspectId or nil)
+    if uiController and uiController.inspectId and (not target or target.id~=uiController.inspectId) then uiController.inspectId=nil end
     local groundDistance
     groundTarget, groundDistance = items:FindGround(player.position, facing, CONFIG.interactionRange)
     -- Walkable portals must not prevent retrieving items dropped inside them.
@@ -753,7 +762,9 @@ local function HandleInterfaceInputs()
     if not buildings or not orders or not player then return false end
     local consumed = #uiCommands > 0
     for _, action in ipairs(uiCommands) do
-        if LifecycleCommand(action.command) then
+        if uiController and uiController:Command(action.command, action.value) then
+            -- V0.3 shares commands across touch, mouse and keyboard.
+        elseif LifecycleCommand(action.command) then
             -- Lifecycle owns this command, with state validation above.
         elseif gameLoop and not gameLoop:IsRunning() then
             -- Ignore stale queued gameplay callbacks while a modal owns input.
@@ -773,6 +784,7 @@ local function HandleInterfaceInputs()
     end
     uiCommands = {}
     if consumed then return true end
+    if uiController then return uiController:Keyboard() end
     if input:GetKeyPress(KEY_ESCAPE) then LifecycleCommand("escape"); return true end
     if gameLoop and not gameLoop:IsRunning() then
         if gameLoop.state == "paused" and input:GetKeyPress(KEY_ESCAPE) then LifecycleCommand("resume")
@@ -856,6 +868,7 @@ end
 -- Read cursor rays after the scene renderer has selected its viewport. The
 -- camera's aspect policy stays untouched; this uses what was actually rendered.
 function Phase1.WorldMouse()
+    if uiController then uiController:WorldEndFrame(); return end
     if not buildings or not camera or not player or not physics then return end
     if (gameLoop and not gameLoop:IsRunning()) or worldUICommand then
         worldMousePending,worldMouseMoved,worldPressX,worldPressY=false,false,nil,nil; worldUICommand=false; return
@@ -963,7 +976,7 @@ end
 
 local function RunAutomaticRouteChecks()
     if not player or not playerBody or not items or not manual then return end
-    local cooker, assembler = assert(automatics.auto_grill), assert(automatics.auto_assembly)
+    local cooker, assembler = assert(automatics.ws_cooker), assert(automatics.ws_assembler)
     local count, failures = 0, 0
     local function check(name, passed)
         count = count + 1
@@ -992,24 +1005,24 @@ local function RunAutomaticRouteChecks()
     items:Reset()
     cooker:Reset()
     assembler:Reset()
-    check("fixture footprints block item placement", not IsWorldSpotFree(Vector3(-5.2, 0.14, 0), 0.18)
-        and not IsWorldSpotFree(Vector3(-5.2, 0.14, -2.8), 0.18))
-    check("front source to automatic cooker dispatches first raw input", aim("raw") and Interact() and aim("auto_grill") and Interact()
+    check("fixture footprints block item placement", not IsWorldSpotFree(Vector3(-46, 0.14, 1), 0.18)
+        and not IsWorldSpotFree(Vector3(-40, 0.14, 1), 0.18))
+    check("front source to automatic cooker dispatches first raw input", aim("raw") and Interact() and aim("ws_cooker") and Interact()
         and cooker.slots[1] ~= nil and items.held == nil)
     cooker:Update(1)
-    check("second source trip dispatches to another slot", aim("raw") and Interact() and aim("auto_grill") and Interact() and cooker.slots[2] ~= nil)
+    check("second source trip dispatches to another slot", aim("raw") and Interact() and aim("ws_cooker") and Interact() and cooker.slots[2] ~= nil)
     cooker:Update(1)
-    check("third source trip fills three independent slots", aim("raw") and Interact() and aim("auto_grill") and Interact()
+    check("third source trip fills three independent slots", aim("raw") and Interact() and aim("ws_cooker") and Interact()
         and cooker.slots[1].progress == 2 and cooker.slots[2].progress == 1 and cooker.slots[3].progress == 0)
     UpdateProductionVisuals()
     check("three raw inputs produce three visible machine entities", visibleType("raw_beef") == 3 and #stationContents == 3)
     cooker:Update(1)
     UpdateProductionVisuals()
     check("independent completion changes only one visible meat", visibleType("cooked_beef") == 1 and visibleType("raw_beef") == 2)
-    check("automatic cooker output dispatches cooked meat", aim("auto_grill") and Interact() and items.held == "cooked_beef")
-    check("automatic assembler accepts cooked output through F route", aim("auto_assembly") and Interact() and assembler.materials.cooked_beef)
-    check("bun source and assembler dispatch route succeeds", aim("bun") and Interact() and aim("auto_assembly") and Interact() and assembler.materials.bun)
-    check("lettuce route starts automatic assembly", aim("lettuce") and Interact() and aim("auto_assembly") and Interact()
+    check("automatic cooker output dispatches cooked meat", aim("ws_cooker") and Interact() and items.held == "cooked_beef")
+    check("automatic assembler accepts cooked output through F route", aim("ws_assembler") and Interact() and assembler.materials.cooked_beef)
+    check("bun source and assembler dispatch route succeeds", aim("bun") and Interact() and aim("ws_assembler") and Interact() and assembler.materials.bun)
+    check("lettuce route starts automatic assembly", aim("lettuce") and Interact() and aim("ws_assembler") and Interact()
         and assembler.processing and items.held == nil)
     check("F route cannot take materials while processing", not Interact() and items.held == nil)
     assembler:Update(2)
@@ -1108,6 +1121,11 @@ end
 function Phase1.Update(eventType, eventData)
     if not player or not playerBody or not facingMarker or not camera or not promptLabel or not feedbackLabel or not items or not heldLabel then return end
     local dt = eventData:GetFloat("TimeStep")
+    if RUN_UI_V3_CHECKS and not uiV3ChecksDone and elapsed>1 then
+        uiV3ChecksDone=true
+        Phase1.RunUIV3Checks()
+        return
+    end
     local wasRunning = gameLoop ~= nil and gameLoop:IsRunning()
     -- Expiry wins over delivery commands in the same frame.
     if gameLoop and gameLoop:IsRunning() and gameLoop.remaining > 0 and gameLoop.remaining <= dt then gameLoop:Expire() end
@@ -1116,33 +1134,40 @@ function Phase1.Update(eventType, eventData)
     local inputConsumed = HandleInterfaceInputs()
     if restartPending then Phase1.Restart(); return end
     RefreshLifecycle()
+    if uiController then uiController:Update(dt) end
     if gameLoop and not gameLoop:IsRunning() then return end
     -- Resume/next-day clicks own this frame. Do not reset saved manual progress
     -- or advance the new day's clock merely because their F/UI input was used.
     if not wasRunning then return end
     local horizontal = (input:GetKeyDown(KEY_D) and 1 or 0) - (input:GetKeyDown(KEY_A) and 1 or 0)
     local vertical = (input:GetKeyDown(KEY_W) and 1 or 0) - (input:GetKeyDown(KEY_S) and 1 or 0)
+    local touchRunning = false
+    if uiController and uiController.touch.joystickId then
+        horizontal, vertical, touchRunning = uiController.touch.x, uiController.touch.z, uiController.touch.running
+    end
     local movement = screenRight * horizontal + screenForward * vertical
-    if cashierOpen or (logistics and (logistics.builder.mode~="idle" or logistics.bufferId~=nil)) or (buildings and buildings.mode ~= "idle") then movement = Vector3.ZERO end
+    if (uiController and uiController:Phase()=="orders") or cashierOpen or (logistics and (logistics.builder.mode~="idle" or logistics.bufferId~=nil)) or (buildings and buildings.mode ~= "idle") then movement = Vector3.ZERO end
     if movement:LengthSquared() > 0 then
         movement = movement:Normalized()
+        if uiController then uiController.inspectId=nil end
         facing = movement
         facingMarker.position = facing * 0.40 + Vector3(0, 0.40, 0)
     end
     playerBody.linearVelocity = Phase1.MovementVelocity(horizontal, vertical,
-        input:GetKeyDown(KEY_LSHIFT) or input:GetKeyDown(KEY_RSHIFT), cashierOpen or (logistics and (logistics.builder.mode~="idle" or logistics.bufferId~=nil)) or (buildings ~= nil and buildings.mode ~= "idle"))
+        touchRunning or input:GetKeyDown(KEY_LSHIFT) or input:GetKeyDown(KEY_RSHIFT), (uiController and uiController:Phase()=="orders") or cashierOpen or (logistics and (logistics.builder.mode~="idle" or logistics.bufferId~=nil)) or (buildings ~= nil and buildings.mode ~= "idle"))
     if RUN_SMOKE_CHECKS and not loopChecksDone and qaStage < 4 then RunSmokeChecks(dt) end
     if RUN_ITEM_CHECKS and not loopChecksDone and not itemChecksDone and qaStage == 4 then
         ItemChecks.Run(items)
         itemChecksDone = true
         if RUN_MANUAL_CHECKS and manual then ManualChecks.Run(manual, items) end
-        if RUN_AUTOMATIC_CHECKS then AutomaticChecks.Run(items, assert(automatics.auto_grill), assert(automatics.auto_assembly)) end
+        if RUN_AUTOMATIC_CHECKS then AutomaticChecks.Run(items, assert(automatics.ws_cooker), assert(automatics.ws_assembler)) end
     end
     if RUN_MANUAL_CHECKS and not loopChecksDone and itemChecksDone and not manualRouteChecked and elapsed > 4 then RunManualRouteChecks() end
     if RUN_AUTOMATIC_CHECKS and not loopChecksDone and manualRouteChecked and not automaticRouteChecked then RunAutomaticRouteChecks() end
     if RUN_STAGE_CHECKS and not loopChecksDone and automaticRouteChecked and not stageChecksDone and buildings and orders and interface then
         CommerceChecks.Run(items)
         StageChecks.Run(items, buildings, orders, interface, automatics, {
+            ui=assert(uiController),switch=SwitchArea,command=function(command,value) table.insert(uiCommands,{command=command,value=value}) end,
             placePlayer = function(x, z) local spot = Vector3(x, 0.55, z); player.position, playerBody.position = spot, spot; playerBody.linearVelocity = Vector3.ZERO end,
             aim = function(id)
                 for _, station in ipairs(stations) do if station.id == id then
@@ -1166,7 +1191,8 @@ function Phase1.Update(eventType, eventData)
     local cooked, cookingMessage = false, ""
     if manual then
         cooked, cookingMessage = manual:UpdateGrill(dt, target ~= nil and target.id == "grill",
-            input:GetKeyDown(KEY_F), qPressed or not input.focus or inputConsumed)
+            input:GetKeyDown(KEY_F) or (uiController and uiController.holdingInteraction) or false,
+            qPressed or not input.focus or (inputConsumed and not (uiController and uiController.holdingInteraction)))
     end
     local automaticMessage = StepSimulation(dt)
     for _, station in ipairs(stations) do
@@ -1213,7 +1239,7 @@ function Phase1.Update(eventType, eventData)
     end
     local acted = cooked
     local text = cookingMessage
-    if not cooked and automaticMessage ~= "" then acted, text = true, automaticMessage end
+    -- Automatic completions update the target card and statistics without a global offscreen toast.
     if inputConsumed then
         -- UI/build commands own this input frame; Q cannot also drop held items.
     elseif qPressed then
@@ -1226,8 +1252,7 @@ function Phase1.Update(eventType, eventData)
         acted = true
     end
     if acted then
-        feedbackLabel:SetText(text)
-        messageUntil = elapsed + 3
+        Feedback(text)
         print("[Factory] " .. text)
     elseif elapsed > messageUntil then
         feedbackLabel:SetText("配方：汉堡胚 + 熟牛肉饼 + 生菜片；工作台取出需空手。原料点/地面仍支持持物交换。")
@@ -1243,7 +1268,7 @@ function Phase1.Update(eventType, eventData)
     if interface and buildings and orders then
         InterfaceService.RefreshOrders(interface, orders)
         InterfaceService.RefreshBuild(interface, buildings.mode, buildings.kind)
-        interface.cashierPanel:SetVisible(cashierOpen)
+        if not uiController then interface.cashierPanel:SetVisible(cashierOpen) end
         InterfaceService.RefreshLoop(interface, assert(gameLoop), lifecycleSelection)
     end
     UpdateBuildingGhost()
@@ -1252,24 +1277,26 @@ function Phase1.Update(eventType, eventData)
         currentArea=="workshop" and "自动化车间" or "汉堡店（左上F进入车间）",#logistics.network.belts,logistics.network.total)) end
     -- Only zoom/pan are allowed: rotation is never changed by input.
     local aspect = graphics:GetWidth() / math.max(1, graphics:GetHeight())
-    if (not logistics or logistics.builder.mode=="idle") and (not buildings or (buildings.mode ~= "preview" and buildings.mode ~= "move")) then
-        zoom = math.max(0.8, math.min(2.5, zoom * (1.12 ^ input:GetMouseMoveWheel())))
+    if (not uiController or uiController:WorldMouseAvailable()) and (not logistics or logistics.builder.mode=="idle") and (not buildings or (buildings.mode ~= "preview" and buildings.mode ~= "move")) then
+        zoom = math.max(0.8, math.min(2.5, zoom * (1.12 ^ (input:GetMouseMoveWheel() * (uiController and uiController.preferences.sensitivity or 1)))))
     end
     camera.orthoSize = math.max(19, 22 / aspect)
     camera.zoom = zoom
-    if cameraNode and input:GetMouseButtonDown(MOUSEB_MIDDLE) then
+    if cameraNode and input:GetMouseButtonDown(MOUSEB_MIDDLE) and (not uiController or uiController:WorldMouseAvailable()) then
         local delta = input:GetMouseMove()
-        local units = camera.orthoSize / zoom / math.max(1, graphics:GetHeight())
+        local units = camera.orthoSize / zoom / math.max(1, graphics:GetHeight()) * (uiController and uiController.preferences.sensitivity or 1)
         local position = cameraNode.position
         local center = AreaService.Center(currentArea)
         position.x = math.max(center - 7, math.min(center + 7, position.x - delta.x * units))
         position.z = math.max(-5, math.min(5, position.z + delta.y * units))
         cameraNode.position = position
     end
+    if uiController then uiController:Update(0) end
     if RUN_LOOP_CHECKS and not loopChecksDone and elapsed > 6 and (not RUN_STAGE_CHECKS or stageChecksDone) then
         if RUN_HUD_DIAGNOSIS and interface then HudDiagnostics.Capture("pre_loop_suite", interface) end
         loopChecksDone = true
         LoopChecks.Run({
+            ui=assert(uiController),
             snapshot = function()
                 return { loop = assert(gameLoop), orders = assert(orders), items = assert(items), manual = assert(manual),
                     machines = automatics, buildings = assert(buildings), view = assert(interface), player = assert(player),
@@ -1296,7 +1323,13 @@ function Phase1.UpdateBuildingLabels()
         if station.nameNode then
             local dx = math.max(0, math.abs(player.position.x - station.x) - station.width / 2)
             local dz = math.max(0, math.abs(player.position.z - station.z) - station.depth / 2)
-            station.nameNode.enabled = dx * dx + dz * dz <= CONFIG.interactionRange * CONFIG.interactionRange
+            local phase=uiController and uiController:Phase() or "normal"
+            local isSource=logistics and station.id==logistics.builder.sourceId and (phase=="destination" or phase=="adjust")
+            station.nameNode.enabled = isSource or (not uiController and dx * dx + dz * dz <= CONFIG.interactionRange * CONFIG.interactionRange)
+            if station.nameText then
+                local sourceType=SOURCE_TYPES[station.id]
+                station.nameText:SetText((isSource and "A · " or "")..(sourceType and ItemService.Definitions[sourceType].name or station.name))
+            end
             if station.nameBackground then station.nameBackground.enabled = station.nameNode.enabled end
         end
     end
@@ -1403,8 +1436,44 @@ function Phase1.RunConveyorChecks()
     check("remaining belt cargo is ordered and capacity bounded",consistent)
     check("top down camera and accepted player speed preserved",assert(camera).orthographic and Phase1.MovementVelocity(1,0,true,false):Length()==8)
     ItemChecks.Run(assert(items)); ManualChecks.Run(assert(manual),assert(items)); CommerceChecks.Run(assert(items))
-    AutomaticChecks.Run(assert(items),assert(automatics.auto_grill),assert(automatics.auto_assembly))
+    AutomaticChecks.Run(assert(items),assert(automatics.ws_cooker),assert(automatics.ws_assembler))
     print("[Conveyor Runtime QA] COMPLETE checks="..count.." failures="..failed)
+end
+
+-- Native integration entry point; all state is reset by the normal restart flow.
+function Phase1.RunUIV3Checks()
+    local function snapshot()
+        return {loop=assert(gameLoop),orders=assert(orders),items=assert(items),manual=assert(manual),machines=automatics,
+            buildings=assert(buildings),view=assert(interface),player=assert(player),body=assert(playerBody),physics=assert(physics),
+            camera=assert(camera),cashier=cashierOpen}
+    end
+    local function aim(id)
+        for _,station in ipairs(stations) do if station.id==id then
+            local spot=Vector3(station.x,0.55,station.z-station.depth/2-0.6)
+            assert(player).position=spot; assert(playerBody).position=spot; assert(playerBody).linearVelocity=Vector3.ZERO
+            facing=Vector3.FORWARD; ResolveInteractionTarget()
+            return target~=nil and target.id==id and groundTarget==nil
+        end end
+        return false
+    end
+    Phase1.RunConveyorChecks()
+    Phase1.Restart()
+    require("Factory/UIChecks").Run()
+    require("Factory/ReviewFixChecks").Run()
+    ConveyorChecks.Run(); ConveyorEditingChecks.Run()
+    ItemChecks.Run(assert(items)); ManualChecks.Run(assert(manual),assert(items))
+    AutomaticChecks.Run(assert(items),assert(automatics.ws_cooker),assert(automatics.ws_assembler))
+    CommerceChecks.Run(assert(items))
+    StageChecks.Run(assert(items),assert(buildings),assert(orders),assert(interface),automatics,{
+        ui=assert(uiController),switch=SwitchArea,aim=aim,interact=Interact,controls=HandleInterfaceInputs,
+        velocity=Phase1.MovementVelocity,command=function(command,value) table.insert(uiCommands,{command=command,value=value}) end,
+    })
+    LoopChecks.Run({ui=assert(uiController),snapshot=snapshot,step=StepSimulation,controls=HandleInterfaceInputs,
+        refresh=RefreshLifecycle,command=function(command) table.insert(uiCommands,{command=command}) end,
+        openCashier=function() cashierOpen=true end,
+        restart=function() assert(restartPending); Phase1.Restart() end,
+    })
+    print("[UI V0.3 Native QA] COMPLETE restored ordinary playable world")
 end
 
 function Phase1.Start()
@@ -1418,6 +1487,7 @@ function Phase1.Start()
     elapsed, messageUntil, qaTime, qaMotionTime, qaStage, qaFailures = 0, 0, 0, 0, 0, 0
     facing = screenForward
     zoom = 1
+    presentationEditing=false
     target = nil
     groundTarget = nil
     itemChecksDone = false
@@ -1426,7 +1496,7 @@ function Phase1.Start()
     automaticRouteChecked = false
     stageChecksDone = false
     labelCheckStage, labelCheckCount, labelCheckFailures = 0, 0, 0
-    graphics.windowTitle = "自动化汉堡工厂 · Demo V0.2 · 实体传送带"
+    graphics.windowTitle = "自动化汉堡工厂 · Demo V0.3 · UI 与触屏"
     currentArea = "shop"
     restartPending, lifecycleSelection = false, 1
     uiCommands, cashierOpen, nextBuildingId = {}, false, 1
@@ -1451,7 +1521,31 @@ function Phase1.Start()
         buildings=assert(buildings),stations=function() return stations end,machines=automatics,sources=SOURCE_TYPES,
         area=function() return currentArea end,feedback=Feedback,
         action=function(command,value) table.insert(uiCommands,{command=command,value=value}) end})
+    logistics.v3=true
     logistics:Sample(); logistics:Refresh()
+    uiController = UIController.New({
+        get=function() return {loop=assert(gameLoop),orders=assert(orders),items=assert(items),manual=assert(manual),
+            buildings=assert(buildings),logistics=assert(logistics),machines=automatics,stations=stations,
+            player=assert(player),camera=assert(camera),cameraNode=assert(cameraNode),zoom=zoom,
+            target=target,ground=groundTarget,facing=facing,area=currentArea,cashier=cashierOpen} end,
+        resolve=ResolveInteractionTarget,interact=Interact,
+        cashier=function(open) cashierOpen=open end,
+        zoom=function(value) zoom=value; assert(camera).zoom=value end,
+        restart=function() restartPending=true end,
+        freeze=function() if physics then physics.updateEnabled=false end; if playerBody then playerBody.linearVelocity=Vector3.ZERO end end,
+        presentation=function(grid,editing)
+            for _,node in ipairs(gridNodes) do node.enabled=grid end
+            if playerVisual and editing~=presentationEditing then
+                local model=playerVisual:GetComponent("StaticModel") --[[@as StaticModel]]
+                local material=Material:new()
+                material:SetTechnique(0,cache:GetResource("Technique",editing and "Techniques/PBR/PBRNoTextureAlpha.xml" or "Techniques/PBR/PBRNoTexture.xml"))
+                material:SetShaderParameter("MatDiffColor",Variant(Color(0.20,0.37,0.56,editing and 0.25 or 1)))
+                model:SetMaterial(material)
+            end
+            presentationEditing=editing
+        end,
+    },assert(interface))
+    uiController:Update(0)
     stationContents, contentsSignature = {}, ""
     UpdateProductionVisuals()
     RefreshLifecycle()
@@ -1459,12 +1553,13 @@ function Phase1.Start()
     SubscribeToEvent("PostUpdate", "FactoryBuildingLabelsUpdate")
     SubscribeToEvent("EndFrame", "FactoryWorldMouse")
     SubscribeToEvent("MouseButtonDown", "FactoryWorldPointerDown")
+    SubscribeToEvent("InputFocus", "FactoryUIFocus")
     SubscribeToEvent(assert(physics), "PhysicsPostStep", "FactorySmokePhysicsStep")
 
     print("[Phase1] READY: room=18x14, grid=1m, orthographic=top-down90, collision=Bullet, targets=7, layout=reference2")
     print("[Phase2] READY: item_types=5, hand_capacity=1, sources=3, F=take/pickup, Q=drop")
     print("[Phase3] READY: manual_cook=3s_continuous, assembly=instant, fixtures=removed")
-    print("[Phase4] READY: auto_cooker=3_independent_slots_3s, auto_assembler=2s, preview_fixtures=2, camera_aspect=original")
+    print("[Phase4] READY: auto_cooker=3_independent_slots_3s, auto_assembler=2s, shop_auto_fixtures=0, camera_aspect=original")
     print("[Phase7] READY: buildings=free, orders=max5_interval5to15, depot=5, cashier=keyboard_mouse, labels=world_children")
     print("[Phase8] READY: day=300s, days=3, pause=all_simulation, settlement=production_events, restart=clean_world")
     print("[Conveyor] READY: speed=0.5m/s, sample=5_physical_belts, buffer=6_LIFO, offscreen=true")
@@ -1476,7 +1571,7 @@ function Phase1.Start()
         conveyorRestarting = true
         Phase1.Restart()
         conveyorRestarting = false
-        print("[Conveyor Runtime QA] "..((#assert(logistics).network.belts==5 and #assert(buildings).records==5
+        print("[Conveyor Runtime QA] "..((#assert(logistics).network.belts==5 and #assert(buildings).records==3
             and assert(logistics).network.total==0 and currentArea=="shop") and "PASS " or "FAIL ").."restart restores physical sample")
     end
     if RUN_CONVEYOR_VISUAL and not conveyorRestarting then
@@ -1514,6 +1609,8 @@ function Phase1.Restart()
 end
 
 function Phase1.Stop()
+    if uiController then uiController:Stop(); uiController=nil end
+    UnsubscribeFromEvent("InputFocus")
     UnsubscribeFromEvent("Update")
     UnsubscribeFromEvent("PostUpdate")
     UnsubscribeFromEvent("EndFrame")
@@ -1552,9 +1649,14 @@ end
 ---@param eventType StringHash
 ---@param eventData MouseButtonDownEventData
 function FactoryWorldPointerDown(eventType,eventData)
+    if uiController then return end
     if eventData:GetInt("Button")==MOUSEB_LEFT and not UI.IsPointerOverUI() then
         worldPressX,worldPressY=eventData:GetInt("X"),eventData:GetInt("Y")
     end
+end
+
+function FactoryUIFocus(eventType,eventData)
+    if uiController and (not eventData:GetBool("Focus") or eventData:GetBool("Minimized")) then uiController:FocusLost() end
 end
 
 function FactorySmokePhysicsStep(eventType, eventData)

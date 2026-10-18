@@ -1,0 +1,124 @@
+{
+  "runtime": "Lua 5.4",
+  "passed": 29,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "pause overrides construction",
+      "passed": true
+    },
+    {
+      "name": "settings overrides paused parent",
+      "passed": true
+    },
+    {
+      "name": "buffer owns gameplay input",
+      "passed": true
+    },
+    {
+      "name": "orders browse is an explicit state",
+      "passed": true
+    },
+    {
+      "name": "managed selection is distinct from movement",
+      "passed": true
+    },
+    {
+      "name": "normal grid hidden",
+      "passed": true
+    },
+    {
+      "name": "editing grid visible",
+      "passed": true
+    },
+    {
+      "name": "empty hand occupied slot retrieves",
+      "passed": true
+    },
+    {
+      "name": "held occupied slot swaps",
+      "passed": true
+    },
+    {
+      "name": "held empty slot deposits",
+      "passed": true
+    },
+    {
+      "name": "empty and stale actions disabled",
+      "passed": true
+    },
+    {
+      "name": "preferences clamp valid ranges",
+      "passed": true
+    },
+    {
+      "name": "preferences whitelist no gameplay state",
+      "passed": true
+    },
+    {
+      "name": "NaN preferences become defaults",
+      "passed": true
+    },
+    {
+      "name": "layout modal contained 1280x720",
+      "passed": true
+    },
+    {
+      "name": "layout modal contained 1560x720",
+      "passed": true
+    },
+    {
+      "name": "layout modal contained 1600x720",
+      "passed": true
+    },
+    {
+      "name": "layout modal contained 760x360",
+      "passed": true
+    },
+    {
+      "name": "joystick dead zone releases speed",
+      "passed": true
+    },
+    {
+      "name": "joystick inner ring walks",
+      "passed": true
+    },
+    {
+      "name": "outer ring starts sprint",
+      "passed": true
+    },
+    {
+      "name": "sprint hysteresis avoids jitter",
+      "passed": true
+    },
+    {
+      "name": "inner return stops sprint",
+      "passed": true
+    },
+    {
+      "name": "joystick never counted as camera finger",
+      "passed": true
+    },
+    {
+      "name": "two scene fingers generate pan pinch",
+      "passed": true
+    },
+    {
+      "name": "camera movement prevents release click",
+      "passed": true
+    },
+    {
+      "name": "joystick up stops all movement",
+      "passed": true
+    },
+    {
+      "name": "object owner blocks competing camera",
+      "passed": true
+    },
+    {
+      "name": "focus reset clears every owner",
+      "passed": true
+    }
+  ],
+  "scope": "Engine independent UI policy and pointer ownership; no native touch verification"
+}

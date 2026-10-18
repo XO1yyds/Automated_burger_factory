@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "result": {
+    "kind": "full",
+    "summary": {
+      "files": 20,
+      "total": 310,
+      "errors": 0,
+      "warnings": 248,
+      "info": 0,
+      "hints": 62
+    },
+    "items": []
+  }
+}

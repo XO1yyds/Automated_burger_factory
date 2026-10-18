@@ -1,6 +1,6 @@
 # 自动化汉堡店 · Tap 积分台账
 
-更新时间：2026-10-14。时间采用 Asia/Shanghai 时区。
+更新时间：2026-10-18。时间采用 Asia/Shanghai 时区。
 
 规则见 [双线开发与积分调度规则](tap-credit-policy.md)。本文件为积分记录的唯一维护入口。
 
@@ -369,3 +369,7 @@
 | 2026-10-18 | preview status/refresh/logs/check（reload12） | 关闭测试开关、恢复普通试玩 | 否 | 平台未返回 | 未取得 | MAKER-FREE；默认样例恢复，原环境告警保留 |
 | 2026-10-18 16:20 | preview status/start/logs/check | 按用户指令启动本地游戏 | 否 | 平台未返回 | 未取得 | MAKER-FREE；新会话108e080a-f88a-4428-aa70-1a0d7bbce4b9运行中；原DDS/DLL错误保留；无生成式调用 |
 | 2026-10-18 16:25 | preview status/start/check | 一键桌面启动脚本验证 | 否 | 平台未返回 | 未取得 | MAKER-FREE；验证启动与复用当前会话；原DDS/DLL错误保留；未调用生成式能力 |
+| 2026-10-18 | Lua LSP | V0.3静态诊断 | 否 | 平台未返回 | 未取得 | MAKER-FREE；0 Error/248 Warning/62 Hint；未调用生成式能力 |
+| 2026-10-18 | preview start/run/status/refresh/logs/check | V0.3原生回归与普通试玩恢复 | 否 | 平台未返回 | 未取得 | MAKER-FREE；379 PASS/0 FAIL；最终reload8普通版；原环境告警保留，无付费生成或远端构建 |
+| 2026-10-18 | Lua LSP | V0.3验收反馈修复静态诊断 | 否 | 平台未返回 | 未取得 | MAKER-FREE；最终0 Error/263 Warning/61 Hint；无生成能力调用，未查询余额 |
+| 2026-10-18 | preview status/refresh/logs/check | V0.3反馈修复回归及普通版恢复（reload9～14） | 否 | 平台未返回 | 未取得 | MAKER-FREE；403唯一断言通过；只刷新存活会话，原环境告警保留；无提交/远端构建/付费生成 |

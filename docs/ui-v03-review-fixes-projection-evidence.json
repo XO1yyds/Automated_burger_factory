@@ -1,0 +1,59 @@
+{
+  "passed": 13,
+  "failed": 0,
+  "included_in_native_total": true,
+  "results": [
+    {
+      "name": "known 18m full-height projection",
+      "passed": true
+    },
+    {
+      "name": "camera translation shifts anchor by world displacement",
+      "passed": true
+    },
+    {
+      "name": "zoom doubles displacement about viewport center",
+      "passed": true
+    },
+    {
+      "name": "high DPI converts physical pixels once",
+      "passed": true
+    },
+    {
+      "name": "UI scale does not change world anchor",
+      "passed": true
+    },
+    {
+      "name": "pan zoom aspect and DPI preserve pointer round trip",
+      "passed": true
+    },
+    {
+      "name": "card follows building exactly when camera pans",
+      "passed": true
+    },
+    {
+      "name": "card sits five UI units above its building anchor",
+      "passed": true
+    },
+    {
+      "name": "edge avoidance stays relative to the building",
+      "passed": true
+    },
+    {
+      "name": "offscreen building never leaves a pinned floating card",
+      "passed": true
+    },
+    {
+      "name": "insufficient space hides instead of screen clamping",
+      "passed": true
+    },
+    {
+      "name": "whole straight segment is hittable away from midpoint",
+      "passed": true
+    },
+    {
+      "name": "segment hit test clamps beyond endpoint",
+      "passed": true
+    }
+  ]
+}

@@ -2,6 +2,7 @@ local G = require("Factory/ConveyorGeometry")
 local Network = require("Factory/ConveyorNetwork")
 local Definitions = require("Factory/Items").Definitions
 ---@class FactoryConveyorWorld
+---@field network FactoryConveyorNetwork?
 ---@field root Node
 ---@field makeBox function
 ---@field static Node?
@@ -33,6 +34,13 @@ function World:Draw(plan,parent,preview,selected)
     local color = preview and (plan.valid and Color(0.15,0.78,0.4) or Color(0.95,0.15,0.17))
         or (selected and Color(0.95,0.7,0.15) or Color(0.16,0.28,0.32))
     for _,r in ipairs(Network.Rects(plan)) do self:Box(parent,"Belt",r.x,preview and 0.15 or 0.09,r.z,r.width,0.09,r.depth,color) end
+    if preview and self.network and not plan.valid then
+        for _,cell in ipairs(plan.cells) do
+            if not self.network.context.free(cell.x,cell.z,0.8,0.8) or not self.network:Clear(cell.x,cell.z,0.8,0.8) then
+                self:Box(parent,"ConflictCell",cell.x,1.13,cell.z,0.82,0.025,0.82,Color(0.96,0.12,0.15))
+            end
+        end
+    end
     for distance=0.35,plan.length-0.15,1 do
         local x,z,dx,dz=G.Position(plan.points,distance)
         local arrow=self:Box(parent,"Direction",x,0.22,z,0.22,0.025,0.22,Color(0.96,0.84,0.3))
@@ -62,6 +70,7 @@ end
 ---@param bufferId string?
 ---@param slot integer
 function World:Update(network,builder,stations,buffers,visible,selectedBelt,bufferId,slot)
+    self.network=network
     local signature=tostring(network.revision)..":"..tostring(selectedBelt)
     if signature~=self.signature then
         if self.static then self.static:Remove() end
