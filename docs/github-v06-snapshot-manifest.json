@@ -1,0 +1,1542 @@
+{
+  "snapshot_date": "2026-10-19",
+  "version": "V0.6 user-accepted Windows Demo",
+  "repository": "https://github.com/XO1yyds/Automated_burger_factory",
+  "branch": "main",
+  "base_commit": "1190330047d6cdf02dc58606cc21eaa3b7f07a5b",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 875,
+      "sha256": "905bace63d4db8a74a8c2bd47b2f97201100272b6fad6f422c898a2bae1898ff",
+      "source": "github-export-policy"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7479,
+      "sha256": "b2140e86713d44740a541d248670b96851d96e404f69ac1c68f278e9e7a79ae3",
+      "source": "current-workspace"
+    },
+    {
+      "path": "assets/image/burger_shop_employee_chibi_v1_20261015162853.maker-result.json",
+      "bytes": 10251,
+      "sha256": "2dc27d60eee38ac841a944b3c51b58fbf6a85f6ef968b96dd8a3f58f957cdf1b",
+      "source": "current-workspace"
+    },
+    {
+      "path": "assets/image/burger_shop_employee_chibi_v1_20261015162853.png",
+      "bytes": 3256298,
+      "sha256": "87e90405f92b3826c2c69477c0ecc9a955a35a7290ca0c4eb0121860703e7412",
+      "source": "current-workspace"
+    },
+    {
+      "path": "assets/image/burger_shop_employee_chibi_v2_20261015163345.maker-result.json",
+      "bytes": 13906,
+      "sha256": "802863297395497c9327d174de5eea3b9b7ebbb8de6864e55498e69317174f6e",
+      "source": "current-workspace"
+    },
+    {
+      "path": "assets/image/burger_shop_employee_chibi_v2_20261015163345.png",
+      "bytes": 5266442,
+      "sha256": "b5f9963e4d7741eb05f878b73441dfe91ce5e0ca5d3a0a40b8e263950ed25a84",
+      "source": "current-workspace"
+    },
+    {
+      "path": "assets/image/burger_shop_employee_chibi_v3_20261015164049.maker-result.json",
+      "bytes": 9494,
+      "sha256": "662f99713c491b6c8e483e72f33b1f3dcb29f373a89a0d0062edc7743384eded",
+      "source": "current-workspace"
+    },
+    {
+      "path": "assets/image/burger_shop_employee_chibi_v3_20261015164049.png",
+      "bytes": 4536225,
+      "sha256": "33b2761311b7f0e149d79cdf62847d42e7649b7ce997802bda781ddf2814c73b",
+      "source": "current-workspace"
+    },
+    {
+      "path": "assets/image/burger_shop_employee_expressions_v1_20261015164822.maker-result.json",
+      "bytes": 10605,
+      "sha256": "d7a273cbeab69babce9e5c67527125e2b1dc5ea5d2c7bbb461664cb6871f1374",
+      "source": "current-workspace"
+    },
+    {
+      "path": "assets/image/burger_shop_employee_expressions_v1_20261015164822.png",
+      "bytes": 4825190,
+      "sha256": "b645f36b30d8117dc0ffb7dee7f10479474f7191bfd425d9c3c1a2bd25440993",
+      "source": "current-workspace"
+    },
+    {
+      "path": "assets/image/burger_shop_employee_turnaround_v1_20261015164426.maker-result.json",
+      "bytes": 10788,
+      "sha256": "fcec6eb980e8b337bf87853e6e083d6bc4809898eefa5fa50995946c2295d3c1",
+      "source": "current-workspace"
+    },
+    {
+      "path": "assets/image/burger_shop_employee_turnaround_v1_20261015164426.png",
+      "bytes": 6795318,
+      "sha256": "816a8fb5b5c389a4f2f471f8547a22f7fe0a748473b996105c8d54882a3b95c8",
+      "source": "current-workspace"
+    },
+    {
+      "path": "assets/image/ui/burger_factory_building_ui_v1.maker-result.json",
+      "bytes": 11373,
+      "sha256": "a059eb4350c1b905f79366efa10b67940dfe10330d0f8765acfb08aea4fc604a",
+      "source": "current-workspace"
+    },
+    {
+      "path": "assets/image/ui/burger_factory_building_ui_v1.png",
+      "bytes": 1875995,
+      "sha256": "86e02f3b1319c78200a7940c86087bed7f899c5ccdb7db4975f9e3162aa87a77",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/asset_tools/check_v05_shared_machines.py",
+      "bytes": 3862,
+      "sha256": "178ac1d3037b83f987d4558809432421e496a2499ab30123143a45f2d5157773",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/asset_tools/check_v06_save_bridge.ps1",
+      "bytes": 2267,
+      "sha256": "6e7305c6e6857caebb3723fad8ae5636e1659d1ed6914a343b63082a5b52a98b",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/asset_tools/collect_v05_final_evidence.py",
+      "bytes": 2404,
+      "sha256": "7468a161f8d2fe25401456e37db491a7c3e33752c6ebba26db426e569a8e3f36",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/asset_tools/collect_v05_runtime_evidence.py",
+      "bytes": 2154,
+      "sha256": "f4c7c10a0ad6831c0feacd881abd46a56e4f780e127a8595c2c6b3a495ef1f47",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/asset_tools/collect_v06_runtime_evidence.py",
+      "bytes": 1014,
+      "sha256": "e59dac03f120af4f27c38ef32a9edf148f1d8feb50b8f8c73d53493fdf1e496b",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/asset_tools/run_v05_attached_checks.py",
+      "bytes": 1202,
+      "sha256": "847eb5cecec0a48f761b264f43ccb2c23fa179b03195bf96a041068fc988fd45",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/asset_tools/run_v05_checks.py",
+      "bytes": 1166,
+      "sha256": "f9cf7aff98b5621fe375bb183afb3582e75c32725bf8dda41778c1739b9176ed",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/asset_tools/run_v06_checks.py",
+      "bytes": 1631,
+      "sha256": "ca01b5d6c3decc51e5a56a30f685c744446eee5557311f22c07e79bf7bb9c427",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/building-label-evidence.json",
+      "bytes": 5572,
+      "sha256": "649a545b581adab57aac47bd6398fe7c5feda46d560c99e8d3ed26cd2db3fcf5",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/building-ui-design-v1.md",
+      "bytes": 1066,
+      "sha256": "7549a9e06f6664a9c735586e6a8a30d3ed7c96c1e56c5bdc5dd6e75dc934d9ec",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/burger-employee-art-v1.md",
+      "bytes": 1080,
+      "sha256": "ffd8d3bbcafc68bcd6173a6f2373cb4475884655203a0d69028715e3aa4fb9ec",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/burger-employee-art-v2.md",
+      "bytes": 1063,
+      "sha256": "4174ce4340b1a59cdd9333cc537e32ee96b2379a2bd7eb2acf9eefb2ef2b3ac2",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/burger-employee-art-v3.md",
+      "bytes": 856,
+      "sha256": "3eea2d5d64f08c0cc2290f48fc3cb9fb311e4ab91099acc96b4cc54181c9ff44",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/burger-employee-expressions-v1.md",
+      "bytes": 735,
+      "sha256": "6c7d207a1c0c666f3f0fc517924b99541331b397847bdaa5a1884cdbaaac0f10",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/burger-employee-turnaround-v1.md",
+      "bytes": 759,
+      "sha256": "730df39fd10bec91e83a211dd7e39a4badf6fba6bcf08567b1140d0e5736ab10",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-acceptance.md",
+      "bytes": 9787,
+      "sha256": "2747b9c36252b3130c2ee717e2a8041528e6b51b42b079a772590b1c4196ec02",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-checkpoint-manifest.json",
+      "bytes": 2798,
+      "sha256": "12affdca6e5f5a6b3e10dfbb3c7002b84182f1b8bc9d5cf4bdfc74b141d21491",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-design-brief-draft.md",
+      "bytes": 30285,
+      "sha256": "7e7d6a764fe8663ad325c3556f5b699892b9922b1483af4faee4c871f3980858",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-development.md",
+      "bytes": 6865,
+      "sha256": "efb6d0e6d32240b5711164c6f0976a146adadc8648360eeee29c1d787939a921",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-domain-evidence.json",
+      "bytes": 6457,
+      "sha256": "56c672c0bfcced7e6a1c0edd43fc180d6fbe24117feb5cf9b27ec2442c39b304",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-editing-evidence.json",
+      "bytes": 3941,
+      "sha256": "880cece2a13bd91fdd23209e234dd74039702ec5827fb588a1ea39962d4d7e37",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-editing-final-logs-0.json",
+      "bytes": 68780,
+      "sha256": "77adfe1742e41d9e8739076d686f22eb7e23d8cd33b494b90a7569706e42f437",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-editing-final-logs-1.json",
+      "bytes": 71261,
+      "sha256": "14245a78607eeacf5180ba7e53f14e4261d524b13a2b6426746febbc04d327e5",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-editing-final-logs-2.json",
+      "bytes": 8602,
+      "sha256": "bb2b6d0def732fcb61101859b28b13045553ddb38b9440410c9fccf772d29171",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-editing-fixes.md",
+      "bytes": 3615,
+      "sha256": "81d7aafcdb5473ba2236c96700d61df18dca95437a380f5fedb7edff39535276",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-editing-lsp-evidence.json",
+      "bytes": 246,
+      "sha256": "db9e6e9d177b7988112e7a577464cbd73788f2c7510297a0ece9179dc5edbd4b",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-editing-recheck-refresh.json",
+      "bytes": 4932,
+      "sha256": "cf741fa85be53d9179acd93d379a5f124b8e982f1150bf9a2e83f36ac3e8e4a8",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-editing-release-check.json",
+      "bytes": 5145,
+      "sha256": "17b107e8b26f3c18e1dbae94119044f6cf0beb061dd05c1c06c191c6406129d3",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-editing-release-logs-0.json",
+      "bytes": 67538,
+      "sha256": "203781216e17c63372b25a9bcc1d3d16c6bf5f9c0ae1d12b4f7b8da947c4a6d3",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-editing-release-logs-1.json",
+      "bytes": 10895,
+      "sha256": "427a92df9c4699bee08b30cf97796279c0cb9e945779b5c6ba3c0885e2d50219",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-editing-release-refresh.json",
+      "bytes": 4932,
+      "sha256": "a7c3a7ce332dae9008d857ced15b9e7b586755dd35f45376985210ed54d9c98b",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-editing-runtime-0.json",
+      "bytes": 68842,
+      "sha256": "e11f204c649e41862ee3f2e61b267322b0cc8dca615b3faa61aafcebad066771",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-editing-runtime-1000.json",
+      "bytes": 8388,
+      "sha256": "c6668bd3ee2820927a5849e47e7a58ed6028706804740fed0a1632644276bdf0",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-editing-runtime-500.json",
+      "bytes": 71299,
+      "sha256": "745c881b62c3019bcab9fc13cec7c3472a16e390f95344f77292736b649ffcb2",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-editing-test-refresh.json",
+      "bytes": 4932,
+      "sha256": "6bcb233248607bda7c8e531c3963915c3520d3e3c2cd453b61262751cba6f907",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-editing-verification-summary.json",
+      "bytes": 37819,
+      "sha256": "00db0cf1b65553b3f7b73c0020df26e4e74881923d32eaa312d032131fd43b72",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-final-test-refresh.json",
+      "bytes": 4928,
+      "sha256": "e4341f2d964438ada672de3c88730385d598bbcae4e465561410cba8df7b8a97",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-lsp-evidence.json",
+      "bytes": 246,
+      "sha256": "4db57e7f9fb2cfa5643739d5df4dcc59e0d21ed17cfc37b55d76e01f1c2d6562",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-preview-before.json",
+      "bytes": 5218,
+      "sha256": "672c2b76b442b1abea704e16464a5ecde19cc60efaf0a4acb1b863c2780ed888",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-preview-check.json",
+      "bytes": 5141,
+      "sha256": "a47e38af45cc4ece3fb116ed82d871a13b5aa13195b613e0052553edd8ab5da8",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-preview-integration.json",
+      "bytes": 59820,
+      "sha256": "e72e16892bf8bda0913ebd0d325ce8289af859545eed0f1a555501cc39b64c07",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-release-check.json",
+      "bytes": 5141,
+      "sha256": "b566590f5b9a1f91fcfb4c5b975a73544da60034d4243644ccba3a212b9318e7",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-release-logs-tail.json",
+      "bytes": 10756,
+      "sha256": "07bdecefbc1b95ae6173c7d107f33ed2244aac08a6f9be7406878e109221e7d6",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-release-logs.json",
+      "bytes": 67560,
+      "sha256": "cebc145616586a32e27a9f987b2112e889a75c3553e352cdf51e9184c3808977",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-release-refresh.json",
+      "bytes": 4928,
+      "sha256": "5be389411cc9e93b9422799c0feb9bbe8ad2475b179cbb32436728337c5bb921",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-runtime-final-1.json",
+      "bytes": 68805,
+      "sha256": "b116867e68aeee5129df3a47c40138b67a27cf0ec2f300b0b778bc92f004fdd7",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-runtime-final-2.json",
+      "bytes": 69431,
+      "sha256": "c184bd8f7db474aecc1c57e39a03d963aa8f58e0b205d960c8fa97c5f79537a2",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-runtime-qa-tail.json",
+      "bytes": 61438,
+      "sha256": "d2e66e6a530ea931003d52d796f428523087f470971140eef705ea22f4ef5d8f",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-runtime-qa.json",
+      "bytes": 68825,
+      "sha256": "5cf2244b557084e635d95c34d656c9aaf2e8c412ca1e75643e81bf6c09170d03",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-runtime-refresh.json",
+      "bytes": 4928,
+      "sha256": "b5f2d1a975d56d276e22f9ce68638d225939fa9106162d1c13460c8d65908fe4",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-verification-logs-1.json",
+      "bytes": 68861,
+      "sha256": "8f121ddb3a33447ecc44e555b5aaf822655b968248edbddcf554acb1d9dad3f8",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-verification-logs-2.json",
+      "bytes": 69461,
+      "sha256": "f7807afa52035f25aca69c003c5cffef7c7d454e0e2a2464d5f3acdb223b346b",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-verification-logs-3.json",
+      "bytes": 8526,
+      "sha256": "d57717654ad6c26796806bfee15b3190c9f45fb65e97bc49373817ab61f17e81",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-verification-summary.json",
+      "bytes": 32003,
+      "sha256": "11a98c3eb0531bfb04599938e58f4754922ca9430b1aa406d17a567b1ded8729",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/conveyor-visual-refresh.json",
+      "bytes": 4928,
+      "sha256": "9b8d37b3b33b015c64560cbe28eff8eb3f2389564ced9c2f8aaacc6375541d61",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/current-game-ui-information.md",
+      "bytes": 17881,
+      "sha256": "968cd3e7f8e2fba8e169099611cb28b739c26529548c9285b6b29ffc0c85c8e4",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/demo-desktop-launcher.md",
+      "bytes": 1311,
+      "sha256": "9eb122e1a5edce4ef98c201ac3830f8940da73a6b3280c1834744a2adddba51c",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/demo-v0.1-confirmed.md",
+      "bytes": 11025,
+      "sha256": "7b7924ff244a09e29770d09578634160051da856eef1504a3c25161f71393ee9",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/demo-v0.1-final-acceptance.md",
+      "bytes": 1071,
+      "sha256": "9a4a683b9987a8369a42bf266ac58847ac00935bc8139fec96146f5042d8261c",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/demo-v0.1-revision1-evidence.json",
+      "bytes": 37460,
+      "sha256": "43e73ffd27550fc92e0c811505b59844f254c40714fc5e2beb2c1128337522d5",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/demo-v0.1-revision1.md",
+      "bytes": 5392,
+      "sha256": "cd0ec5df3d8b07d094e0a61d225d83c0f9a2634e2fdf98e9acfdb3308167f254",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/demo-v0.1-task-original.md",
+      "bytes": 16032,
+      "sha256": "b3e515fc98ef52609cc2b589db21ff579d4a998605cf10f0eee79c3ecf037249",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/demo-v0.2-logistics-evidence.json",
+      "bytes": 63903,
+      "sha256": "b9d3ec3eeeef08dee94a85382d7d55db73b9081f289723a8f4081de8afd36db0",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/demo-v0.2-logistics.md",
+      "bytes": 7050,
+      "sha256": "f453ed46c2fd6edb9c46e09bbfb947b8875ebe112da75c372b33ddb1dc89a884",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/development-tracker.md",
+      "bytes": 419,
+      "sha256": "8a33ed1d1791e641f0ce55a7fde2f893a999e15fed0f5f556d7b6687c4e86f78",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/development_log.md",
+      "bytes": 79671,
+      "sha256": "dc84b6930c3f40b309f00f82db82f97dd8ba2a5cf69dbf16b4bed60004af70bd",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/github-backup-result.json",
+      "bytes": 871,
+      "sha256": "e640bb047ec2ab97232dc224e8434a9122dfb9e858885f46d3cbf0cfb0f1909e",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/github-backup.md",
+      "bytes": 2152,
+      "sha256": "c3d58d08e905f7c65b7a3fe246365cd803a379baba3d8627e46998a748fc64c2",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/github-snapshot-manifest.json",
+      "bytes": 34934,
+      "sha256": "c0db97cba460694fcd1456f9bd254a51531b4cdb39b597749bbf1549912ec4cc",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/github-v03-snapshot-manifest.json",
+      "bytes": 40757,
+      "sha256": "e09ac24b4ccdbdad8dec5f5d9bf8f8033a6dc1b18cdcab8fbff32f2cbf3ef848",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/github-v03-upload-result.json",
+      "bytes": 1411,
+      "sha256": "f1fa442de6146256535911ee5003fb049ec36d7c490a2104c80486cb3c872a45",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/github-v03-upload.md",
+      "bytes": 1693,
+      "sha256": "7cd40b8b3c151cbbc3acbc366d0afcb66434477c72a81cf2feed213751c4a574",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/github-v05-snapshot-manifest.json",
+      "bytes": 269784,
+      "sha256": "f9fa79255301468721e51f9d9111a7c3b0a94657557accfab5afcc09d8d7ed7d",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/github-v05-upload.md",
+      "bytes": 1351,
+      "sha256": "c74cc314a5e9416173316bf4f87dfa9e6d884b43b8002572274d3bcb12f87997",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/github-v06-upload.md",
+      "bytes": 1390,
+      "sha256": "da42e87549f7b43f5e86f000ee8656f1fa6c1245cca223045ab0899e845cf1b2",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/hud-spacing-diagnosis.md",
+      "bytes": 2647,
+      "sha256": "6aaea467af7da2e2c1c1e47aa154b390374e73654bfa9f3e3b3cc69e9b9c63ce",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/maker-first-submit-build-evidence.json",
+      "bytes": 6129,
+      "sha256": "9389377f47036bad59e962bfc52af0d12dce24c8657112152ef0d0f99fcbdb6b",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/maker-first-submit-build.md",
+      "bytes": 2489,
+      "sha256": "a01905712bb8a575669ea83cf342d12941b5b06d15a4a87bc7e430ea4d9a01d9",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/maker-frame-animation-skill-deployment.md",
+      "bytes": 5769,
+      "sha256": "d0734398b0b0531f84ebbfeab80154f3b615ef1f70d0f46448a960a036ac5d71",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/maker-frame-animation-skill-evidence.json",
+      "bytes": 7278,
+      "sha256": "9d1e710a6794a1ac6524c1f0ec9c907415adcb28087af6ff90c1e3063a00f672",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/maker-publisher-binding-diagnosis.md",
+      "bytes": 4457,
+      "sha256": "64aaffbe80298e231a30e84f762ed7b43d3663c0536deeab98e40844c89999d0",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/mobile-ui-planning-checklist.md",
+      "bytes": 17566,
+      "sha256": "6e26e9d6b872a7c65dfb0806d3f7f1591085094b67eef46361b820266b4a4415",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/phase1-acceptance.md",
+      "bytes": 4807,
+      "sha256": "505082cabe71ff0b8cc4bdab1c265b8137674766efafb12de42748994ec46c43",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/phase1-evidence.json",
+      "bytes": 2030,
+      "sha256": "5b56416f34d4758695724d25c14fd5575548f627dfd6fbefab743020ea978f55",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/phase1-layout-evidence.json",
+      "bytes": 2096,
+      "sha256": "3d258705254a9d4d4a1423c3e0a7fbed963d6234f980f832ab4336cd06b029de",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/phase1-layout-update.md",
+      "bytes": 2670,
+      "sha256": "08cc5a4d396c9dce1229e39389ee7bf88cfd09362dbb3470ba8926d4f69b1d52",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/phase2-acceptance.md",
+      "bytes": 5139,
+      "sha256": "cb51b5a8db3488c1d3889cb11c5f36358f385975f11665c2f26d9260fa411df3",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/phase2-evidence.json",
+      "bytes": 3608,
+      "sha256": "f3a63119d89ea235fca37e98e38f42a240d102cd51d76168763c1c5fec2a1271",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/phase2-swap-evidence.json",
+      "bytes": 7946,
+      "sha256": "01b5981591da40c6c5d1f2267c8ea54c3d9f6fada43b8a24698721e53b7282c6",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/phase3-acceptance.md",
+      "bytes": 5908,
+      "sha256": "1407ca8cd1565526aaa36b17b67a29b5bfdf2f5e1506528360f1ccc6df1d3d63",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/phase3-evidence.json",
+      "bytes": 10574,
+      "sha256": "498e021e8cb54084526ab544bba098e144852189c7e34d665763bae74656848b",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/phase4-7-acceptance.md",
+      "bytes": 8580,
+      "sha256": "52545baec55719a9d2597fc9188cac1493daa6307e1660801c58f17a92a866d3",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/phase4-7-evidence.json",
+      "bytes": 20291,
+      "sha256": "9611a4982bbe4f5552f3bd1f1fbfe49d082d6e6ddd4ee1f0bfd1946a7118db43",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/phase4-7-plan.md",
+      "bytes": 1845,
+      "sha256": "4b28f5fdf8392553d5f0de7ab48ae84062ccfcd30519fe968e373382b493659c",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/phase4-8-acceptance.md",
+      "bytes": 15620,
+      "sha256": "95287d193a9e1eef6d0fcfab3a4384055a653771fc576705346d8f28a8c22620",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/phase4-8-evidence.json",
+      "bytes": 25879,
+      "sha256": "08597a04f6f17121027a2f7652308b7693655417795b3c575f83d20e28c9a9ce",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/phase4-8-results.md",
+      "bytes": 2752,
+      "sha256": "dcdcc85b4695f546f3644f11938785573b62c7a955bbcdfacfc786bcc511d978",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/phase8-plan.md",
+      "bytes": 1262,
+      "sha256": "9766646f6b8a842f94608051ec3c8afda649b477fd47e15966d931be6b1e0bdd",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/promo-shooting-script.md",
+      "bytes": 1859,
+      "sha256": "00eb2419c31eed814c86aceb3bd2e9d23c2761c81cd5739fdebe78687ec41ab7",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/references/camera-topdown.png",
+      "bytes": 100498,
+      "sha256": "52e4a0b8ef5735ed4423958dac0d6154d6440b749e9b1383e7df7885f143f915",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/references/conveyor-plan/user-filled-before-clarifications-20261018.md",
+      "bytes": 21585,
+      "sha256": "235442a3a6bc03162a3424e0fe8750a52710b5031df773a1bc64ad635e1384a1",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/references/employee-style-v2/reference-1.png",
+      "bytes": 40283,
+      "sha256": "7953914ffa9d7528b96e65874d8250a83e90b1669bd4916a5377ec13f3c638e4",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/references/employee-style-v2/reference-2.png",
+      "bytes": 50724,
+      "sha256": "a6c09ae65ee860c2967b8f2e03e52f5ebdb04f324a0f5d07b9e1d9f8c395a4f6",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/references/employee-style-v2/reference-3.png",
+      "bytes": 523122,
+      "sha256": "7b4c48ad022c3098082416b3cd8edc7cb45852eca3b9e558a2f40e89876d1fe6",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/references/employee-style-v2/reference-4.png",
+      "bytes": 353691,
+      "sha256": "c45d44b4c34dbd6519a71012589d0ef3925bba3e49ca8eee99cbf98ff4543190",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/references/employee-style-v2/user-style-prompt.txt",
+      "bytes": 8671,
+      "sha256": "98fdf3776c86141d8668443daef55ba2831165f3faf71a5837666d4f316e1ab5",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/references/employee-style-v3/uniform-reference.png",
+      "bytes": 69100,
+      "sha256": "ca753e907d41cb0133bbf6241cea419cd0f4e3a3abb6e015be5fcc430ca17165",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/references/map-layout.png",
+      "bytes": 18102,
+      "sha256": "b01042cc05bb84692c81b0b52d244a2635017b7efbb20579e529a77a4db40f41",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/references/ui-next-stage-20261018/user-filled-ui-requirements-before-review-20261018.md",
+      "bytes": 28837,
+      "sha256": "8fbd3bed2590a6afb53f308afdf6421313e7f7f8f43c5c6671da57b39c5f3579",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/references/ui-next-stage-20261018/自动化工厂游戏UI概念板.png",
+      "bytes": 2318467,
+      "sha256": "3d7f630c75ff122b2d56b1e6c3772aa7057c955ed7abcc9ce471ba835d8bdaba",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/references/ui-next-stage-20261018/自动化汉堡店建筑放置UI修改建议清单.md",
+      "bytes": 11471,
+      "sha256": "20722e82d47ef3801186a0f8f7cc1089fc7611b1c98fef7603197d35c3b84b63",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/scene-ratio-restore-evidence.json",
+      "bytes": 1780,
+      "sha256": "89fce4617d76a80448562ffe18f7694c04992810001735d86b5897567843e5e4",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/tap-credit-policy.md",
+      "bytes": 6953,
+      "sha256": "3131fd903ce73b757e2a27d43a2f3a24c620a9806952671a0c73a326ff33602f",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/tap_points_ledger.md",
+      "bytes": 79752,
+      "sha256": "fbd30ac07e56a241b52e0acfdabb4039b25f20c542ac0f7599b4406405f25b13",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/ui-layout-defaults.md",
+      "bytes": 22916,
+      "sha256": "92762158e183e2284bc0a66d399c9fe34bcbd902f29596ec216e0ae04ca4acf8",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/ui-next-stage-requirements-draft.md",
+      "bytes": 63216,
+      "sha256": "dcfb2eb96a4e57aa9c4e28eda1751ad4d0c897cdbd42c70e4c469cb3769ebf82",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/ui-v03-delivery-manifest.json",
+      "bytes": 4349,
+      "sha256": "4d8c59577550f055f2b9d5bdb6288aea176b3e8aef8f6f061c104a87453e0a8e",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/ui-v03-domain-evidence.json",
+      "bytes": 2688,
+      "sha256": "6da0c27921e10428ca221bc0f0e2edce3ab32b0183811ba908fcc7fbf3a1a7c4",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/ui-v03-lsp-evidence.json",
+      "bytes": 212,
+      "sha256": "4798910a25f7d22baddcc2a51139f27d2614c7d696a55cdfe3c3e389bde8041e",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/ui-v03-manual-acceptance.md",
+      "bytes": 16791,
+      "sha256": "6db4ec8a39dae9fd7c99b85768dfe233918a72f0823598330d1987e509711c1b",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/ui-v03-native-evidence.json",
+      "bytes": 54208,
+      "sha256": "8dbf943155152b780c23e0cb7303845a8e2783dd26a0fbb68aef42db410143df",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/ui-v03-review-fixes-delivery.json",
+      "bytes": 5079,
+      "sha256": "755868917eb5b76d2d90bfe934e9f83be75baea0c2beeb672cb0e3d2a01dc076",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/ui-v03-review-fixes-lsp-evidence.json",
+      "bytes": 245,
+      "sha256": "5b4bc01953387b91bead4e310d94cd8dcab6fa196eb2cb01110ebdced9fa3f50",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/ui-v03-review-fixes-native-evidence.json",
+      "bytes": 58425,
+      "sha256": "9efe0532666b42c73dc468ee9b8694fd3454ea687841704f94ccd27b0c3e51d3",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/ui-v03-review-fixes-projection-evidence.json",
+      "bytes": 1420,
+      "sha256": "6a971d68673c25239964df622ebca5a8e610f8fc3da0302f0974b33b789e3893",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/ui-v03-review-fixes.md",
+      "bytes": 3890,
+      "sha256": "ddfcdcf4a4104e7ecad64db3c2f9b80a190cae80551e71008ee7a7218f5e56cf",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/ui-v03-validation.md",
+      "bytes": 5598,
+      "sha256": "0d6822f6ce32c415a67e604e108f598b470cc617d40eaf561cfb76f9146799c1",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-final-check.json",
+      "bytes": 5141,
+      "sha256": "c63741e147389ed9fdb33c19b787bb85fe43dfd80822cbfb7321b61ad76d0127",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-final-logs.json",
+      "bytes": 65085,
+      "sha256": "1a207c0dfdefcdd1cd6780972353ba69ebbe37dcad9512f08d36269e71dca92b",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-final-lsp.json",
+      "bytes": 147,
+      "sha256": "5aeeefc04de5fb61266d43130a51e328f550aafe694ab2821db0f4096ee4e492",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-final-pre-refresh.json",
+      "bytes": 5218,
+      "sha256": "987ff4ad3d03ec21821d6e5db5da99d63e4f6cb38211aa68feee46bdf9a87f13",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-final-refresh.json",
+      "bytes": 4928,
+      "sha256": "7ac658c83c1c52d1c34b31eda3b3280f93a1e66be88f981c40d4e056a5a5c989",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-portal-pre-refresh.json",
+      "bytes": 5218,
+      "sha256": "146e0aebcc20e94d310f2524fd736b7691ac2fdf6862dd39dbe9059656199b9d",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-portal-qa-refresh.json",
+      "bytes": 4928,
+      "sha256": "671892de3e428bb8f1f17ee27aade6096b494a91683150506b4896c6c9e2ec4b",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-pre-refresh.json",
+      "bytes": 5219,
+      "sha256": "6d7b5a20bbe6d328d4532935f18e07e7b70ceb4b7b15fe9b5e63f3f87971fc4d",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-preview-before.json",
+      "bytes": 5276,
+      "sha256": "98e1e7ddc34f06601d31ce29290dadb49ba535e82f5e0849293d2f4e2c9c2ff1",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-preview-qa-start.json",
+      "bytes": 4967,
+      "sha256": "9e5a9b24d763e30397da55532b649479f8b4209706312e381d26894b83d0a0f0",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-qa-logs-0.json",
+      "bytes": 68858,
+      "sha256": "5acffd4af33b4990802ec7b97950de3536a1fcc7dc974249d80db602f5fec80e",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-qa-logs-1000.json",
+      "bytes": 39515,
+      "sha256": "36f86b7259ff16c95aed086d2f70d2ac7ec6add0d3ae5b1a70cbe1826a195c9f",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-qa-logs-500.json",
+      "bytes": 70196,
+      "sha256": "963d6a2207c5f8cd7be68bcbcca5aaf8102870dbf4b87957b10e76f23a125005",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-qa-r1-logs-0.json",
+      "bytes": 68258,
+      "sha256": "1d8ead816027e4a62e206872f57594d8467b61ae326a90334709cf3a462314e0",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-qa-r1-logs-1000.json",
+      "bytes": 38445,
+      "sha256": "f543ae845d0bb46a95999e144e1eaec83c84629db857ea0571d6e2a19fba8179",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-qa-r1-logs-500.json",
+      "bytes": 69301,
+      "sha256": "8fbffb9a98b021f86a673fccdecc3a63f67eda4fefaf49da768f8b5d49cc08b3",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-qa-r3-logs-0.json",
+      "bytes": 68409,
+      "sha256": "7f1a3141fdf7fee526e3f0aa2b6a55965687bce2cb0fe8e3bd82fa4f9866d49e",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-qa-r3-logs-1000.json",
+      "bytes": 38670,
+      "sha256": "e93c8ffdd1a0667c9f6dbb0f6b52df266a6976660ee85565c35cc32a56cae9d9",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-qa-r3-logs-500.json",
+      "bytes": 69540,
+      "sha256": "1f96ea74648fbc0583fb23d15a691e22c6486b88a8aea847906592ca9407138b",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-qa-refresh.json",
+      "bytes": 4928,
+      "sha256": "75fc8626c8661463fd8dde0b90ca15269d4bc35376bb3fdd66ab9df59c190166",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-qa-status.json",
+      "bytes": 5219,
+      "sha256": "6d7b5a20bbe6d328d4532935f18e07e7b70ceb4b7b15fe9b5e63f3f87971fc4d",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-release-check.json",
+      "bytes": 5141,
+      "sha256": "7118c7b07ee87be84022c5f7ca2932cdcbe2296353a3ef759a44dee19096b01d",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-release-logs.json",
+      "bytes": 63705,
+      "sha256": "d7f968e8658b3872367b8921817774ab638cfa01ded2e0f9ca346faf070781f9",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-release-pre-refresh.json",
+      "bytes": 5218,
+      "sha256": "6c3185976e141637e6f3be21af1de28ac1092a630064b08c8828a2418abed1d6",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v02-release-refresh.json",
+      "bytes": 4928,
+      "sha256": "39d5f33fa49b548ef7bf30bde1a47cc4b9eb76241bd26db669e91792ab13f36f",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v03-cleanup-manifest.json",
+      "bytes": 31572,
+      "sha256": "b0d9f70b2ac1b5837c020be4da1f77a9119ce908fe9449a44725e60757e00229",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v03-cleanup-manifest.md",
+      "bytes": 12525,
+      "sha256": "f914d7ca0acb5dcb8925fa0fcf6cf16c6c45833c2ca87f88afea752aa711876d",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v04-art-production-plan-draft.md",
+      "bytes": 10590,
+      "sha256": "340772e05fe0060811c8e7a88664405d0969492bbb87f2e9454b9bf784d600b4",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v04-character-development-plan.md",
+      "bytes": 19651,
+      "sha256": "39a1e78cbdb383e7e4ae10628acb14ce81583a9bff2044ab9563672b2e3507ff",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v04-character-eight-frame-requirements.md",
+      "bytes": 13821,
+      "sha256": "4916b27e5951de597469856cfb53db123077c2b4e1b4d0af7f970b2542c6bf87",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v05-attached-components-plan.md",
+      "bytes": 3755,
+      "sha256": "7b4e2aef2bc02da745526508329d5c8b67b5575f5e4076a1283f9e15cd92b557",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v05-attached-development-status.md",
+      "bytes": 5659,
+      "sha256": "43b93a50e810679a473304cc182f5050d2f01df004971a264340a3f1e23066d6",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v05-attached-domain-evidence.json",
+      "bytes": 3649,
+      "sha256": "e1f87fa36b438aaeb0a4602a33f7b41fe5e55abadcbbe21bb9a4757a7c3c8120",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v05-attached-final-preview.json",
+      "bytes": 4316,
+      "sha256": "e27e54d737641617e411c2f53dfb2ca307ed44a2c6bcde4e1c56d88c4aaf91ef",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v05-attached-manual-acceptance.md",
+      "bytes": 4027,
+      "sha256": "66bc56dcf575b9d6418b9c832ce4ce4cb332a2ea4f5edb0f70a05878cf320bfd",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v05-attached-runtime-evidence.json",
+      "bytes": 4696,
+      "sha256": "86a8b899d14c326d96bf11a7dfb8d72495bba76e567886e46c9e3134823d6230",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v05-cable-socket-preview-evidence.json",
+      "bytes": 5526,
+      "sha256": "5f0ce0286f0e0f49714e9cb8b3670968793f3f89947946d542e31ea9c9549d91",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v05-development-status.md",
+      "bytes": 6024,
+      "sha256": "5c6c6fe927084c5d40f07123c39c272da0481e2124982100418cfa979c0e47ad",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v05-domain-evidence.json",
+      "bytes": 7937,
+      "sha256": "80682d1168d5c1b019d179f88fb9ede70e9de0de0dde8d9f5c459bc47c01e6f2",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v05-feedback-final-preview.json",
+      "bytes": 4251,
+      "sha256": "c1748299ca66a09e028732dc3000168ddaf04801f7f7074cb0692e786915b08a",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v05-feedback-revision.md",
+      "bytes": 4887,
+      "sha256": "87fcb0cc2ec109421469a340d353c0a314059bcc9e98dc4995d5939ea778f9ed",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v05-feedback-runtime-evidence.json",
+      "bytes": 3359,
+      "sha256": "18673823749b89b408e3b803534027baa12c71dddb0392f739c1d8f58043ec85",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v05-final-preview-evidence.json",
+      "bytes": 4492,
+      "sha256": "83abdb82ae175f9374fc432e65af8665e19269a1e1cc7d15857852db6e9215a9",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v05-manual-acceptance.md",
+      "bytes": 8732,
+      "sha256": "1ec55133db8c40e711909e053f0c0bc6f10bbb09bf1c338e5049a520d0ee6d2e",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v05-native-review.md",
+      "bytes": 5340,
+      "sha256": "d4d302e9ee8ba359236b4fda092343a3e102b0c09613b00d66e57395e9aa4ba0",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v05-order-automation-development-plan.md",
+      "bytes": 33418,
+      "sha256": "701602efd84e5bad388ee4d977626fa27c14a015bd0a6a2e03397d1f915c9441",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v05-release.md",
+      "bytes": 1822,
+      "sha256": "4eabc2868cf82d5f96fae7a1a2243839f38ec2f76a249188f07758cfe8cb294d",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v05-runtime-evidence.json",
+      "bytes": 7406,
+      "sha256": "a21d774da4bbe1ed379d21d73594c1e284b4988779846b80e1921097c7d2f18a",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v05-shared-machines-evidence.json",
+      "bytes": 754,
+      "sha256": "592d82a97c04d4879f292ae8604c3763d962eb0112b3e5486c2d24373da0c843",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v06-day-config.json",
+      "bytes": 7409,
+      "sha256": "3fe733530313930894e7a8f2979bf9a578ebfa560be47d12efeb10332fc34936",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v06-development-plan.md",
+      "bytes": 22929,
+      "sha256": "bfeb038a5ed5ddac310af39a16c7f183ef878071ad444f8e5bf308f437e42e28",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v06-development-status.md",
+      "bytes": 3489,
+      "sha256": "eaadff112ce7c6ccdc69e51c677ba389b170dabd5f6bbbea19cb0cae9eb2e17f",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v06-domain-evidence.json",
+      "bytes": 8121,
+      "sha256": "d3d71181f3ffccf325096b38bc2a7294a06eecf1bbc7c78fafd86f72a36ca35a",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v06-final-preview-evidence.json",
+      "bytes": 13511,
+      "sha256": "b2bb9c66093cbc5b701554e1ffaad5ad8adddc2ded39024411f6dffebad10ddb",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v06-manual-acceptance.md",
+      "bytes": 8360,
+      "sha256": "f57530024137ceb4f9a344400ee8c1fa27a2d1a41dbd7e7cb2e2ca3a72ad85e3",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v06-release.md",
+      "bytes": 1928,
+      "sha256": "8b49b3a1d2fbb7aef73f00b6e81851ebe7bf1cf918a32b03a33124e0b296e26d",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v06-runtime-evidence.json",
+      "bytes": 3812,
+      "sha256": "b1f88b2618674a901fcbf4d68e99a646645ea94487e7aa31d489d27a84c7f9de",
+      "source": "current-workspace"
+    },
+    {
+      "path": "docs/v06-savebridge-evidence.json",
+      "bytes": 185,
+      "sha256": "5256a6b6adba1a8e717213cefef766e37274aa06d4fc4d2d04625a4d28d59039",
+      "source": "current-workspace"
+    },
+    {
+      "path": "launch-demo.ps1",
+      "bytes": 3031,
+      "sha256": "5d8b4dfd5ef7785c0d5c8bec8de1ea845ead2c98e03fa533016581670104b484",
+      "source": "current-workspace"
+    },
+    {
+      "path": "preview-save-bridge.ps1",
+      "bytes": 7802,
+      "sha256": "9538ae031b14655583c46cf0e254c1a2738c46d333f2e7c6e3ed3f709866430a",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/AttachedComponents.lua",
+      "bytes": 3072,
+      "sha256": "4ca2a96ba3b66b0fe40c39edcbb440241f3abbe5396ba0966937ad660526603a",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/AutomaticChecks.lua",
+      "bytes": 8171,
+      "sha256": "443cc7e5faea6e32a270838073f628bc9f54b7ef87b667f4c79c70b764da27c2",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/AutomaticWorkstation.lua",
+      "bytes": 12610,
+      "sha256": "0190cc1e827920f1cef5fc368d9ac0eddb0c82002737ad8a12309dda93883dc8",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/AutomationArea.lua",
+      "bytes": 2682,
+      "sha256": "bd672afb32817118919773a0c1013d2477b7a6881c072c662d5a71fe0537a78d",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/BufferStorage.lua",
+      "bytes": 7154,
+      "sha256": "d02dee4505a69f1bfaea7a524fcb8d64d5e6110b014d7283b3bb1b07aa6b9d53",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/Buildings.lua",
+      "bytes": 8036,
+      "sha256": "7cea2fddd88c32cf2ac27f591884d6e99132b5839e4093b3a899410eba5d4f53",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/CableNetwork.lua",
+      "bytes": 8377,
+      "sha256": "d8ff88e140a66bb74b353d28892edff87f64b178bcb0e0f439de1d394d91c23d",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/Campaign.lua",
+      "bytes": 3556,
+      "sha256": "c389b5533b1549f641b663bc10883813c631f308821a42af95dd51977a9fe741",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/CampaignRecovery.lua",
+      "bytes": 2766,
+      "sha256": "119e3440b1aeff669742904d214d5b9ce37c7d542ecedb04d5c26701ebfe7bda",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/CampaignRuntime.lua",
+      "bytes": 11992,
+      "sha256": "cb1ee75da47c80e0bd76fd1d9c2204c739794e0970e1c6f47d75c3012997a67c",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/CampaignWorld.lua",
+      "bytes": 4690,
+      "sha256": "010b73810de38c5f0f1be3a76d0d968b71ade3f4f40745d0f3e32f2b794b97cb",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/CommerceChecks.lua",
+      "bytes": 4091,
+      "sha256": "340dc341ce8f064de833cedc809fb3c513fd7d43a6383289949e841f2776de81",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/ConveyorBuilder.lua",
+      "bytes": 13978,
+      "sha256": "2f02bde3e78dc8f2b2e04e10d64a43d6e31ad38977e9503f255aa05ad0fe54ac",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/ConveyorChecks.lua",
+      "bytes": 14321,
+      "sha256": "239eff611322b4241f83cd49e1401a7618d6f2ce01a14641265419b4f5cac500",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/ConveyorControl.lua",
+      "bytes": 16136,
+      "sha256": "d6f04e3b769447f4d4903d21365e4566d973bf6f2c507da0348d61f5c6b9e784",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/ConveyorEditingChecks.lua",
+      "bytes": 8582,
+      "sha256": "b99f3b1a2584840f4b1051ae3fbbeb88dc1eeb0ba990cf3bb82c611f769881ac",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/ConveyorGeometry.lua",
+      "bytes": 8996,
+      "sha256": "81ae26406517979ef805206e8a95d43c193d5934640798d4332c693f2608916c",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/ConveyorNetwork.lua",
+      "bytes": 21323,
+      "sha256": "228053264cfeb399f2d3ac4da76904b483bed9860fb2c32e8edce8e5b41bc4e9",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/ConveyorWorld.lua",
+      "bytes": 10871,
+      "sha256": "73ec008922daabe0e0bba37241a37c54cc48062c96e9f34acb67b902a8e6c592",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/DayConfig.lua",
+      "bytes": 3168,
+      "sha256": "519bcbd9f9ec8ef4ff911484b4d39dcdc257ce1fe4260619ea344f9f9d15b91e",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/GameLoop.lua",
+      "bytes": 5457,
+      "sha256": "463cc4759a8cfd1697c1d546f6c56c0f8807783123fcdcb41f6446678e9e913b",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/HudDiagnostics.lua",
+      "bytes": 1700,
+      "sha256": "410cc151d442a13a8438ede906c89971d9d1e2f75fdaece50ec4250ceda0be80",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/Interface.lua",
+      "bytes": 106,
+      "sha256": "4b861ebca49586955da9a31d0c4b0db3e728f2b2c6244f9288faf488593e6f9c",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/InterfaceV3.lua",
+      "bytes": 27076,
+      "sha256": "4f07029eba5546c1da29fb343168dab676f708bad79b03d807ec1dfd78d73746",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/ItemChecks.lua",
+      "bytes": 5602,
+      "sha256": "10c8dc9ddaede49fa8c61c748eaee377c79127652328db8146de617a74f1cf21",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/Items.lua",
+      "bytes": 8973,
+      "sha256": "cd2c0df149eae2be3d3ca3ca7af159d6eff9185d67b1ecec081ecfb3875e8bf8",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/LocalSave.lua",
+      "bytes": 4200,
+      "sha256": "98996968a32c25d63c4bdb65906372d92b0338fb09d7408fe64bce4a83b17243",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/LoopChecks.lua",
+      "bytes": 8232,
+      "sha256": "525d2014d0d82bc264868c263e749c084c03397e526880f40ea27681464573f8",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/ManualChecks.lua",
+      "bytes": 6627,
+      "sha256": "b6e5724ab31cb8520c32eee7dbb5588e6deea7c32cbcb06619dc573622063c20",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/ManualProduction.lua",
+      "bytes": 6016,
+      "sha256": "90e6fb9c5a33402104c08b14d34fc0b2e0cf3385874a1f3e4e1f2cc570644caf",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/OrderAutomation.lua",
+      "bytes": 16606,
+      "sha256": "7fffa7938f534878c335c9b5fba673ccd83555a8615a6c79c09dfe3cadf56442",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/OrderAutomationControl.lua",
+      "bytes": 16430,
+      "sha256": "2fb49137e1e8c395d0e1070b1adb8701e2ed1ffd3cd9641ec26b0db73b749cf7",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/OrderTerminalModel.lua",
+      "bytes": 8129,
+      "sha256": "7c6a79fe5339423f73b9a611cc96a2c3321050445c0462cc4646e0eb379d4448",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/Orders.lua",
+      "bytes": 7067,
+      "sha256": "54509ff32d5ff5a72abf245444430e42dac98f5d5d5d3befa3c5d86b29a5532e",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/OrthographicView.lua",
+      "bytes": 2121,
+      "sha256": "ae57ecda32bd965263adc2068e83f55c2e21d049667806818de177d2388e9621",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/Phase1.lua",
+      "bytes": 107351,
+      "sha256": "48f531aa30713f9230cd250b1c87134b7847a34da506830aac15231c31da4f06",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/ProductionPlanner.lua",
+      "bytes": 4669,
+      "sha256": "713400e2329cd739eeb4c82ec99bfc99b5606b7075403e24bfd989febdf3019a",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/ReviewFixChecks.lua",
+      "bytes": 3112,
+      "sha256": "95d70f57a7082e5640ec8ab12be5c719c329f04c7ef52229106c7cade01064cf",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/SaveCodec.lua",
+      "bytes": 2087,
+      "sha256": "a6e05b696aa99bf880be8424bc72afea5e0f5e27ab2c738e6008c2581a5c4aee",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/StageChecks.lua",
+      "bytes": 15836,
+      "sha256": "b14ec565e6202454807cbe0320cb2f9d8f2d4665c512a28d7ec85d6547a07505",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/TouchInput.lua",
+      "bytes": 2459,
+      "sha256": "b0f238ec86fdccfc8775562d655837d04d72bb7ac59b25119d7ed74c31b37dde",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/UIChecks.lua",
+      "bytes": 3783,
+      "sha256": "f9e391801a35b8934be5215a12139e25a972654646bdbf6090d7bb021e28806b",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/UIController.lua",
+      "bytes": 56207,
+      "sha256": "dff9bdd203433c83a5c985087850d340fddf8027705cb657b359059280a50995",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/UIPreferences.lua",
+      "bytes": 1058,
+      "sha256": "70de5ff588680bcf56770e316e64b2a1c1942c72c11b2e1a49f5c3f783d38ace",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/UIState.lua",
+      "bytes": 4003,
+      "sha256": "8cc98b8ea7677c20376d2ae15fa6d284211f68a2f804490f501c59282f8a83cc",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/V05AttachedChecks.lua",
+      "bytes": 9500,
+      "sha256": "05fa39a4d57656545ccddcf46e75c61e212ead6816f040a764e134595924dbc0",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/V05Checks.lua",
+      "bytes": 16818,
+      "sha256": "1a55fa5ea7b8399402d4d1b71b1c3ab669fb487a5f1ad33b9692fa1246eb9331",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/V05RuntimeChecks.lua",
+      "bytes": 8931,
+      "sha256": "7bdf2fe779985449423f7c151fe230359c9d88dc7f0ca6e979a838e0935cfaf4",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/V06Checks.lua",
+      "bytes": 10916,
+      "sha256": "378bfb6188b6127654589bfd25a3d45e3e5af912f4f2c4ec162ce844e130b194",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/Factory/V06RuntimeChecks.lua",
+      "bytes": 8610,
+      "sha256": "40a27a949f014035eb51ae238507897b4a18201021916cbfeadbc3e46ffbcc5b",
+      "source": "current-workspace"
+    },
+    {
+      "path": "scripts/main.lua",
+      "bytes": 280,
+      "sha256": "ed60544eb2b5e8d9d8c35e07db44794fa9fbc6968f81b6ce80e17101dbc46543",
+      "source": "current-workspace"
+    }
+  ],
+  "credential_pattern_matches": 0,
+  "lua_syntax_checked": 51,
+  "temporary_qa_flags_disabled": true,
+  "prior_development_checks": {
+    "domain": 80,
+    "native_scene": 31,
+    "host_bridge": 5,
+    "rerun_for_upload": false
+  },
+  "user_acceptance": "Confirmed directly by user on 2026-10-19; no per-item results invented",
+  "excluded": [
+    "player .local-saves data",
+    "Maker credentials and binding",
+    "engine references/tooling",
+    ".tmp and build outputs",
+    "paused V0.4 assets and review galleries",
+    "CLI/checkpoint logs",
+    "待回收 file bodies",
+    "post-push completion receipt"
+  ],
+  "note": "Manifest excludes itself to avoid self-reference. Existing GitHub files and history are preserved; no Maker remote build."
+}

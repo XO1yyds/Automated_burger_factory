@@ -10,6 +10,9 @@ local World=require('Factory/ConveyorWorld')
 local Network=require('Factory/ConveyorNetwork')
 local Grid=require('Factory/ConveyorGeometry')
 local Area=require('Factory/AutomationArea')
+local CampaignUI=require('Factory/CampaignRuntime')
+local Days=require('Factory/DayConfig')
+local Recovery=require('Factory/CampaignRecovery')
 ---@class FactoryUIController
 ---@field context table
 ---@field view FactoryInterface
@@ -52,8 +55,9 @@ end
 
 function Controller:Phase()
     local c=self.context.get()
-    if c.loop.state~='running' then return self.overlay or c.loop.state end
+    if not c.loop:IsRunning() then return self.overlay or c.loop.state end
     if self.overlay then return self.overlay end
+    if c.loop.briefing then return 'briefing' end
     if c.cashier then return 'cashier' end
     if c.components and c.components.mode then return 'attach' end
     if c.automation and c.automation.terminal then return 'terminal' end
@@ -81,13 +85,15 @@ end
 
 function Controller:ConfirmDialog(command,title)
     self:Release(); self.confirmCommand=command; self.overlay='confirm'; self.focus=0
-    self.confirmTitle=title
+    self.confirmTitle=title; self.confirmDetails=nil
 end
 
 function Controller:Back(escape)
     local c=self.context.get(); local phase=self:Phase(); local build,b=c.buildings,c.logistics.builder
     self:Release(); self.focus=0
-    if self.overlay then self.overlay=nil; return end
+    if self.overlay then if self.overlay=='lesson' or self.confirmCommand=='v06RecoverLoss' then c.loop.teaching=false end; self.overlay=nil; return end
+    if c.campaign and phase=='briefing' then c.loop.briefing=false; return end
+    if c.campaign and phase=='title' then return end
     if phase=='paused' then c.loop:Resume(); return end
     if phase=='settlement' or phase=='complete' then return end
     if phase=='attach' then
@@ -129,6 +135,7 @@ end
 function Controller:Command(command,value)
     local c=self.context.get(); local phase=self:Phase(); local build,control=c.buildings,c.logistics
     local b=control.builder
+    if c.runtime and c.runtime:Command(command,value,self) then return true end
     if command=='interactionHold' then
         self.holdingInteraction=value==true and phase=='normal'
         if value then self.interactionValid=phase=='normal'; self.suppressClick=c.target~=nil and c.target.id=='grill' and c.manual.grillItem=='raw_beef' and not c.items.held end
@@ -192,6 +199,7 @@ function Controller:Command(command,value)
         self.category=value; self.kind=State.Kinds[value][1]; self.focus=0; return true
     elseif command=='selectKind' and phase=='menu' then self.kind=value; self.focus=0; return true
     elseif command=='enterKind' and phase=='menu' then
+        if c.campaign and not c.campaign:Unlocked(self.kind) then self:Notify('第'..(Days.UnlockDay[self.kind] or '?')..'天开放。'); return true end
         self:Release()
         if self.kind=='terminal' or self.kind=='delivery_component' then
             c.automation:Close(); control:Cancel(); build:Manage()
@@ -220,8 +228,16 @@ function Controller:Command(command,value)
         if ok and command=='rotateManaged' then build:Rotate() end
         if ok then build.previewPinned=true else self:Notify(message) end
         self:Release(); return true
-    elseif command=='deleteManaged' and phase=='selected' then
+    elseif (command=='deleteManaged' or command=='deleteManagedConfirmed') and phase=='selected' then
         if self.elapsed-self.selectedAt<0.5 or (self.deleteUntil or 0)>self.elapsed then return true end
+        if c.campaign and command=='deleteManaged' and not c.automation.managing then
+            local loss=Recovery.Forecast(c,self.selected,control.selectedBelt)
+            if loss~='' then
+                c.loop.teaching=true; self:ConfirmDialog('v06RecoverLoss','回收可能造成物品损失')
+                self.confirmDetails='将实际删除：'..loss..'。\n取消可保留全部内容；确认后回收建筑，其他物品按队列落地。'
+                return true
+            end
+        end
         if self.selected and (self.selected.buildingKind=='terminal' or self.selected.component=='order') and c.automation.service:HasTasks(self.selected.id) then
             self:ConfirmDialog('deleteTerminal','拆除下单组件？将取消该组件的生产任务，已开始加工安全收尾。'); return true end
         if c.automation.managing then local _,message=c.automation:DeleteManaged(); self:Notify(message)
@@ -264,7 +280,7 @@ function Controller:Keyboard()
     end
     local dx=((key(KEY_D) or key(KEY_RIGHT)) and 1 or 0)-((key(KEY_A) or key(KEY_LEFT)) and 1 or 0)
     local dz=((key(KEY_W) or key(KEY_UP)) and 1 or 0)-((key(KEY_S) or key(KEY_DOWN)) and 1 or 0)
-    if c.loop.state~='running' then
+    if not c.loop:IsRunning() or phase=='briefing' or self.overlay then
         if dx~=0 or dz~=0 then self.focus=(self.focus-1+(dx-dz))%math.max(1,#(self.focusActions or {}))+1 end
         return true
     end
@@ -406,7 +422,8 @@ function Controller:CameraGesture(g)
     local c=self.context.get(); local s=self.preferences.sensitivity
     local units=c.camera.orthoSize/c.zoom/math.max(1,graphics:GetHeight()/UI.GetScale())
     local center=Area.Center(c.area); local p=c.cameraNode.position
-    p.x=State.Clamp(p.x-g.dx*units*s,center-7,center+7); p.z=State.Clamp(p.z+g.dy*units*s,-5,5)
+    local width,depth=Area.Size(c.area)
+    p.x=State.Clamp(p.x-g.dx*units*s,center-width/2+2,center+width/2-2); p.z=State.Clamp(p.z+g.dy*units*s,-depth/2+2,depth/2-2)
     c.cameraNode.position=p; self.context.zoom(State.Clamp(c.zoom*g.scale^s,0.8,2.5))
 end
 
@@ -536,10 +553,11 @@ end
 
 function Controller:Modal(phase)
     local c=self.context.get(); local loop=c.loop
+    if c.campaign then local modal=CampaignUI.Modal(c,self,phase); if modal then return modal end end
     if phase=='terminal' then return c.automation:Modal() end
     if phase=='paused' then return {title='暂停',back='继续游戏',lines={'模拟已冻结；继续后恢复原操作模式。','本 Demo 不保存游戏进度。'},
         tools={action('运行统计 / 设备说明','statistics'),action('操作与显示设置','settings'),action('提前结束当天','pauseEnd'),action('退出游戏','exitGame')},buttons={}}
-    elseif phase=='confirm' then return {title=self.confirmTitle,back='取消',lines={'仅确认后执行此操作。'},buttons={action('确认','confirmYes')}}
+    elseif phase=='confirm' then return {title=self.confirmTitle,back='取消',lines={self.confirmDetails or '仅确认后执行此操作。'},buttons={action('确认','confirmYes')}}
     elseif phase=='statistics' then
         local network=c.logistics.network; local cargo,used,capacity=0,0,0; local counts={}
         for _,belt in ipairs(network.belts) do cargo=cargo+#belt.cargo end
@@ -555,8 +573,8 @@ function Controller:Modal(phase)
             '设备说明（静态规则）','烹饪台 2.4×1.5格：3槽各3秒，手动生肉后进先出。\n组合台 2.4×1.5格：胚+熟肉+生菜，自动2秒。',
             '缓存台 2×2格：容量6，输出后进先出。\n库存 2×4格：容量24，空手取栈顶，禁止手动存换。\n下单/交付组件依附库存或缓存，不另占地。下单终端可在本机库存页任取。\n电缆整网共享2件/秒，任务按入库到货计数。\n接口 1×1格：无独立速度或缓存，按接入口收束/分散。','基础带 0.5格/秒，单入单出，不过滤，不重叠，禁止环路。'}
         return {title='统计与设备说明',back='返回暂停',lines=lines}
-    elseif phase=='settings' then return {title='操作与显示设置',back='返回暂停',lines={State.PreferenceText(self.preferences),
-        '仅保存本机 UI 偏好，不包含游戏进度。','WASD 移动 / 选项 / 节点；Shift 奔跑\nF 交互；手工铁板空手长按 F 3秒\nQ 放下；B 建造；R 旋转\nTab 选右下动作，F/Enter 执行\n右键逐层返回；ESC 返回建造首页 / 暂停\n鼠标中键平移、滚轮缩放；双指平移/捏合',
+    elseif phase=='settings' then return {title='操作与显示设置',back=loop.state=='title' and '返回标题' or '返回暂停',lines={State.PreferenceText(self.preferences),
+        c.campaign and '经营进度保存于本机；UI偏好独立保存。' or '仅保存本机 UI 偏好，不包含游戏进度。','WASD 移动 / 选项 / 节点；Shift 奔跑\nF 交互；手工铁板空手长按 F 3秒\nQ 放下；B 建造；R 旋转\nTab 选右下动作，F/Enter 执行\n右键逐层返回；ESC 返回建造首页 / 暂停\n鼠标中键平移、滚轮缩放；双指平移/捏合',
         '手机：摇杆内圈步行，外圈奔跑；交互按钮可独立按住加工。\n场景点击只选取；最终放置必须点确认。\n切后台会暂停，回前台需主动继续。'},tools={
         action('切换：固定 / 浮动摇杆','preference','joystick'),action('切换：双端 / 键鼠 / 触屏','preference','display'),
         action('UI 缩小','preference','scaleDown'),action('UI 放大','preference','scaleUp'),action('降低镜头灵敏度','preference','sensitivityDown'),
@@ -572,7 +590,7 @@ function Controller:Modal(phase)
         return {title='Demo 完成',lines=lines,buttons={action('退出游戏','exitGame'),action('重新开始','restart')}}
     elseif phase=='cashier' then
         local tools={}; for i,o in ipairs(c.orders.active) do table.insert(tools,action(string.format('%s订单%02d · %d/%d',o.id==c.orders.selectedId and '[已选] ' or '',o.id,o.delivered,o.required),'selectRow',i)) end
-        local lines={'可交付汉堡 '..c.orders:DeliveryCount()..' · 待处理 '..#c.orders.active..'/5',
+        local lines={'可交付汉堡 '..c.orders:DeliveryCount()..' · 待处理 '..#c.orders.active..'/'..(c.orders.limit or 5),
             c.orders:Find(c.orders.selectedId) and '已选订单：可部分交付。' or '请选择有效订单。',loop.remaining==0 and '计时已归零，可以结束当天。' or '计时归零后才可结束当天。'
         }
         for _,line in ipairs(c.orders:DeliverySummary()) do table.insert(lines,line) end
@@ -593,6 +611,7 @@ function Controller:Update(dt)
     local editing=State.IsBuild(phase)
     -- Pausing preserves the snapshot; closing construction is the only restore.
     local underlying=build.mode~='idle' or b.mode~='idle' or (c.automation and c.automation.mode~='idle')
+    if c.runtime and not underlying then c.runtime.overview=false end
     if underlying and not self.cameraSaved then self.cameraSaved={position=c.cameraNode.position,zoom=c.zoom}; self.context.zoom(State.Clamp(c.zoom*0.9,0.8,2.5))
     elseif not underlying and self.cameraSaved then c.cameraNode.position=self.cameraSaved.position; self.context.zoom(self.cameraSaved.zoom); self.cameraSaved=nil end
     self.context.presentation(State.Grid(phase),editing)
@@ -600,11 +619,12 @@ function Controller:Update(dt)
     local scale=UI.GetScale(); local insets=UI.GetSafeAreaInsets()
     local w=graphics:GetWidth()/scale-((insets.left or 0)+(insets.right or 0))
     local h=graphics:GetHeight()/scale-((insets.top or 0)+(insets.bottom or 0))
-    local model={phase=phase,width=w,height=h,title=State.Titles[phase] or '',normal=phase=='normal',clock=string.format('第%d/3天 · %02d:%02d',c.loop.day,math.ceil(c.loop.remaining)//60,math.ceil(c.loop.remaining)%60),
-        held='手持：'..name(c.items.held),orderCount=#c.orders.active,category=self.category,kind=self.kind,
+    local model={phase=phase,width=w,height=h,title=State.Titles[phase] or '',normal=phase=='normal',clock=string.format('第%d/%d天 · %s',c.loop.day,c.campaign and 10 or 3,c.loop.state=='preparation' and '准备中' or string.format('%02d:%02d',math.ceil(c.loop.remaining)//60,math.ceil(c.loop.remaining)%60)),
+        held='手持：'..name(c.items.held),orderCount=#c.orders.active,orderLimit=c.orders.limit or 5,category=self.category,kind=self.kind,
         display=self.preferences.display,floating=self.preferences.joystick=='floating',toast=self.elapsed<self.toastUntil and self.toast or '',actions={}}
     local a=model.actions; local function add(text,command,value,disabled) table.insert(a,action(text,command,value,disabled)) end
     if phase=='normal' then
+        if c.campaign then add(c.loop.state=='preparation' and '准备 / 开业' or '当日教学',c.loop.state=='preparation' and 'dayBriefing' or 'lesson') end
         add('放下','dropUI',nil,c.items.held==nil); add('建造','openBuild',nil,c.area~='workshop')
         local text='交互'; if c.ground then text=c.items.held and '交换' or '拾取'
         elseif c.target then
@@ -621,9 +641,10 @@ function Controller:Update(dt)
     elseif phase=='preview' or phase=='move' then
         model.back=phase=='move' and '取消编辑' or '取消放置'; model.title=model.title..' · '..Buildings.Definitions[build.kind].name
         local valid,reason=build:Validate(c.player.position)
+        if c.campaign and phase=='preview' then local cost,msg=c.campaign:Quote(build.kind); if not cost then valid,reason=false,msg else reason=reason..' · '..msg end end
         if build.selected and (c.logistics.network:HasAttached(build.selected.id) or (c.automation and c.automation.cables:HasAttached(build.selected.id))) then valid,reason=false,'请先拆除相连传送带/电缆，再移动或旋转。' end
         if build.selected and c.machines[build.selected.id] and c.machines[build.selected.id]:IsProcessing() then valid,reason=false,'加工中的建筑不能移动。' end
-        model.reason=(build.previewPinned and '投影已固定' or '投影跟随')..' · '..(valid and '可放置' or '不可放置：'..reason)
+        model.reason=(build.previewPinned and '投影已固定' or '投影跟随')..' · '..(valid and reason or '不可放置：'..reason)
         add('旋转 90°','rotateUI'); add('确认摆放','confirmBuild',nil,not valid)
     elseif phase=='manage' then model.back='返回选型'; model.reason='点选已有建筑或整条传送带。'
     elseif phase=='attach' then
@@ -643,7 +664,7 @@ function Controller:Update(dt)
         end
         local cooling=self.elapsed-self.selectedAt<0.5 or (self.deleteUntil or 0)>self.elapsed
         local processing=self.selected and c.machines[self.selected.id] and c.machines[self.selected.id]:IsProcessing()
-        add(cooling and '拆除待解锁' or '拆除','deleteManaged',nil,cooling or processing)
+        add(cooling and '回收待解锁' or '回收','deleteManaged',nil,cooling or processing)
         model.reason=locked and '加工中或已接带：先停止加工 / 拆带再移动。' or (cooling and '选中后 0.5 秒可拆除。' or '拆除后仍可继续选择；物品按原规则落地。')
     elseif phase=='source' or phase=='destination' then
         model.back=phase=='source' and '取消布置' or '返回选 A'
@@ -674,6 +695,27 @@ function Controller:Update(dt)
         table.insert(a,1,action(managing and '设备' or '切换电缆',managing and 'manageDevices' or 'manageCables'))
     end
     if phase=='cable' then c.automation:BuildModel(model); a=model.actions end
+    if c.campaign then
+        model.campaign=c.campaign
+        model.status=string.format('金币 %d · 本日交付 %d/%d',c.campaign.coins,c.campaign.delivered,Days.Day(c.loop.day).goal)
+        if phase=='menu' then model.reason=c.campaign:Card(self.kind) end
+        if phase=='cable' then
+            a[#a+1]=action('网络信息','networkInfo')
+            local plan=c.automation:Preview(); if plan and plan.valid then
+                local edges=0; for k in pairs(plan.edges or {}) do if not c.automation.cables.edges[k] then edges=edges+1 end end
+                local cost,reason=c.campaign:Quote('cable',edges); model.reason=(model.reason or '')..' · '..reason
+                if not cost then for _,act in ipairs(a) do if act.command=='cableConfirm' then act.disabled=true end end end
+            end
+        elseif phase=='adjust' and b.plan then
+            local cost,reason=c.campaign:Quote('belt',#b.plan.cells); model.reason=(model.reason or '')..' · '..reason
+            if not cost then for _,act in ipairs(a) do if act.command=='confirmBelt' then act.disabled=true end end end
+        elseif phase=='attach' then
+            local cost,reason=c.campaign:Quote(c.components.mode=='order' and 'terminal' or 'delivery_component')
+            model.reason=(model.reason or '')..' · '..reason; if not cost then for _,act in ipairs(a) do if act.command=='confirmAttachment' then act.disabled=true end end end
+        end
+        if State.IsBuild(phase) then a[#a+1]=action(c.runtime.overview and '回到玩家' or '一览车间',c.runtime.overview and 'cameraPlayer' or 'overview') end
+        if c.loop.state=='preparation' and phase=='normal' then model.reason='准备中：加工与物流冻结；整理后点击“准备 / 开业”。' end
+    end
     local tutorialKey=self:TutorialKey(phase)
     if tutorialKey~='' and not self.preferences.tutorials[tutorialKey] then
         model.tutorial=({normal='摇杆移动，外圈奔跑；交互与放下在右下。',preview='拖动投影后松手固定；最终点击确认摆放。',adjust='路段长按0.35秒拖动；端点/转角先选再拖；确认后继续选A。'})[tutorialKey]
@@ -721,9 +763,11 @@ end
 
 function Controller:FocusLost()
     self:Release(); local loop=self.context.get().loop
+    loop.teaching=false
     if loop:IsRunning() then loop:Pause() end
     if self.context.freeze then self.context.freeze() end
     self.overlay=nil
+    if self.context.get().runtime then self.context.get().runtime.pendingSave=true end
 end
 
 function Controller:Stop() self:Release(); self.view.onWorld,self.view.onJoystick=nil,nil end

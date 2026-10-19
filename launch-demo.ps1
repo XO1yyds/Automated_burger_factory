@@ -31,6 +31,13 @@ try {
     }
 
     Write-Host '正在检查自动化汉堡店 Demo……'
+    # Keep native campaign files across Maker's disposable Windows preview cache.
+    # A named mutex makes repeated desktop launches reuse one hidden companion.
+    $bridgeScript = Join-Path $projectDirectory 'preview-save-bridge.ps1'
+    if (-not (Test-Path -LiteralPath $bridgeScript -PathType Leaf)) { throw "存档启动组件缺失：$bridgeScript" }
+    $bridgeHost = Join-Path $PSHOME 'powershell.exe'
+    if (-not (Test-Path -LiteralPath $bridgeHost)) { $bridgeHost = Join-Path $PSHOME 'pwsh.exe' }
+    $null = Start-Process -FilePath $bridgeHost -ArgumentList @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', ('"' + $bridgeScript + '"'), '-Watch') -WindowStyle Hidden -PassThru
     $previewState = Invoke-LocalPreview -Action status
     if ($previewState.process_alive -eq $true) {
         Write-Host 'Demo 已在运行，请切换到 UrhoXRuntime 游戏窗口。' -ForegroundColor Green

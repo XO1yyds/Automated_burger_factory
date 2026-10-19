@@ -1,4 +1,4 @@
----@alias FactoryBuildingKind "cooker"|"assembler"|"junction"|"isolator_straight"|"isolator_corner"|"buffer"|"storage"|"terminal"|"delivery_component"
+---@alias FactoryBuildingKind "cooker"|"assembler"|"junction"|"isolator_straight"|"isolator_corner"|"buffer"|"storage"|"terminal"|"delivery_component"|"supply_raw"|"supply_bun"|"supply_lettuce"
 ---@class FactoryBuildingContext
 ---@field valid fun(x:number,z:number,width:number,depth:number,ignore:FactoryStation?): boolean,string
 ---@field create fun(kind:FactoryBuildingKind,x:number,z:number,quarter:integer): FactoryStation
@@ -6,6 +6,7 @@
 ---@field remove fun(record:FactoryStation): boolean,string
 ---@field processing fun(record:FactoryStation): boolean
 ---@field attached? fun(record:FactoryStation):boolean
+---@field purchase? fun(kind:string):boolean,string
 
 ---@class FactoryBuildingController
 ---@field context FactoryBuildingContext
@@ -31,6 +32,9 @@ Buildings.Definitions = {
     storage = { name = "库存", width = 2, depth = 4 },
     terminal = { name = "下单组件", width = 0, depth = 0 },
     delivery_component = { name = "交付组件", width = 0, depth = 0 },
+    supply_raw = {name='生牛肉供货点',width=2,depth=1.5},
+    supply_bun = {name='汉堡胚供货点',width=2,depth=1.5},
+    supply_lettuce = {name='生菜供货点',width=2,depth=1.5},
 }
 ---@type FactoryBuildingKind[]
 Buildings.Order = { "cooker", "assembler", "junction", "isolator_straight", "isolator_corner", "buffer", "storage", "terminal" }
@@ -136,11 +140,12 @@ function Buildings:Confirm(origin)
         return true, "建筑移动完成，内部物品保留。"
     end
     if self.mode ~= "preview" then return false, "请先选择要建造的建筑。" end
+    if self.context.purchase then local ok,reason=self.context.purchase(self.kind); if not ok then return false,reason end end
     local record = self.context.create(self.kind, self.x, self.z, self.quarter)
     self:Register(record)
     self.mode = "preview"
     self.confirmFocus,self.previewPinned = false,false
-    return true, "免费建筑已放置，继续移动投影建造；ESC/右键返回建筑页面。"
+    return true, self.context.purchase and '建筑已放置；已有件优先使用，可继续建造。' or "免费建筑已放置，继续移动投影建造；ESC/右键返回建筑页面。"
 end
 
 ---@param origin Vector3

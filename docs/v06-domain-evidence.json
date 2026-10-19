@@ -1,0 +1,327 @@
+{
+  "failed": 0,
+  "checks": [
+    {
+      "passed": true,
+      "name": "title never advances day or orders"
+    },
+    {
+      "passed": true,
+      "name": "preparation allows controls but cannot simulate"
+    },
+    {
+      "passed": true,
+      "name": "day one first customer waits twenty seconds"
+    },
+    {
+      "passed": true,
+      "name": "pause freezes campaign clock"
+    },
+    {
+      "passed": true,
+      "name": "resume restores trading"
+    },
+    {
+      "passed": true,
+      "name": "one burger and full order credit exactly fifteen"
+    },
+    {
+      "passed": true,
+      "name": "duplicate delivery event cannot add coins or daily progress"
+    },
+    {
+      "passed": true,
+      "name": "illegal building before its unlock cannot be bought"
+    },
+    {
+      "passed": true,
+      "name": "building purchase charges only confirmation cost"
+    },
+    {
+      "passed": true,
+      "name": "recovered building can be placed without paying twice"
+    },
+    {
+      "passed": true,
+      "name": "insufficient coins cannot mutate ownership"
+    },
+    {
+      "passed": true,
+      "name": "invalid quantities do not mint money"
+    },
+    {
+      "passed": true,
+      "name": "unique supply cannot be recovered into two held assets"
+    },
+    {
+      "passed": true,
+      "name": "unique supply cannot be purchased a second time"
+    },
+    {
+      "passed": true,
+      "name": "illegal building placement never charges coins"
+    },
+    {
+      "passed": true,
+      "name": "unaffordable legal placement never creates a machine"
+    },
+    {
+      "passed": true,
+      "name": "owned machine placement consumes one piece atomically"
+    },
+    {
+      "passed": true,
+      "name": "day 1 finite schedule matches configured orders"
+    },
+    {
+      "passed": true,
+      "name": "day 2 finite schedule matches configured orders"
+    },
+    {
+      "passed": true,
+      "name": "day 3 finite schedule matches configured orders"
+    },
+    {
+      "passed": true,
+      "name": "day 4 finite schedule matches configured orders"
+    },
+    {
+      "passed": true,
+      "name": "day 5 finite schedule matches configured orders"
+    },
+    {
+      "passed": true,
+      "name": "day 6 finite schedule matches configured orders"
+    },
+    {
+      "passed": true,
+      "name": "day 7 finite schedule matches configured orders"
+    },
+    {
+      "passed": true,
+      "name": "day 8 finite schedule matches configured orders"
+    },
+    {
+      "passed": true,
+      "name": "day 9 finite schedule matches configured orders"
+    },
+    {
+      "passed": true,
+      "name": "day 10 finite schedule matches configured orders"
+    },
+    {
+      "passed": true,
+      "name": "full order board pauses release clock without burst"
+    },
+    {
+      "passed": true,
+      "name": "freeing board does not instantly emit overdue batch"
+    },
+    {
+      "passed": true,
+      "name": "end window stops new orders"
+    },
+    {
+      "passed": true,
+      "name": "optional extra demand is capped at quarter of baseline"
+    },
+    {
+      "passed": true,
+      "name": "day 1 begins in frozen preparation"
+    },
+    {
+      "passed": true,
+      "name": "day 1 expiry clears customer orders"
+    },
+    {
+      "passed": true,
+      "name": "day 1 reward cannot be granted twice"
+    },
+    {
+      "passed": true,
+      "name": "day 2 begins in frozen preparation"
+    },
+    {
+      "passed": true,
+      "name": "day 2 expiry clears customer orders"
+    },
+    {
+      "passed": true,
+      "name": "day 2 reward cannot be granted twice"
+    },
+    {
+      "passed": true,
+      "name": "day 3 begins in frozen preparation"
+    },
+    {
+      "passed": true,
+      "name": "day 3 expiry clears customer orders"
+    },
+    {
+      "passed": true,
+      "name": "day 3 reward cannot be granted twice"
+    },
+    {
+      "passed": true,
+      "name": "day 4 begins in frozen preparation"
+    },
+    {
+      "passed": true,
+      "name": "day 4 expiry clears customer orders"
+    },
+    {
+      "passed": true,
+      "name": "day 4 reward cannot be granted twice"
+    },
+    {
+      "passed": true,
+      "name": "day 5 begins in frozen preparation"
+    },
+    {
+      "passed": true,
+      "name": "day 5 expiry clears customer orders"
+    },
+    {
+      "passed": true,
+      "name": "day 5 reward cannot be granted twice"
+    },
+    {
+      "passed": true,
+      "name": "day 6 begins in frozen preparation"
+    },
+    {
+      "passed": true,
+      "name": "day 6 expiry clears customer orders"
+    },
+    {
+      "passed": true,
+      "name": "day 6 reward cannot be granted twice"
+    },
+    {
+      "passed": true,
+      "name": "day 7 begins in frozen preparation"
+    },
+    {
+      "passed": true,
+      "name": "day 7 expiry clears customer orders"
+    },
+    {
+      "passed": true,
+      "name": "day 7 reward cannot be granted twice"
+    },
+    {
+      "passed": true,
+      "name": "day 8 begins in frozen preparation"
+    },
+    {
+      "passed": true,
+      "name": "day 8 expiry clears customer orders"
+    },
+    {
+      "passed": true,
+      "name": "day 8 reward cannot be granted twice"
+    },
+    {
+      "passed": true,
+      "name": "day 9 begins in frozen preparation"
+    },
+    {
+      "passed": true,
+      "name": "day 9 expiry clears customer orders"
+    },
+    {
+      "passed": true,
+      "name": "day 9 reward cannot be granted twice"
+    },
+    {
+      "passed": true,
+      "name": "day 10 begins in frozen preparation"
+    },
+    {
+      "passed": true,
+      "name": "day 10 expiry clears customer orders"
+    },
+    {
+      "passed": true,
+      "name": "day 10 reward cannot be granted twice"
+    },
+    {
+      "passed": true,
+      "name": "ten day campaign ends only after tenth settlement"
+    },
+    {
+      "passed": true,
+      "name": "graph codec restores cyclic and shared identities"
+    },
+    {
+      "passed": true,
+      "name": "table keyed arrival deduplication survives save"
+    },
+    {
+      "passed": true,
+      "name": "restored machine preserves partial cook time"
+    },
+    {
+      "passed": true,
+      "name": "restored machine completes without restarting cook timer"
+    },
+    {
+      "passed": true,
+      "name": "storage stack and lock owner survive reference roundtrip"
+    },
+    {
+      "passed": true,
+      "name": "two local save slots select latest generation"
+    },
+    {
+      "passed": true,
+      "name": "interrupted inactive slot write reports failure"
+    },
+    {
+      "passed": true,
+      "name": "interrupted write retains previous valid save"
+    },
+    {
+      "passed": true,
+      "name": "corrupt main falls back to preceding valid data"
+    },
+    {
+      "passed": true,
+      "name": "future schema prevents fallback overwrite"
+    },
+    {
+      "passed": true,
+      "name": "full ground forecast names exact losses without taking items"
+    },
+    {
+      "passed": true,
+      "name": "recovery forecast uses removed building footprint for free space"
+    },
+    {
+      "passed": true,
+      "name": "manual terminal withdrawal retains physical item identity"
+    },
+    {
+      "passed": true,
+      "name": "manual buffer deposit retains arrival dedup identity"
+    },
+    {
+      "passed": true,
+      "name": "new profile preserves both corrupt slot contents before writing"
+    },
+    {
+      "passed": true,
+      "name": "failed corrupt archive refuses to overwrite original"
+    },
+    {
+      "passed": true,
+      "name": "workshop area is four times with shop unchanged"
+    },
+    {
+      "passed": true,
+      "name": "expanded workshop includes formerly outside grid"
+    }
+  ],
+  "passed": 80,
+  "scope": "Lua domain, graph persistence and failure-injected memory backend; excludes native IO/render/input and real playthrough balance"
+}

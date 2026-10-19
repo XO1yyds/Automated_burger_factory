@@ -1,0 +1,141 @@
+{
+  "passed": 31,
+  "scope": "Actual UrhoX scene, services and native File/cjson; automated commands, not human acceptance",
+  "checks": [
+    {
+      "passed": true,
+      "name": "normal startup opens title with frozen simulation"
+    },
+    {
+      "passed": true,
+      "name": "preparation does not run actual simulation"
+    },
+    {
+      "passed": true,
+      "name": "native File and cjson roundtrip campaign data"
+    },
+    {
+      "passed": true,
+      "name": "actual campaign emits configured first order"
+    },
+    {
+      "passed": true,
+      "name": "actual cashier delivery pays fifteen coins"
+    },
+    {
+      "passed": true,
+      "name": "next day opens preparation and grants exactly three unique suppliers"
+    },
+    {
+      "passed": true,
+      "name": "repeated day initialization does not duplicate suppliers"
+    },
+    {
+      "passed": true,
+      "name": "confirmed cooker placement charges expected price"
+    },
+    {
+      "passed": true,
+      "name": "confirmed assembler placement charges expected price"
+    },
+    {
+      "passed": true,
+      "name": "confirmed storage placement charges expected price"
+    },
+    {
+      "passed": true,
+      "name": "confirmed buffer placement charges expected price"
+    },
+    {
+      "passed": true,
+      "name": "order and delivery use independent real hosts"
+    },
+    {
+      "passed": true,
+      "name": "host components remain mutually exclusive"
+    },
+    {
+      "passed": true,
+      "name": "native network sees six intended endpoints"
+    },
+    {
+      "passed": true,
+      "name": "conveyor charges actual route cells"
+    },
+    {
+      "passed": true,
+      "name": "new job excludes old stock and contains actual unfinished machine"
+    },
+    {
+      "passed": true,
+      "name": "actual output belt has live cargo before saving"
+    },
+    {
+      "passed": true,
+      "name": "native restore freezes until explicit resume"
+    },
+    {
+      "passed": true,
+      "name": "native restore preserves currency and partial processing"
+    },
+    {
+      "passed": true,
+      "name": "restored task ownership points to the restored real machine"
+    },
+    {
+      "passed": true,
+      "name": "belt cargo identity survives native save and scene rebuild"
+    },
+    {
+      "passed": true,
+      "name": "restored full cable job reaches three real arrivals"
+    },
+    {
+      "passed": true,
+      "name": "completed job releases restored machine ownership"
+    },
+    {
+      "passed": true,
+      "name": "separate delivery component receives output belt products"
+    },
+    {
+      "passed": true,
+      "name": "cashier consumes delivery host and credits once"
+    },
+    {
+      "passed": true,
+      "name": "post delivery reload retains coins and depleted delivery inventory"
+    },
+    {
+      "passed": true,
+      "name": "connected supplier cannot be recovered without disconnect"
+    },
+    {
+      "passed": true,
+      "name": "supplier recovery stores exactly one building asset"
+    },
+    {
+      "passed": true,
+      "name": "confirmed supply_raw placement charges expected price"
+    },
+    {
+      "passed": true,
+      "name": "replacing supplier uses stable identity for free"
+    },
+    {
+      "passed": true,
+      "name": "final native snapshot passes unique ownership validation"
+    }
+  ],
+  "failed": 0,
+  "processingRestore": {
+    "secondsAfter": 1.0000000000000004,
+    "secondsBefore": 1.0000000000000002,
+    "coinsBefore": 1569,
+    "coinsAfter": 1569
+  },
+  "date": "2026-10-19",
+  "native_log": "lua-2026-10-19 12_28_20_460.log",
+  "uses_separate_test_save_files": true,
+  "real_user_save_replaced_by_test_factory": false
+}

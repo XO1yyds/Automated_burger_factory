@@ -41,6 +41,9 @@ local G = require("Factory/ConveyorGeometry")
 ---@field resolve fun(id:string):FactoryConveyorEndpoint?
 ---@field endpoints fun():FactoryConveyorEndpoint[]
 ---@field free fun(x:number,z:number,width:number,depth:number):boolean
+---@field purchase? fun(kind:string,count:integer):boolean,string
+---@field recover? fun(kind:string,count:integer)
+---@field received? fun(endpoint:FactoryConveyorEndpoint,kind:FactoryItemType)
 
 ---@class FactoryConveyorNetwork
 ---@field context FactoryConveyorContext
@@ -274,6 +277,7 @@ end
 function Network:Place(plan)
     local valid, reason = self:Validate(plan)
     if not valid then return false, reason, nil end
+    if self.context.purchase then local ok,message=self.context.purchase('belt',#plan.cells); if not ok then return false,message,nil end end
     local belt = {
         id = self.nextId, from = plan.from, to = plan.to, cells = plan.cells, points = plan.points,
         length = plan.length, valid = true, reason = "", cargo = {}, state = "等待物品", delivered = 0,
@@ -291,6 +295,7 @@ function Network:Remove(id)
             local contents = {}
             for _, item in ipairs(belt.cargo) do table.insert(contents, item.itemType) end
             table.remove(self.belts, index); self.revision = self.revision + 1
+            if self.context.recover then self.context.recover('belt',#belt.cells) end
             return contents, belt
         end
     end
@@ -412,6 +417,7 @@ function Network:Step(dt)
                         local item = belt.cargo[1]
                         if item and Network.Ready(belt) and receiver:CanReceive(item.itemType) then
                             assert(receiver:Receive(item.itemType,nil,item.identity)); table.remove(belt.cargo, 1)
+                            if self.context.received then self.context.received(endpoint,item.itemType) end
                             belt.delivered, self.total, self.inputCursor[key] = belt.delivered + 1, self.total + 1, index % #inputs + 1
                         end
                     end

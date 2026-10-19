@@ -3,6 +3,8 @@ local State=require("Factory/UIState")
 local Projection=require("Factory/OrthographicView")
 local Buildings=require("Factory/Buildings")
 ---@class FactoryInterface
+---@field campaignStatus Label
+---@field campaignStatusPanel Panel
 ---@field prompt Label
 ---@field feedback Label
 ---@field grill Label
@@ -139,12 +141,14 @@ function View.New(action)
     self.orderSummary=button("待处理 0/5",function() action("ordersToggle") end)
     self.orderSummary:SetStyle({position="absolute",right=90,top=12,zIndex=30})
     self.clockPanel=panel{position="absolute",left=88,top=12,width=218,height=48,padding=10,pointerEvents="none",children={self.clock}}
+    self.campaignStatus=label('',16)
+    self.campaignStatusPanel=panel{position='absolute',left=152,top=66,width=330,height=42,padding=8,pointerEvents='none',children={self.campaignStatus}}
     self.modePanel=panel{position="absolute",left="32%",right="29%",top=12,padding=0,pointerEvents="none",children={self.mode}}
     self.heldPanel=panel{position="absolute",left=156,bottom=16,width=210,height=48,padding=10,pointerEvents="none",children={self.held}}
 
     self.actions={}
     self.actionBar=UI.Panel{position="absolute",right=12,bottom=16,flexDirection="row",gap=12,pointerEvents="box-none",zIndex=30}
-    for i=1,5 do
+    for i=1,6 do
         local index=i
         local control=button("",function()
             local data=self.actionData[index]
@@ -219,7 +223,7 @@ function View.New(action)
     self.orderScroll=UI.ScrollView{flexGrow=1,flexBasis=0,scrollY=true}
     self.orderRows=UI.Panel{width="100%",gap=6,flexShrink=0}
     self.orderScroll:AddChild(self.orderRows); self.orderList:AddChild(self.orderScroll)
-    for i=1,5 do
+    for i=1,6 do
         local index=i; self.orderLabels[i]=label("")
         self.orderButtons[i]=button("",function() action("selectRow",index) end)
         self.orderRows:AddChild(self.orderButtons[i])
@@ -290,7 +294,7 @@ function View.New(action)
     self.restartButton=button("重新开始",function() action("restart") end)
     self.exitButton=button("退出",function() action("exitGame") end)
     self.content=UI.Panel{width="100%",flexGrow=1,flexBasis=0,position="relative",pointerEvents="box-none",children={self.worldSurface,
-        self.clockPanel,self.modePanel,self.orderSummary,self.pause,self.back,self.heldPanel,self.card,self.selector,
+        self.clockPanel,self.campaignStatusPanel,self.modePanel,self.orderSummary,self.pause,self.back,self.heldPanel,self.card,self.selector,
         self.weakSelector,self.actionBar,self.joystick,self.reasonPanel,self.toastPanel,self.tutorialPanel,self.orderList,self.dragMarker,self.modalMask}}
     self.root=UI.SafeAreaView{width="100%",height="100%",pointerEvents="box-none",children={self.content}}
     UI.SetRoot(self.root)
@@ -311,7 +315,7 @@ function View.Render(self,model)
     self.model=model
     local w,h=model.width,model.height; local layout=State.Layout(w,h)
     self.clock:SetText(model.clock); self.held:SetText(model.held)
-    self.clock:SetStyle({height=28})
+    self.clock:SetStyle({height=28,whiteSpace="nowrap",fontSize=18})
     local narrow=w<1000
     self.clockPanel:SetStyle({left=152,width=narrow and 190 or 218})
     self.modePanel:SetStyle({top=narrow and 66 or 12,left=narrow and 12 or w*0.32,right=narrow and 90 or w*0.29})
@@ -319,7 +323,14 @@ function View.Render(self,model)
     self.mode:SetStyle({fontSize=(model.phase=="destination" or model.phase=="adjust") and 16 or 20})
     self.mode:SetText(model.title or ""); self.modePanel:SetVisible(model.title~="" and not model.modal)
     self.clockPanel:SetVisible(not model.modal); self.pause:SetVisible(not model.modal)
-    self.orderSummary:SetText(State.OrderSummary(model.orderCount)); self.orderSummary:SetVisible(model.normal or model.phase=="orders")
+    self.campaignStatusPanel:SetVisible(model.status~=nil and not model.modal)
+    self.campaignStatus:SetText(model.status or '')
+    if model.status then
+        self.campaignStatusPanel:SetStyle({width=math.min(360,w-180)})
+        self.modePanel:SetStyle({top=narrow and 112 or 12})
+        self.tutorialPanel:SetStyle({top=narrow and model.title~='' and 166 or 114})
+    end
+    self.orderSummary:SetText(State.OrderSummary(model.orderCount,model.orderLimit)); self.orderSummary:SetVisible(model.normal or model.phase=="orders")
     self.back:SetVisible(model.back~=nil and not model.modal); if model.back then self.back:SetText(model.back) end
     self.heldPanel:SetVisible(not model.modal and model.phase~="menu")
     self.joystick:SetVisible(model.normal and model.display~="keyboard")
@@ -342,6 +353,7 @@ function View.Render(self,model)
         local detail=def and string.format("%.1f×%.1f格",def.width,def.depth) or (kind=="conveyor" and "单入单出 · 0.5格/s" or kind=="cable" and "下单驱动 · 整网2件/s" or "选择现有对象")
         if kind=='terminal' or kind=='delivery_component' then detail=kind=='terminal' and '依附库存 · 不另占地' or '依附库存/缓存 · 不另占地' end
         self.buildCardDetails[kind]:SetText((selected and "已选 · " or "")..detail)
+        if model.campaign then self.buildCardDetails[kind]:SetText(model.campaign:Card(kind)) end
     end
     self.actionData=model.actions or {}; setData(self.actions,self.actionData)
     self.actionBar:SetVisible(not model.modal)
@@ -416,14 +428,16 @@ end
 ---@param self FactoryInterface
 ---@param loop FactoryGameLoop
 function View.RefreshLoop(self,loop,selected)
-    self.clock:SetText(loop:ClockText()); self.cashierEndButton:SetDisabled(not loop:CanCashierEnd())
+    -- The controller owns the compact HUD clock; the diagnostic ClockText may
+    -- contain a long end-of-day explanation that must not overwrite this label.
+    self.cashierEndButton:SetDisabled(not loop:CanCashierEnd())
     self.dayStats:SetText(string.format("订单%d · 汉堡%d",loop.orders.completed,loop.manual+loop.automatic))
 end
 ---@param self FactoryInterface
 ---@param book FactoryOrders
 function View.RefreshOrders(self,book)
     self.depot:SetText("可交付汉堡 "..book:DeliveryCount())
-    for i=1,5 do local o=book.active[i]
+    for i=1,6 do local o=book.active[i]
         local text=o and string.format("%s订单%02d · %d/%d",o.id==book.selectedId and "[已选] " or "",o.id,o.delivered,o.required) or ""
         self.orderLabels[i]:SetText(text); self.orderButtons[i]:SetText(text); self.orderButtons[i]:SetVisible(o~=nil)
     end

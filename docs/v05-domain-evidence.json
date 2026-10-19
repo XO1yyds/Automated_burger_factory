@@ -2,7 +2,7 @@
   "runtime": "Lua 5.4",
   "passed": 73,
   "failed": 0,
-  "duration_seconds": 0.107,
+  "duration_seconds": 0.099,
   "checks": [
     {
       "name": "all seven explicitly connected buildings share a network",

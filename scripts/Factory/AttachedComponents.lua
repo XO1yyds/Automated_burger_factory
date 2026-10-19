@@ -26,6 +26,7 @@ function Components:Rename(host)
 end
 function Components:Bind(id,kind)
     local ok,message=self:CanBind(id,kind); if not ok then return false,message end
+    if self.context.purchase then local paid,reason=self.context.purchase(kind=='order' and 'terminal' or 'delivery_component'); if not paid then return false,reason end end
     local host=self:Host(id); host.component=kind; self:Rename(host)
     local a=self.context.automation(); a.cables.revision=a.cables.revision+1
     if kind=='order' then a.service:ObserveStorage(id,self.context.storage(id)) end
@@ -40,6 +41,7 @@ function Components:Unbind(id)
         if a.terminal==id then a:Close() end
         local storage=self.context.storage(id); if storage then storage.onReceive=nil end
     end
+    if self.context.recover then self.context.recover(host.component=='order' and 'terminal' or 'delivery_component',1) end
     host.component=nil; self:Rename(host); a.cables.revision=a.cables.revision+1
     return true,'组件已卸下，宿主和库存物品保留。'
 end

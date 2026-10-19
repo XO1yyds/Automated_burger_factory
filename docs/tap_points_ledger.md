@@ -493,3 +493,4 @@
 | 2026-10-19 | edit_image | back_run_depth_f08 single_back_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=unconfirmed；美术质量另行审核；结果见assets/image/employee_v04/back_run_depth_demo_v1/receipts/frame_08-r1.json <!-- char-state-back_run_depth_f08-single_back_depth_r1 --> |
 | 2026-10-19 | edit_image | back_run_depth_f08 single_back_depth_r2修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=unconfirmed；美术质量另行审核；结果见assets/image/employee_v04/back_run_depth_demo_v1/receipts/frame_08-r2.json <!-- char-state-back_run_depth_f08-single_back_depth_r2 --> |
 | 2026-10-19 | Codex独立image_gen | 补齐背面跑动第8帧 | 是 | 不涉及Tap计费 | 未查询 | 用户要求停止Maker后使用独立图片工具；未把图片模型记为GPT6.1；详见builtin-frame08-request.json <!-- depth-back08-nontap-20261019 --> |
+| 2026-10-19 | 本地开发与官方preview CLI | V0.6十天经营、金币、存档及Windows运行验证 | 否 | 不涉及生成计费 | 未查询 | LOCAL / MAKER-FREE；未调用Tap生成能力，未查询余额，不填写估算积分 |

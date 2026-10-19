@@ -1,14 +1,14 @@
 -- Engine-independent UI policy. Recommendations are implemented in one place.
 local State = {}
-State.Version = "Demo V0.5"
+State.Version = "Demo V0.6"
 State.Categories = {"生产", "接口", "物流", "储存", "管理"}
 ---@type string[][]
-State.Kinds = {{"cooker","assembler","terminal","delivery_component"},{"junction","isolator_straight","isolator_corner"},{"conveyor","cable"},{"buffer","storage"},{"manage"}}
+State.Kinds = {{"cooker","assembler","terminal","delivery_component","supply_raw","supply_bun","supply_lettuce"},{"junction","isolator_straight","isolator_corner"},{"conveyor","cable"},{"buffer","storage"},{"manage"}}
 
 function State.Clamp(v,lo,hi) return math.max(lo,math.min(hi,v)) end
 
 function State.Phase(s)
-    if s.loop ~= "running" then return s.overlay or s.loop end
+    if s.loop ~= "running" and s.loop~='preparation' then return s.overlay or s.loop end
     if s.ordersOpen then return "orders" end
     if s.buffer then return "buffer" end
     if s.conveyor and s.conveyor ~= "idle" then return s.conveyor end
@@ -48,7 +48,7 @@ function State.Layout(w,h)
         actionBottom=16,joystickSize=112,toastBottom=compact and 120 or 150}
 end
 
-function State.OrderSummary(count) return "待处理 "..count.."/5" end
+function State.OrderSummary(count,limit) return "待处理 "..count..'/'..(limit or 5) end
 
 function State.DefaultPreferences()
     return {display="both",joystick="fixed",uiScale=1,sensitivity=1,tutorials={}}

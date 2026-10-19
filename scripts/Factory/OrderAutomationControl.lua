@@ -1,6 +1,7 @@
 local Cable=require('Factory/CableNetwork')
 local Service=require('Factory/OrderAutomation')
 local Definitions=require('Factory/Items').Definitions
+local Area=require('Factory/AutomationArea')
 ---@class FactoryOrderAutomationControl
 ---@field context table
 ---@field cables FactoryCableNetwork
@@ -37,7 +38,7 @@ local function point(x,z) return {x=math.floor(x+0.5),z=math.floor(z+0.5)} end
 function Control.New(context)
     local self=setmetatable({context=context,mode='idle',tab='products',quantity=1,cursor={x=-40,z=0},waypoints={},managing=false,details=false,choosingTarget=false,showHistory=false,
         selected=0,verticalFirst=false,page=1,visualSignature='',reason=''},Control)
-    self.cables=Cable.New({resolve=context.resolve,endpoints=context.endpoints,valid=function(x,z) return x>=-49 and x<=-31 and z>=-7 and z<=7 end})
+    self.cables=Cable.New({resolve=context.resolve,endpoints=context.endpoints,valid=function(x,z) return Area.At(x,z)=='workshop' end})
     self.service=Service.New(self.cables,{resolve=context.resolve,endpoints=context.endpoints})
     for _,ep in ipairs(context.endpoints()) do if ep.terminal and ep.storage then self.service:ObserveStorage(ep.id,ep.storage) end end
     return self
@@ -88,7 +89,8 @@ function Control:Back(escape)
     return true
 end
 function Control:SetCursor(x,z)
-    self.cursor=point(math.max(-49,math.min(-31,x)),math.max(-7,math.min(7,z)))
+    local w,d=Area.Size('workshop'); local center=Area.WorkshopCenter
+    self.cursor=point(math.max(center-w/2,math.min(center+w/2,x)),math.max(-d/2,math.min(d/2,z)))
 end
 function Control:Points()
     if not self.start then return {} end

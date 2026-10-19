@@ -24,6 +24,16 @@ local Grid = require("Factory/ConveyorGeometry")
 local UIController = require("Factory/UIController")
 local OrderAutomationControl = require("Factory/OrderAutomationControl")
 local AttachedComponents = require('Factory/AttachedComponents')
+local DayConfig=require('Factory/DayConfig')
+local CampaignService=require('Factory/Campaign')
+local CampaignRuntime=require('Factory/CampaignRuntime')
+local CampaignWorld=require('Factory/CampaignWorld')
+---@type FactoryCampaign?
+local campaign=nil
+---@type table?
+local campaignRuntime=nil
+---@type table?
+local campaignEntry=nil
 ---@type table?
 local components=nil
 ---@type table?
@@ -188,6 +198,7 @@ local RUN_CONVEYOR_CHECKS = false
 local RUN_UI_V3_CHECKS = false
 local RUN_V05_VISUAL = false -- Development-only scene setup; keep disabled in playable delivery.
 local RUN_V05_RUNTIME = false -- Development-only integration suite; keep disabled in playable delivery.
+local RUN_V06_RUNTIME = false -- Development-only; keep disabled in playable delivery.
 local v05RuntimeChecked = false
 local uiV3ChecksDone=false
 local RUN_CONVEYOR_VISUAL = false
@@ -337,13 +348,14 @@ local function CreateScene()
     for _, station in ipairs(stations) do CreateStation(station) end
     MakeBox(assert(scene), 'EntryEdge', Vector3(-5.8, 0.07, 2.1), Vector3(0.08, 0.04, 1.3), Color(0.35, 0.37, 0.39), false)
     local center = AreaService.WorkshopCenter
-    MakeBox(scene, "WorkshopFloor", Vector3(center, -0.15, 0), Vector3(18, 0.3, 14), Color(0.54, 0.61, 0.63), true)
-    for x = -9, 9 do table.insert(gridNodes, MakeBox(scene, "WorkshopGridX", Vector3(center + x, 0.025, 0), Vector3(0.012, 0.012, 14), lineColor, false)) end
-    for z = -7, 7 do table.insert(gridNodes, MakeBox(scene, "WorkshopGridZ", Vector3(center, 0.025, z), Vector3(18, 0.012, 0.012), lineColor, false)) end
-    MakeBox(scene, "WorkshopNorth", Vector3(center, 0.45, 7.15), Vector3(18.6, 0.9, 0.3), wallColor, true)
-    MakeBox(scene, "WorkshopSouth", Vector3(center, 0.45, -7.15), Vector3(18.6, 0.9, 0.3), wallColor, true)
-    MakeBox(scene, "WorkshopEast", Vector3(center + 9.15, 0.45, 0), Vector3(0.3, 0.9, 14), wallColor, true)
-    MakeBox(scene, "WorkshopWest", Vector3(center - 9.15, 0.45, 0), Vector3(0.3, 0.9, 14), wallColor, true)
+    local width,depth=AreaService.Size('workshop')
+    MakeBox(scene, "WorkshopFloor", Vector3(center, -0.15, 0), Vector3(width, 0.3, depth), Color(0.54, 0.61, 0.63), true)
+    for x=-width/2,width/2 do table.insert(gridNodes,MakeBox(scene,'WorkshopGridX',Vector3(center+x,0.025,0),Vector3(0.012,0.012,depth),lineColor,false)) end
+    for z=-depth/2,depth/2 do table.insert(gridNodes,MakeBox(scene,'WorkshopGridZ',Vector3(center,0.025,z),Vector3(width,0.012,0.012),lineColor,false)) end
+    MakeBox(scene,'WorkshopNorth',Vector3(center,0.45,depth/2+0.15),Vector3(width+0.6,0.9,0.3),wallColor,true)
+    MakeBox(scene,'WorkshopSouth',Vector3(center,0.45,-depth/2-0.15),Vector3(width+0.6,0.9,0.3),wallColor,true)
+    MakeBox(scene,'WorkshopEast',Vector3(center+width/2+0.15,0.45,0),Vector3(0.3,0.9,depth),wallColor,true)
+    MakeBox(scene,'WorkshopWest',Vector3(center-width/2-0.15,0.45,0),Vector3(0.3,0.9,depth),wallColor,true)
 end
 
 local function CreateCharacter()
@@ -509,7 +521,9 @@ end
 ---@return boolean,string
 local function SwitchArea(destination)
     if not player or not playerBody or not cameraNode or not items then return false, "区域尚未就绪。" end
+    if campaign and destination=='workshop' and not campaign:Unlocked('workshop') then return false,'自动化车间第2天开放，今天先完成手工制作与交单。' end
     local x, z = destination == "workshop" and -33.5 or -6.7, destination == "workshop" and -4.5 or 4.2
+    if campaign and destination=='workshop' then x,z=-26,-10 end
     -- Buildings reserve portal footprints. Ground items may still occupy them:
     -- find a free arrival before changing any player or camera state.
     ---@type Vector3?
@@ -525,6 +539,7 @@ local function SwitchArea(destination)
     if buildings then buildings:Cancel() end
     player.position, playerBody.position, playerBody.linearVelocity = arrival, arrival, Vector3.ZERO
     cameraNode.position = Vector3(AreaService.Center(destination), 30.2, 0)
+    if campaign then cameraNode.position=Vector3(arrival.x,30.2,arrival.z) end
     target, groundTarget, worldMousePending, worldMouseMoved = nil, nil, false, false
     facing = screenForward
     return true, destination == "workshop" and "进入自动化车间：B 建筑 → 传送带布置；成品送入缓存台。"
@@ -533,6 +548,7 @@ end
 
 local function SetupBuildings()
     buildings = BuildingService.New({
+        purchase=function(kind) return assert(campaign):Buy(kind) end,
         valid = function(x,z,width,depth,ignore)
             if AreaService.At(x,z,width,depth)~=currentArea then return false,"建筑占地超出当前区域。" end
             for _,station in ipairs(stations) do
@@ -555,6 +571,7 @@ local function SetupBuildings()
             local record={id="building_"..nextBuildingId,name=definition.name,x=x,z=z,quarter=quarter,
                 width=width,depth=depth,color=Color(0.40,0.51,0.54),buildingKind=kind} --[[@as FactoryStation]]
             nextBuildingId=nextBuildingId+1
+            if DayConfig.Supplies[kind] then record.id=DayConfig.SupplyIds[kind]; SOURCE_TYPES[record.id]=DayConfig.Supplies[kind] end
             if kind=="cooker" or kind=="assembler" then
                 local automaticKind=kind --[[@as FactoryAutomaticKind]]
                 record.automaticKind=automaticKind; automatics[record.id]=NewAutomatic(automaticKind)
@@ -568,6 +585,7 @@ local function SetupBuildings()
             return record
         end,
         update = function(record,x,z,quarter)
+            if campaign then campaign.dirty=true end
             local definition=BuildingService.Definitions[assert(record.buildingKind or record.automaticKind)] --[[@as {name:string,width:number,depth:number}]]
             local width,depth=definition.width,definition.depth
             if quarter%2==1 then width,depth=depth,width end
@@ -587,6 +605,9 @@ local function SetupBuildings()
         end,
         attached=function(record) return (logistics~=nil and logistics.network:HasAttached(record.id)) or (automation~=nil and automation.cables:HasAttached(record.id)) end,
         remove=function(record)
+            if DayConfig.Supplies[record.buildingKind] and ((logistics and logistics.network:HasAttached(record.id)) or (automation and automation.cables:HasAttached(record.id))) then return false,'请先拆除供货点相连的传送带和电缆，再回收唯一供货点。' end
+            if record.component and campaign then campaign:Recover(record.component=='order' and 'terminal' or 'delivery_component') end
+            if campaign then campaign:Recover(assert(record.buildingKind or record.automaticKind)) end
             if automation then automation.service:RemoveBuilding(record.id) end
             local machine=automatics[record.id]
             ---@type FactoryItemType[]
@@ -715,7 +736,7 @@ end
 
 local function RefreshLifecycle()
     if not gameLoop then return end
-    if physics then physics.updateEnabled = gameLoop:IsRunning() end
+    if physics then physics.updateEnabled = gameLoop:IsRunning() and not gameLoop.briefing and not gameLoop.teaching end
     if not gameLoop:IsRunning() and playerBody then
         playerBody.linearVelocity = Vector3.ZERO
         worldMousePending, worldMouseMoved = false, false
@@ -758,7 +779,8 @@ end
 ---@param dt number
 ---@return string
 local function StepSimulation(dt)
-    if not gameLoop or not gameLoop:IsRunning() then return "" end
+    if not gameLoop or not gameLoop:CanSimulate() then return "" end
+    local measured=campaign and gameLoop.remaining>0
     gameLoop:Update(dt)
     local automaticMessage = ""
     local remaining = math.max(0, dt)
@@ -767,8 +789,21 @@ local function StepSimulation(dt)
         for _, station in ipairs(stations) do
             local machine = automatics[station.id]
             if machine then
+                if measured and campaign then
+                    local times=campaign.machineTimes[station.id] or {processing=0,waiting=0,blocked=0}; campaign.machineTimes[station.id]=times
+                    local state=machine:IsProcessing() and 'processing' or (machine.burgerReady or machine:PeekOutput()) and 'blocked' or 'waiting'
+                    times[state]=times[state]+step
+                end
                 local completed, message = machine:Update(step)
-                if completed then automaticMessage = message end
+                if completed then
+                    automaticMessage=message
+                    if campaign and machine.kind=='cooker' then campaign:Learn('cooker') end
+                    if campaign and machine.kind=='assembler' then
+                        campaign.producers=campaign.producers or {}; campaign.producers[station.id]=true
+                        local n=0; for _ in pairs(campaign.producers) do n=n+1 end
+                        if n>=2 then campaign:Learn('parallel') end
+                    end
+                end
             end
         end
         if automation then automation.service:Update(step) end
@@ -1149,6 +1184,7 @@ function Phase1.Update(eventType, eventData)
         return
     end
     local wasRunning = gameLoop ~= nil and gameLoop:IsRunning()
+    local wasSimulating=gameLoop~=nil and gameLoop:CanSimulate()
     -- Expiry wins over delivery commands in the same frame.
     if gameLoop and gameLoop:IsRunning() and gameLoop.remaining > 0 and gameLoop.remaining <= dt then gameLoop:Expire() end
     elapsed = elapsed + dt
@@ -1157,7 +1193,10 @@ function Phase1.Update(eventType, eventData)
     if restartPending then Phase1.Restart(); return end
     RefreshLifecycle()
     if uiController then uiController:Update(dt) end
+    if campaignRuntime then campaignRuntime:Frame(dt) end
     if gameLoop and not gameLoop:IsRunning() then return end
+    if gameLoop and (gameLoop.briefing or gameLoop.teaching) then playerBody.linearVelocity=Vector3.ZERO; return end
+    if gameLoop and gameLoop:CanSimulate() and not wasSimulating then return end
     -- Resume/next-day clicks own this frame. Do not reset saved manual progress
     -- or advance the new day's clock merely because their F/UI input was used.
     if not wasRunning then return end
@@ -1211,7 +1250,7 @@ function Phase1.Update(eventType, eventData)
     ResolveInteractionTarget()
     local qPressed = input:GetKeyPress(KEY_Q)
     local cooked, cookingMessage = false, ""
-    if manual then
+    if manual and gameLoop and gameLoop:CanSimulate() then
         cooked, cookingMessage = manual:UpdateGrill(dt, target ~= nil and target.id == "grill",
             input:GetKeyDown(KEY_F) or (uiController and uiController.holdingInteraction) or false,
             qPressed or not input.focus or (inputConsumed and not (uiController and uiController.holdingInteraction)))
@@ -1304,15 +1343,16 @@ function Phase1.Update(eventType, eventData)
     if (not uiController or uiController:WorldMouseAvailable()) and (not logistics or logistics.builder.mode=="idle") and (not buildings or (buildings.mode ~= "preview" and buildings.mode ~= "move")) then
         zoom = math.max(0.8, math.min(2.5, zoom * (1.12 ^ (input:GetMouseMoveWheel() * (uiController and uiController.preferences.sensitivity or 1)))))
     end
-    camera.orthoSize = math.max(19, 22 / aspect)
+    camera.orthoSize = campaignRuntime and campaignRuntime.overview and math.max(34,40/aspect) or math.max(19, 22 / aspect)
     camera.zoom = zoom
     if cameraNode and input:GetMouseButtonDown(MOUSEB_MIDDLE) and (not uiController or uiController:WorldMouseAvailable()) then
         local delta = input:GetMouseMove()
         local units = camera.orthoSize / zoom / math.max(1, graphics:GetHeight()) * (uiController and uiController.preferences.sensitivity or 1)
         local position = cameraNode.position
         local center = AreaService.Center(currentArea)
-        position.x = math.max(center - 7, math.min(center + 7, position.x - delta.x * units))
-        position.z = math.max(-5, math.min(5, position.z + delta.y * units))
+        local aw,ad=AreaService.Size(currentArea)
+        position.x = math.max(center-aw/2+2, math.min(center+aw/2-2, position.x-delta.x*units))
+        position.z = math.max(-ad/2+2, math.min(ad/2-2, position.z+delta.y*units))
         cameraNode.position = position
     end
     if uiController then uiController:Update(0) end
@@ -1500,14 +1540,94 @@ function Phase1.RunUIV3Checks()
     print("[UI V0.3 Native QA] COMPLETE restored ordinary playable world")
 end
 
+local function EnsureCampaignSupplies()
+    if not campaign or campaign.day<2 or campaign.suppliesGranted then return end
+    campaign.suppliesGranted=true; campaign.dirty=true
+    local specs={{'supply_raw',-35,-3},{'supply_bun',-30,-3},{'supply_lettuce',-25,-3}}
+    for _,spec in ipairs(specs) do
+        local kind=spec[1]; local d=BuildingService.Definitions[kind]
+        local s={id=DayConfig.SupplyIds[kind],name=d.name,buildingKind=kind,x=spec[2],z=spec[3],width=d.width,depth=d.depth,quarter=0,color=Color(0.62,0.68,0.45)} --[[@as FactoryStation]]
+        SOURCE_TYPES[s.id]=DayConfig.Supplies[kind]; stations[#stations+1]=s
+        CreateStation(s); assert(buildings):Register(s)
+    end
+end
+
+local function CampaignContext()
+    return {campaign=assert(campaign),runtime=campaignRuntime,loop=assert(gameLoop),orders=assert(orders),items=assert(items),manual=assert(manual),
+        buildings=assert(buildings),logistics=assert(logistics),automation=assert(automation),components=assert(components),machines=automatics,stations=stations,
+        player=assert(player),camera=assert(camera),cameraNode=assert(cameraNode),zoom=zoom,
+        target=target,ground=groundTarget,facing=facing,area=currentArea,cashier=cashierOpen,nextBuildingId=nextBuildingId}
+end
+local function CloseCampaignEditors()
+    assert(buildings):Cancel(); assert(logistics):Cancel(); assert(automation):Close()
+    cashierOpen=false; assert(components).mode,assert(components).selected=nil,nil
+    if uiController then uiController:Release(); uiController.selected=nil; uiController.ordersOpen=false end
+    if campaignRuntime then campaignRuntime.overview=false end
+end
+
+local function RestoreCampaign(state,retry)
+    assert(CampaignWorld.Validate(state),'Invalid V0.6 snapshot')
+    campaign=setmetatable(state.campaign,CampaignService)
+    for _,s in ipairs(stations) do if s.node then s.node:Remove() end end
+    stations={}; assert(buildings).records={}
+    for _,d in ipairs(state.stations) do
+        local color=d.color; d.color=Color(color[1],color[2],color[3]); stations[#stations+1]=d; CreateStation(d)
+        if d.buildingKind or d.automaticKind then assert(buildings):Register(d) end
+        if DayConfig.Supplies[d.buildingKind] then SOURCE_TYPES[d.id]=DayConfig.Supplies[d.buildingKind] end
+    end
+    for id in pairs(automatics) do automatics[id]=nil end
+    for id,m in pairs(state.machines) do
+        setmetatable(m,AutomaticService); m.items=assert(items)
+        m.onProduced=function() assert(gameLoop):RecordBurger('automatic') end
+        automatics[id]=m
+    end
+    assert(logistics).buffers=state.stores
+    for _,store in pairs(state.stores) do setmetatable(store,BufferService) end
+    for k,v in pairs(state.conveyor) do assert(logistics).network[k]=v end
+    for k,v in pairs(state.cables) do assert(automation).cables[k]=v end
+    for k,v in pairs(state.service) do assert(automation).service[k]=v end
+    for k,v in pairs(state.manual) do assert(manual)[k]=v end
+    for k,v in pairs(state.orders) do assert(orders)[k]=v end
+    for k,v in pairs(state.loop) do assert(gameLoop)[k]=v end
+    assert(gameLoop).campaign=campaign; assert(gameLoop).teaching=false
+    assert(orders).config=DayConfig.Day(campaign.day)
+    for _,s in ipairs(stations) do if s.component=='order' then assert(automation).service:ObserveStorage(s.id,state.stores[s.id]) end end
+    assert(items):Reset(); assert(items).nextId=state.items.nextId
+    for id,v in pairs(state.items.ground) do
+        local pos=Vector3(v.x,0.14,v.z)
+        assert(items).ground[id]={id=id,itemType=v.itemType,position=pos,identity=v.identity,node=assert(items).context.createGround(v.itemType,pos)}
+    end
+    if state.items.held then assert(assert(items):Give(state.items.held)); assert(items).heldIdentity=state.items.heldIdentity end
+    local p=state.player; local pos=Vector3(p.x,0.55,p.z)
+    assert(player).position=pos; assert(playerBody).position=pos; assert(playerBody).linearVelocity=Vector3.ZERO
+    facing=Vector3(p.fx,0,p.fz); assert(facingMarker).position=facing*0.4+Vector3(0,0.4,0)
+    currentArea=p.area; assert(cameraNode).position=Vector3(p.x,30.2,p.z)
+    nextBuildingId=state.nextBuildingId
+    assert(campaignRuntime).dayStart=retry and CampaignWorld.Clone(state) or state.dayStart
+    if assert(gameLoop).state=='running' then assert(gameLoop).state='paused'; assert(gameLoop).pausedFrom='running'
+    elseif assert(gameLoop).state=='preparation' then assert(gameLoop).briefing=true end
+    CloseCampaignEditors(); campaign.dirty=true
+    assert(logistics).network.revision=assert(logistics).network.revision+1
+    assert(logistics):Refresh(); UpdateProductionVisuals()
+end
+
+function Phase1.V06()
+    return CampaignContext(),campaignRuntime,{context=CampaignContext,step=StepSimulation,restore=RestoreCampaign,ensure=EnsureCampaignSupplies,
+        switch=SwitchArea,command=function(command,value) return assert(uiController):Command(command,value) end,
+        ui=function() return assert(uiController) end}
+end
+
 function Phase1.Start()
+    local entry=campaignEntry; campaignEntry=nil
+    campaign=CampaignService.New(); campaignRuntime=nil; AreaService.Campaign=true
     hudDiagnosisFrames = 0
     stations = {}
-    for _, definition in ipairs(initialStations) do
+    for _, definition in ipairs(initialStations) do if not definition.id:match('^ws_') then
         local copy = {}
         for key, value in pairs(definition) do copy[key] = value end
         table.insert(stations, copy)
-    end
+    end end
+    for _,definition in ipairs(AreaService.CampaignStations()) do stations[#stations+1]=definition end
     elapsed, messageUntil, qaTime, qaMotionTime, qaStage, qaFailures = 0, 0, 0, 0, 0, 0
     facing = screenForward
     zoom = 1
@@ -1520,7 +1640,7 @@ function Phase1.Start()
     automaticRouteChecked = false
     stageChecksDone = false
     labelCheckStage, labelCheckCount, labelCheckFailures = 0, 0, 0
-    graphics.windowTitle = "自动化汉堡工厂 · Demo V0.5 · 下单式自动化"
+    graphics.windowTitle = "自动化汉堡工厂 · Demo V0.6 · 十天工厂经营"
     currentArea = "shop"
     restartPending, lifecycleSelection = false, 1
     uiCommands, cashierOpen, nextBuildingId = {}, false, 1
@@ -1539,25 +1659,29 @@ function Phase1.Start()
         if station.automaticKind then automatics[station.id] = NewAutomatic(station.automaticKind) end
     end
     orders = OrderService.New(assert(items))
-    gameLoop = LoopService.New(orders)
+    gameLoop = LoopService.New(orders,campaign)
+    orders.onDelivered=function(order,amount,finished,componentAmount) assert(campaign):Delivered(order,amount,finished,componentAmount) end
     SetupBuildings()
     logistics=ConveyorControl.New({scene=assert(scene),makeBox=MakeBox,items=assert(items),player=assert(player),
         buildings=assert(buildings),stations=function() return stations end,machines=automatics,sources=SOURCE_TYPES,
         area=function() return currentArea end,feedback=Feedback,
         action=function(command,value) table.insert(uiCommands,{command=command,value=value}) end})
     logistics.v3=true
-    logistics:Sample(); logistics:Refresh()
+    logistics.network.context.purchase=function(kind,count) return assert(campaign):Buy(kind,count) end
+    logistics.network.context.recover=function(kind,count) assert(campaign):Recover(kind,count) end
+    logistics.network.context.received=function(_,kind) assert(campaign):Learn('belt'); if kind=='burger' then assert(campaign):Learn('conveyor_burger') end end
+    logistics:Refresh()
     automation=OrderAutomationControl.New({scene=assert(scene),makeBox=MakeBox,player=assert(player),items=assert(items),facing=function() return facing end,
         area=function() return currentArea end,resolve=function(id) return assert(logistics):Endpoint(id) end,
         endpoints=function() local list={}; for _,station in ipairs(stations) do local ep=assert(logistics):Endpoint(station.id); if ep then table.insert(list,ep) end end; return list end})
-    automation:Sample()
-    components=AttachedComponents.New({stations=function() return stations end,storage=function(id) return assert(logistics).buffers[id] end,automation=function() return assert(automation) end})
+    automation.cables.context.purchase=function(kind,count) local ok,msg=assert(campaign):Buy(kind,count); if ok then assert(campaign):Learn('network') end; return ok,msg end
+    automation.cables.context.recover=function(kind,count) assert(campaign):Recover(kind,count) end
+    automation.service.context.onArrival=function() assert(campaign):Learn('arrival') end
+    components=AttachedComponents.New({stations=function() return stations end,storage=function(id) return assert(logistics).buffers[id] end,automation=function() return assert(automation) end,
+        purchase=function(kind) return assert(campaign):Buy(kind) end,recover=function(kind,count) assert(campaign):Recover(kind,count) end})
     assert(orders).deliveryStores=function() return assert(components):DeliveryStores() end
     uiController = UIController.New({
-        get=function() return {loop=assert(gameLoop),orders=assert(orders),items=assert(items),manual=assert(manual),
-            buildings=assert(buildings),logistics=assert(logistics),automation=automation,components=components,machines=automatics,stations=stations,
-            player=assert(player),camera=assert(camera),cameraNode=assert(cameraNode),zoom=zoom,
-            target=target,ground=groundTarget,facing=facing,area=currentArea,cashier=cashierOpen} end,
+        get=CampaignContext,
         resolve=ResolveInteractionTarget,interact=Interact,
         cashier=function(open) cashierOpen=open end,
         zoom=function(value) zoom=value; assert(camera).zoom=value end,
@@ -1575,6 +1699,11 @@ function Phase1.Start()
             presentationEditing=editing
         end,
     },assert(interface))
+    campaignRuntime=CampaignRuntime.New({get=CampaignContext,notify=Feedback,closeEditors=CloseCampaignEditors,ensureSupplies=EnsureCampaignSupplies,
+        zoom=function(value) zoom=value; assert(camera).zoom=value end,
+        rebuild=function(request) campaignEntry=request; restartPending=true end})
+    if entry and entry.state then RestoreCampaign(entry.state,entry.retry)
+    elseif entry and entry.new then assert(gameLoop):Prepare(); campaign.dirty=true end
     uiController:Update(0)
     stationContents, contentsSignature = {}, ""
     UpdateProductionVisuals()
@@ -1584,15 +1713,15 @@ function Phase1.Start()
     SubscribeToEvent("EndFrame", "FactoryWorldMouse")
     SubscribeToEvent("MouseButtonDown", "FactoryWorldPointerDown")
     SubscribeToEvent("InputFocus", "FactoryUIFocus")
+    if RUN_V06_RUNTIME then require('Factory/V06RuntimeChecks').Run(Phase1.V06()) end
     SubscribeToEvent(assert(physics), "PhysicsPostStep", "FactorySmokePhysicsStep")
 
     print("[Phase1] READY: room=18x14, grid=1m, orthographic=top-down90, collision=Bullet, targets=7, layout=reference2")
     print("[Phase2] READY: item_types=5, hand_capacity=1, sources=3, F=take/pickup, Q=drop")
     print("[Phase3] READY: manual_cook=3s_continuous, assembly=instant, fixtures=removed")
     print("[Phase4] READY: auto_cooker=3_independent_slots_3s, auto_assembler=2s, shop_auto_fixtures=0, camera_aspect=original")
-    print("[Phase7] READY: buildings=free, orders=max5_interval5to15, depot=5, cashier=keyboard_mouse, labels=world_children")
-    print("[Phase8] READY: day=300s, days=3, pause=all_simulation, settlement=production_events, restart=clean_world")
-    print("[Conveyor] READY: speed=0.5m/s, sample=5_physical_belts, buffer=6_LIFO, offscreen=true")
+    print('[V06] READY: title=first, campaign=10_days, workshop=36x28, economy=transactional, save=local_dual_generation, fixtures=empty')
+    print('[Conveyor] READY: speed=0.5m/s, buffer=6_LIFO, storage=24_LIFO, offscreen=true, tutorial_unlocks=campaign')
     print("[V05] READY: cable=undirected_ceiling, bandwidth=2_per_second_per_network, terminal=attached_storage, delivery=attached, receipt=storage_event, storage=24_LIFO, buffer=2x2_6")
     if RUN_V05_VISUAL then
         assert(SwitchArea('workshop'))
@@ -1656,6 +1785,8 @@ function Phase1.Restart()
 end
 
 function Phase1.Stop()
+    if campaignRuntime and not restartPending then campaignRuntime:Flush() end
+    campaignRuntime=nil
     if uiController then uiController:Stop(); uiController=nil end
     UnsubscribeFromEvent("InputFocus")
     UnsubscribeFromEvent("Update")

@@ -46,6 +46,7 @@ function Automation:Arrival(id,kind,identity)
             identity.arrivals=identity.arrivals or {}
             if identity.arrivals[job.owner] then return end
             identity.arrivals[job.owner]=true; job.delivered=job.delivered+1
+            if self.context.onArrival then self.context.onArrival(job) end
             job.reason='已到货 '..job.delivered..'/'..job.quantity
             return
         end

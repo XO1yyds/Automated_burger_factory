@@ -6,6 +6,8 @@
 ---@field Stations fun():FactoryStation[]
 local Area = {}
 Area.WorkshopCenter = -40
+Area.Campaign=false
+function Area.Size(area) if area=='workshop' and Area.Campaign then return 36,28 end; return 18,14 end
 
 ---@param x number
 ---@param z number
@@ -14,10 +16,13 @@ Area.WorkshopCenter = -40
 ---@return string?
 function Area.At(x, z, width, depth)
     local halfWidth, halfDepth = (width or 0) / 2, (depth or 0) / 2
-    if math.abs(z) + halfDepth > 7 then return nil end
-    if math.abs(x) + halfWidth <= 9 then return "shop" end
-    if math.abs(x - Area.WorkshopCenter) + halfWidth <= 9 then return "workshop" end
+    if math.abs(z)+halfDepth<=7 and math.abs(x)+halfWidth<=9 then return 'shop' end
+    local w,d=Area.Size('workshop')
+    if math.abs(z)+halfDepth<=d/2 and math.abs(x-Area.WorkshopCenter)+halfWidth<=w/2 then return 'workshop' end
     return nil
+end
+function Area.CampaignStations()
+    return {{id='ws_return',name='返回汉堡店',x=-26,z=-10,width=3,depth=3,color=Color(0.54,0.68,0.76),marker=true,destination='shop'}}
 end
 
 ---@param area string

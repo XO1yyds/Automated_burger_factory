@@ -15,6 +15,13 @@
 ---@field stock integer
 ---@field completed integer
 ---@field deliveryStores? fun():table[]
+---@field config? table
+---@field sequence integer[]
+---@field issued integer
+---@field elapsed number
+---@field limit? integer
+---@field onDelivered? fun(order:FactoryOrder,amount:integer,finished:boolean,componentAmount:integer)
+---@field Configure fun(self:FactoryOrders,config:table,bonus?:boolean)
 local Orders = {}
 Orders.__index = Orders
 
@@ -27,10 +34,33 @@ function Orders.New(items, random)
     self.wait = self.random(5, 15)
     return self
 end
+function Orders:Configure(config,bonus)
+    self.config=config; self.limit=config.limit; self.elapsed=0; self.issued=0
+    self.sequence={}; for _,n in ipairs(config.orders) do self.sequence[#self.sequence+1]=n end
+    if bonus then
+        local total,max=0,1; for _,n in ipairs(config.orders) do total=total+n; max=math.max(max,n) end
+        local extra=math.max(1,math.floor(total*0.25))
+        while extra>0 do local n=math.min(max,extra); self.sequence[#self.sequence+1]=n; extra=extra-n end
+    end
+    self.wait,self.enabled,self.completed=config.first,true,0
+    self.active,self.selectedId={},nil
+end
 
 ---@param dt number
 function Orders:Update(dt)
     if not self.enabled then return end
+    if self.config then
+        local stop=self.config.seconds-(self.day<=3 and 45 or 60)
+        local available=math.max(0,math.min(dt,stop-self.elapsed)); self.elapsed=self.elapsed+math.max(0,dt)
+        if #self.active>=self.limit or self.issued>=#self.sequence then return end
+        while available>=self.wait and #self.active<self.limit and self.issued<#self.sequence do
+            available=available-self.wait; self.issued=self.issued+1
+            self.active[#self.active+1]={id=self.nextId,required=assert(self.sequence[self.issued]),delivered=0}
+            self.nextId=self.nextId+1; self.wait=self.config.interval
+        end
+        if #self.active<self.limit then self.wait=self.wait-available end
+        return
+    end
     if #self.active >= 5 then self.wait = nil; return end
     if not self.wait then self.wait = self.random(5, 15) end
     local remaining = math.max(0, dt)
@@ -83,7 +113,7 @@ function Orders:Deliver()
     if self:DeliveryCount() <= 0 then return false, "交付区域与交付组件内没有可交付汉堡。" end
     local amount = math.min(self:DeliveryCount(), order.required - order.delivered)
     if amount <= 0 then return false, "该订单已经完成。" end
-    local wasFull = #self.active == 5
+    local wasFull = #self.active == (self.limit or 5)
     local depot=math.min(self.stock,amount); self.stock=self.stock-depot
     local left=amount-depot
     for _,ep in ipairs(self.deliveryStores and self.deliveryStores() or {}) do
@@ -96,8 +126,9 @@ function Orders:Deliver()
         table.remove(self.active, index)
         self.selectedId = nil
         self.completed = self.completed + 1
-        if wasFull and self.enabled then self.wait = self.random(5, 15) end
+        if wasFull and self.enabled and not self.config then self.wait = self.random(5, 15) end
     end
+    if self.onDelivered then self.onDelivered(order,amount,order.delivered==order.required,amount-depot) end
     return true, message
 end
 

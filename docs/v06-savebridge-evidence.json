@@ -1,0 +1,5 @@
+﻿{
+    "scope":  "Host bridge fixture validation, exact-byte roundtrip, corrupt slot rejection, future slot preservation, PowerShell parse",
+    "failed":  0,
+    "passed":  5
+}

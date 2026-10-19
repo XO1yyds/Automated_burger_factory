@@ -112,6 +112,8 @@ end
 function Cable:Commit(start,finish,points,verticalFirst)
     local plan,message=self:Plan(start,finish,points,verticalFirst)
     if not plan or not plan.valid then return false,message or plan.reason end
+    local added=0; for key in pairs(plan.edges) do if not self.edges[key] then added=added+1 end end
+    if self.context.purchase then local ok,reason=self.context.purchase('cable',added); if not ok then return false,reason end end
     self.edges,self.bindings=plan.edges,plan.bindings; self.revision=self.revision+1
     return true,"电缆已连接；继续选择起点。"
 end
@@ -147,12 +149,15 @@ end
 function Cable:RemoveSegment(key)
     local removed=self:Segment(key)
     for _,k in ipairs(removed) do self.edges[k]=nil end
+    if self.context.recover then self.context.recover('cable',#removed) end
     self.revision=self.revision+1
     return #removed>0,"已删除选中连接段；源端物品不受影响。"
 end
 function Cable:RemoveBuilding(id)
     local k=self.bindings[id]; self.bindings[id]=nil
-    if k then for e,v in pairs(self.edges) do if v.a==k or v.b==k then self.edges[e]=nil end end end
+    local removed=0
+    if k then for e,v in pairs(self.edges) do if v.a==k or v.b==k then self.edges[e]=nil; removed=removed+1 end end end
+    if self.context.recover then self.context.recover('cable',removed) end
     self.revision=self.revision+1
 end
 return Cable

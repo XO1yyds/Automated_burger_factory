@@ -91,23 +91,26 @@ function Buffer:TakeOrSwap(index, expectedId, items)
     if not selected and not self:CanReceive(items.held) then return false,"存储空间不足或已预约。" end
     if not selected and expectedId == 0 and items.held and index >= 1 and index <= self.capacity then
         local held = items.held
+        local identity=items.heldIdentity
         if not items:ConsumeHeld(held) then return false, "手持物已变化。" end
-        self.slots[index] = { id = self.nextId, itemType = held, order = self.nextId }
+        self.slots[index] = { id = self.nextId, itemType = held, order = self.nextId,identity=identity or {} }
         self.nextId = self.nextId + 1
         return true, "已存入" .. Definitions[held].name .. "。"
     end
     if not selected or selected.id ~= expectedId then return false, "选中物品已经变化，请重新选择。" end
     local oldHeld = items.held
+    local oldIdentity=items.heldIdentity
     if oldHeld then
         -- Allocate the incoming held visual before touching either ownership.
         local node = items.context.createHeld(selected.itemType)
         if not items:ConsumeHeld(oldHeld) then node:Remove(); return false, "手持物已变化，交换取消。" end
         items.held, items.heldNode = selected.itemType, node
-        self.slots[index] = { id = self.nextId, itemType = oldHeld, order = self.nextId }
+        items.heldIdentity=selected.identity or {}
+        self.slots[index] = { id = self.nextId, itemType = oldHeld, order = self.nextId,identity=oldIdentity or {} }
         self.nextId = self.nextId + 1
         return true, "已交换：取出" .. Definitions[selected.itemType].name .. "，放入" .. Definitions[oldHeld].name .. "。"
     end
-    local ok, message = items:Give(selected.itemType)
+    local ok, message = items:Give(selected.itemType,selected.identity)
     if ok then self.slots[index] = nil end
     return ok, message
 end
@@ -147,9 +150,9 @@ end
 function Buffer:Withdraw(kind,items,position,facing)
     local item,index=self:FindKind(kind); if not item then return false,'该物品已被取走或已预约，请重新选择。' end
     if items.held then
-        if not items:PlaceNearby(kind,position,facing) then return false,'附近地面已满，不可取出；物品仍在库存中。' end
+        if not items:PlaceNearby(kind,position,facing,item.identity) then return false,'附近地面已满，不可取出；物品仍在库存中。' end
         self.slots[index]=nil; return true,'已取出1件至附近地面，原手持物保持不变。'
     end
-    local ok,message=items:Give(kind); if ok then self.slots[index]=nil end; return ok,message
+    local ok,message=items:Give(kind,item.identity); if ok then self.slots[index]=nil end; return ok,message
 end
 return Buffer

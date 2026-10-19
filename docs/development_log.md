@@ -279,3 +279,8 @@
 | 2026-10-19 | 电缆设备接口视觉标识 | LOCAL | Lua、Lua LSP、Windows computer-use | 深底金框青色双针插头与设备垂线；未连接灰框、选中白框；已观察6个真实连接标记、返回隐藏、管理重新显示；42文件解析、LSP零ERROR、32项领域测试通过；手机待验 | 否（未调用Tap生成） |
 | 2026-10-19 | 接口效果预览恢复与最终普通开局核对 | MAKER-FREE | 官方固定版本CLI、computer-use、SHA256 | 首次公共资源准备失败后，经用户授权重新打开；最终状态与源码一致性见v05-cable-socket-preview-evidence.json；既有DDS/themis平台错误独立保留 | 免费能力 |
 | 2026-10-19 | V0.5用户验收完成与GitHub有效版本整理 | LOCAL | 用户确认、Markdown、Git、SHA256 | 用户确认V0.5完成；整理有效源码、文档与验证证据，保留Maker绑定，V0.4动画继续暂停；上传结果见github-v05-upload-result.json | 否（未调用Tap生成） |
+| 2026-10-19 | V0.6十天流程、工厂成长与经营存档策划 | LOCAL | 本地源码/文档核对、Markdown与数值配置 | 保存十天体验、订单曲线、四倍车间、金币、唯一供货点回收、标题及本地存档推荐；第1/7项供用户核对，尚未开发；见v06-development-plan.md | 否（未调用Tap生成） |
+| 2026-10-19 | V0.6十天经营、货币建造、唯一供货点与本地存档实现 | LOCAL | 本地Lua、Lua5.4/Lupa、Lua LSP、实际UrhoX场景 | 80项领域/存档检查与31项原生场景检查通过；旧组件32/下单73/物流63/编辑37/UI策略29通过；51份Lua解析、LSP零ERROR。Windows鼠标标题/开业/保存返回/继续走通，人工验收待进行 | 否（未调用Tap生成） |
+| 2026-10-19 | Windows预览临时缓存存档兼容 | LOCAL | 官方预览文档与日志、本地PowerShell、computer-use | 定位Maker0.0.36按轮清理TEMP/savedata；一键启动器增设本项目双槽校验备份与恢复，5项宿主检查通过；跨进程结果见v06-final-preview-evidence.json | 否（未调用Tap生成） |
+| 2026-10-19 | V0.6最终预览、跨进程继续与源码交付核对 | MAKER-FREE | 官方固定版本preview status/refresh/logs/check、computer-use、SHA256 | reload7→8实际恢复第1天02:50/50金币，读档先暂停；一键启动复用通过，最终留在标题。51份Lua一致、QA关闭、当前Lua零ERROR；平台check仍为既有DDS/themis FAIL。人工验收见v06-manual-acceptance.md | 免费能力 |
+| 2026-10-19 | V0.6用户验收确认与GitHub有效版本整理 | LOCAL | 用户确认、Markdown、Git、SHA256 | 用户确认V0.6验收；整理51份Lua、启动/存档保护及相关文档，排除玩家存档与V0.4草稿，保留Maker绑定与GitHub历史；上传结果见github-v06-upload-result.json | 否（未调用Tap生成） |

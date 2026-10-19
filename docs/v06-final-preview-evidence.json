@@ -1,0 +1,375 @@
+{
+  "date": "2026-10-19",
+  "timezone": "Asia/Shanghai",
+  "version": "V0.6",
+  "cli_version": "0.0.36",
+  "preview": {
+    "session_id": "8778e069-871e-4f0c-82d2-816f8e8e9ccc",
+    "reload_id": 8,
+    "state": "running",
+    "process_alive": true,
+    "ready": false,
+    "platform_check": "FAIL",
+    "errors": [
+      "[2026-10-19 12_55_34_309][0] ERROR: Could not find resource Cube/Day/DaySpecularHDR.dds",
+      "[2026-10-19 12_55_34_372][0] ERROR: Can not load themis_x64.dll.",
+      "[2026-10-19 12_55_51_199][871] ERROR: Could not find resource Cube/Day/DaySpecularHDR.dds"
+    ],
+    "source_mode": "managed_loopback_manifest"
+  },
+  "verification": {
+    "lua_domain": {
+      "passed": 80,
+      "failed": 0,
+      "evidence": "v06-domain-evidence.json"
+    },
+    "native_scene": {
+      "passed": 31,
+      "failed": 0,
+      "evidence": "v06-runtime-evidence.json"
+    },
+    "host_save_bridge": {
+      "passed": 5,
+      "failed": 0,
+      "evidence": "v06-savebridge-evidence.json"
+    },
+    "old_regressions": {
+      "attached": 32,
+      "order_domain": 73,
+      "conveyor": 63,
+      "editing": 37,
+      "ui_policy": 29
+    },
+    "lsp": {
+      "errors": 0,
+      "warnings": 449,
+      "hints": 84
+    }
+  },
+  "ui_observations": [
+    {
+      "test": "new_game_prepare_start_pause_save_title_continue",
+      "result": "PASS",
+      "scope": "Windows mouse; observed in native window"
+    },
+    {
+      "test": "compact_day_clock",
+      "result": "PASS",
+      "observed": "第1/10天 · 准备中 / 03:00; no wrapping after repair"
+    },
+    {
+      "test": "cross_process_continue",
+      "result": "PASS",
+      "before": {
+        "reload": 7,
+        "day": 1,
+        "remaining_display": "02:50",
+        "saved_at": "2026-10-19 12:53:06"
+      },
+      "after": {
+        "reload": 8,
+        "day": 1,
+        "remaining_display": "02:50",
+        "coins": 50,
+        "state": "paused"
+      },
+      "method": "Fresh native Runtime process with project-specific launcher bridge restoring two validated slots before scripts load"
+    },
+    {
+      "test": "resume_then_save_return_title",
+      "result": "PASS",
+      "final_title": {
+        "day": 1,
+        "remaining_display": "02:43",
+        "state": "已暂停",
+        "saved_at": "2026-10-19 12:56:38"
+      }
+    },
+    {
+      "test": "launcher_reuses_live_preview",
+      "result": "PASS",
+      "restart": false
+    }
+  ],
+  "save_caveat": "Maker 0.0.36 Windows manifest preview places savedata/0 in disposable TEMP. Use launch-demo.ps1 and its preview-save-bridge.ps1 companion. Durable project-local slots are ignored by Git. Android native storage is not verified.",
+  "qa_flags_enabled": false,
+  "limitations": [
+    "Human ten-day balance and complete keyboard acceptance not yet tested",
+    "Xiaomi14 Android15 not device-tested; no Android package produced",
+    "Existing DDS/themis platform failures remain; platform check is FAIL, not claimed pass"
+  ],
+  "paid_generation_used": false,
+  "remote_build_run": false,
+  "git_upload_run": false,
+  "source_consistency": {
+    "files": 51,
+    "all_match": true,
+    "scripts": [
+      {
+        "file": "scripts/Factory/AttachedComponents.lua",
+        "sha256": "4ca2a96ba3b66b0fe40c39edcbb440241f3abbe5396ba0966937ad660526603a",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/AutomaticChecks.lua",
+        "sha256": "443cc7e5faea6e32a270838073f628bc9f54b7ef87b667f4c79c70b764da27c2",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/AutomaticWorkstation.lua",
+        "sha256": "0190cc1e827920f1cef5fc368d9ac0eddb0c82002737ad8a12309dda93883dc8",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/AutomationArea.lua",
+        "sha256": "bd672afb32817118919773a0c1013d2477b7a6881c072c662d5a71fe0537a78d",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/BufferStorage.lua",
+        "sha256": "d02dee4505a69f1bfaea7a524fcb8d64d5e6110b014d7283b3bb1b07aa6b9d53",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/Buildings.lua",
+        "sha256": "7cea2fddd88c32cf2ac27f591884d6e99132b5839e4093b3a899410eba5d4f53",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/CableNetwork.lua",
+        "sha256": "d8ff88e140a66bb74b353d28892edff87f64b178bcb0e0f439de1d394d91c23d",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/Campaign.lua",
+        "sha256": "c389b5533b1549f641b663bc10883813c631f308821a42af95dd51977a9fe741",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/CampaignRecovery.lua",
+        "sha256": "119e3440b1aeff669742904d214d5b9ce37c7d542ecedb04d5c26701ebfe7bda",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/CampaignRuntime.lua",
+        "sha256": "cb1ee75da47c80e0bd76fd1d9c2204c739794e0970e1c6f47d75c3012997a67c",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/CampaignWorld.lua",
+        "sha256": "010b73810de38c5f0f1be3a76d0d968b71ade3f4f40745d0f3e32f2b794b97cb",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/CommerceChecks.lua",
+        "sha256": "340dc341ce8f064de833cedc809fb3c513fd7d43a6383289949e841f2776de81",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/ConveyorBuilder.lua",
+        "sha256": "2f02bde3e78dc8f2b2e04e10d64a43d6e31ad38977e9503f255aa05ad0fe54ac",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/ConveyorChecks.lua",
+        "sha256": "239eff611322b4241f83cd49e1401a7618d6f2ce01a14641265419b4f5cac500",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/ConveyorControl.lua",
+        "sha256": "d6f04e3b769447f4d4903d21365e4566d973bf6f2c507da0348d61f5c6b9e784",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/ConveyorEditingChecks.lua",
+        "sha256": "b99f3b1a2584840f4b1051ae3fbbeb88dc1eeb0ba990cf3bb82c611f769881ac",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/ConveyorGeometry.lua",
+        "sha256": "81ae26406517979ef805206e8a95d43c193d5934640798d4332c693f2608916c",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/ConveyorNetwork.lua",
+        "sha256": "228053264cfeb399f2d3ac4da76904b483bed9860fb2c32e8edce8e5b41bc4e9",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/ConveyorWorld.lua",
+        "sha256": "73ec008922daabe0e0bba37241a37c54cc48062c96e9f34acb67b902a8e6c592",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/DayConfig.lua",
+        "sha256": "519bcbd9f9ec8ef4ff911484b4d39dcdc257ce1fe4260619ea344f9f9d15b91e",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/GameLoop.lua",
+        "sha256": "463cc4759a8cfd1697c1d546f6c56c0f8807783123fcdcb41f6446678e9e913b",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/HudDiagnostics.lua",
+        "sha256": "410cc151d442a13a8438ede906c89971d9d1e2f75fdaece50ec4250ceda0be80",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/Interface.lua",
+        "sha256": "4b861ebca49586955da9a31d0c4b0db3e728f2b2c6244f9288faf488593e6f9c",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/InterfaceV3.lua",
+        "sha256": "4f07029eba5546c1da29fb343168dab676f708bad79b03d807ec1dfd78d73746",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/ItemChecks.lua",
+        "sha256": "10c8dc9ddaede49fa8c61c748eaee377c79127652328db8146de617a74f1cf21",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/Items.lua",
+        "sha256": "cd2c0df149eae2be3d3ca3ca7af159d6eff9185d67b1ecec081ecfb3875e8bf8",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/LocalSave.lua",
+        "sha256": "98996968a32c25d63c4bdb65906372d92b0338fb09d7408fe64bce4a83b17243",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/LoopChecks.lua",
+        "sha256": "525d2014d0d82bc264868c263e749c084c03397e526880f40ea27681464573f8",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/ManualChecks.lua",
+        "sha256": "b6e5724ab31cb8520c32eee7dbb5588e6deea7c32cbcb06619dc573622063c20",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/ManualProduction.lua",
+        "sha256": "90e6fb9c5a33402104c08b14d34fc0b2e0cf3385874a1f3e4e1f2cc570644caf",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/OrderAutomation.lua",
+        "sha256": "7fffa7938f534878c335c9b5fba673ccd83555a8615a6c79c09dfe3cadf56442",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/OrderAutomationControl.lua",
+        "sha256": "2fb49137e1e8c395d0e1070b1adb8701e2ed1ffd3cd9641ec26b0db73b749cf7",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/Orders.lua",
+        "sha256": "54509ff32d5ff5a72abf245444430e42dac98f5d5d5d3befa3c5d86b29a5532e",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/OrderTerminalModel.lua",
+        "sha256": "7c6a79fe5339423f73b9a611cc96a2c3321050445c0462cc4646e0eb379d4448",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/OrthographicView.lua",
+        "sha256": "ae57ecda32bd965263adc2068e83f55c2e21d049667806818de177d2388e9621",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/Phase1.lua",
+        "sha256": "48f531aa30713f9230cd250b1c87134b7847a34da506830aac15231c31da4f06",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/ProductionPlanner.lua",
+        "sha256": "713400e2329cd739eeb4c82ec99bfc99b5606b7075403e24bfd989febdf3019a",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/ReviewFixChecks.lua",
+        "sha256": "95d70f57a7082e5640ec8ab12be5c719c329f04c7ef52229106c7cade01064cf",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/SaveCodec.lua",
+        "sha256": "a6e05b696aa99bf880be8424bc72afea5e0f5e27ab2c738e6008c2581a5c4aee",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/StageChecks.lua",
+        "sha256": "b14ec565e6202454807cbe0320cb2f9d8f2d4665c512a28d7ec85d6547a07505",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/TouchInput.lua",
+        "sha256": "b0f238ec86fdccfc8775562d655837d04d72bb7ac59b25119d7ed74c31b37dde",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/UIChecks.lua",
+        "sha256": "f9e391801a35b8934be5215a12139e25a972654646bdbf6090d7bb021e28806b",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/UIController.lua",
+        "sha256": "dff9bdd203433c83a5c985087850d340fddf8027705cb657b359059280a50995",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/UIPreferences.lua",
+        "sha256": "70de5ff588680bcf56770e316e64b2a1c1942c72c11b2e1a49f5c3f783d38ace",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/UIState.lua",
+        "sha256": "8cc98b8ea7677c20376d2ae15fa6d284211f68a2f804490f501c59282f8a83cc",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/V05AttachedChecks.lua",
+        "sha256": "05fa39a4d57656545ccddcf46e75c61e212ead6816f040a764e134595924dbc0",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/V05Checks.lua",
+        "sha256": "1a55fa5ea7b8399402d4d1b71b1c3ab669fb487a5f1ad33b9692fa1246eb9331",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/V05RuntimeChecks.lua",
+        "sha256": "7bdf2fe779985449423f7c151fe230359c9d88dc7f0ca6e979a838e0935cfaf4",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/V06Checks.lua",
+        "sha256": "378bfb6188b6127654589bfd25a3d45e3e5af912f4f2c4ec162ce844e130b194",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/Factory/V06RuntimeChecks.lua",
+        "sha256": "40a27a949f014035eb51ae238507897b4a18201021916cbfeadbc3e46ffbcc5b",
+        "matches_prepared": true
+      },
+      {
+        "file": "scripts/main.lua",
+        "sha256": "ed60544eb2b5e8d9d8c35e07db44794fa9fbc6968f81b6ce80e17101dbc46543",
+        "matches_prepared": true
+      }
+    ],
+    "host_script_sha256": {
+      "launch-demo.ps1": "5d8b4dfd5ef7785c0d5c8bec8de1ea845ead2c98e03fa533016581670104b484",
+      "preview-save-bridge.ps1": "9538ae031b14655583c46cf0e254c1a2738c46d333f2e7c6e3ed3f709866430a"
+    }
+  },
+  "lua_log": {
+    "file": "lua-2026-10-19 12_55_35_264.log",
+    "rows": 17,
+    "error_count": 0,
+    "native_qa_executed": false
+  }
+}

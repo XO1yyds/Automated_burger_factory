@@ -51,3 +51,6 @@ assets/image/employee_v04*
 assets/image/burger_employee_v04*
 assets/sprites/employee_v04*/
 docs/v04-*.html
+
+# Player campaign files stay on the local machine
+.local-saves/

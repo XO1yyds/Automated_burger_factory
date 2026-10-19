@@ -1,0 +1,328 @@
+{
+  "schema_version": 1,
+  "status": "V0.6 user-accepted Windows Demo; runtime source is scripts/Factory/DayConfig.lua; no per-day playtime or balance metrics supplied",
+  "date": "2026-10-19",
+  "workshop": {
+    "width": 36,
+    "depth": 28,
+    "cell_meters": 1,
+    "previous_width": 18,
+    "previous_depth": 14,
+    "area_multiplier": 4
+  },
+  "economy": {
+    "starting_coins": 50,
+    "per_delivered_burger": 10,
+    "completed_order_bonus": 5,
+    "first_daily_goal_bonus": 20,
+    "prices": {
+      "cooker": 60,
+      "assembler": 60,
+      "buffer": 20,
+      "belt_cell": 1,
+      "junction": 10,
+      "isolator_straight": 15,
+      "isolator_corner": 15,
+      "storage": 60,
+      "cable_edge": 1,
+      "order_component": 100,
+      "delivery_component": 80
+    }
+  },
+  "optional_orders": {
+    "first_day": 3,
+    "previous_productivity_threshold": 1.25,
+    "maximum_fraction_of_base": 0.25,
+    "opt_in": true,
+    "minimum_measured_seconds": 60
+  },
+  "days": [
+    {
+      "day": 1,
+      "seconds": 180,
+      "orders": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "base_total": 4,
+      "active_limit": 2,
+      "first_order_after_seconds": 20,
+      "interval_seconds": 35,
+      "stop_new_orders_seconds_before_end": 45,
+      "delivery_goal": 3,
+      "unlocks": [
+        "manual"
+      ],
+      "illustrative_tutorial_budget": 0,
+      "minimum_target_budget_example": {
+        "start_coins": 50,
+        "end_coins": 100
+      }
+    },
+    {
+      "day": 2,
+      "seconds": 210,
+      "orders": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "base_total": 5,
+      "active_limit": 2,
+      "first_order_after_seconds": 15,
+      "interval_seconds": 35,
+      "stop_new_orders_seconds_before_end": 45,
+      "delivery_goal": 4,
+      "unlocks": [
+        "workshop",
+        "supply_recovery",
+        "cooker"
+      ],
+      "illustrative_tutorial_budget": 60,
+      "minimum_target_budget_example": {
+        "start_coins": 100,
+        "end_coins": 100
+      }
+    },
+    {
+      "day": 3,
+      "seconds": 240,
+      "orders": [
+        1,
+        2,
+        1,
+        2,
+        1,
+        2
+      ],
+      "base_total": 9,
+      "active_limit": 3,
+      "first_order_after_seconds": 15,
+      "interval_seconds": 30,
+      "stop_new_orders_seconds_before_end": 45,
+      "delivery_goal": 7,
+      "unlocks": [
+        "assembler"
+      ],
+      "illustrative_tutorial_budget": 60,
+      "minimum_target_budget_example": {
+        "start_coins": 100,
+        "end_coins": 130
+      }
+    },
+    {
+      "day": 4,
+      "seconds": 240,
+      "orders": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "base_total": 12,
+      "active_limit": 3,
+      "first_order_after_seconds": 15,
+      "interval_seconds": 30,
+      "stop_new_orders_seconds_before_end": 60,
+      "delivery_goal": 10,
+      "unlocks": [
+        "belt",
+        "buffer"
+      ],
+      "illustrative_tutorial_budget": 32,
+      "minimum_target_budget_example": {
+        "start_coins": 130,
+        "end_coins": 218
+      }
+    },
+    {
+      "day": 5,
+      "seconds": 270,
+      "orders": [
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3
+      ],
+      "base_total": 17,
+      "active_limit": 3,
+      "first_order_after_seconds": 15,
+      "interval_seconds": 30,
+      "stop_new_orders_seconds_before_end": 60,
+      "delivery_goal": 14,
+      "unlocks": [
+        "junction",
+        "isolator_straight",
+        "isolator_corner"
+      ],
+      "illustrative_tutorial_budget": 40,
+      "minimum_target_budget_example": {
+        "start_coins": 218,
+        "end_coins": 338
+      }
+    },
+    {
+      "day": 6,
+      "seconds": 270,
+      "orders": [
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        4
+      ],
+      "base_total": 20,
+      "active_limit": 4,
+      "first_order_after_seconds": 15,
+      "interval_seconds": 30,
+      "stop_new_orders_seconds_before_end": 60,
+      "delivery_goal": 16,
+      "unlocks": [
+        "storage",
+        "cable",
+        "network_inspection"
+      ],
+      "illustrative_tutorial_budget": 100,
+      "minimum_target_budget_example": {
+        "start_coins": 338,
+        "end_coins": 418
+      }
+    },
+    {
+      "day": 7,
+      "seconds": 300,
+      "orders": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "base_total": 24,
+      "active_limit": 4,
+      "first_order_after_seconds": 15,
+      "interval_seconds": 30,
+      "stop_new_orders_seconds_before_end": 60,
+      "delivery_goal": 20,
+      "unlocks": [
+        "order_component"
+      ],
+      "illustrative_tutorial_budget": 100,
+      "minimum_target_budget_example": {
+        "start_coins": 418,
+        "end_coins": 538
+      }
+    },
+    {
+      "day": 8,
+      "seconds": 300,
+      "orders": [
+        3,
+        3,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4
+      ],
+      "base_total": 28,
+      "active_limit": 4,
+      "first_order_after_seconds": 15,
+      "interval_seconds": 30,
+      "stop_new_orders_seconds_before_end": 60,
+      "delivery_goal": 23,
+      "unlocks": [
+        "delivery_component"
+      ],
+      "illustrative_tutorial_budget": 88,
+      "minimum_target_budget_example": {
+        "start_coins": 538,
+        "end_coins": 700
+      }
+    },
+    {
+      "day": 9,
+      "seconds": 330,
+      "orders": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "base_total": 36,
+      "active_limit": 5,
+      "first_order_after_seconds": 15,
+      "interval_seconds": 30,
+      "stop_new_orders_seconds_before_end": 60,
+      "delivery_goal": 29,
+      "unlocks": [
+        "parallel_layout_tutorial"
+      ],
+      "illustrative_tutorial_budget": 72,
+      "minimum_target_budget_example": {
+        "start_coins": 700,
+        "end_coins": 938
+      }
+    },
+    {
+      "day": 10,
+      "seconds": 360,
+      "orders": [
+        4,
+        4,
+        4,
+        4,
+        5,
+        5,
+        5,
+        5,
+        6,
+        6
+      ],
+      "base_total": 48,
+      "active_limit": 6,
+      "first_order_after_seconds": 15,
+      "interval_seconds": 30,
+      "stop_new_orders_seconds_before_end": 60,
+      "delivery_goal": 40,
+      "unlocks": [
+        "campaign_summary"
+      ],
+      "illustrative_tutorial_budget": 0,
+      "minimum_target_budget_example": {
+        "start_coins": 938,
+        "end_coins": 1358
+      }
+    }
+  ],
+  "checks": {
+    "days": 10,
+    "base_order_count": 70,
+    "base_burgers": 203,
+    "trading_seconds": 2700,
+    "fourfold_area": true,
+    "unblocked_nominal_schedules_fit_before_cutoff": true,
+    "illustrative_minimum_target_purchase_path_affordable": true
+  },
+  "limits": "Arithmetic/configuration check only. Example path budgets assume a compact chosen layout and are not a routing or ten-day playthrough proof. Full order slots can delay or suppress later issues. No claim of actual throughput balance."
+}
