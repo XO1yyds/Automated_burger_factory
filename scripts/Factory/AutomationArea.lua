@@ -1,4 +1,9 @@
 -- Coordinates are meters. The accepted shop stays 18x14 at its original scale.
+---@class FactoryAutomationArea
+---@field WorkshopCenter number
+---@field At fun(x:number,z:number,width?:number,depth?:number):string?
+---@field Center fun(area:string):number
+---@field Stations fun():FactoryStation[]
 local Area = {}
 Area.WorkshopCenter = -40
 
@@ -29,7 +34,8 @@ function Area.Stations()
             color = Color(0.40, 0.47, 0.52), automaticKind = "cooker" },
         { id = "ws_assembler", name = "车间组合台", x = -40, z = 1, width = 2.4, depth = 1.5,
             color = Color(0.48, 0.56, 0.48), automaticKind = "assembler" },
-        { id = "ws_buffer", name = "成品缓存台", x = -34, z = -0.5, width = 2, depth = 4, buildingKind = "buffer", color = Color(0.39, 0.58, 0.61) },
+        { id = "ws_buffer", name = "交付缓存", baseName="成品缓存台", component="delivery", x = -34, z = -0.5, width = 2, depth = 2, buildingKind = "buffer", color = Color(0.39, 0.58, 0.61) },
+        { id = "ws_inventory", name = "下单终端", baseName="成品库存", component="order", x = -37, z = -4.5, width = 2, depth = 4, buildingKind = "storage", color = Color(0.39,0.58,0.61) },
         { id = "ws_return", name = "返回汉堡店", x = -33.5, z = -4.5, width = 3, depth = 3,
             color = Color(0.54, 0.68, 0.76), marker = true, destination = "shop" },
     }

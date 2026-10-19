@@ -21,6 +21,16 @@ local Buildings=require("Factory/Buildings")
 ---@field cardTitle Label
 ---@field cardBody Label
 ---@field modalTitle Label
+---@field modalTabs Panel
+---@field modalSummary Label
+---@field modalQuantity Panel
+---@field modalQuantityValue Label
+---@field modalQuantityButtons Button[]
+---@field modalQuantityData table[]
+---@field modalEntries table[]
+---@field modalEntryData table[]
+---@field modalTabButtons Button[]
+---@field modalTabData table[]
 ---@field version Label
 ---@field lifecycleTitle Label
 ---@field lifecycleHint Label
@@ -188,9 +198,9 @@ function View.New(action)
     self.cardsRow=UI.Panel{flexDirection="row",gap=8,flexShrink=0,height=76}
     self.cardScroll:AddChild(self.cardsRow); self.selector:AddChild(tabs); self.selector:AddChild(self.cardScroll)
     self.buildButtons={}; self.buildCardTitles={}; self.buildCardDetails={}
-    for _,kind in ipairs({"cooker","assembler","junction","isolator_straight","isolator_corner","buffer","conveyor","manage"}) do
+    for _,kind in ipairs({"cooker","assembler","junction","isolator_straight","isolator_corner","buffer","storage","terminal","delivery_component","conveyor","cable","manage"}) do
         local key=kind
-        local name=Buildings.Definitions[kind] and Buildings.Definitions[kind].name or (kind=="conveyor" and "基础传送带" or "管理已有对象")
+        local name=Buildings.Definitions[kind] and Buildings.Definitions[kind].name or (kind=="conveyor" and "基础传送带" or kind=="cable" and "传物电缆" or "管理已有对象")
         local b=button(name,function() action("selectKind",key) end)
         b:SetStyle({width=196,height=72,fontSize=16})
         b:SetText("")
@@ -215,12 +225,41 @@ function View.New(action)
         self.orderRows:AddChild(self.orderButtons[i])
     end
     self.modalTitle=label("",22); self.modalTitle:SetStyle({height=36})
+    self.modalTabButtons={}; self.modalTabData={}
+    self.modalTabs=UI.Panel{flexDirection="row",gap=8,flexShrink=0}
+    for i=1,4 do
+        local index=i
+        local b=button("",function() local d=self.modalTabData[index]; if d and not d.disabled then action(d.command,d.value) end end)
+        b:SetStyle({flexGrow=1,flexBasis=0}); self.modalTabButtons[i]=b; self.modalTabs:AddChild(b)
+    end
+    self.modalSummary=label('',19); self.modalSummary:SetStyle({height=32})
+    self.modalQuantity=UI.Panel{flexDirection='row',gap=8,flexShrink=0,height=48,alignItems='center'}
+    self.modalQuantityValue=label('',20); self.modalQuantityValue:SetStyle({width=70,height=32,textAlign='center'})
+    self.modalQuantityButtons={}; self.modalQuantityData={}
+    for i=1,4 do
+        local index=i
+        local b=button('',function() local d=self.modalQuantityData[index]; if d and not d.disabled then action(d.command,d.value) end end)
+        b:SetStyle({flexGrow=1,flexBasis=0}); self.modalQuantityButtons[i]=b
+        if i==3 then self.modalQuantity:AddChild(self.modalQuantityValue) end
+        self.modalQuantity:AddChild(b)
+    end
     self.modalRows={}; self.modalButtons={}; self.modalToolData={}; self.modalFooterData={}
     self.modalScroll=UI.ScrollView{flexGrow=1,flexBasis=0,scrollY=true}
     self.modalContent=UI.Panel{width="100%",gap=8,flexShrink=0}
     self.modalScroll:AddChild(self.modalContent)
-    for i=1,16 do local item=label("",17); self.modalRows[i]=item; self.modalContent:AddChild(item) end
-    for i=1,10 do
+    for i=1,32 do local item=label("",17); self.modalRows[i]=item; self.modalContent:AddChild(item) end
+    self.modalEntries={}; self.modalEntryData={}
+    for i=1,20 do
+        local index=i
+        local heading=label('',18); local detail=label('',15)
+        detail:SetStyle({fontColor={190,194,198,255}})
+        local texts=UI.Panel{flexGrow=1,flexBasis=0,gap=3,children={heading,detail}}
+        local b=button('',function() local e=self.modalEntryData[index]; local d=e and e.action; if d and not d.disabled then action(d.command,d.value) end end)
+        b:SetStyle({flexShrink=0,minWidth=72})
+        local line=panel{width='100%',padding=10,flexDirection='row',alignItems='center',flexShrink=0,gap=12,backgroundColor={47,50,53,255},children={texts,b}}
+        self.modalEntries[i]={panel=line,heading=heading,detail=detail,button=b}; self.modalContent:AddChild(line)
+    end
+    for i=1,32 do
         local index=i
         local b=button("",function() local d=self.modalToolData[index]; if d and not d.disabled then action(d.command,d.value) end end)
         self.modalButtons[i]=b; self.modalContent:AddChild(b)
@@ -232,7 +271,7 @@ function View.New(action)
         local b=button("",function() local d=self.modalFooterData[index]; if d and not d.disabled then action(d.command,d.value) end end)
         self.footerButtons[i]=b; self.modalFooter:AddChild(b)
     end
-    self.modalPanel=panel{position="absolute",padding=16,gap=10,children={self.modalTitle,self.modalScroll,self.modalFooter}}
+    self.modalPanel=panel{position="absolute",padding=16,gap=10,children={self.modalTitle,self.modalTabs,self.modalSummary,self.modalQuantity,self.modalScroll,self.modalFooter}}
     self.modalMask=UI.Panel{position="absolute",left=0,top=0,right=0,bottom=0,zIndex=100,backgroundColor={0,0,0,155},children={self.modalPanel}}
     self.version=label("自动化汉堡工厂 · "..State.Version,14)
     self.version:SetStyle({position="absolute",right=16,bottom=12,width=290,height=26}); self.modalMask:AddChild(self.version)
@@ -295,12 +334,13 @@ function View.Render(self,model)
         for _,k in ipairs(State.Kinds[model.category]) do if k==kind then visible=true end end
         b:SetVisible(visible)
         local def=Buildings.Definitions[kind]
-        local name=def and def.name or (kind=="conveyor" and "基础传送带" or "管理已有对象")
+        local name=def and def.name or (kind=="conveyor" and "基础传送带" or kind=="cable" and "传物电缆" or "管理已有对象")
         b:SetText("")
         local selected=model.kind==kind
         b:SetStyle({borderWidth=selected and 3 or 1,borderColor=selected and {238,238,238,255} or {95,95,95,255}})
         self.buildCardTitles[kind]:SetText(name)
-        local detail=def and string.format("%.1f×%.1f格",def.width,def.depth) or (kind=="conveyor" and "单入单出 · 0.5格/s" or "选择现有对象")
+        local detail=def and string.format("%.1f×%.1f格",def.width,def.depth) or (kind=="conveyor" and "单入单出 · 0.5格/s" or kind=="cable" and "下单驱动 · 整网2件/s" or "选择现有对象")
+        if kind=='terminal' or kind=='delivery_component' then detail=kind=='terminal' and '依附库存 · 不另占地' or '依附库存/缓存 · 不另占地' end
         self.buildCardDetails[kind]:SetText((selected and "已选 · " or "")..detail)
     end
     self.actionData=model.actions or {}; setData(self.actions,self.actionData)
@@ -332,7 +372,27 @@ function View.Render(self,model)
         local m=model.modal
         self.modalPanel:SetStyle({left=(w-layout.modalWidth)/2,top=62,width=layout.modalWidth,height=h-98})
         self.modalTitle:SetText(m.title)
-        if self.modalPhase~=model.phase then self.modalScroll:ScrollToTop(); self.modalPhase=model.phase end
+        local scrollKey=model.phase..':'..(m.scrollKey or '')
+        if self.modalPhase~=scrollKey then self.modalScroll:ScrollToTop(); self.modalPhase=scrollKey end
+        self.modalTabs:SetVisible(m.tabs~=nil)
+        self.modalTabData=m.tabs or {}; setData(self.modalTabButtons,self.modalTabData)
+        self.modalSummary:SetVisible(m.summary~=nil); self.modalSummary:SetText(m.summary or '')
+        self.modalQuantity:SetVisible(m.quantity~=nil)
+        self.modalQuantityData=m.quantity and m.quantity.actions or {}; setData(self.modalQuantityButtons,self.modalQuantityData)
+        if m.quantity then self.modalQuantityValue:SetText(tostring(m.quantity.value)) end
+        self.modalEntryData=m.entries or {}
+        for i,entry in ipairs(self.modalEntries) do
+            local d=self.modalEntryData[i]; entry.panel:SetVisible(d~=nil)
+            if d then
+                for _,pair in ipairs({{entry.heading,d.text or ''},{entry.detail,d.detail or ''}}) do
+                    local widget,text=pair[1],pair[2]
+                    if widget.props.text~=text then widget:SetText(text); widget:SetHeightAuto() end
+                end
+                entry.detail:SetVisible(d.detail~=nil and d.detail~='')
+                entry.button:SetVisible(d.action~=nil)
+                if d.action then entry.button:SetText(d.action.text); entry.button:SetDisabled(not not d.action.disabled) end
+            end
+        end
         for i,item in ipairs(self.modalRows) do
             local text=m.lines and m.lines[i]; item:SetVisible(text~=nil)
             if text then
@@ -362,7 +422,7 @@ end
 ---@param self FactoryInterface
 ---@param book FactoryOrders
 function View.RefreshOrders(self,book)
-    self.depot:SetText("交付区域：汉堡 "..book.stock.."/5")
+    self.depot:SetText("可交付汉堡 "..book:DeliveryCount())
     for i=1,5 do local o=book.active[i]
         local text=o and string.format("%s订单%02d · %d/%d",o.id==book.selectedId and "[已选] " or "",o.id,o.delivered,o.required) or ""
         self.orderLabels[i]:SetText(text); self.orderButtons[i]:SetText(text); self.orderButtons[i]:SetVisible(o~=nil)

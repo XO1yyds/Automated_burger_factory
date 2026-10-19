@@ -13,6 +13,8 @@ local G = require("Factory/ConveyorGeometry")
 ---@field source? FactoryItemType
 ---@field machine? FactoryAutomaticWorkstation
 ---@field storage? FactoryBufferStorage
+---@field terminal? boolean
+---@field component? string
 
 ---@class FactoryConveyorPlan
 ---@field from FactoryConveyorPort
@@ -27,6 +29,7 @@ local G = require("Factory/ConveyorGeometry")
 ---@field id integer
 ---@field itemType FactoryItemType
 ---@field distance number
+---@field identity? table
 
 ---@class FactoryConveyor: FactoryConveyorPlan
 ---@field id integer
@@ -341,9 +344,9 @@ end
 
 ---@param belt FactoryConveyor
 ---@param itemType FactoryItemType
-function Network:Push(belt, itemType)
+function Network:Push(belt, itemType, identity)
     assert(Network.Room(belt), "Conveyor received without space")
-    table.insert(belt.cargo, { id = self.nextCargoId, itemType = itemType, distance = 0 })
+    table.insert(belt.cargo, { id = self.nextCargoId, itemType = itemType, distance = 0, identity=identity or {} })
     self.nextCargoId = self.nextCargoId + 1
 end
 
@@ -391,7 +394,7 @@ function Network:Step(dt)
                             local outgoing = outputs[outputIndex]
                             if Network.Room(outgoing) then
                                 local item = table.remove(incoming.cargo, 1)
-                                self:Push(outgoing, item.itemType)
+                                self:Push(outgoing, item.itemType,item.identity)
                                 incoming.delivered, self.total = incoming.delivered + 1, self.total + 1
                                 self.inputCursor[key], self.outputCursor[key] = index % #inputs + 1, outputIndex % #outputs + 1
                                 break
@@ -408,7 +411,7 @@ function Network:Step(dt)
                         local belt = inputs[index]
                         local item = belt.cargo[1]
                         if item and Network.Ready(belt) and receiver:CanReceive(item.itemType) then
-                            assert(receiver:Receive(item.itemType)); table.remove(belt.cargo, 1)
+                            assert(receiver:Receive(item.itemType,nil,item.identity)); table.remove(belt.cargo, 1)
                             belt.delivered, self.total, self.inputCursor[key] = belt.delivered + 1, self.total + 1, index % #inputs + 1
                         end
                     end
@@ -419,11 +422,11 @@ function Network:Step(dt)
                     local belt = outputs[index]
                     if Network.Room(belt) then
                         local provider = endpoint.machine or endpoint.storage
-                        local itemType, token = endpoint.source, nil
-                        if provider then itemType, token = provider:PeekOutput() end
+                        local itemType, token, identity = endpoint.source, nil, nil
+                        if provider then local ignored; itemType, token, ignored, identity = provider:PeekOutput() end
                         if itemType then
                             if provider then assert(provider:TakeOutput(itemType, token)) end
-                            self:Push(belt, itemType); self.outputCursor[key] = index % #outputs + 1
+                            self:Push(belt, itemType,identity); self.outputCursor[key] = index % #outputs + 1
                         end
                     end
                 end

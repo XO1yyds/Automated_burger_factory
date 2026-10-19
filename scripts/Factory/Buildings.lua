@@ -1,4 +1,4 @@
----@alias FactoryBuildingKind "cooker"|"assembler"|"junction"|"isolator_straight"|"isolator_corner"|"buffer"
+---@alias FactoryBuildingKind "cooker"|"assembler"|"junction"|"isolator_straight"|"isolator_corner"|"buffer"|"storage"|"terminal"|"delivery_component"
 ---@class FactoryBuildingContext
 ---@field valid fun(x:number,z:number,width:number,depth:number,ignore:FactoryStation?): boolean,string
 ---@field create fun(kind:FactoryBuildingKind,x:number,z:number,quarter:integer): FactoryStation
@@ -20,16 +20,20 @@
 ---@field selected FactoryStation?
 local Buildings = {}
 Buildings.__index = Buildings
+---@type table<string,{name:string,width:number,depth:number}>
 Buildings.Definitions = {
     cooker = { name = "自动烹饪台", width = 2.4, depth = 1.5 },
     assembler = { name = "自动汉堡组合台", width = 2.4, depth = 1.5 },
     junction = { name = "十字拓展接口", width = 1, depth = 1 },
     isolator_straight = { name = "直通隔离接口", width = 1, depth = 1 },
     isolator_corner = { name = "转角隔离接口", width = 1, depth = 1 },
-    buffer = { name = "缓存台", width = 2, depth = 4 },
+    buffer = { name = "缓存台", width = 2, depth = 2 },
+    storage = { name = "库存", width = 2, depth = 4 },
+    terminal = { name = "下单组件", width = 0, depth = 0 },
+    delivery_component = { name = "交付组件", width = 0, depth = 0 },
 }
 ---@type FactoryBuildingKind[]
-Buildings.Order = { "cooker", "assembler", "junction", "isolator_straight", "isolator_corner", "buffer" }
+Buildings.Order = { "cooker", "assembler", "junction", "isolator_straight", "isolator_corner", "buffer", "storage", "terminal" }
 
 ---@param context FactoryBuildingContext
 ---@return FactoryBuildingController
@@ -120,8 +124,9 @@ end
 ---@param origin Vector3
 ---@return boolean,string
 function Buildings:Confirm(origin)
+    if self.kind=='terminal' or self.kind=='delivery_component' then return false,'组件不能独立放置，请选择兼容宿主后确认绑定。' end
     if not self.confirmFocus then return false, "请先选中确认摆放按钮。" end
-    if self.selected and self.context.attached and self.context.attached(self.selected) then return false, "请先拆除相连传送带，再移动或旋转建筑。" end
+    if self.selected and self.context.attached and self.context.attached(self.selected) then return false, "请先拆除相连传送带/电缆，再移动或旋转建筑。" end
     local valid, message = self:Validate(origin)
     if not valid then return false, message end
     if self.mode == "move" and self.selected then

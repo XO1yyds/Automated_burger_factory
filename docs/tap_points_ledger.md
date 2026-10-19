@@ -2,6 +2,33 @@
 
 更新时间：2026-10-18。时间采用 Asia/Shanghai 时区。
 
+第一版动作方案修订v5（2026-10-18）：
+
+| 时间 | 功能 | 任务 | 是否生成式 | 消耗积分 | 剩余积分 | 备注 |
+| -- | -- | -- | -- | -- | -- | -- |
+| 2026-10-18 | maker_status_lite | 第一版方案修订前核对项目 | 否 | 平台未返回 | 未取得 | MAKER-FREE；绑定正常；0.0.36未升级 |
+| 2026-10-18 | edit_image | 第一版可见动作幅度、无眼部动作正面待机8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；一次4097×2731生成；原图/请求/返回保留；8帧候选最终final统一头脸，未返回用量或余额 |
+| 2026-10-18 | preview status | v5资源导出后状态核对 | 否 | 平台未返回 | 未取得 | MAKER-FREE；reload14 stopped/process_alive=false；未重启 |
+
+肩部局部修订v4（2026-10-18）：
+
+| 时间 | 功能 | 任务 | 是否生成式 | 消耗积分 | 剩余积分 | 备注 |
+| -- | -- | -- | -- | -- | -- | -- |
+| 2026-10-18 | maker_status_lite | 肩部修订前核对项目 | 否 | 平台未返回 | 未取得 | MAKER-FREE；绑定正常；沿用0.0.36，未升级 |
+| 2026-10-18 | edit_image | 肩部微抬关键姿势v4 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；一次512×512编辑，原图仍含非肩部变化，仅作姿势参考；最终8帧按用户限定的肩部Y约束本地导出，不宣称8次AI生成 |
+| 2026-10-18 | preview status | 肩部修订导出后核查 | 否 | 平台未返回 | 未取得 | MAKER-FREE；reload14 stopped/process_alive=false，未重启 |
+
+本轮新增（2026-10-18，V0.4角色动画样板）：
+
+| 时间 | 功能 | 任务 | 是否生成式 | 消耗积分 | 剩余积分 | 备注 |
+| -- | -- | -- | -- | -- | -- | -- |
+| 2026-10-18 | maker_status_lite | 续作前核对项目绑定 | 否 | 平台未返回 | 未取得 | MAKER-FREE；绑定存在；0.0.36，未升级 |
+| 2026-10-18 | edit_image | 员工正面待机4帧样板v1 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；仅一次；2048×1152原图及完整请求/结果保留；用户要求先修改，具体位置待补充；未扩量 |
+| 2026-10-18 | preview status | 样板资源导出后会话检查 | 否 | 平台未返回 | 未取得 | MAKER-FREE；reload14 stopped/process_alive=false；未重启 |
+| 2026-10-18 | edit_image | 正面待机v2：按用户修改8帧/不眨眼/降低幅度 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；原图4096×2731，发梢跨槽判为布局失败；保留请求/平台结果，不作为可用图集 |
+| 2026-10-18 | edit_image | 正面待机v3：八槽布局修正 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；原图4097×2731；8帧/4fps，512/256候选已导出，最新目录front_idle_8f_v3_aligned；待审核；未返回扣费/余额 |
+| 2026-10-18 | preview status | 8帧修订资源导出后检查 | 否 | 平台未返回 | 未取得 | MAKER-FREE；reload14 stopped/process_alive=false；未重启；证据docs/v04-character-animation-preview-status.json |
+
 规则见 [双线开发与积分调度规则](tap-credit-policy.md)。本文件为积分记录的唯一维护入口。
 
 ## 余额与有效期
@@ -373,3 +400,96 @@
 | 2026-10-18 | preview start/run/status/refresh/logs/check | V0.3原生回归与普通试玩恢复 | 否 | 平台未返回 | 未取得 | MAKER-FREE；379 PASS/0 FAIL；最终reload8普通版；原环境告警保留，无付费生成或远端构建 |
 | 2026-10-18 | Lua LSP | V0.3验收反馈修复静态诊断 | 否 | 平台未返回 | 未取得 | MAKER-FREE；最终0 Error/263 Warning/61 Hint；无生成能力调用，未查询余额 |
 | 2026-10-18 | preview status/refresh/logs/check | V0.3反馈修复回归及普通版恢复（reload9～14） | 否 | 平台未返回 | 未取得 | MAKER-FREE；403唯一断言通过；只刷新存活会话，原环境告警保留；无提交/远端构建/付费生成 |
+| 2026-10-18 | maker_status_lite | V0.4资产制作前核对项目 | 否 | 平台未返回 | 未取得 | MAKER-FREE；显式target_dir确认绑定、认证存在；0.0.36提示0.0.37可更新，未升级；未触发构建 |
+| 2026-10-18 | edit_image | 员工四向透明静态样板 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；仅调用一次，沿用无道具三视图；实际2304×1536 RGBA；资源与原始结果已保存，待外观审核；未返回真实用量或扣费来源 |
+| 2026-10-18 | preview status | V0.4新资源保存后检查会话 | 否 | 平台未返回 | 未取得 | MAKER-FREE；既有reload14 stopped/process_alive=false；未重启预览，未运行游戏自检 |
+| 2026-10-18 | maker_status_lite | 平静表情编辑前确认当前绑定 | 否 | 平台未返回 | 未取得 | MAKER-FREE；绑定与认证存在；沿用0.0.36，已知更新未执行 |
+| 2026-10-18 | edit_image | 四向员工平静表情与脸部校正 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；一次编辑，2304×1536 RGBA，原四向图保留；来源/提示词/映射已保存；未取得真实扣费/余额 |
+| 2026-10-18 | preview status | 平静版新资源保存后会话检查 | 否 | 平台未返回 | 未取得 | MAKER-FREE；reload14 stopped/process_alive=false；未重启或构建 |
+| 2026-10-18 | maker_status_lite | 用户面部参考编辑前核对绑定 | 否 | 平台未返回 | 未取得 | MAKER-FREE；当前项目绑定与认证存在，沿用0.0.36，未升级 |
+| 2026-10-18 | edit_image | 按用户面部特写制作四向角色表情 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；一次生成，2304×1536 RGBA，保留闭嘴浅笑/半睁黑眼/双颊红线；主体及参考原图保留，来源映射与提示词已保存，待审核 |
+| 2026-10-18 | preview status | 面部参考版资源保存后状态检查 | 否 | 平台未返回 | 未取得 | MAKER-FREE；reload14仍停止，未重启或构建 |
+| 2026-10-18 | edit_image | 角色front_carry_idle，4帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/front_carry_idle.json <!-- char-state-front_carry_idle-r1 --> |
+| 2026-10-18 | edit_image | 角色front_operate，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/front_operate.json <!-- char-state-front_operate-r1 --> |
+| 2026-10-18 | edit_image | 角色front_run，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/front_run.json <!-- char-state-front_run-r1 --> |
+| 2026-10-18 | edit_image | 角色front_walk，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/front_walk.json <!-- char-state-front_walk-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色front_carry_run，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/front_carry_run.json <!-- char-state-front_carry_run-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色front_carry_walk，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/front_carry_walk.json <!-- char-state-front_carry_walk-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色front_think，12帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/front_think.json <!-- char-state-front_think-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色left_carry_idle，4帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/left_carry_idle.json <!-- char-state-left_carry_idle-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色left_carry_run，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/left_carry_run.json <!-- char-state-left_carry_run-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色left_carry_walk，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/left_carry_walk.json <!-- char-state-left_carry_walk-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色left_idle，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/left_idle.json <!-- char-state-left_idle-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色left_operate，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/left_operate.json <!-- char-state-left_operate-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色left_run，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/left_run.json <!-- char-state-left_run-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色left_walk，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/left_walk.json <!-- char-state-left_walk-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色back_idle，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/back_idle.json <!-- char-state-back_idle-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色left_think，12帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/left_think.json <!-- char-state-left_think-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色right_carry_idle，4帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/right_carry_idle.json <!-- char-state-right_carry_idle-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色right_carry_run，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/right_carry_run.json <!-- char-state-right_carry_run-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色right_carry_walk，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/right_carry_walk.json <!-- char-state-right_carry_walk-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色right_idle，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/right_idle.json <!-- char-state-right_idle-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色right_operate，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/right_operate.json <!-- char-state-right_operate-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色right_run，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/right_run.json <!-- char-state-right_run-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色right_think，12帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/right_think.json <!-- char-state-right_think-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色right_walk，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/right_walk.json <!-- char-state-right_walk-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色back_carry_idle，4帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/back_carry_idle.json <!-- char-state-back_carry_idle-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色back_carry_run，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/back_carry_run.json <!-- char-state-back_carry_run-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色back_carry_walk，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/back_carry_walk.json <!-- char-state-back_carry_walk-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色back_operate，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/back_operate.json <!-- char-state-back_operate-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色back_run，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/back_run.json <!-- char-state-back_run-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色back_think，12帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/back_think.json <!-- char-state-back_think-r1 --> |
+| 2026-10-18 | batch_generate_images | 角色back_walk，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/receipts/back_walk.json <!-- char-state-back_walk-r1 --> |
+| 2026-10-18 | edit_image | 角色back_think r2，12帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/back_think-r2.maker-result.json <!-- char-state-back_think-r2 --> |
+| 2026-10-18 | edit_image | 角色front_carry_run r2，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/front_carry_run-r2.maker-result.json <!-- char-state-front_carry_run-r2 --> |
+| 2026-10-18 | edit_image | 角色front_run r2，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；成功=True；原始结果见states_v1/front_run-r2.maker-result.json <!-- char-state-front_run-r2 --> |
+| 2026-10-18 | edit_image | 角色front_run r3，8帧步相修订 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台生成成功，步态自检未通过，未启用；结果见states_v1/front_run-r3.maker-result.json <!-- char-state-front_run-r3 --> |
+| 2026-10-18 | edit_image | 角色front_carry_run r3，8帧步相修订 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台生成成功，步态自检未通过，未启用；结果见states_v1/front_carry_run-r3.maker-result.json <!-- char-state-front_carry_run-r3 --> |
+| 2026-10-18 | edit_image | back_carry_idle carry_v2修订，4帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见states_v1/back_carry_idle-carry_v2.maker-result.json <!-- char-state-back_carry_idle-carry_v2 --> |
+| 2026-10-18 | edit_image | left_walk gait_v2修订，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见states_v1/left_walk-gait_v2.maker-result.json <!-- char-state-left_walk-gait_v2 --> |
+| 2026-10-18 | edit_image | left_walk gait_v3修订，8帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见states_v1/left_walk-gait_v3.maker-result.json <!-- char-state-left_walk-gait_v3 --> |
+| 2026-10-18 | edit_image | front_run_depth_f01 single_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/front_run_depth_demo_v1/receipts/frame_01-r1.json <!-- char-state-front_run_depth_f01-single_r1 --> |
+| 2026-10-18 | edit_image | front_run_depth_f02 single_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/front_run_depth_demo_v1/receipts/frame_02-r1.json <!-- char-state-front_run_depth_f02-single_r1 --> |
+| 2026-10-18 | edit_image | front_run_depth_f03 single_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/front_run_depth_demo_v1/receipts/frame_03-r1.json <!-- char-state-front_run_depth_f03-single_r1 --> |
+| 2026-10-18 | edit_image | front_run_depth_f04 single_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/front_run_depth_demo_v1/receipts/frame_04-r1.json <!-- char-state-front_run_depth_f04-single_r1 --> |
+| 2026-10-18 | edit_image | front_run_depth_f05 single_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/front_run_depth_demo_v1/receipts/frame_05-r1.json <!-- char-state-front_run_depth_f05-single_r1 --> |
+| 2026-10-18 | edit_image | front_run_depth_f06 single_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/front_run_depth_demo_v1/receipts/frame_06-r1.json <!-- char-state-front_run_depth_f06-single_r1 --> |
+| 2026-10-18 | edit_image | front_run_depth_f07 single_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/front_run_depth_demo_v1/receipts/frame_07-r1.json <!-- char-state-front_run_depth_f07-single_r1 --> |
+| 2026-10-18 | edit_image | front_run_depth_f08 single_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/front_run_depth_demo_v1/receipts/frame_08-r1.json <!-- char-state-front_run_depth_f08-single_r1 --> |
+| 2026-10-18 | edit_image | front_run_depth2_f01 single_depth2_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/front_run_depth_demo_v2/receipts/frame_01-r1.json <!-- char-state-front_run_depth2_f01-single_depth2_r1 --> |
+| 2026-10-18 | edit_image | front_run_depth2_f02 single_depth2_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/front_run_depth_demo_v2/receipts/frame_02-r1.json <!-- char-state-front_run_depth2_f02-single_depth2_r1 --> |
+| 2026-10-18 | edit_image | front_run_depth2_f03 single_depth2_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/front_run_depth_demo_v2/receipts/frame_03-r1.json <!-- char-state-front_run_depth2_f03-single_depth2_r1 --> |
+| 2026-10-18 | edit_image | front_run_depth2_f06 single_depth2_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/front_run_depth_demo_v2/receipts/frame_06-r1.json <!-- char-state-front_run_depth2_f06-single_depth2_r1 --> |
+| 2026-10-18 | edit_image | front_run_depth2_f04 single_depth2_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/front_run_depth_demo_v2/receipts/frame_04-r1.json <!-- char-state-front_run_depth2_f04-single_depth2_r1 --> |
+| 2026-10-18 | edit_image | front_run_depth2_f05 single_depth2_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/front_run_depth_demo_v2/receipts/frame_05-r1.json <!-- char-state-front_run_depth2_f05-single_depth2_r1 --> |
+| 2026-10-18 | edit_image | front_run_depth2_f07 single_depth2_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/front_run_depth_demo_v2/receipts/frame_07-r1.json <!-- char-state-front_run_depth2_f07-single_depth2_r1 --> |
+| 2026-10-18 | edit_image | front_run_depth2_f08 single_depth2_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/front_run_depth_demo_v2/receipts/frame_08-r1.json <!-- char-state-front_run_depth2_f08-single_depth2_r1 --> |
+| 2026-10-18 | edit_image | front_run_depth2_f04 single_depth2_r2修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/front_run_depth_demo_v2/receipts/frame_04-r2.json <!-- char-state-front_run_depth2_f04-single_depth2_r2 --> |
+| 2026-10-18 | edit_image | front_run_depth2_f07 single_depth2_r2修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/front_run_depth_demo_v2/receipts/frame_07-r2.json <!-- char-state-front_run_depth2_f07-single_depth2_r2 --> |
+| 2026-10-19 | edit_image | left_run_depth_f01 single_left_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=unconfirmed；美术质量另行审核；结果见assets/image/employee_v04/left_run_depth_demo_v1/receipts/frame_01-r1.json <!-- char-state-left_run_depth_f01-single_left_depth_r1 --> |
+| 2026-10-19 | edit_image | left_run_depth_f02 single_left_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/left_run_depth_demo_v1/receipts/frame_02-r1.json <!-- char-state-left_run_depth_f02-single_left_depth_r1 --> |
+| 2026-10-19 | edit_image | left_run_depth_f03 single_left_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/left_run_depth_demo_v1/receipts/frame_03-r1.json <!-- char-state-left_run_depth_f03-single_left_depth_r1 --> |
+| 2026-10-19 | edit_image | left_run_depth_f04 single_left_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/left_run_depth_demo_v1/receipts/frame_04-r1.json <!-- char-state-left_run_depth_f04-single_left_depth_r1 --> |
+| 2026-10-19 | edit_image | right_run_depth_f01 single_right_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/right_run_depth_demo_v1/receipts/frame_01-r1.json <!-- char-state-right_run_depth_f01-single_right_depth_r1 --> |
+| 2026-10-19 | edit_image | right_run_depth_f02 single_right_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/right_run_depth_demo_v1/receipts/frame_02-r1.json <!-- char-state-right_run_depth_f02-single_right_depth_r1 --> |
+| 2026-10-19 | edit_image | right_run_depth_f03 single_right_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/right_run_depth_demo_v1/receipts/frame_03-r1.json <!-- char-state-right_run_depth_f03-single_right_depth_r1 --> |
+| 2026-10-19 | edit_image | back_run_depth_f01 single_back_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/back_run_depth_demo_v1/receipts/frame_01-r1.json <!-- char-state-back_run_depth_f01-single_back_depth_r1 --> |
+| 2026-10-19 | edit_image | back_run_depth_f02 single_back_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/back_run_depth_demo_v1/receipts/frame_02-r1.json <!-- char-state-back_run_depth_f02-single_back_depth_r1 --> |
+| 2026-10-19 | edit_image | back_run_depth_f03 single_back_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/back_run_depth_demo_v1/receipts/frame_03-r1.json <!-- char-state-back_run_depth_f03-single_back_depth_r1 --> |
+| 2026-10-19 | edit_image | left_run_depth_f01 single_left_depth_r2修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/left_run_depth_demo_v1/receipts/frame_01-r2.json <!-- char-state-left_run_depth_f01-single_left_depth_r2 --> |
+| 2026-10-19 | edit_image | left_run_depth_f05 single_left_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/left_run_depth_demo_v1/receipts/frame_05-r1.json <!-- char-state-left_run_depth_f05-single_left_depth_r1 --> |
+| 2026-10-19 | edit_image | left_run_depth_f06 single_left_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/left_run_depth_demo_v1/receipts/frame_06-r1.json <!-- char-state-left_run_depth_f06-single_left_depth_r1 --> |
+| 2026-10-19 | edit_image | left_run_depth_f07 single_left_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/left_run_depth_demo_v1/receipts/frame_07-r1.json <!-- char-state-left_run_depth_f07-single_left_depth_r1 --> |
+| 2026-10-19 | edit_image | right_run_depth_f04 single_right_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/right_run_depth_demo_v1/receipts/frame_04-r1.json <!-- char-state-right_run_depth_f04-single_right_depth_r1 --> |
+| 2026-10-19 | edit_image | right_run_depth_f05 single_right_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/right_run_depth_demo_v1/receipts/frame_05-r1.json <!-- char-state-right_run_depth_f05-single_right_depth_r1 --> |
+| 2026-10-19 | edit_image | right_run_depth_f06 single_right_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/right_run_depth_demo_v1/receipts/frame_06-r1.json <!-- char-state-right_run_depth_f06-single_right_depth_r1 --> |
+| 2026-10-19 | edit_image | back_run_depth_f04 single_back_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/back_run_depth_demo_v1/receipts/frame_04-r1.json <!-- char-state-back_run_depth_f04-single_back_depth_r1 --> |
+| 2026-10-19 | edit_image | back_run_depth_f05 single_back_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/back_run_depth_demo_v1/receipts/frame_05-r1.json <!-- char-state-back_run_depth_f05-single_back_depth_r1 --> |
+| 2026-10-19 | edit_image | left_run_depth_f08 single_left_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/left_run_depth_demo_v1/receipts/frame_08-r1.json <!-- char-state-left_run_depth_f08-single_left_depth_r1 --> |
+| 2026-10-19 | edit_image | right_run_depth_f07 single_right_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/right_run_depth_demo_v1/receipts/frame_07-r1.json <!-- char-state-right_run_depth_f07-single_right_depth_r1 --> |
+| 2026-10-19 | edit_image | right_run_depth_f08 single_right_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/right_run_depth_demo_v1/receipts/frame_08-r1.json <!-- char-state-right_run_depth_f08-single_right_depth_r1 --> |
+| 2026-10-19 | edit_image | back_run_depth_f06 single_back_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/back_run_depth_demo_v1/receipts/frame_06-r1.json <!-- char-state-back_run_depth_f06-single_back_depth_r1 --> |
+| 2026-10-19 | edit_image | back_run_depth_f07 single_back_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=True；美术质量另行审核；结果见assets/image/employee_v04/back_run_depth_demo_v1/receipts/frame_07-r1.json <!-- char-state-back_run_depth_f07-single_back_depth_r1 --> |
+| 2026-10-19 | edit_image | back_run_depth_f08 single_back_depth_r1修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=unconfirmed；美术质量另行审核；结果见assets/image/employee_v04/back_run_depth_demo_v1/receipts/frame_08-r1.json <!-- char-state-back_run_depth_f08-single_back_depth_r1 --> |
+| 2026-10-19 | edit_image | back_run_depth_f08 single_back_depth_r2修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=unconfirmed；美术质量另行审核；结果见assets/image/employee_v04/back_run_depth_demo_v1/receipts/frame_08-r2.json <!-- char-state-back_run_depth_f08-single_back_depth_r2 --> |
+| 2026-10-19 | Codex独立image_gen | 补齐背面跑动第8帧 | 是 | 不涉及Tap计费 | 未查询 | 用户要求停止Maker后使用独立图片工具；未把图片模型记为GPT6.1；详见builtin-frame08-request.json <!-- depth-back08-nontap-20261019 --> |

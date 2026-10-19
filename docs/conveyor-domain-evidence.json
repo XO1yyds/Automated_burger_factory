@@ -2,7 +2,7 @@
   "runtime": "Lua 5.4",
   "passed": 63,
   "failed": 0,
-  "duration_seconds": 0.682,
+  "duration_seconds": 0.232,
   "checks": [
     {
       "name": "grid ports remain on building border",

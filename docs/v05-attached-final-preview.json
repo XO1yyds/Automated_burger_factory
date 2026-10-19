@@ -1,0 +1,187 @@
+{
+  "session_id": "1c2bc3d0-5180-4d42-a6ce-5933aa462689",
+  "reload_id": 6,
+  "state": "running",
+  "process_alive": true,
+  "platform_check": "FAIL",
+  "known_errors": [
+    "[2026-10-19 11_03_35_926][0] ERROR: Could not find resource Cube/Day/DaySpecularHDR.dds\r",
+    "[2026-10-19 11_03_35_979][0] ERROR: Can not load themis_x64.dll.\r",
+    "[2026-10-19 11_03_51_089][802] ERROR: Could not find resource Cube/Day/DaySpecularHDR.dds\r"
+  ],
+  "files": [
+    {
+      "file": "scripts/main.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/AttachedComponents.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/AutomaticChecks.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/AutomaticWorkstation.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/AutomationArea.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/BufferStorage.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/Buildings.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/CableNetwork.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/CommerceChecks.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/ConveyorBuilder.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/ConveyorChecks.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/ConveyorControl.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/ConveyorEditingChecks.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/ConveyorGeometry.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/ConveyorNetwork.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/ConveyorWorld.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/GameLoop.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/HudDiagnostics.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/Interface.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/InterfaceV3.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/ItemChecks.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/Items.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/LoopChecks.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/ManualChecks.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/ManualProduction.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/OrderAutomation.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/OrderAutomationControl.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/Orders.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/OrderTerminalModel.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/OrthographicView.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/Phase1.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/ProductionPlanner.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/ReviewFixChecks.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/StageChecks.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/TouchInput.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/UIChecks.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/UIController.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/UIPreferences.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/UIState.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/V05AttachedChecks.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/V05Checks.lua",
+      "match": true
+    },
+    {
+      "file": "scripts/Factory/V05RuntimeChecks.lua",
+      "match": true
+    }
+  ],
+  "source_matches": true,
+  "temporary_flags_disabled": true,
+  "qa_entry_executed": false,
+  "user_acceptance": "pending",
+  "android": "not tested"
+}

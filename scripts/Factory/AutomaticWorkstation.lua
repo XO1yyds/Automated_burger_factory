@@ -8,6 +8,8 @@ local Definitions = require("Factory/Items").Definitions
 ---@field completedAt? number
 
 ---@class FactoryAutomaticWorkstation
+---@field automationOwner? table
+---@field automationIntakeOwner? table
 ---@field kind FactoryAutomaticKind
 ---@field items FactoryItemService
 ---@field slots table<integer, FactoryCookingSlot>
@@ -36,6 +38,7 @@ function Workstation.New(kind, items)
 end
 
 function Workstation:TryStartAssembly()
+    if self.automationIntakeOwner and not self.automationOwner then return end
     if not self.processing and not self.burgerReady and self.materials.bun
         and self.materials.cooked_beef and self.materials.lettuce and not self.materials.raw_beef then
         self.processing, self.progress = true, 0
@@ -122,6 +125,8 @@ end
 
 ---@return boolean, string
 function Workstation:Interact()
+    if self.automationOwner then return false,"设备被生产任务占用，请先取消任务。" end
+    if self.automationIntakeOwner and self.items.held then return false,"下单任务等待使用设备，暂不接收新投料；已有成品仍可取出。" end
     if self.kind == "cooker" then return self:InteractCooker() end
     return self:InteractAssembler()
 end
@@ -175,7 +180,9 @@ end
 -- ownership is moved; manual retrieval keeps its original LIFO rules.
 ---@param itemType FactoryItemType
 ---@return boolean
-function Workstation:CanReceive(itemType)
+function Workstation:CanReceive(itemType,owner)
+    if self.automationOwner and self.automationOwner~=owner then return false end
+    if self.automationIntakeOwner and self.automationIntakeOwner~=owner then return false end
     if self.kind == "cooker" then
         if itemType ~= "raw_beef" then return false end
         for index = 1, 3 do if not self.slots[index] then return true end end
@@ -188,8 +195,8 @@ end
 
 ---@param itemType FactoryItemType
 ---@return boolean
-function Workstation:Receive(itemType)
-    if not self:CanReceive(itemType) then return false end
+function Workstation:Receive(itemType,owner)
+    if not self:CanReceive(itemType,owner) then return false end
     if self.kind == "cooker" then
         for index = 1, 3 do
             if not self.slots[index] then
@@ -206,7 +213,8 @@ function Workstation:Receive(itemType)
 end
 
 ---@return FactoryItemType?, integer?
-function Workstation:PeekOutput()
+function Workstation:PeekOutput(owner)
+    if self.automationOwner and self.automationOwner~=owner then return nil end
     if self.kind == "assembler" then return self.burgerReady and "burger" or nil end
     ---@type FactoryCookingSlot?
     local chosen = nil
@@ -225,8 +233,8 @@ end
 
 ---@param expected FactoryItemType
 ---@return boolean
-function Workstation:TakeOutput(expected)
-    local itemType, index = self:PeekOutput()
+function Workstation:TakeOutput(expected,token,owner)
+    local itemType, index = self:PeekOutput(owner)
     if itemType ~= expected then return false end
     if self.kind == "cooker" then self.slots[assert(index)] = nil
     else self.burgerReady = false; self:TryStartAssembly() end
@@ -264,6 +272,7 @@ function Workstation:Prompt()
 end
 
 function Workstation:Reset()
+    self.automationOwner,self.automationIntakeOwner=nil,nil
     self.slots, self.materials = {}, {}
     self.nextOrder, self.clock, self.processing, self.progress = 1, 0, false, 0
     self.burgerReady, self.burgersProduced = false, 0

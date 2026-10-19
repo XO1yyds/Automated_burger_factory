@@ -14,6 +14,7 @@
 ---@field selectedId integer?
 ---@field stock integer
 ---@field completed integer
+---@field deliveryStores? fun():table[]
 local Orders = {}
 Orders.__index = Orders
 
@@ -55,18 +56,40 @@ function Orders:Select(id)
     self.selectedId = self:Find(id) and id or nil
 end
 
+---@return integer
+function Orders:DeliveryCount()
+    local n=self.stock
+    for _,ep in ipairs(self.deliveryStores and self.deliveryStores() or {}) do n=n+ep.storage:CountKind('burger') end
+    return n
+end
+function Orders:DeliverySummary()
+    local lines={'店内交付区：汉堡 '..self.stock..'/5'}
+    for _,ep in ipairs(self.deliveryStores and self.deliveryStores() or {}) do
+        local contents={}; for _,kind in ipairs({'burger','cooked_beef','raw_beef','bun','lettuce'}) do
+            local n=0; for _,v in pairs(ep.storage.slots) do if v.itemType==kind then n=n+1 end end
+            if n>0 then table.insert(contents,require('Factory/Items').Definitions[kind].name..'×'..n) end
+        end
+        table.insert(lines,ep.name..'：'..(#contents>0 and table.concat(contents,'、') or '空'))
+    end
+    return lines
+end
 ---@return boolean
-function Orders:CanDeliver() return self.stock > 0 and self:Find(self.selectedId) ~= nil end
+function Orders:CanDeliver() return self:DeliveryCount() > 0 and self:Find(self.selectedId) ~= nil end
 
 ---@return boolean,string
 function Orders:Deliver()
     local order, index = self:Find(self.selectedId)
     if not order or not index then self.selectedId = nil; return false, "请主动选择有效订单。" end
-    if self.stock <= 0 then return false, "交付区域没有汉堡。" end
-    local amount = math.min(self.stock, order.required - order.delivered)
+    if self:DeliveryCount() <= 0 then return false, "交付区域与交付组件内没有可交付汉堡。" end
+    local amount = math.min(self:DeliveryCount(), order.required - order.delivered)
     if amount <= 0 then return false, "该订单已经完成。" end
     local wasFull = #self.active == 5
-    self.stock = self.stock - amount
+    local depot=math.min(self.stock,amount); self.stock=self.stock-depot
+    local left=amount-depot
+    for _,ep in ipairs(self.deliveryStores and self.deliveryStores() or {}) do
+        while left>0 and ep.storage:TakeKind('burger') do left=left-1 end
+    end
+    assert(left==0,'Delivery sources changed during atomic delivery')
     order.delivered = order.delivered + amount
     local message = string.format("订单 %02d 交付 %d 个，进度 %d/%d。", order.id, amount, order.delivered, order.required)
     if order.delivered == order.required then

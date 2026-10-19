@@ -2,6 +2,34 @@
 
 更新时间：2026-10-18。时间采用 Asia/Shanghai 时区。
 
+第一版动作方案修订v5（2026-10-18）：
+
+| 时间 | 开发任务 | 执行线路 | 使用工具 | 结果 | 是否消耗积分 |
+| -- | -- | -- | -- | -- | -- |
+| 2026-10-18 | 按最新反馈恢复第一版可见肩臂方案 | MAKER-POINTS | Maker edit_image、第一版原图/八槽布局参考 | 一次生成8个肩臂姿势，全部睁眼，4097×2731原图与完整请求/返回保留；替代v4不可见微动，待人工审核 | 平台未返回 |
+| 2026-10-18 | v5透明规范化、固定头脸与导出 | LOCAL | maker-frame-animation工具、Pillow、本地图块整理/核查脚本 | 清除alpha≤15杂点；共同比例/足底；头脸统一第一帧；最终512/256眼部/头部RGBA逐帧相同、图集像素一致、WebP8帧/4fps；最终目录v5/final，8帧为Maker绘制姿势，无本地伪造动作；未接入游戏 | 否 |
+| 2026-10-18 | v5制作前后平台状态检查 | MAKER-FREE | maker_status_lite、固定0.0.36 CLI preview status | 绑定正常，原reload14停止，未重启；未改版本、Lua、构建或推送；当前v5待审 | 平台未返回；非生成式 |
+
+肩部局部修订v4（2026-10-18）：
+
+| 时间 | 开发任务 | 执行线路 | 使用工具 | 结果 | 是否消耗积分 |
+| -- | -- | -- | -- | -- | -- |
+| 2026-10-18 | 员工待机肩部微抬关键姿势 | MAKER-POINTS | Maker edit_image | 一次512×512关键姿势编辑；原始图仍含非肩部变化，仅作姿势参考，不作为最终全身帧；请求/完整返回与旧版保留 | 平台未返回 |
+| 2026-10-18 | 按用户指定肩部Y约束导出8帧 | LOCAL | maker-frame-animation导出工具、固定底图、局部2D肩部Y采样脚本 | 8帧/4fps；512档肩部最高1.5px、256档0.75px；不整帧缩放/平移/重新居中，头脸躯干手脚冻结；不是8幅独立AI帧；用户待审 | 否 |
+| 2026-10-18 | 肩部外像素与图集检查 | LOCAL | RGBA逐像素比较、独立区域比对、atlas回读/WebP检查 | 两档8帧肩部蒙版外差异均0、头脸/躯干/名牌/手脚完全一致、alpha包围盒不变、第一帧等于底图；WebP8帧循环，图集像素一致；零位移预乘alpha舍入已修正，未改Lua | 否 |
+| 2026-10-18 | 肩部修订Maker与预览核对 | MAKER-FREE | maker_status_lite、固定0.0.36 CLI preview status | 绑定正常；原reload14停止，未重启，无构建/推送；证据v04-character-shoulder-preview-status.json | 平台未返回；非生成式 |
+
+本轮新增（2026-10-18，V0.4角色资产）：
+
+| 时间 | 开发任务 | 执行线路 | 使用工具 | 结果 | 是否消耗积分 |
+| -- | -- | -- | -- | -- | -- |
+| 2026-10-18 | 四向静态裁切与足底基准整理 | LOCAL | maker-frame-animation技能、Pillow/LANCZOS、PNG读图/alpha检查 | 四向512透明独立图及来源配置；真实行间隙y780，保留原比例/左右非对称；枢轴(256,496)，外观未宣称通过 | 否 |
+| 2026-10-18 | 正面空手待机样板制作 | MAKER-POINTS | Maker edit_image | 一次生成4帧/4fps候选，呼吸与第3帧眨眼；原图/请求/完整平台返回保留；用户选择先修改，位置待补充，其余31组未生成 | 平台未返回 |
+| 2026-10-18 | 样板规范化、图集和预览导出 | LOCAL | Pillow、技能pack_frames/render_sprite_preview_sheet、本地导出脚本 | 512/256帧、PNG/JSON/WebP、联系表及机器证据；共同比例/足底、alpha≤3噪点清零；各4帧、图集像素一致、WebP4帧循环，人工未通过；无游戏接入 | 否 |
+| 2026-10-18 | 制作前后Maker状态核对 | MAKER-FREE | maker_status_lite、固定0.0.36 CLI preview status | 当前绑定存在，原reload14已停止，未重启；未改版本、构建或推送 | 平台未返回；非生成式 |
+| 2026-10-18 | 按反馈修订正面待机为8帧 | MAKER-POINTS | Maker edit_image两次（v2与v3） | 用户明确8帧、去眨眼、降低其余幅度；v2人物跨槽不合格，使用本地八槽模板生成v3，8帧方向/衣服保留，原图和所有请求/结果保留；待用户审核 | 平台未返回 |
+| 2026-10-18 | 8帧规范化与低alpha足底散点修正 | LOCAL | Pillow、参数化导出脚本、技能图集/WebP打包 | 最新front_idle_8f_v3_aligned；8×512/256、4fps约2秒循环，全部睁眼；alpha≥16定位加1px边，统一缩放/足底；各8张不同图、图集逐像素一致、WebP8帧；idle计划改8帧，合计256帧，其余31组未生成；无需游戏接入自检 | 否 |
+
 规则见 [双线开发与积分调度规则](tap-credit-policy.md)，积分数据见 [积分台账](tap_points_ledger.md)。本文件为开发任务记录的唯一维护入口。
 
 执行线路只使用 LOCAL、MAKER-FREE、MAKER-POINTS。生成式调用的实际扣费缺失时记录“平台未返回”，不从线路名称推定实际扣费金额。
@@ -127,3 +155,127 @@
 | 2026-10-18 | V0.3反馈修复自检与普通版交付 | MAKER-FREE | Lua LSP、0.0.36 preview status/refresh/logs/check、computer-use | 33 Lua语法通过、最终0 Error/263 Warning/61 Hint；403唯一断言PASS/0 FAIL，13独立投影检查已包含不重复计数；实际点击教学关闭并检查信息卡/滚轮缩放；测试射线前置宽高比问题已定位修正；QA和临时定位关闭，reload14普通版存活，无新Lua异常，原DDS/DLL使ready=false/check FAIL | 平台未返回；免费非生成式 |
 | 2026-10-18 | V0.3上传前整理与待回收隔离 | LOCAL | git-commit-helper、引用/目录核对、逐文件SHA256、PowerShell Move-Item | 50项/71文件约84.19MiB移入待回收，未删除；清单含原路径/新路径/原因/哈希；45个源码资源保持不变，保留历史证据/原图/测试运行库/两个Git检出；Maker绑定及HEAD不变；README更新至V0.3，待回收和认证目录排除上传 | 否 |
 | 2026-10-18 | V0.3 GitHub上传准备与本地检查 | LOCAL | 独立GitHub检出、fetch、SHA256、Lua5.4、凭证模式扫描 | 目标XO1yyds/Automated_burger_factory的main；从261808e正常追加，保留远端历史；本次33个Lua语法通过，403项完整回归为前一轮已有证据；不触发Maker构建，最终提交/回读结果另记github-v03-upload-result.json | 否 |
+| 2026-10-18 | V0.3 GitHub上传完成与远端回读 | LOCAL | Git commit/push/ls-remote、GitHub清单API、SHA256 | main提交73960e0b5edee31d55fdfcfb806161970538d50b；188个文件、39个变更，188项暂存哈希一致；远端HEAD及清单blob独立回读一致，上传检出干净；71个回收文件仅本地保存，45个源码资源与整理前一致；Maker绑定保留，无构建；完成回执为提交后本地记录 | 否 |
+| 2026-10-18 | V0.4美术制作与加载接入规划 | LOCAL | 当前源码/资源/美术设定/布局规范核对、Markdown | 建立P0～P5样板→量产→接入→动态→验收安排、资产清单、加载/许可/积分边界及4项策划待填；推荐保留3D逻辑，以当前俯视镜头验证美术；仅规划，未生成/实现/预览/提交 | 否 |
+| 2026-10-18 | V0.4四向纸片人员工策划补全 | LOCAL | 现有角色设定/移动/持物/加工代码核对、Markdown | 首批改为人物专项，补四向切换、8类组合动画、持物挂点/深度、真实操作触发、思考计时/中断、渲染加载、5批实施及10项验收；3项人工选择待确认；原全场景计划标后续，未生成/开发/预览 | 否 |
+| 2026-10-18 | V0.4人物策划H01～H03确认 | LOCAL | Markdown | 用户确认沿用现有无道具三视图、操作动画仅真实手工煎肉、持物不思考；空手挂机阈值由推荐10秒改为确认30秒，同步触发/重置/验收描述；仅更新策划，未生成或实现 | 否 |
+| 2026-10-18 | V0.4四向静态人物资产制作 | MAKER-POINTS | Maker edit_image | 沿用三视图生成正/左/右/背四向PNG一张，2304×1536透明RGBA，平台返回尺寸与请求不同；已读图和alpha/边界检查，待用户审核，需后续统一留白与枢轴；完整请求/远端映射保留，未冒充动画或接入完成 | 平台未返回 |
+| 2026-10-18 | V0.4资源制作状态及预览核对 | MAKER-FREE | maker_status_lite、0.0.36 CLI preview status | 当前项目绑定正常，版本更新未执行；原预览reload14已停止，按规则未重启，无构建/推送 | 平台未返回；非生成式 |
+| 2026-10-18 | V0.4静态样板检查与进度记录 | LOCAL | PNG元数据、SHA256、全图查看、Markdown | RGBA alpha0～255，原图保留；四格水平中心/鞋底未严格统一，记录为待审外观样板；源码和玩法未改，动画能力仍不可用 | 否 |
+| 2026-10-18 | 四向员工平静表情修订 | MAKER-POINTS | Maker edit_image | 按用户要求闭嘴、放松眉眼、修正正面脸部居中与侧面平静表情；完整图已查看，2304×1536透明RGBA；原版保留，待用户外观审核，未做动画或游戏接入 | 平台未返回 |
+| 2026-10-18 | 平静版资源检查及记录 | LOCAL | 读图、PNG元数据、SHA256、Markdown | 保存原始平台结果、来源映射及平静版说明，同步策划基础表情；无源码修改 | 否 |
+| 2026-10-18 | 平静版制作前后状态检查 | MAKER-FREE | maker_status_lite、CLI preview status | 当前绑定正常；原预览停止，未重启，无Maker构建/GitHub推送 | 平台未返回；非生成式 |
+| 2026-10-18 | 员工表情按用户图片制作 | MAKER-POINTS | Maker edit_image及reference_images | 平静四向图作为主体、用户面部特写作为参考，一次编辑生成四向闭嘴浅笑/黑眼/腮红版本；已读图与透明通道检查，旧版保留，未制作动画或接入游戏 | 平台未返回 |
+| 2026-10-18 | 面部参考归档与版本记录 | LOCAL | 原附件复制、SHA256、PNG检查、Markdown | 用户参考哈希一致归档，新增样板记录并更新策划最新表情基准；服装与方向规则保留，外观待审核 | 否 |
+| 2026-10-18 | 面部参考编辑前后平台核对 | MAKER-FREE | maker_status_lite、CLI preview status | 绑定正常，原预览reload14停止，未重启、构建或推送 | 平台未返回；非生成式 |
+| 2026-10-18 | GitHub帧动画技能检索、Maker适配与部署 | LOCAL | skill-installer、OpenAI Docs、skill-creator、GitHub固定提交、Pillow/Python | 采用openai/plugins的sprite-pipeline（0722921），部署独立maker-frame-animation；保留原文/哈希/许可未确认说明，Maker图片工具替代上游生成入口，本地图集JSON/WebP导出；5个项目发现目录可读、原sprite-gen未改、51个游戏文件哈希不变；26项合成检查及官方技能格式校验通过，PyYAML仅临时目录安装；未修改MCP配置/版本，未生成或构建，不能宣称原生sprite_gen已新增 | 否（未调用生成能力） |
+| 2026-10-18 | 角色动画front_carry_idle制作 | MAKER-POINTS | Maker edit_image | 4帧/4fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-front_carry_idle-r1 --> |
+| 2026-10-18 | 角色动画front_operate制作 | MAKER-POINTS | Maker edit_image | 8帧/8fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-front_operate-r1 --> |
+| 2026-10-18 | 角色动画front_run制作 | MAKER-POINTS | Maker edit_image | 8帧/14fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-front_run-r1 --> |
+| 2026-10-18 | 角色动画front_walk制作 | MAKER-POINTS | Maker edit_image | 8帧/10fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-front_walk-r1 --> |
+| 2026-10-18 | 角色动画front_carry_run制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/14fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-front_carry_run-r1 --> |
+| 2026-10-18 | 角色动画front_carry_walk制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/10fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-front_carry_walk-r1 --> |
+| 2026-10-18 | 角色动画front_think制作 | MAKER-POINTS | Maker batch_generate_images | 12帧/6fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-front_think-r1 --> |
+| 2026-10-18 | 角色动画left_carry_idle制作 | MAKER-POINTS | Maker batch_generate_images | 4帧/4fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-left_carry_idle-r1 --> |
+| 2026-10-18 | 角色动画left_carry_run制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/14fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-left_carry_run-r1 --> |
+| 2026-10-18 | 角色动画left_carry_walk制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/10fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-left_carry_walk-r1 --> |
+| 2026-10-18 | 角色动画left_idle制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/4fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-left_idle-r1 --> |
+| 2026-10-18 | 角色动画left_operate制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/8fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-left_operate-r1 --> |
+| 2026-10-18 | 角色动画left_run制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/14fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-left_run-r1 --> |
+| 2026-10-18 | 角色动画left_walk制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/10fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-left_walk-r1 --> |
+| 2026-10-18 | 角色动画back_idle制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/4fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-back_idle-r1 --> |
+| 2026-10-18 | 角色动画left_think制作 | MAKER-POINTS | Maker batch_generate_images | 12帧/6fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-left_think-r1 --> |
+| 2026-10-18 | 角色动画right_carry_idle制作 | MAKER-POINTS | Maker batch_generate_images | 4帧/4fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-right_carry_idle-r1 --> |
+| 2026-10-18 | 角色动画right_carry_run制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/14fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-right_carry_run-r1 --> |
+| 2026-10-18 | 角色动画right_carry_walk制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/10fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-right_carry_walk-r1 --> |
+| 2026-10-18 | 角色动画right_idle制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/4fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-right_idle-r1 --> |
+| 2026-10-18 | 角色动画right_operate制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/8fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-right_operate-r1 --> |
+| 2026-10-18 | 角色动画right_run制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/14fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-right_run-r1 --> |
+| 2026-10-18 | 角色动画right_think制作 | MAKER-POINTS | Maker batch_generate_images | 12帧/6fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-right_think-r1 --> |
+| 2026-10-18 | 角色动画right_walk制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/10fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-right_walk-r1 --> |
+| 2026-10-18 | 角色动画back_carry_idle制作 | MAKER-POINTS | Maker batch_generate_images | 4帧/4fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-back_carry_idle-r1 --> |
+| 2026-10-18 | 角色动画back_carry_run制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/14fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-back_carry_run-r1 --> |
+| 2026-10-18 | 角色动画back_carry_walk制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/10fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-back_carry_walk-r1 --> |
+| 2026-10-18 | 角色动画back_operate制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/8fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-back_operate-r1 --> |
+| 2026-10-18 | 角色动画back_run制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/14fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-back_run-r1 --> |
+| 2026-10-18 | 角色动画back_think制作 | MAKER-POINTS | Maker batch_generate_images | 12帧/6fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-back_think-r1 --> |
+| 2026-10-18 | 角色动画back_walk制作 | MAKER-POINTS | Maker batch_generate_images | 8帧/10fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-back_walk-r1 --> |
+| 2026-10-18 | 角色动画back_think制作 | MAKER-POINTS | Maker edit_image | 12帧/6fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-back_think-r2 --> |
+| 2026-10-18 | 角色动画front_carry_run制作 | MAKER-POINTS | Maker edit_image | 8帧/14fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-front_carry_run-r2 --> |
+| 2026-10-18 | 角色动画front_run制作 | MAKER-POINTS | Maker edit_image | 8帧/14fps生成；平台成功=True，原图/提示词/平台返回保留，动作质量另行检查，不代表人工验收 | 平台未返回 <!-- char-state-front_run-r2 --> |
+| 2026-10-18 | 角色front_run r3步相修订 | MAKER-POINTS | Maker edit_image | 平台生成成功；腿臂交替仍不完整，未通过步态自检，保留r2朝向修订作审核候选，不启用r3 | 平台未返回 <!-- char-state-front_run-r3 --> |
+| 2026-10-18 | 角色front_carry_run r3步相修订 | MAKER-POINTS | Maker edit_image | 平台生成成功；腿臂交替仍不完整，未通过步态自检，保留r2朝向修订作审核候选，不启用r3 | 平台未返回 <!-- char-state-front_carry_run-r3 --> |
+| 2026-10-18 | 撤销角色头部覆盖并重导出 | LOCAL | Pillow、本地导出/图集脚本 | 32组256帧、512/256共64套；完整源姿态到帧及图集像素核对通过，不再切头/锁头/处理眼部；旧版保留 | 否 |
+| 2026-10-18 | 更新角色动画审核页与规范 | LOCAL | build_character_animation_catalog.py、node --check | 同一HTML更新为完整姿态版，正面跑动用r2、背面思考用r2；正面两组步相已知不合格明确显示；file协议被浏览器策略阻止，未进行浏览器交互验证；未接入游戏 | 否 |
+| 2026-10-18 | 资源修改后查询本地预览 | MAKER-FREE | Maker CLI 0.0.36 preview status | stopped，process_alive=false，reload14；未重启、未远端构建或推送 | 否 |
+| 2026-10-18 | back_carry_idle carry_v2动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-back_carry_idle-carry_v2 --> |
+| 2026-10-18 | left_walk gait_v2动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-left_walk-gait_v2 --> |
+| 2026-10-18 | left_walk gait_v3动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-left_walk-gait_v3 --> |
+| 2026-10-18 | 四向移动步态与背面持物反馈核查 | LOCAL | 联系表、源图、quality-review.json | 四向4类移动共16组判为未通过；左侧walk两轮新样板仍失败，未扩量或替换；背面carry_idle修订为向身体前方托举，待用户确认 | 否 |
+| 2026-10-18 | 背面持物待机导出与审核页更新 | LOCAL | Pillow、导出脚本、图集校验、node --check | 背面carry_idle启用carry_v2/candidate_v6；全32组256帧64套导出忠实性检查通过，无头/眼局部编辑；16组步态未通过状态在页面和索引明确记录，未接入游戏 | 否 |
+| 2026-10-18 | 本轮资源修改后预览状态检查 | MAKER-FREE | Maker CLI 0.0.36 preview status | stopped/process_alive=false/reload14，未重启。file协议的浏览器交互验证仍不可用；本轮未远端构建或推送 | 否 |
+| 2026-10-18 | 后续步态制作方式待选择 | LOCAL | 两次失败样板与修订报告 | 建议改为逐帧完整姿势，先验证一组8帧再扩方向；当前16组尚未修复，未继续相同方法批量消耗 | 否 |
+| 2026-10-18 | front_run_depth_f01 single_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-front_run_depth_f01-single_r1 --> |
+| 2026-10-18 | front_run_depth_f02 single_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-front_run_depth_f02-single_r1 --> |
+| 2026-10-18 | front_run_depth_f03 single_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-front_run_depth_f03-single_r1 --> |
+| 2026-10-18 | front_run_depth_f04 single_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-front_run_depth_f04-single_r1 --> |
+| 2026-10-18 | front_run_depth_f05 single_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-front_run_depth_f05-single_r1 --> |
+| 2026-10-18 | front_run_depth_f06 single_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-front_run_depth_f06-single_r1 --> |
+| 2026-10-18 | front_run_depth_f07 single_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-front_run_depth_f07-single_r1 --> |
+| 2026-10-18 | front_run_depth_f08 single_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-front_run_depth_f08-single_r1 --> |
+| 2026-10-18 | front_run_depth2_f01 single_depth2_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-front_run_depth2_f01-single_depth2_r1 --> |
+| 2026-10-18 | front_run_depth2_f02 single_depth2_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-front_run_depth2_f02-single_depth2_r1 --> |
+| 2026-10-18 | front_run_depth2_f03 single_depth2_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-front_run_depth2_f03-single_depth2_r1 --> |
+| 2026-10-18 | front_run_depth2_f06 single_depth2_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-front_run_depth2_f06-single_depth2_r1 --> |
+| 2026-10-18 | front_run_depth2_f04 single_depth2_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-front_run_depth2_f04-single_depth2_r1 --> |
+| 2026-10-18 | front_run_depth2_f05 single_depth2_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-front_run_depth2_f05-single_depth2_r1 --> |
+| 2026-10-18 | front_run_depth2_f07 single_depth2_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-front_run_depth2_f07-single_depth2_r1 --> |
+| 2026-10-18 | front_run_depth2_f08 single_depth2_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-front_run_depth2_f08-single_depth2_r1 --> |
+| 2026-10-18 | front_run_depth2_f04 single_depth2_r2动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-front_run_depth2_f04-single_depth2_r2 --> |
+| 2026-10-18 | front_run_depth2_f07 single_depth2_r2动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-front_run_depth2_f07-single_depth2_r2 --> |
+| 2026-10-18 | 新深度图正面跑动8帧示范导出 | LOCAL | Pillow、export_front_run_depth_demo.py | front_run_depth_demo_v2/export_v2：8张不同帧、512/256各一套图集/JSON/WebP，14fps循环；4/7用r2，保留完整头身、未局部处理眼部，图集像素回读一致；旧批次v1保留，不自动替换原动作 | 否 |
+| 2026-10-18 | 新版深度姿态同步审核页 | LOCAL | build_front_run_depth_review.py、node --check | 新HTML约3.9MB，自包含，同步显示8张深度/角色、逐帧/调速；两个页面JS语法检查通过，8组对照图已查看，待用户确认；file协议浏览器交互未验证 | 否 |
+| 2026-10-18 | 本轮资源更新后预览状态 | MAKER-FREE | Maker CLI 0.0.36 preview status | stopped/process_alive=false/reload14/ready=false；未重启、未接入游戏、未远端构建或推送 | 否 |
+| 2026-10-19 | left_run_depth_f01 single_left_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=unconfirmed；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-left_run_depth_f01-single_left_depth_r1 --> |
+| 2026-10-19 | left_run_depth_f02 single_left_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-left_run_depth_f02-single_left_depth_r1 --> |
+| 2026-10-19 | left_run_depth_f03 single_left_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-left_run_depth_f03-single_left_depth_r1 --> |
+| 2026-10-19 | left_run_depth_f04 single_left_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-left_run_depth_f04-single_left_depth_r1 --> |
+| 2026-10-19 | right_run_depth_f01 single_right_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-right_run_depth_f01-single_right_depth_r1 --> |
+| 2026-10-19 | right_run_depth_f02 single_right_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-right_run_depth_f02-single_right_depth_r1 --> |
+| 2026-10-19 | right_run_depth_f03 single_right_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-right_run_depth_f03-single_right_depth_r1 --> |
+| 2026-10-19 | back_run_depth_f01 single_back_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-back_run_depth_f01-single_back_depth_r1 --> |
+| 2026-10-19 | back_run_depth_f02 single_back_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-back_run_depth_f02-single_back_depth_r1 --> |
+| 2026-10-19 | back_run_depth_f03 single_back_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-back_run_depth_f03-single_back_depth_r1 --> |
+| 2026-10-19 | left_run_depth_f01 single_left_depth_r2动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-left_run_depth_f01-single_left_depth_r2 --> |
+| 2026-10-19 | left_run_depth_f05 single_left_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-left_run_depth_f05-single_left_depth_r1 --> |
+| 2026-10-19 | left_run_depth_f06 single_left_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-left_run_depth_f06-single_left_depth_r1 --> |
+| 2026-10-19 | left_run_depth_f07 single_left_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-left_run_depth_f07-single_left_depth_r1 --> |
+| 2026-10-19 | right_run_depth_f04 single_right_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-right_run_depth_f04-single_right_depth_r1 --> |
+| 2026-10-19 | right_run_depth_f05 single_right_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-right_run_depth_f05-single_right_depth_r1 --> |
+| 2026-10-19 | right_run_depth_f06 single_right_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-right_run_depth_f06-single_right_depth_r1 --> |
+| 2026-10-19 | back_run_depth_f04 single_back_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-back_run_depth_f04-single_back_depth_r1 --> |
+| 2026-10-19 | back_run_depth_f05 single_back_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-back_run_depth_f05-single_back_depth_r1 --> |
+| 2026-10-19 | left_run_depth_f08 single_left_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-left_run_depth_f08-single_left_depth_r1 --> |
+| 2026-10-19 | right_run_depth_f07 single_right_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-right_run_depth_f07-single_right_depth_r1 --> |
+| 2026-10-19 | right_run_depth_f08 single_right_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-right_run_depth_f08-single_right_depth_r1 --> |
+| 2026-10-19 | back_run_depth_f06 single_back_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-back_run_depth_f06-single_back_depth_r1 --> |
+| 2026-10-19 | back_run_depth_f07 single_back_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=True；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-back_run_depth_f07-single_back_depth_r1 --> |
+| 2026-10-19 | back_run_depth_f08 single_back_depth_r1动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=unconfirmed；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-back_run_depth_f08-single_back_depth_r1 --> |
+| 2026-10-19 | back_run_depth_f08 single_back_depth_r2动画修订 | MAKER-POINTS | Maker edit_image | 平台成功=unconfirmed；原图、请求与完整返回已保留，生成成功不代表步相/遮挡审核通过 | 平台未返回 <!-- char-state-back_run_depth_f08-single_back_depth_r2 --> |
+| 2026-10-19 | 深度图左/右/后三向参考拆分、24帧导出、同步对照审核页及三向预览 | LOCAL | Python/Pillow、Node语法检查 | 各方向8帧；256/512图集回读与WebP循环检查通过；美术待人工验收，未接入游戏 | 不涉及Tap生成 <!-- depth-three-direction-delivery-20261019 --> |
+| 2026-10-19 | Maker故障后补齐背面跑动第8帧 | LOCAL | Codex独立image_gen图片工具 | 单次返回1280方形透明原图，保存为frame08_builtin_r3.png；工具未暴露模型，未标为GPT6.1图片模型；未再次调用Maker | 未调用Tap生成 <!-- depth-back08-builtin-20261019 --> |
+| 2026-10-19 | 资源批次后本地游戏预览状态核对 | MAKER-FREE | 已安装Maker CLI preview status | stopped、process_alive=false；保持停止；未远端构建 | 免费能力 <!-- depth-three-preview-20261019 --> |
+| 2026-10-19 | 按剩余角色需求整理每组8帧手绘动画清单，并同步策划与进度 | LOCAL | 本地Markdown读写与数量核对 | 用户澄清非8bit像素风；32组/256帧目标；保留既有跑动待审，区分步态修订、持物补帧与思考重排；未生成图片或接入 | 否（未调用生成能力） <!-- eight-frame-requirements-local-20261019 --> |
+| 2026-10-19 | 暂停V0.4更新，整理V0.5下单式自动化开发文档 | LOCAL | 本地代码/文档核对、Markdown编写 | 已填用户7项功能及18项推荐默认值；含网络、严格栈、2件每秒、24件库存、生产任务与26条验收覆盖；尚未实现功能 | 否（未调用生成能力） <!-- v05-order-automation-plan-20261019 --> |
+| 2026-10-19 | V0.5电缆、下单组件、请求调度、库存与缓存改版；编辑器及多网边界补查 | LOCAL | Lua5.4/Lupa、本地文件工具、Lua LSP | 主要代码已实现；62项领域/编辑状态检查通过，运行集成与统一人工验收待完成；详情见v05-development-status.md | 否（未调用Tap生成） |
+| 2026-10-19 | V0.5 Windows预览启动与刷新、实际窗口观察 | MAKER-FREE | 固定版本Maker CLI、computer-use | 已见V0.5店铺/车间/组件；后续提权审批服务额度受限，用户选择手动刷新继续自检；不等同运行验收全部通过 | 免费能力 |
+| 2026-10-19 | V0.5 Windows场景集成、鼠标下单与布线回归；恢复普通启动配置 | LOCAL | 实际UrhoXRuntime、computer-use、Lua5.4、Lua LSP | 场景19项通过；鼠标汉堡2/2、库存2/24与节点拖动可用；领域65项通过；修复子节点递归隐藏、取消容量释放及标题/选格；最终刷新与用户验收待完成 | 否（未调用Tap生成） |
+| 2026-10-19 | 最终刷新结果核对 | MAKER-FREE | Maker CLI preview status、准备副本SHA256、当前窗口列表 | reload3三个关键源码一致；Public source index download failed，Runtime未启动，等待官方本地预览恢复后补验最终画面 | 免费能力 |
+| 2026-10-19 | V0.5最终显隐回归、正式开局恢复与源码一致性核对 | MAKER-FREE | 官方CLI preview status/refresh/logs/check、computer-use、SHA256 | 电缆显隐循环通过；reload2普通店铺开局，39个Lua一致，临时入口关闭，无Lua ERROR；preview check仍因既有DDS/themis问题FAIL，用户验收与安卓真机待测 | 免费能力 |
+| 2026-10-19 | V0.5反馈：管理页拆电缆、移除重复机器、精简下单组件、共用机器交接 | LOCAL | Lua5.4、Lua LSP、本地文件工具、真实UrhoX场景、computer-use | 领域73项、场景25项、旧物流63/编辑37/UI策略29项通过；鼠标下单UI与管理拆线通过；手机和真实键盘待验；详见v05-feedback-revision.md | 否（未调用Tap生成） |
+| 2026-10-19 | V0.5反馈修订最终刷新与普通开局核对 | MAKER-FREE | 官方固定版本CLI preview status/refresh/logs/check、computer-use、SHA256 | reload4运行中，40个Lua副本一致、临时入口关闭，已见普通开局；平台check仍因既有DDS/themis错误FAIL；详见v05-feedback-final-preview.json | 免费能力 |
+| 2026-10-19 | V0.5依附组件：库存只取、下单/交付宿主、库存页任取、入库事件任务、收银同步 | LOCAL | 本地Lua、Lua5.4/Lupa、LSP、实际场景、computer-use | 新领域32、旧领域73、场景35通过；物流63/编辑37/UI策略29通过；鼠标卸载/重绑与四页签可用；手机、完整人工流程待验 | 否（未调用Tap生成） |
+| 2026-10-19 | 依附组件最终刷新与交付版本核对 | MAKER-FREE | 官方CLI preview status/refresh/logs/check、computer-use、SHA256 | reload6普通开局运行中；42个Lua副本一致、临时开关关闭；平台check仍有既有DDS/themis错误；人工验收19项见v05-attached-manual-acceptance.md | 免费能力 |
+| 2026-10-19 | 电缆设备接口视觉标识 | LOCAL | Lua、Lua LSP、Windows computer-use | 深底金框青色双针插头与设备垂线；未连接灰框、选中白框；已观察6个真实连接标记、返回隐藏、管理重新显示；42文件解析、LSP零ERROR、32项领域测试通过；手机待验 | 否（未调用Tap生成） |
+| 2026-10-19 | 接口效果预览恢复与最终普通开局核对 | MAKER-FREE | 官方固定版本CLI、computer-use、SHA256 | 首次公共资源准备失败后，经用户授权重新打开；最终状态与源码一致性见v05-cable-socket-preview-evidence.json；既有DDS/themis平台错误独立保留 | 免费能力 |
+| 2026-10-19 | V0.5用户验收完成与GitHub有效版本整理 | LOCAL | 用户确认、Markdown、Git、SHA256 | 用户确认V0.5完成；整理有效源码、文档与验证证据，保留Maker绑定，V0.4动画继续暂停；上传结果见github-v05-upload-result.json | 否（未调用Tap生成） |

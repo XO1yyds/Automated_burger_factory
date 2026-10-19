@@ -22,6 +22,12 @@ local ConveyorEditingChecks = require("Factory/ConveyorEditingChecks")
 local BufferService = require("Factory/BufferStorage")
 local Grid = require("Factory/ConveyorGeometry")
 local UIController = require("Factory/UIController")
+local OrderAutomationControl = require("Factory/OrderAutomationControl")
+local AttachedComponents = require('Factory/AttachedComponents')
+---@type table?
+local components=nil
+---@type table?
+local automation = nil
 local Phase1 = {}
 ---@type FactoryUIController?
 local uiController = nil
@@ -55,6 +61,8 @@ local CONFIG = {
 ---@field highlight Node?
 ---@field nameNode Node?
 ---@field nameText Text3D?
+---@field component? string
+---@field baseName? string
 ---@field nameBackground Node?
 ---@field body RigidBody?
 ---@field visual Node?
@@ -178,6 +186,9 @@ local RUN_LOOP_CHECKS = false
 local RUN_HUD_DIAGNOSIS = false
 local RUN_CONVEYOR_CHECKS = false
 local RUN_UI_V3_CHECKS = false
+local RUN_V05_VISUAL = false -- Development-only scene setup; keep disabled in playable delivery.
+local RUN_V05_RUNTIME = false -- Development-only integration suite; keep disabled in playable delivery.
+local v05RuntimeChecked = false
 local uiV3ChecksDone=false
 local RUN_CONVEYOR_VISUAL = false
 local conveyorRestarting = false
@@ -510,6 +521,7 @@ local function SwitchArea(destination)
     if not arrival then return false, "入口落点被物品占满，请先清理后再进入。" end
     currentArea, cashierOpen = destination, false
     if logistics then logistics:Cancel() end
+    if automation then automation:Close() end
     if buildings then buildings:Cancel() end
     player.position, playerBody.position, playerBody.linearVelocity = arrival, arrival, Vector3.ZERO
     cameraNode.position = Vector3(AreaService.Center(destination), 30.2, 0)
@@ -537,7 +549,7 @@ local function SetupBuildings()
             return true,"可放置"
         end,
         create = function(kind,x,z,quarter)
-            local definition=BuildingService.Definitions[kind]
+            local definition=BuildingService.Definitions[kind] --[[@as {name:string,width:number,depth:number}]]
             local width,depth=definition.width,definition.depth
             if quarter%2==1 then width,depth=depth,width end
             local record={id="building_"..nextBuildingId,name=definition.name,x=x,z=z,quarter=quarter,
@@ -549,13 +561,14 @@ local function SetupBuildings()
             end
             table.insert(stations,record); CreateStation(record)
             if logistics then
-                if kind=="buffer" then logistics.buffers[record.id]=BufferService.New() end
+                if kind=="buffer" or kind=="storage" then logistics.buffers[record.id]=BufferService.New(kind=="storage" and 24 or 6) end
+                if automation then automation.cables.revision=automation.cables.revision+1 end
                 logistics.network:Reattach(assert(logistics:Endpoint(record.id)))
             end
             return record
         end,
         update = function(record,x,z,quarter)
-            local definition=BuildingService.Definitions[assert(record.buildingKind or record.automaticKind)]
+            local definition=BuildingService.Definitions[assert(record.buildingKind or record.automaticKind)] --[[@as {name:string,width:number,depth:number}]]
             local width,depth=definition.width,definition.depth
             if quarter%2==1 then width,depth=depth,width end
             record.x,record.z,record.quarter,record.width,record.depth=x,z,quarter,width,depth
@@ -567,9 +580,14 @@ local function SetupBuildings()
             if record.nameNode then record.nameNode.position=Vector3(0,0.65,depth/2+0.1) end
             if record.nameBackground then record.nameBackground.position=Vector3(0,0.62,depth/2+0.24) end
         end,
-        processing=function(record) local machine=automatics[record.id]; return machine~=nil and machine:IsProcessing() end,
-        attached=function(record) return logistics~=nil and logistics.network:HasAttached(record.id) end,
+        processing=function(record)
+            local machine=automatics[record.id]
+            local storage=logistics and logistics.buffers[record.id]
+            return (machine~=nil and (machine:IsProcessing() or machine.automationOwner~=nil)) or (storage~=nil and storage:Reserved()>0)
+        end,
+        attached=function(record) return (logistics~=nil and logistics.network:HasAttached(record.id)) or (automation~=nil and automation.cables:HasAttached(record.id)) end,
         remove=function(record)
+            if automation then automation.service:RemoveBuilding(record.id) end
             local machine=automatics[record.id]
             ---@type FactoryItemType[]
             local contents={}
@@ -633,6 +651,9 @@ local function Interact()
         if manual and target.id == "assembly" then return manual:InteractAssembly() end
         local machine = automatics[target.id]
         if machine then return machine:Interact() end
+        if target.buildingKind=="terminal" and automation then return automation:OpenTerminal(target.id) end
+        if target.component=='order' and automation then return automation:OpenTerminal(target.id) end
+        if target.buildingKind=="storage" and logistics and logistics.buffers[target.id] then return logistics.buffers[target.id]:InteractStack(items) end
         if logistics and logistics.buffers[target.id] then return logistics:OpenBuffer(target.id) end
         if target.id == "trash" then
             local held = items.held
@@ -750,6 +771,7 @@ local function StepSimulation(dt)
                 if completed then automaticMessage = message end
             end
         end
+        if automation then automation.service:Update(step) end
         if logistics then logistics.network:Update(step) end
         remaining = remaining - step
     end
@@ -1146,7 +1168,7 @@ function Phase1.Update(eventType, eventData)
         horizontal, vertical, touchRunning = uiController.touch.x, uiController.touch.z, uiController.touch.running
     end
     local movement = screenRight * horizontal + screenForward * vertical
-    if (uiController and uiController:Phase()=="orders") or cashierOpen or (logistics and (logistics.builder.mode~="idle" or logistics.bufferId~=nil)) or (buildings and buildings.mode ~= "idle") then movement = Vector3.ZERO end
+    if (uiController and uiController:Phase()=="orders") or (automation and (automation.terminal~=nil or automation.mode~="idle")) or cashierOpen or (logistics and (logistics.builder.mode~="idle" or logistics.bufferId~=nil)) or (buildings and buildings.mode ~= "idle") then movement = Vector3.ZERO end
     if movement:LengthSquared() > 0 then
         movement = movement:Normalized()
         if uiController then uiController.inspectId=nil end
@@ -1154,7 +1176,7 @@ function Phase1.Update(eventType, eventData)
         facingMarker.position = facing * 0.40 + Vector3(0, 0.40, 0)
     end
     playerBody.linearVelocity = Phase1.MovementVelocity(horizontal, vertical,
-        touchRunning or input:GetKeyDown(KEY_LSHIFT) or input:GetKeyDown(KEY_RSHIFT), (uiController and uiController:Phase()=="orders") or cashierOpen or (logistics and (logistics.builder.mode~="idle" or logistics.bufferId~=nil)) or (buildings ~= nil and buildings.mode ~= "idle"))
+        touchRunning or input:GetKeyDown(KEY_LSHIFT) or input:GetKeyDown(KEY_RSHIFT), (uiController and uiController:Phase()=="orders") or (automation and (automation.terminal~=nil or automation.mode~="idle")) or cashierOpen or (logistics and (logistics.builder.mode~="idle" or logistics.bufferId~=nil)) or (buildings ~= nil and buildings.mode ~= "idle"))
     if RUN_SMOKE_CHECKS and not loopChecksDone and qaStage < 4 then RunSmokeChecks(dt) end
     if RUN_ITEM_CHECKS and not loopChecksDone and not itemChecksDone and qaStage == 4 then
         ItemChecks.Run(items)
@@ -1209,7 +1231,8 @@ function Phase1.Update(eventType, eventData)
         if machine then prompt = machine:Prompt() end
         if target.id == "trash" then prompt = items.held and "F：销毁手持物品（含汉堡）" or "垃圾桶：空手" end
         if target.destination then prompt = target.destination == "workshop" and "F：进入自动化车间（可携带物品）" or "F：返回汉堡店（产线继续运行）" end
-        if logistics and logistics.buffers[target.id] then prompt="F：选择缓存槽，取出/交换/存入空槽" end
+        if logistics and logistics.buffers[target.id] then prompt=target.component=='order' and 'F：打开下单终端（下单 / 本机库存 / 网络 / 任务）' or target.buildingKind=="storage" and "F：空手取出栈顶；禁止手动存入或交换" or "F：选择缓存槽，取出/交换/存入空槽" end
+        if target.buildingKind=="terminal" then prompt="F：打开下单组件（网络信息 / 生产下单 / 任务）" end
     end
     if buildings and buildings.mode ~= "idle" then
         local valid, reason = buildings:Validate(player.position)
@@ -1273,6 +1296,7 @@ function Phase1.Update(eventType, eventData)
     end
     UpdateBuildingGhost()
     if logistics then logistics:Refresh() end
+    if automation then automation:RefreshWorld(currentArea=="workshop" and gameLoop:IsRunning() and (automation.mode~="idle" or automation.managing)) end
     if areaLabel and logistics then areaLabel:SetText(string.format("%s · B建筑 · 实体带 %d · 交接 %d 件",
         currentArea=="workshop" and "自动化车间" or "汉堡店（左上F进入车间）",#logistics.network.belts,logistics.network.total)) end
     -- Only zoom/pan are allowed: rotation is never changed by input.
@@ -1496,7 +1520,7 @@ function Phase1.Start()
     automaticRouteChecked = false
     stageChecksDone = false
     labelCheckStage, labelCheckCount, labelCheckFailures = 0, 0, 0
-    graphics.windowTitle = "自动化汉堡工厂 · Demo V0.3 · UI 与触屏"
+    graphics.windowTitle = "自动化汉堡工厂 · Demo V0.5 · 下单式自动化"
     currentArea = "shop"
     restartPending, lifecycleSelection = false, 1
     uiCommands, cashierOpen, nextBuildingId = {}, false, 1
@@ -1523,9 +1547,15 @@ function Phase1.Start()
         action=function(command,value) table.insert(uiCommands,{command=command,value=value}) end})
     logistics.v3=true
     logistics:Sample(); logistics:Refresh()
+    automation=OrderAutomationControl.New({scene=assert(scene),makeBox=MakeBox,player=assert(player),items=assert(items),facing=function() return facing end,
+        area=function() return currentArea end,resolve=function(id) return assert(logistics):Endpoint(id) end,
+        endpoints=function() local list={}; for _,station in ipairs(stations) do local ep=assert(logistics):Endpoint(station.id); if ep then table.insert(list,ep) end end; return list end})
+    automation:Sample()
+    components=AttachedComponents.New({stations=function() return stations end,storage=function(id) return assert(logistics).buffers[id] end,automation=function() return assert(automation) end})
+    assert(orders).deliveryStores=function() return assert(components):DeliveryStores() end
     uiController = UIController.New({
         get=function() return {loop=assert(gameLoop),orders=assert(orders),items=assert(items),manual=assert(manual),
-            buildings=assert(buildings),logistics=assert(logistics),machines=automatics,stations=stations,
+            buildings=assert(buildings),logistics=assert(logistics),automation=automation,components=components,machines=automatics,stations=stations,
             player=assert(player),camera=assert(camera),cameraNode=assert(cameraNode),zoom=zoom,
             target=target,ground=groundTarget,facing=facing,area=currentArea,cashier=cashierOpen} end,
         resolve=ResolveInteractionTarget,interact=Interact,
@@ -1563,6 +1593,15 @@ function Phase1.Start()
     print("[Phase7] READY: buildings=free, orders=max5_interval5to15, depot=5, cashier=keyboard_mouse, labels=world_children")
     print("[Phase8] READY: day=300s, days=3, pause=all_simulation, settlement=production_events, restart=clean_world")
     print("[Conveyor] READY: speed=0.5m/s, sample=5_physical_belts, buffer=6_LIFO, offscreen=true")
+    print("[V05] READY: cable=undirected_ceiling, bandwidth=2_per_second_per_network, terminal=attached_storage, delivery=attached, receipt=storage_event, storage=24_LIFO, buffer=2x2_6")
+    if RUN_V05_VISUAL then
+        assert(SwitchArea('workshop'))
+        local spot=Vector3(-37,0.55,-1.5)
+        assert(player).position=spot; assert(playerBody).position=spot; assert(playerBody).linearVelocity=Vector3.ZERO
+        assert(automation):OpenTerminal('ws_inventory')
+        assert(uiController):Update(0)
+        print('[V05 Native QA] terminal opened through development setup; ordinary spawn restored when flag=false')
+    end
     if RUN_CONVEYOR_CHECKS and not conveyorChecksDone then
         conveyorChecksDone=true
         ConveyorChecks.Run()
@@ -1571,8 +1610,16 @@ function Phase1.Start()
         conveyorRestarting = true
         Phase1.Restart()
         conveyorRestarting = false
-        print("[Conveyor Runtime QA] "..((#assert(logistics).network.belts==5 and #assert(buildings).records==3
+        print("[Conveyor Runtime QA] "..((#assert(logistics).network.belts==5 and #assert(buildings).records==4
             and assert(logistics).network.total==0 and currentArea=="shop") and "PASS " or "FAIL ").."restart restores physical sample")
+    end
+    if RUN_V05_RUNTIME and not v05RuntimeChecked then
+        v05RuntimeChecked=true
+        require('Factory/V05RuntimeChecks').Run({automation=assert(automation),loop=assert(gameLoop),logistics=assert(logistics),
+            ui=assert(uiController),view=assert(interface),orders=assert(orders),machines=automatics,step=StepSimulation,switch=SwitchArea})
+        Phase1.Restart()
+        print('[V05 Runtime QA] '..((#assert(buildings).records==4 and #assert(automation).service.history==0 and assert(logistics).buffers.ws_inventory:Count()==0 and assert(gameLoop).day==1) and 'PASS ' or 'FAIL ')..'restart clears tasks reservations and inventory; restores sample')
+        return
     end
     if RUN_CONVEYOR_VISUAL and not conveyorRestarting then
         SwitchArea("workshop")
@@ -1619,6 +1666,7 @@ function Phase1.Stop()
     if manual then manual:Reset(); manual = nil end
     for _, machine in pairs(automatics) do machine:Reset() end
     automatics = {}
+    if automation then automation:Stop(); automation=nil end
     if logistics then logistics:Stop(); logistics=nil end
     areaLabel = nil
     if buildingGhost then buildingGhost:Remove(); buildingGhost = nil end

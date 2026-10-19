@@ -1,9 +1,9 @@
 -- Engine-independent UI policy. Recommendations are implemented in one place.
 local State = {}
-State.Version = "Demo V0.3"
+State.Version = "Demo V0.5"
 State.Categories = {"生产", "接口", "物流", "储存", "管理"}
 ---@type string[][]
-State.Kinds = {{"cooker","assembler"},{"junction","isolator_straight","isolator_corner"},{"conveyor"},{"buffer"},{"manage"}}
+State.Kinds = {{"cooker","assembler","terminal","delivery_component"},{"junction","isolator_straight","isolator_corner"},{"conveyor","cable"},{"buffer","storage"},{"manage"}}
 
 function State.Clamp(v,lo,hi) return math.max(lo,math.min(hi,v)) end
 
@@ -22,14 +22,14 @@ end
 State.Titles = {normal="",orders="订单",buffer="缓存台 · 选择物品",menu="建造模式",manage="建筑管理 · 选择对象",
     selected="建筑管理 · 已选中",preview="正在放置",move="正在编辑建筑",source="传送带 · 1/3 选择输出 A",
     destination="传送带 · 2/3 选择输入 B",adjust="传送带 · 3/3 调整路径",paused="暂停",statistics="统计",
-    settings="设置",confirm="确认操作",settlement="每日结算",complete="Demo 完成"}
+    settings="设置",confirm="确认操作",settlement="每日结算",complete="Demo 完成",terminal="下单组件",cable="电缆编辑"}
 
 function State.Grid(phase)
-    return phase=="preview" or phase=="move" or phase=="selected" or phase=="source" or phase=="destination" or phase=="adjust"
+    return phase=="cable" or phase=="preview" or phase=="move" or phase=="selected" or phase=="source" or phase=="destination" or phase=="adjust"
 end
 
 function State.IsBuild(phase)
-    return phase=="menu" or phase=="manage" or phase=="selected" or phase=="preview" or phase=="move"
+    return phase=="attach" or phase=="cable" or phase=="menu" or phase=="manage" or phase=="selected" or phase=="preview" or phase=="move"
         or phase=="source" or phase=="destination" or phase=="adjust"
 end
 

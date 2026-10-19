@@ -53,9 +53,13 @@ end
 function Controller:Phase()
     local c=self.context.get()
     if c.loop.state~='running' then return self.overlay or c.loop.state end
+    if self.overlay then return self.overlay end
     if c.cashier then return 'cashier' end
+    if c.components and c.components.mode then return 'attach' end
+    if c.automation and c.automation.terminal then return 'terminal' end
+    if c.automation and c.automation.mode~='idle' then return 'cable' end
     return State.Phase{loop=c.loop.state,ordersOpen=self.ordersOpen,buffer=c.logistics.bufferId,
-        conveyor=c.logistics.builder.mode,build=c.buildings.mode,selected=self.selected or c.logistics.selectedBelt}
+        conveyor=c.logistics.builder.mode,build=c.buildings.mode,selected=self.selected or c.logistics.selectedBelt or (c.automation and c.automation.managing and c.automation.deleteEdge)}
 end
 
 function Controller:Release()
@@ -63,6 +67,7 @@ function Controller:Release()
     self.touch:Reset(); self.events={}; self.holdingInteraction=false; self.suppressClick=false; self.interactionValid=false
     local b=self.context.get().logistics.builder
     b:EndEdit(); self.drag=nil
+    local automation=self.context.get().automation; if automation then automation.drag=nil end
 end
 
 function Controller:Notify(message)
@@ -85,17 +90,25 @@ function Controller:Back(escape)
     if self.overlay then self.overlay=nil; return end
     if phase=='paused' then c.loop:Resume(); return end
     if phase=='settlement' or phase=='complete' then return end
+    if phase=='attach' then
+        if c.components.selected and not escape then c.components.selected=nil
+        else c.components.mode,c.components.selected=nil,nil; build:Menu() end
+        return
+    end
+    if phase=='terminal' then c.automation:Back(escape); return end
+    if phase=='cable' then if not c.automation:Back(escape) then build:Menu() end; return end
     if phase=='cashier' then self.context.cashier(false); return end
     if phase=='orders' then self.ordersOpen=false; return end
     if phase=='buffer' then c.logistics.bufferId,c.logistics.selectedToken=nil,nil; return end
     if escape and State.IsBuild(phase) then
+        if c.automation then c.automation:Close() end
         b:Cancel(); self.selected=nil; c.logistics.selectedBelt=nil
         if phase=='menu' then build:Cancel() else build:Menu() end
     elseif b.mode~='idle' then b:Back(); if b.mode=='idle' then build:Menu() end
-    elseif phase=='selected' then self.selected=nil; c.logistics.selectedBelt=nil
+    elseif phase=='selected' then self.selected=nil; c.logistics.selectedBelt=nil; if c.automation then c.automation.deleteEdge=nil end
     elseif phase=='move' then
         local selected=self.selected; build:Manage(); self.selected=selected
-    elseif phase=='preview' or phase=='manage' then build:Menu(); self.selected=nil
+    elseif phase=='preview' or phase=='manage' then build:Menu(); self.selected=nil; if c.automation then c.automation:Close() end
     elseif phase=='menu' then build:Cancel()
     else c.loop:Pause() end
 end
@@ -104,7 +117,8 @@ function Controller:OpenBuild()
     local c=self.context.get()
     if c.area~='workshop' then self:Notify('仅自动化车间开放建造；店内手工生产仍可使用。'); return end
     self:Release(); self.category,self.kind=1,'cooker'; self.selected=nil; self.ordersOpen=false
-    c.logistics:Cancel(); self.context.cashier(false); c.buildings:Menu()
+    c.logistics:Cancel(); if c.automation then c.automation:Close() end; self.context.cashier(false); c.buildings:Menu()
+    if c.components then c.components.mode,c.components.selected=nil,nil end
 end
 
 function Controller:SelectManaged(station,belt)
@@ -138,7 +152,10 @@ function Controller:Command(command,value)
         local cmd=self.confirmCommand; self.overlay=nil; self:Release()
         if cmd=='endDay' then local _,message=c.loop:EndDay('pause'); self:Notify(message)
         elseif cmd=='restart' then self.context.restart()
-        elseif cmd=='exitGame' then engine:Exit() end
+        elseif cmd=='exitGame' then engine:Exit()
+        elseif cmd=='deleteTerminal' and self.selected then
+            build.selected=self.selected; local ok,message=build:DeleteSelected(c.player.position); self:Notify(message); if ok then self.selected=nil end end
+        if cmd=='unbindComponent' and self.selected then local _,message=c.components:Unbind(self.selected.id); self:Notify(message) end
         return true
     elseif command=='nextDay' then c.loop:Continue(); self.overlay=nil; self:Release(); return true
     elseif command=='preference' and self.overlay=='settings' then
@@ -153,6 +170,9 @@ function Controller:Command(command,value)
         self:Release(); self:SavePreferences(); return true
     end
     if not c.loop:IsRunning() then return true end
+    if c.automation and (phase=='cable' or phase=='terminal') and (command:sub(1,5)=='cable' or command:sub(1,8)=='terminal') then
+        local _,message=c.automation:Command(command,value); self:Notify(message); self.focus=0; return true
+    end
     if command=='tutorialClose' then self.preferences.tutorials[self:TutorialKey(phase)]=true; Prefs.Save(self.preferences); return true
     elseif command=='ordersToggle' then
         if phase=='normal' or phase=='orders' then self.ordersOpen=not self.ordersOpen; self:Release() end; return true
@@ -173,11 +193,24 @@ function Controller:Command(command,value)
     elseif command=='selectKind' and phase=='menu' then self.kind=value; self.focus=0; return true
     elseif command=='enterKind' and phase=='menu' then
         self:Release()
-        if self.kind=='conveyor' then control:Open()
-        elseif self.kind=='manage' then self.selected=nil; build:Manage()
+        if self.kind=='terminal' or self.kind=='delivery_component' then
+            c.automation:Close(); control:Cancel(); build:Manage()
+            c.components.mode=self.kind=='terminal' and 'order' or 'delivery'; c.components.selected=nil
+        elseif self.kind=='conveyor' then control:Open()
+        elseif self.kind=='cable' then build:Cancel(); control:Cancel(); local _,message=c.automation:OpenEditor(); self:Notify(message)
+        elseif self.kind=='manage' then self.selected=nil; c.automation:Close(); build:Manage()
         else build:Choose(self.kind,c.player.position,c.facing) end
         return true
-    elseif command=='buildMenu' and State.IsBuild(phase) then b:Cancel(); self.selected=nil; build:Menu(); self:Release(); return true
+    elseif command=='confirmAttachment' and phase=='attach' then
+        local _,message=c.components:Bind(c.components.selected,c.components.mode); self:Notify(message); self.focus=0; return true
+    elseif command=='unbindComponent' and phase=='selected' and self.selected and self.selected.component then
+        if self.selected.component=='order' and c.automation.service:HasTasks(self.selected.id) then self:ConfirmDialog('unbindComponent','卸下下单组件？将取消任务，保留宿主与库存，已有加工安全收尾。')
+        else local _,message=c.components:Unbind(self.selected.id); self:Notify(message) end; return true
+    elseif (command=='manageCables' or command=='manageDevices') and (phase=='manage' or phase=='selected') then
+        self:Release(); self.selected=nil; control.selectedBelt=nil; self.focus=0
+        if command=='manageCables' then c.automation:ManageCables() else c.automation:Close() end
+        build:Manage(); return true
+    elseif command=='buildMenu' and State.IsBuild(phase) then b:Cancel(); c.automation:Close(); if c.components then c.components.mode,c.components.selected=nil,nil end; self.selected=nil; build:Menu(); self:Release(); return true
     elseif command=='rotateUI' and (phase=='preview' or phase=='move') then build:Rotate(); build.confirmFocus=false; return true
     elseif command=='confirmBuild' and (phase=='preview' or phase=='move') then
         build.confirmFocus=true; local ok,message=build:Confirm(c.player.position); self:Notify(message)
@@ -189,7 +222,10 @@ function Controller:Command(command,value)
         self:Release(); return true
     elseif command=='deleteManaged' and phase=='selected' then
         if self.elapsed-self.selectedAt<0.5 or (self.deleteUntil or 0)>self.elapsed then return true end
-        if control.selectedBelt then control:DeleteBelt()
+        if self.selected and (self.selected.buildingKind=='terminal' or self.selected.component=='order') and c.automation.service:HasTasks(self.selected.id) then
+            self:ConfirmDialog('deleteTerminal','拆除下单组件？将取消该组件的生产任务，已开始加工安全收尾。'); return true end
+        if c.automation.managing then local _,message=c.automation:DeleteManaged(); self:Notify(message)
+        elseif control.selectedBelt then control:DeleteBelt()
         elseif self.selected then build.selected=self.selected; local _,message=build:DeleteSelected(c.player.position); self:Notify(message) end
         self.selected=nil; self.deleteUntil=self.elapsed+0.5; return true
     elseif command=='bufferConfirm' and phase=='buffer' then control:ConfirmBuffer(); return true
@@ -226,13 +262,32 @@ function Controller:Keyboard()
         if a and not a.disabled then self:Command(a.command,a.value) end
         return true
     end
-    local dx=(key(KEY_D) and 1 or 0)-(key(KEY_A) and 1 or 0)
-    local dz=(key(KEY_W) and 1 or 0)-(key(KEY_S) and 1 or 0)
+    local dx=((key(KEY_D) or key(KEY_RIGHT)) and 1 or 0)-((key(KEY_A) or key(KEY_LEFT)) and 1 or 0)
+    local dz=((key(KEY_W) or key(KEY_UP)) and 1 or 0)-((key(KEY_S) or key(KEY_DOWN)) and 1 or 0)
     if c.loop.state~='running' then
         if dx~=0 or dz~=0 then self.focus=(self.focus-1+(dx-dz))%math.max(1,#(self.focusActions or {}))+1 end
         return true
     end
-    if phase=='cashier' or phase=='orders' then
+    if phase=='terminal' then
+        if dx~=0 or dz~=0 then self.focus=(self.focus-1+dx-dz)%math.max(1,#(self.focusActions or {}))+1 end
+        return true
+    elseif phase=='cable' then
+        local _,message=c.automation:Keyboard(dx,dz,key(KEY_F)); self:Notify(message); return true
+    elseif phase=='attach' then
+        if dx~=0 or dz~=0 then
+        local current=c.components:Host(c.components.selected); local sx,sy=graphics:GetWidth()/UI.GetScale()/2,graphics:GetHeight()/UI.GetScale()/2
+            if current then sx,sy=self:Project(current.x,current.z,1) else sy=graphics:GetHeight()/UI.GetScale()/2 end
+            local best,score=nil,math.huge
+            for _,s in ipairs(c.stations) do if c.components:CanBind(s.id,c.components.mode) then
+                local x,y=self:Project(s.x,s.z,1); local along=(x-sx)*dx-(y-sy)*dz
+                local across=math.abs((x-sx)*dz+(y-sy)*dx)
+                if along>1 and along+across*3<score then best,score=s.id,along+across*3 end
+            end end
+            if best then c.components.selected=best end; self.focus=0
+        end
+        if key(KEY_F) then self.context.resolve(); if c.target then local ok,message=c.components:CanBind(c.target.id,c.components.mode); if ok then c.components.selected=c.target.id else self:Notify(message) end end end
+        return true
+    elseif phase=='cashier' or phase=='orders' then
         if (dx~=0 or dz~=0) and #c.orders.active>0 then local _,index=c.orders:Find(c.orders.selectedId)
             local i=index and ((index-1+dx-dz)%#c.orders.active+1) or 1; c.orders:Select(c.orders.active[i].id) end
         if phase=='cashier' and key(KEY_F) then self:Command('deliver') end
@@ -255,6 +310,11 @@ function Controller:Keyboard()
         if wheel~=0 and self:WorldMouseAvailable() then build:Rotate(wheel); build.confirmFocus=false; self.focus=0 end
         return true
     elseif phase=='manage' or phase=='selected' then
+        if c.automation and c.automation.managing then
+            if dx~=0 or dz~=0 then c.automation:SetCursor(c.automation.cursor.x+dx,c.automation.cursor.z+dz); self.focus=0 end
+            if key(KEY_F) then c.automation:PickManaged(c.automation.cursor.x,c.automation.cursor.z); self.selectedAt=self.elapsed end
+            return true
+        end
         if key(KEY_F) and not self.selected then self.context.resolve(); if c.target and (c.target.automaticKind or c.target.buildingKind) then self:SelectManaged(c.target,nil) end end
         return true
     elseif phase=='source' or phase=='destination' then
@@ -353,11 +413,13 @@ end
 function Controller:WorldEndFrame()
     local c=self.context.get(); local build,b=c.buildings,c.logistics.builder
     for _,e in ipairs(self.events) do
-        local phase=self:Phase(); local point=self:Point(e.x,e.y,phase=='buffer' and 1.15 or 0)
+        local phase=self:Phase(); local point=self:Point(e.x,e.y,phase=='cable' and 2.4 or phase=='buffer' and 1.15 or 0)
         if point and c.loop:IsRunning() then
             if e.phase=='down' then
                 local kind='scene'; local hit=phase=='adjust' and self:HitNode(e.x,e.y) or nil
-                if hit and not self.touch.objectId then
+                if phase=='cable' and not self.touch.objectId then
+                    c.automation:Pointer('down',point); if c.automation.drag then kind='object'; self.drag={kind='cable'} end
+                elseif hit and not self.touch.objectId then
                     if not hit.handle then
                         b:EndEdit(); b.selected,b.handle=hit.index,false; b.focus="path"; b.revision=b.revision+1
                         self.nodeSelected=true; kind="object"
@@ -372,25 +434,28 @@ function Controller:WorldEndFrame()
                     end
                 end
                 local accepted=self.touch:Begin(e.id,e.x,e.y,kind)
-                if not accepted and kind=='object' then b:EndEdit(); self.drag=nil end
+                if not accepted and kind=='object' then b:EndEdit(); self.drag=nil; if c.automation then c.automation.drag=nil end end
             elseif e.phase=='move' then
                 -- Arm against the stationary press before recording this move.
                 if self.touch.objectId==e.id then self:ActivateSegmentDrag() end
                 local gesture=self.touch:Move(e.id,e.x,e.y)
                 if gesture then self:CameraGesture(gesture)
                 elseif self.touch.objectId==e.id and self.drag then
-                    if self.drag.kind=='building' then build:SetPosition(point.x-self.drag.x,point.z-self.drag.z); build.confirmFocus=false
+                    if self.drag.kind=='cable' then c.automation:Pointer('move',point)
+                    elseif self.drag.kind=='building' then build:SetPosition(point.x-self.drag.x,point.z-self.drag.z); build.confirmFocus=false
                     elseif self.drag.kind=="node" then b:MoveSelection(b.selected,b.handle,point.x-self.drag.x,point.z-self.drag.z)
                     elseif self.drag.kind=="segment-wait" and self.touch.pointers[e.id].moved then
                         self.drag.kind="segment-cancel"; self:Notify("先按住路段 0.35 秒，再开始拖动。")
                     end
+                elseif phase=='cable' and not self.touch.gesture then c.automation:Pointer('move',point)
                 elseif (phase=='source' or phase=='destination') and not self.touch.gesture and e.pointerType=='mouse' then b:SetCursor(point.x,point.z)
                 elseif (phase=='source' or phase=='destination') and self.touch.pointers[e.id] and not self.touch.gesture then b:SetCursor(point.x,point.z)
                 elseif (phase=='preview' or phase=='move') and not build.previewPinned and e.pointerType=='mouse' and not self.touch.gesture then build:SetPosition(point.x,point.z) end
             elseif e.phase=='up' or e.phase=='cancel' then
                 local p=self.touch:End(e.id)
                 if p and p.kind=='object' then
-                    if self.drag and self.drag.kind=='building' then build.previewPinned=true else b:EndEdit() end
+                    if self.drag and self.drag.kind=='cable' then c.automation:Pointer('up',point)
+                    elseif self.drag and self.drag.kind=='building' then build.previewPinned=true else b:EndEdit() end
                     self.drag=nil
                 elseif p and p.kind=='scene' and not p.moved and e.phase=='up' then self:WorldClick(phase,point,e.x,e.y) end
             end
@@ -401,6 +466,12 @@ end
 
 function Controller:WorldClick(phase,p,x,y)
     local c=self.context.get(); local build,b=c.buildings,c.logistics.builder
+    if phase=='cable' then local _,message=c.automation:Pick(p.x,p.z); self:Notify(message); return end
+    if phase=='terminal' then return end
+    if phase=='attach' then
+        local station=c.logistics:At(p.x,p.z); local ok,message=c.components:CanBind(station and station.id,c.components.mode)
+        c.components.selected=ok and station.id or nil; self:Notify(message); self.focus=0; return
+    end
     if phase=='orders' then self.ordersOpen=false; return end
     if phase=='preview' or phase=='move' then
         build:SetPosition(p.x,p.z); build.previewPinned=not build.previewPinned; build.confirmFocus=false; return
@@ -413,6 +484,12 @@ function Controller:WorldClick(phase,p,x,y)
             if best then c.logistics:SelectSlot(best) end
         end; return
     elseif phase=='manage' or phase=='selected' then
+        if c.automation and c.automation.managing then
+            local ceiling=self:Point(x,y,2.4)
+            self:SelectManaged(nil,nil)
+            if ceiling then c.automation:PickManaged(ceiling.x,ceiling.z) end
+            return
+        end
         local station=c.logistics:At(p.x,p.z)
         if station and (station.automaticKind or station.buildingKind) then self:SelectManaged(station,nil); return end
         for _,belt in ipairs(c.logistics.network.belts) do for _,r in ipairs(Network.Rects(belt)) do
@@ -448,7 +525,8 @@ function Controller:StationText(s)
     elseif machine then return machine:Status():gsub(' | ','\n'):gsub(' · ','\n')
     elseif s.id=='grill' then return c.manual:GrillStatus()
     elseif s.id=='assembly' then return c.manual:AssemblyStatus():gsub(' · ','\n')
-    elseif c.logistics.buffers[s.id] then return '缓存 '..c.logistics.buffers[s.id]:Count()..'/6 · 后进先出'
+    elseif c.logistics.buffers[s.id] then return c.logistics.buffers[s.id]:LoadText()..(s.component=='order' and '\n下单 / 本机库存 / 网络 / 任务' or s.buildingKind=='storage' and '\n空手取栈顶；禁止手动存入或交换' or '\n选槽取换；空槽可存入')
+    elseif s.buildingKind=='terminal' then return '网络信息 / 生产下单 / 任务\n整网2件/秒，不自动交顾客订单'
     elseif s.id=='delivery' then return '交付库存 '..c.orders.stock..'/5'
     elseif s.destination then return s.destination=='workshop' and '进入自动化车间，可携带物品' or '返回汉堡店，车间继续生产'
     elseif s.id=='trash' then return '交互销毁手持物品'
@@ -458,13 +536,14 @@ end
 
 function Controller:Modal(phase)
     local c=self.context.get(); local loop=c.loop
+    if phase=='terminal' then return c.automation:Modal() end
     if phase=='paused' then return {title='暂停',back='继续游戏',lines={'模拟已冻结；继续后恢复原操作模式。','本 Demo 不保存游戏进度。'},
         tools={action('运行统计 / 设备说明','statistics'),action('操作与显示设置','settings'),action('提前结束当天','pauseEnd'),action('退出游戏','exitGame')},buttons={}}
     elseif phase=='confirm' then return {title=self.confirmTitle,back='取消',lines={'仅确认后执行此操作。'},buttons={action('确认','confirmYes')}}
     elseif phase=='statistics' then
         local network=c.logistics.network; local cargo,used,capacity=0,0,0; local counts={}
         for _,belt in ipairs(network.belts) do cargo=cargo+#belt.cargo end
-        for _,storage in pairs(c.logistics.buffers) do used=used+storage:Count(); capacity=capacity+6 end
+        for _,storage in pairs(c.logistics.buffers) do used=used+storage:Count(); capacity=capacity+storage.capacity end
         for _,s in ipairs(c.stations) do local kind=s.buildingKind or s.automaticKind; if kind then counts[kind]=(counts[kind] or 0)+1 end end
         local devices={}; for _,kind in ipairs(Buildings.Order) do table.insert(devices,Buildings.Definitions[kind].name..' '..(counts[kind] or 0)) end
         local history={}; for _,day in ipairs(loop.history) do table.insert(history,string.format('第%d天 订单%d · 手工%d · 自动%d',day.day,day.orders,day.manual,day.automatic)) end
@@ -474,7 +553,7 @@ function Controller:Modal(phase)
             '已结束日记录\n'..(#history>0 and table.concat(history,'\n') or '暂无'),
             '本局拆除损失\n'..(#self.losses>0 and table.concat(self.losses,'\n') or '无记录'),
             '设备说明（静态规则）','烹饪台 2.4×1.5格：3槽各3秒，手动生肉后进先出。\n组合台 2.4×1.5格：胚+熟肉+生菜，自动2秒。',
-            '缓存台 2×4格：容量6，输出后进先出。\n接口 1×1格：无独立速度或缓存，按接入口收束/分散。','基础带 0.5格/秒，单入单出，不过滤，不重叠，禁止环路。'}
+            '缓存台 2×2格：容量6，输出后进先出。\n库存 2×4格：容量24，空手取栈顶，禁止手动存换。\n下单/交付组件依附库存或缓存，不另占地。下单终端可在本机库存页任取。\n电缆整网共享2件/秒，任务按入库到货计数。\n接口 1×1格：无独立速度或缓存，按接入口收束/分散。','基础带 0.5格/秒，单入单出，不过滤，不重叠，禁止环路。'}
         return {title='统计与设备说明',back='返回暂停',lines=lines}
     elseif phase=='settings' then return {title='操作与显示设置',back='返回暂停',lines={State.PreferenceText(self.preferences),
         '仅保存本机 UI 偏好，不包含游戏进度。','WASD 移动 / 选项 / 节点；Shift 奔跑\nF 交互；手工铁板空手长按 F 3秒\nQ 放下；B 建造；R 旋转\nTab 选右下动作，F/Enter 执行\n右键逐层返回；ESC 返回建造首页 / 暂停\n鼠标中键平移、滚轮缩放；双指平移/捏合',
@@ -493,9 +572,11 @@ function Controller:Modal(phase)
         return {title='Demo 完成',lines=lines,buttons={action('退出游戏','exitGame'),action('重新开始','restart')}}
     elseif phase=='cashier' then
         local tools={}; for i,o in ipairs(c.orders.active) do table.insert(tools,action(string.format('%s订单%02d · %d/%d',o.id==c.orders.selectedId and '[已选] ' or '',o.id,o.delivered,o.required),'selectRow',i)) end
-        return {title='收银台',back='关闭收银',lines={'交付库存 '..c.orders.stock..'/5 · 待处理 '..#c.orders.active..'/5',
-            c.orders:Find(c.orders.selectedId) and '已选订单：可部分交付。' or '请选择有效订单。',loop.remaining==0 and '计时已归零，可以结束当天。' or '计时归零后才可结束当天。'},tools=tools,
-            buttons={action('结束当天','cashierEnd',nil,not loop:CanCashierEnd()),action('交付订单','deliver',nil,not c.orders:CanDeliver())}}
+        local lines={'可交付汉堡 '..c.orders:DeliveryCount()..' · 待处理 '..#c.orders.active..'/5',
+            c.orders:Find(c.orders.selectedId) and '已选订单：可部分交付。' or '请选择有效订单。',loop.remaining==0 and '计时已归零，可以结束当天。' or '计时归零后才可结束当天。'
+        }
+        for _,line in ipairs(c.orders:DeliverySummary()) do table.insert(lines,line) end
+        return {title='收银台',back='关闭收银',lines=lines,tools=tools,buttons={action('结束当天','cashierEnd',nil,not loop:CanCashierEnd()),action('交付订单','deliver',nil,not c.orders:CanDeliver())}}
     end
     return nil
 end
@@ -511,7 +592,7 @@ function Controller:Update(dt)
     self:ActivateSegmentDrag()
     local editing=State.IsBuild(phase)
     -- Pausing preserves the snapshot; closing construction is the only restore.
-    local underlying=build.mode~='idle' or b.mode~='idle'
+    local underlying=build.mode~='idle' or b.mode~='idle' or (c.automation and c.automation.mode~='idle')
     if underlying and not self.cameraSaved then self.cameraSaved={position=c.cameraNode.position,zoom=c.zoom}; self.context.zoom(State.Clamp(c.zoom*0.9,0.8,2.5))
     elseif not underlying and self.cameraSaved then c.cameraNode.position=self.cameraSaved.position; self.context.zoom(self.cameraSaved.zoom); self.cameraSaved=nil end
     self.context.presentation(State.Grid(phase),editing)
@@ -536,22 +617,29 @@ function Controller:Update(dt)
         add(text,'interactUI',nil,c.target==nil and c.ground==nil)
         model.reason=c.loop.remaining==0 and '当日计时结束：未完成订单已清除，去收银台结束当天。' or (c.area=='shop' and '建造仅在自动化车间开放；左上入口进入车间。' or '')
     elseif phase=='orders' then model.back='关闭订单'; model.reason='这里只浏览和选单；请在收银台交付。'
-    elseif phase=='menu' then model.back='退出建造'; add(self.kind=='manage' and '进入管理' or self.kind=='conveyor' and '进入布线' or '进入放置','enterKind')
+    elseif phase=='menu' then model.back='退出建造'; add(self.kind=='manage' and '进入管理' or (self.kind=='conveyor' or self.kind=='cable') and '进入布线' or '进入放置','enterKind')
     elseif phase=='preview' or phase=='move' then
         model.back=phase=='move' and '取消编辑' or '取消放置'; model.title=model.title..' · '..Buildings.Definitions[build.kind].name
         local valid,reason=build:Validate(c.player.position)
-        if build.selected and c.logistics.network:HasAttached(build.selected.id) then valid,reason=false,'请先拆除相连传送带，再移动或旋转。' end
+        if build.selected and (c.logistics.network:HasAttached(build.selected.id) or (c.automation and c.automation.cables:HasAttached(build.selected.id))) then valid,reason=false,'请先拆除相连传送带/电缆，再移动或旋转。' end
         if build.selected and c.machines[build.selected.id] and c.machines[build.selected.id]:IsProcessing() then valid,reason=false,'加工中的建筑不能移动。' end
         model.reason=(build.previewPinned and '投影已固定' or '投影跟随')..' · '..(valid and '可放置' or '不可放置：'..reason)
         add('旋转 90°','rotateUI'); add('确认摆放','confirmBuild',nil,not valid)
     elseif phase=='manage' then model.back='返回选型'; model.reason='点选已有建筑或整条传送带。'
+    elseif phase=='attach' then
+        model.title=c.components.mode=='order' and '绑定下单组件 · 选择库存' or '绑定交付组件 · 选择库存或缓存'
+        model.back=c.components.selected and '取消选中' or '返回选型'
+        local ok,reason=c.components:CanBind(c.components.selected,c.components.mode)
+        model.reason=reason; add('确认绑定','confirmAttachment',nil,not ok)
+        local host=c.components:Host(c.components.selected); if host then model.card=self:Card(host,self:StationText(host)) end
     elseif phase=='selected' then
         model.back='取消选中'; local locked=false
         if self.selected then
             model.card=self:Card(self.selected,self:StationText(self.selected))
             local machine=c.machines[self.selected.id]
-            locked=c.logistics.network:HasAttached(self.selected.id) or (machine and machine:IsProcessing())
+            locked=c.logistics.network:HasAttached(self.selected.id) or (c.automation and c.automation.cables:HasAttached(self.selected.id)) or (machine and (machine:IsProcessing() or machine.automationOwner))
             add('移动','moveManaged',nil,locked); add('旋转','rotateManaged',nil,locked)
+            if self.selected.component then add('卸下组件','unbindComponent') end
         end
         local cooling=self.elapsed-self.selectedAt<0.5 or (self.deleteUntil or 0)>self.elapsed
         local processing=self.selected and c.machines[self.selected.id] and c.machines[self.selected.id]:IsProcessing()
@@ -577,6 +665,15 @@ function Controller:Update(dt)
         model.reason=valid and '点槽只选择；点击右下动作后执行并退出。' or '空槽无物可取，或物品已被产线取走；请重新选择。'
         add(text,'bufferConfirm',nil,not valid)
     end
+    if (phase=='manage' or phase=='selected') and c.automation then
+        local managing=c.automation.managing
+        if managing then
+            model.title='设备管理 · 电缆'
+            model.reason=c.automation.deleteEdge and ('已选 '..#c.automation.cables:Segment(c.automation.deleteEdge)..' 格直线段；拆除后分支保留，任务等待重连。') or '金框插头为设备接线口；点击线段拆除，橙红为拆除范围。'
+        end
+        table.insert(a,1,action(managing and '设备' or '切换电缆',managing and 'manageDevices' or 'manageCables'))
+    end
+    if phase=='cable' then c.automation:BuildModel(model); a=model.actions end
     local tutorialKey=self:TutorialKey(phase)
     if tutorialKey~='' and not self.preferences.tutorials[tutorialKey] then
         model.tutorial=({normal='摇杆移动，外圈奔跑；交互与放下在右下。',preview='拖动投影后松手固定；最终点击确认摆放。',adjust='路段长按0.35秒拖动；端点/转角先选再拖；确认后继续选A。'})[tutorialKey]
@@ -585,6 +682,9 @@ function Controller:Update(dt)
     model.modal=self:Modal(phase)
     self.focusActions=model.modal and {} or a
     if model.modal then
+        for _,item in ipairs(model.modal.tabs or {}) do table.insert(self.focusActions,item) end
+        for _,item in ipairs(model.modal.quantity and model.modal.quantity.actions or {}) do table.insert(self.focusActions,item) end
+        for _,entry in ipairs(model.modal.entries or {}) do if entry.action then table.insert(self.focusActions,entry.action) end end
         for _,item in ipairs(model.modal.tools or {}) do table.insert(self.focusActions,item) end
         for _,item in ipairs(model.modal.buttons or {}) do table.insert(self.focusActions,item) end
     end
@@ -603,6 +703,7 @@ function Controller:Update(dt)
         if station.highlight then
             local endpoint=c.logistics:Endpoint(station.id)
             station.highlight.enabled=(phase=='normal' and station==c.target) or (phase=='selected' and station==self.selected)
+                or (phase=='attach' and c.components.selected==station.id)
                 or ((phase=='source' or phase=='destination') and endpoint~=nil and
                     ((phase=='source' and Network.CanOutput(endpoint)) or (phase=='destination' and (station.id==b.sourceId or Network.CanInput(endpoint)))))
         end

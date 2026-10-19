@@ -28,7 +28,7 @@ Control.__index = Control
 ---@return FactoryConveyorControl
 function Control.New(context)
     local self=setmetatable({context=context,buffers={},slot=1,dragging=false,buttons={}},Control)
-    for _,station in ipairs(context.stations()) do if station.buildingKind=="buffer" then self.buffers[station.id]=Buffer.New() end end
+    for _,station in ipairs(context.stations()) do if station.buildingKind=="buffer" or station.buildingKind=="storage" then self.buffers[station.id]=Buffer.New(station.buildingKind=="storage" and 24 or 6) end end
     self.network=Network.New({resolve=function(id) return self:Endpoint(id) end,
         endpoints=function()
             local all={}; for _,station in ipairs(context.stations()) do local ep=self:Endpoint(station.id); if ep then table.insert(all,ep) end end; return all
@@ -66,7 +66,7 @@ function Control:Endpoint(id)
         local machine=self.context.machines[id]
         local source=self.context.sources[id]
         if source or machine or s.buildingKind then return {id=id,name=s.name,kind=s.buildingKind or s.automaticKind or "source",
-            x=s.x,z=s.z,width=s.width,depth=s.depth,quarter=s.quarter or 0,area="workshop",source=source,machine=machine,storage=self.buffers[id]} end
+            x=s.x,z=s.z,width=s.width,depth=s.depth,quarter=s.quarter or 0,area="workshop",source=source,machine=machine,storage=self.buffers[id],terminal=s.component=='order',component=s.component} end
     end end
     return nil
 end

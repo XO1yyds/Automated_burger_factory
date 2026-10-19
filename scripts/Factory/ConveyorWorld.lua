@@ -55,7 +55,7 @@ end
 ---@param index integer
 ---@return number,number
 function World.SlotPosition(station,index)
-    local dx,dz=((index-1)%2-0.5)*0.78,(1-math.floor((index-1)/2))*1.05
+    local dx,dz=((index-1)%2-0.5)*0.64,(1-math.floor((index-1)/2))*0.56
     local q=station.quarter or 0
     if q==1 then dx,dz=-dz,dx elseif q==2 then dx,dz=-dx,-dz elseif q==3 then dx,dz=dz,-dx end
     return station.x+dx,station.z+dz
@@ -124,8 +124,8 @@ function World:Update(network,builder,stations,buffers,visible,selectedBelt,buff
     for _,station in ipairs(stations) do
         local storage=buffers[station.id]
         if storage or station.buildingKind then
-            invSignature=invSignature..station.id..":"..station.x..":"..station.z..":"..tostring(station.quarter)
-            if storage then for i=1,6 do local item=storage.slots[i]; invSignature=invSignature..":"..(item and item.id or 0) end end
+            invSignature=invSignature..station.id..":"..station.x..":"..station.z..":"..tostring(station.quarter)..tostring(station.component)
+            if storage then for i=1,storage.capacity do local item=storage.slots[i]; invSignature=invSignature..":"..(item and item.id or 0) end end
         end
     end
     if visible and invSignature~=self.inventorySignature then
@@ -133,13 +133,39 @@ function World:Update(network,builder,stations,buffers,visible,selectedBelt,buff
         self.inventory=self.root:CreateChild("LogisticsFixtures")
         for _,station in ipairs(stations) do
             local storage=buffers[station.id]
-            if storage then
+            if storage and station.component then
+                local color=station.component=='order' and Color(0.2,0.65,1) or Color(1,0.7,0.2)
+                if station.buildingKind=='buffer' then
+                    -- Keep all six slot faces unobscured; the component uses the rim.
+                    self:Box(self.inventory,'ComponentBase',station.x+0.83,1.13,station.z,0.18,0.10,1.3,Color(0.12,0.17,0.2))
+                    self:Box(self.inventory,'ComponentScreen',station.x+0.83,1.20,station.z,0.12,0.03,1.0,color)
+                else
+                    self:Box(self.inventory,'ComponentBase',station.x,1.38,station.z+0.35,0.9,0.18,0.55,Color(0.12,0.17,0.2))
+                    self:Box(self.inventory,'ComponentScreen',station.x,1.5,station.z+0.35,0.72,0.06,0.38,color)
+                end
+            end
+            if storage and station.buildingKind=="storage" then
+                local count=storage:Count()
+                local level=count<=8 and 1 or count<=16 and 2 or 3
+                for i=1,3 do
+                    self:Box(self.inventory,"InventoryLoad",station.x+(i-2)*0.4,1.08,station.z,0.32,0.06,0.55,
+                        i<=level and (level==3 and Color(0.95,0.55,0.2) or Color(0.4,0.85,0.65)) or Color(0.15,0.2,0.22))
+                end
+                local label=self.inventory:CreateChild("InventoryLoadText")
+                label.position=Vector3(station.x,1.18,station.z-0.6)
+                local text=label:CreateComponent("Text3D")
+                text:SetFont("Fonts/MiSans-Regular.ttf",24); text:SetText(storage:LoadText())
+                text:SetAlignment(HA_CENTER,VA_CENTER); text.faceCameraMode=FC_ROTATE_XYZ; text.fixedScreenSize=false
+                text.color=Color(1,1,1); text.textEffect=TE_STROKE; text.effectColor=Color(0.04,0.05,0.06); text.effectStrokeThickness=2
+                local height=text.worldBoundingBox.size.y
+                if height>0.00001 then label.scale=Vector3.ONE*(0.27/height) end
+            elseif storage then
                 for i=1,6 do
                     local x,z=World.SlotPosition(station,i)
-                    self:Box(self.inventory,"Slot",x,1.05,z,0.64,0.05,0.75,
+                    self:Box(self.inventory,"Slot",x,1.05,z,0.56,0.05,0.48,
                         bufferId==station.id and slot==i and Color(1,0.8,0.18) or Color(0.15,0.22,0.25))
                     local item=storage.slots[i]
-                    if item then local c=Definitions[item.itemType].color; self:Box(self.inventory,"Stored_"..item.itemType,x,1.2,z,0.4,0.22,0.4,Color(assert(c[1]),assert(c[2]),assert(c[3]))) end
+                    if item then local c=Definitions[item.itemType].color; self:Box(self.inventory,"Stored_"..item.itemType,x,1.2,z,0.34,0.22,0.34,Color(assert(c[1]),assert(c[2]),assert(c[3]))) end
                 end
             elseif station.buildingKind and station.buildingKind:find("isolator",1,true) then
                 local endpoint={id=station.id,kind=station.buildingKind,quarter=station.quarter or 0}

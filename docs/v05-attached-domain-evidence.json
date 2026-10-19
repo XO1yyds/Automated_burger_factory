@@ -1,0 +1,137 @@
+{
+  "runtime": "Lua 5.4",
+  "passed": 32,
+  "failed": 0,
+  "duration_seconds": 0.027,
+  "checks": [
+    {
+      "name": "order component cannot bind a buffer",
+      "passed": true
+    },
+    {
+      "name": "attachment preserves host footprint capacity identity and old contents",
+      "passed": true
+    },
+    {
+      "name": "attachment changes host name and opens no second storage",
+      "passed": true
+    },
+    {
+      "name": "a second component cannot stack on a bound host",
+      "passed": true
+    },
+    {
+      "name": "bound storage is the only network controller",
+      "passed": true
+    },
+    {
+      "name": "binding checks single-controller network rule before mutation",
+      "passed": true
+    },
+    {
+      "name": "bound terminal fixes result destination to its own storage",
+      "passed": true
+    },
+    {
+      "name": "pre-existing terminal stock does not count as arrival",
+      "passed": true
+    },
+    {
+      "name": "external matching input increments receipt immediately",
+      "passed": true
+    },
+    {
+      "name": "other item types do not advance receipt",
+      "passed": true
+    },
+    {
+      "name": "same physical item returning cannot count twice for the task",
+      "passed": true
+    },
+    {
+      "name": "actual conveyor receive advances terminal order",
+      "passed": true
+    },
+    {
+      "name": "cable receive counts once without a second transfer increment",
+      "passed": true
+    },
+    {
+      "name": "receipt completion moves task to history",
+      "passed": true
+    },
+    {
+      "name": "bound terminal has four fixed tabs",
+      "passed": true
+    },
+    {
+      "name": "bound terminal does not offer another output destination",
+      "passed": true
+    },
+    {
+      "name": "local inventory groups actual stored types",
+      "passed": true
+    },
+    {
+      "name": "inventory inspect uses explicit one-item withdrawal",
+      "passed": true
+    },
+    {
+      "name": "full ground rejects withdrawal atomically",
+      "passed": true
+    },
+    {
+      "name": "full hand retains old item and drops withdrawn type",
+      "passed": true
+    },
+    {
+      "name": "empty hand can take chosen type beneath a different stack top",
+      "passed": true
+    },
+    {
+      "name": "network change retains task id product demand and progress",
+      "passed": true
+    },
+    {
+      "name": "player can cancel a task after network loss",
+      "passed": true
+    },
+    {
+      "name": "unbinding preserves inventory and clears terminal receipt observer",
+      "passed": true
+    },
+    {
+      "name": "ordinary nonempty inventory refuses hand exchange",
+      "passed": true
+    },
+    {
+      "name": "ordinary empty inventory refuses manual input",
+      "passed": true
+    },
+    {
+      "name": "ordinary empty hand still retrieves strict stack top",
+      "passed": true
+    },
+    {
+      "name": "cashier sums original depot and attached delivery containers",
+      "passed": true
+    },
+    {
+      "name": "cashier consumes only requested product across blocked stack tops",
+      "passed": true
+    },
+    {
+      "name": "cashier never consumes task-locked items",
+      "passed": true
+    },
+    {
+      "name": "delivery components retain host-specific building types",
+      "passed": true
+    },
+    {
+      "name": "unbound delivery host disappears from cashier sources",
+      "passed": true
+    }
+  ],
+  "scope": "Actual Lua domain code; excludes native rendering/input and Android verification"
+}

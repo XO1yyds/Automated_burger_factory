@@ -1,0 +1,301 @@
+{
+  "runtime": "Lua 5.4",
+  "passed": 73,
+  "failed": 0,
+  "duration_seconds": 0.107,
+  "checks": [
+    {
+      "name": "all seven explicitly connected buildings share a network",
+      "passed": true
+    },
+    {
+      "name": "overlapping cables deduplicate unit edges",
+      "passed": true
+    },
+    {
+      "name": "no cable requests or material without a job",
+      "passed": true
+    },
+    {
+      "name": "burger preflight traces the complete upstream recipe",
+      "passed": true
+    },
+    {
+      "name": "first transfer waits a half simulated second",
+      "passed": true
+    },
+    {
+      "name": "one half-second permits exactly one transfer",
+      "passed": true
+    },
+    {
+      "name": "two new burgers arrive in selected inventory",
+      "passed": true
+    },
+    {
+      "name": "full chain performs exactly five endpoint moves per burger",
+      "passed": true
+    },
+    {
+      "name": "source requests are finite and match job demand",
+      "passed": true
+    },
+    {
+      "name": "completed job releases machine ownership",
+      "passed": true
+    },
+    {
+      "name": "completed job releases destination reservations",
+      "passed": true
+    },
+    {
+      "name": "idle cable network does not continue producing",
+      "passed": true
+    },
+    {
+      "name": "existing target products do not fulfill a request for new production",
+      "passed": true
+    },
+    {
+      "name": "invalid quantity is rejected",
+      "passed": true
+    },
+    {
+      "name": "non-storage output target is rejected",
+      "passed": true
+    },
+    {
+      "name": "merging two controllers is rejected atomically",
+      "passed": true
+    },
+    {
+      "name": "new unconnected controller remains a separate network",
+      "passed": true
+    },
+    {
+      "name": "selected straight cable section is removable",
+      "passed": true
+    },
+    {
+      "name": "ready cooked inventory permits burgers without a cooker",
+      "passed": true
+    },
+    {
+      "name": "missing cooked meat and cooker report a blocking dependency",
+      "passed": true
+    },
+    {
+      "name": "strict stack prevents buried ingredient extraction",
+      "passed": true
+    },
+    {
+      "name": "removing the obstruction makes the same finite source usable",
+      "passed": true
+    },
+    {
+      "name": "full target waits without infinite source pulls",
+      "passed": true
+    },
+    {
+      "name": "making one target slot available resumes the job",
+      "passed": true
+    },
+    {
+      "name": "cooked-meat order uses all three parallel cooking slots",
+      "passed": true
+    },
+    {
+      "name": "reserved output space cannot be consumed by a belt",
+      "passed": true
+    },
+    {
+      "name": "ordinary input respects reserved capacity",
+      "passed": true
+    },
+    {
+      "name": "reserved outputs can still enter a saturated inventory",
+      "passed": true
+    },
+    {
+      "name": "cancel immediately frees no-longer-needed delivery capacity",
+      "passed": true
+    },
+    {
+      "name": "cancel does not destroy already cooking material",
+      "passed": true
+    },
+    {
+      "name": "cancel safely finishes without a manufactured refund",
+      "passed": true
+    },
+    {
+      "name": "cancel releases all ownership and target reservations",
+      "passed": true
+    },
+    {
+      "name": "disconnected target waits with no source ownership loss",
+      "passed": true
+    },
+    {
+      "name": "reconnecting the same target resumes remaining work",
+      "passed": true
+    },
+    {
+      "name": "eleventh queued production task is rejected",
+      "passed": true
+    },
+    {
+      "name": "queued cancellation removes only the chosen task",
+      "passed": true
+    },
+    {
+      "name": "inventory capacity is twenty-four, not six",
+      "passed": true
+    },
+    {
+      "name": "a belt cannot skip a locked stack top",
+      "passed": true
+    },
+    {
+      "name": "inventory output is last-in-first-out",
+      "passed": true
+    },
+    {
+      "name": "held interaction refuses inventory exchange without mutation",
+      "passed": true
+    },
+    {
+      "name": "held interaction cannot seed an empty inventory",
+      "passed": true
+    },
+    {
+      "name": "eight items are low load",
+      "passed": true
+    },
+    {
+      "name": "nine items are medium load",
+      "passed": true
+    },
+    {
+      "name": "seventeen items are high load",
+      "passed": true
+    },
+    {
+      "name": "service stop releases reservations",
+      "passed": true
+    },
+    {
+      "name": "partial inputs on two assemblers cannot be combined for one unit",
+      "passed": true
+    },
+    {
+      "name": "preflight allocation matches the selected preloaded assembler",
+      "passed": true
+    },
+    {
+      "name": "multiple assemblers deliver exactly the requested new products",
+      "passed": true
+    },
+    {
+      "name": "parallel work creates no hidden excess completed burgers",
+      "passed": true
+    },
+    {
+      "name": "independent networks each get their own half-second transfer",
+      "passed": true
+    },
+    {
+      "name": "branches share bandwidth while separate networks remain independent",
+      "passed": true
+    },
+    {
+      "name": "independent queues finish in their own inventories",
+      "passed": true
+    },
+    {
+      "name": "editor keeps a live source-to-cursor route before endpoint selection",
+      "passed": true
+    },
+    {
+      "name": "added cable waypoint moves one grid step with keyboard",
+      "passed": true
+    },
+    {
+      "name": "cable waypoint pointer drag ends without retaining ownership",
+      "passed": true
+    },
+    {
+      "name": "clicked grid location remains stable on the way to the Add button",
+      "passed": true
+    },
+    {
+      "name": "explicit cable confirmation returns to continuous source selection",
+      "passed": true
+    },
+    {
+      "name": "right back unwinds cable adjustment to destination",
+      "passed": true
+    },
+    {
+      "name": "right back unwinds destination to source",
+      "passed": true
+    },
+    {
+      "name": "escape closes editor to parent construction state",
+      "passed": true
+    },
+    {
+      "name": "terminal opens on compact product list with fixed tabs",
+      "passed": true
+    },
+    {
+      "name": "terminal quantity controls clamp at ninety-nine",
+      "passed": true
+    },
+    {
+      "name": "product quantity stays fixed above scrollable content",
+      "passed": true
+    },
+    {
+      "name": "recipe and material details are initially collapsed",
+      "passed": true
+    },
+    {
+      "name": "recipe details expand only on request",
+      "passed": true
+    },
+    {
+      "name": "destination chooser has explicit adjacent selection action",
+      "passed": true
+    },
+    {
+      "name": "destination back preserves product and quantity",
+      "passed": true
+    },
+    {
+      "name": "terminal detail back retains the component page",
+      "passed": true
+    },
+    {
+      "name": "terminal list back closes the component page",
+      "passed": true
+    },
+    {
+      "name": "equipment cable management does not enter placement mode",
+      "passed": true
+    },
+    {
+      "name": "equipment cable management selects a ceiling segment",
+      "passed": true
+    },
+    {
+      "name": "cable removal retains continuous management and clears selection",
+      "passed": true
+    },
+    {
+      "name": "closing equipment management hides cable selection state",
+      "passed": true
+    }
+  ],
+  "scope": "Actual Lua domain code; excludes native rendering/input and Android verification"
+}

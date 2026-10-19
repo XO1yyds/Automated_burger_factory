@@ -1,0 +1,133 @@
+{
+  "collected_at": "2026-10-19T09:32:41.474865+08:00",
+  "source_log_name": "lua-2026-10-19 09_15_35_650.log",
+  "scope": "Actual UrhoX scene services and UI commands via startup QA driver; not native keyboard/touch input",
+  "passed": 19,
+  "failed": 0,
+  "completed": true,
+  "messages": [
+    {
+      "time": "2026-10-19 09_15_46_548",
+      "message": "PASS sample network explicitly contains seven endpoints"
+    },
+    {
+      "time": "2026-10-19 09_15_46_548",
+      "message": "PASS new storage and resized buffer retain distinct capacities"
+    },
+    {
+      "time": "2026-10-19 09_15_46_548",
+      "message": "PASS terminal uses the real modal UI phase"
+    },
+    {
+      "time": "2026-10-19 09_15_46_550",
+      "message": "PASS viewing product does not submit a task"
+    },
+    {
+      "time": "2026-10-19 09_15_46_550",
+      "message": "PASS UI submit creates a production job distinct from customer orders"
+    },
+    {
+      "time": "2026-10-19 09_15_46_554",
+      "message": "PASS pause freezes production clock and cable allowance"
+    },
+    {
+      "time": "2026-10-19 09_15_46_587",
+      "message": "PASS production continues outside workshop and delivers one burger"
+    },
+    {
+      "time": "2026-10-19 09_15_46_587",
+      "message": "PASS one actual assembly creates exactly one production statistic"
+    },
+    {
+      "time": "2026-10-19 09_15_46_587",
+      "message": "PASS day expiry clears customer orders without cancelling production"
+    },
+    {
+      "time": "2026-10-19 09_15_46_618",
+      "message": "PASS production can complete after day timer reaches zero"
+    },
+    {
+      "time": "2026-10-19 09_15_46_618",
+      "message": "PASS settlement freezes queued production"
+    },
+    {
+      "time": "2026-10-19 09_15_46_648",
+      "message": "PASS next day resumes the same production queue"
+    },
+    {
+      "time": "2026-10-19 09_15_46_648",
+      "message": "PASS destination selection has a live ceiling path without committing"
+    },
+    {
+      "time": "2026-10-19 09_15_46_649",
+      "message": "PASS confirmed connection returns to next source selection"
+    },
+    {
+      "time": "2026-10-19 09_15_46_649",
+      "message": "PASS right back from adjustment returns to destination"
+    },
+    {
+      "time": "2026-10-19 09_15_46_649",
+      "message": "PASS second right back returns to source"
+    },
+    {
+      "time": "2026-10-19 09_15_46_649",
+      "message": "PASS escape closes cable editor"
+    },
+    {
+      "time": "2026-10-19 09_15_46_663",
+      "message": "PASS removing controller safely cancels its owned in-progress work"
+    },
+    {
+      "time": "2026-10-19 09_15_46_663",
+      "message": "COMPLETE passed=18 failed=0"
+    },
+    {
+      "time": "2026-10-19 09_15_46_691",
+      "message": "PASS restart clears tasks reservations and inventory; restores sample"
+    }
+  ],
+  "lua_error_rows": [],
+  "current_source_sha256": {
+    "scripts/Factory/AutomaticChecks.lua": "443cc7e5faea6e32a270838073f628bc9f54b7ef87b667f4c79c70b764da27c2",
+    "scripts/Factory/AutomaticWorkstation.lua": "78830eb0d63b9cace1aae00b630575a64e240a89ce318fe4aab799a9d8ef75d0",
+    "scripts/Factory/AutomationArea.lua": "3ca934d27263903c84d3171ad1bf1ff234b0354e9edfc6dc56e38f41677b32f8",
+    "scripts/Factory/BufferStorage.lua": "dc15a6682acdc3089aed463c00309d9c96b4db83698a10fbed296673f188e949",
+    "scripts/Factory/Buildings.lua": "643ad7ef48489e5dcefcff5b2c39d387dfe905ffb4573fbc539b12ea90dcc1ad",
+    "scripts/Factory/CableNetwork.lua": "1ec8daebee0ed5b585e7581242ba6555dc1a1a6b988e38e43ab1d21e50a9696d",
+    "scripts/Factory/CommerceChecks.lua": "340dc341ce8f064de833cedc809fb3c513fd7d43a6383289949e841f2776de81",
+    "scripts/Factory/ConveyorBuilder.lua": "2f02bde3e78dc8f2b2e04e10d64a43d6e31ad38977e9503f255aa05ad0fe54ac",
+    "scripts/Factory/ConveyorChecks.lua": "239eff611322b4241f83cd49e1401a7618d6f2ce01a14641265419b4f5cac500",
+    "scripts/Factory/ConveyorControl.lua": "9e94f1222c971087c580257fb35edc034e67c1b90bd51464631034a2ebb85408",
+    "scripts/Factory/ConveyorEditingChecks.lua": "b99f3b1a2584840f4b1051ae3fbbeb88dc1eeb0ba990cf3bb82c611f769881ac",
+    "scripts/Factory/ConveyorGeometry.lua": "81ae26406517979ef805206e8a95d43c193d5934640798d4332c693f2608916c",
+    "scripts/Factory/ConveyorNetwork.lua": "a9d1a6e5798c9aea57ace3d53734b3a97384fd7e0a88ba106e3cc1a2ec5b6b56",
+    "scripts/Factory/ConveyorWorld.lua": "5a9ac8bbf4a3dfc33847dffdd5948de80d69c406ff04967cd484711f335b0cf2",
+    "scripts/Factory/GameLoop.lua": "df990f69e51ecb38de44c4e50d87ccff4db30225d4ddefe6ef14d66a14b0f543",
+    "scripts/Factory/HudDiagnostics.lua": "410cc151d442a13a8438ede906c89971d9d1e2f75fdaece50ec4250ceda0be80",
+    "scripts/Factory/Interface.lua": "4b861ebca49586955da9a31d0c4b0db3e728f2b2c6244f9288faf488593e6f9c",
+    "scripts/Factory/InterfaceV3.lua": "fe78dbfdc51f4f372cf1a2481883f3a1f2d56c3e000e607dfb25426191bf1689",
+    "scripts/Factory/ItemChecks.lua": "10c8dc9ddaede49fa8c61c748eaee377c79127652328db8146de617a74f1cf21",
+    "scripts/Factory/Items.lua": "8b6ede1720a506eb62f142f78bbec90b05a3e87687542b3661166d66e96d0ad5",
+    "scripts/Factory/LoopChecks.lua": "525d2014d0d82bc264868c263e749c084c03397e526880f40ea27681464573f8",
+    "scripts/Factory/ManualChecks.lua": "b6e5724ab31cb8520c32eee7dbb5588e6deea7c32cbcb06619dc573622063c20",
+    "scripts/Factory/ManualProduction.lua": "90e6fb9c5a33402104c08b14d34fc0b2e0cf3385874a1f3e4e1f2cc570644caf",
+    "scripts/Factory/OrderAutomation.lua": "aa7661c75d0719de9002d69969de275399a3a4521b05885efeaa92217ec8ddf4",
+    "scripts/Factory/OrderAutomationControl.lua": "dccf75b36d49180a252abc23c58806c7fa632fb9ebcfc17d2dfb150c37888443",
+    "scripts/Factory/Orders.lua": "44c4c3f03381a11fea56eee1a1c45837be175ae731284601e8a09c47b74baccf",
+    "scripts/Factory/OrthographicView.lua": "ae57ecda32bd965263adc2068e83f55c2e21d049667806818de177d2388e9621",
+    "scripts/Factory/Phase1.lua": "453c65061853ce8da126d10b56f3eee1f1b6f9610d883100ec8944dc00d7f87b",
+    "scripts/Factory/ProductionPlanner.lua": "713400e2329cd739eeb4c82ec99bfc99b5606b7075403e24bfd989febdf3019a",
+    "scripts/Factory/ReviewFixChecks.lua": "95d70f57a7082e5640ec8ab12be5c719c329f04c7ef52229106c7cade01064cf",
+    "scripts/Factory/StageChecks.lua": "b14ec565e6202454807cbe0320cb2f9d8f2d4665c512a28d7ec85d6547a07505",
+    "scripts/Factory/TouchInput.lua": "b0f238ec86fdccfc8775562d655837d04d72bb7ac59b25119d7ed74c31b37dde",
+    "scripts/Factory/UIChecks.lua": "f9e391801a35b8934be5215a12139e25a972654646bdbf6090d7bb021e28806b",
+    "scripts/Factory/UIController.lua": "81405af8d30dd348ec7ec213a3ba00caf87a512536562ed3029d76850350fe12",
+    "scripts/Factory/UIPreferences.lua": "70de5ff588680bcf56770e316e64b2a1c1942c72c11b2e1a49f5c3f783d38ace",
+    "scripts/Factory/UIState.lua": "aeadc0d924330ced0de11c29ebc456cb57f58ffcedd09a7bbe449a77721f4352",
+    "scripts/Factory/V05Checks.lua": "efc5cf9d086d8b3186957cf403913f552808a42a5f84cad3b5eea52a24a4c706",
+    "scripts/Factory/V05RuntimeChecks.lua": "0fa40d675376f847baaf961e6399d04ab756e9d8dd74fb8482117e389fecc562",
+    "scripts/main.lua": "ed60544eb2b5e8d9d8c35e07db44794fa9fbc6968f81b6ce80e17101dbc46543"
+  },
+  "note": "Hashes describe collection-time sources; native final refresh must verify current delivery configuration separately."
+}

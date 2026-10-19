@@ -1,0 +1,197 @@
+{
+  "date": "2026-10-18",
+  "skill": "maker-frame-animation",
+  "scope": "current Maker project only",
+  "repository": "https://github.com/openai/plugins",
+  "pinned_commit": "0722921d5542fc593105c27bd52630babd8b8c2a",
+  "installed_files_sha256": {
+    "SKILL.md": "4fd91f713c325d8f1ee378688a6ad39ff5ed642dee48e09c2409c33f378f725b",
+    "agents/openai.yaml": "2aea2c62bff7ab3598cd4bfa0f61c3aa9576c06bf40bdbc7d767e42e97dc8d14",
+    "evals/evals.json": "1d813258b904fac0cdc0ccd78b23c70f238416c5a2fbbc722613104939c8af8c",
+    "references/sprite-pipeline.md": "75ccf6f3329e3af78f55d804c6997675297dc239ce282570d47a59f65241a009",
+    "scripts/build_sprite_edit_canvas.py": "c04fa1becb078c02c60f66ce8ada736983fef77e09f80158816b23098d889b95",
+    "scripts/normalize_sprite_strip.py": "746403f79454a9ae072fd46e337f9b0b3dad9bd07b080b7523e412a71f3a8ec0",
+    "scripts/pack_frames.py": "d1d0988c10e7bbf5116a8191c331b599032a933ae02b76286df4abe1961b4f3e",
+    "scripts/render_sprite_preview_sheet.py": "a72468c463b12a44898a26981b14e6f35eb60c0d1814566dd3e32fea85a3e890",
+    "upstream/openai.original.yaml": "75c05edd820b379506881b147f63f87e03a3856417af6e05f0877fd9f1b4f594",
+    "upstream/SKILL.original.md": "61078a68d944f72dd0bb671b37df2c7aa5dd1e9b256039d00edab46b62f3625c",
+    "upstream/source.json": "29757645b80752619f31dcf3016d6e12f335b99fd4a1b633ae883235f5073eca"
+  },
+  "discovery": {
+    "runtime_generation_called": false,
+    "scope": "project",
+    "mcp_config_modified": false,
+    "game_files_unchanged": 51,
+    "skill": "maker-frame-animation",
+    "targets": [
+      {
+        "target": "D:\\MyWork\\聚光灯game\\CodexDocu\\.installer\\skills\\maker-frame-animation",
+        "client": ".codex",
+        "readable": true,
+        "path": "D:\\MyWork\\聚光灯game\\CodexDocu\\.codex\\skills\\maker-frame-animation"
+      },
+      {
+        "target": "D:\\MyWork\\聚光灯game\\CodexDocu\\.installer\\skills\\maker-frame-animation",
+        "client": ".agents",
+        "readable": true,
+        "path": "D:\\MyWork\\聚光灯game\\CodexDocu\\.agents\\skills\\maker-frame-animation"
+      },
+      {
+        "target": "D:\\MyWork\\聚光灯game\\CodexDocu\\.installer\\skills\\maker-frame-animation",
+        "client": ".claude",
+        "readable": true,
+        "path": "D:\\MyWork\\聚光灯game\\CodexDocu\\.claude\\skills\\maker-frame-animation"
+      },
+      {
+        "target": "D:\\MyWork\\聚光灯game\\CodexDocu\\.installer\\skills\\maker-frame-animation",
+        "client": ".cursor",
+        "readable": true,
+        "path": "D:\\MyWork\\聚光灯game\\CodexDocu\\.cursor\\skills\\maker-frame-animation"
+      },
+      {
+        "target": "D:\\MyWork\\聚光灯game\\CodexDocu\\.installer\\skills\\maker-frame-animation",
+        "client": ".gemini",
+        "readable": true,
+        "path": "D:\\MyWork\\聚光灯game\\CodexDocu\\.gemini\\skills\\maker-frame-animation"
+      }
+    ],
+    "original_skill_hashes": {
+      ".installer/skills/sprite-gen/SKILL.md": "0A640BEF24FB80C2BB22C2F4CF80955E96966EC07186DF32ED4427EE4451BDA0",
+      ".agents/skills/sprite-gen/SKILL.md": "0A640BEF24FB80C2BB22C2F4CF80955E96966EC07186DF32ED4427EE4451BDA0",
+      ".codex/skills/sprite-gen/SKILL.md": "0A640BEF24FB80C2BB22C2F4CF80955E96966EC07186DF32ED4427EE4451BDA0"
+    }
+  },
+  "local_synthetic_tests": {
+    "scope": "Synthetic deterministic deployment checks; no Maker generation, game modification or real artwork processing.",
+    "passed": 26,
+    "failed": 0,
+    "checks": [
+      {
+        "name": "build_sprite_edit_canvas.py exit 0",
+        "passed": true
+      },
+      {
+        "name": "normalize_sprite_strip.py exit 0",
+        "passed": true
+      },
+      {
+        "name": "pack_frames.py exit 0",
+        "passed": true
+      },
+      {
+        "name": "render_sprite_preview_sheet.py exit 0",
+        "passed": true
+      },
+      {
+        "name": "all four Python scripts compile",
+        "passed": true
+      },
+      {
+        "name": "build_sprite_edit_canvas.py exit 0",
+        "passed": true
+      },
+      {
+        "name": "transparent reference canvas at expected size",
+        "passed": true
+      },
+      {
+        "name": "normalize_sprite_strip.py exit 0",
+        "passed": true
+      },
+      {
+        "name": "four normalized frames",
+        "passed": true
+      },
+      {
+        "name": "all frame dimensions fixed",
+        "passed": true
+      },
+      {
+        "name": "shared bottom anchor",
+        "passed": true
+      },
+      {
+        "name": "shared scale retains relative height differences",
+        "passed": true
+      },
+      {
+        "name": "render_sprite_preview_sheet.py exit 0",
+        "passed": true
+      },
+      {
+        "name": "pack_frames.py exit 0",
+        "passed": true
+      },
+      {
+        "name": "atlas JSON has four frames and normalized pivot",
+        "passed": true
+      },
+      {
+        "name": "atlas preserves every source RGBA byte",
+        "passed": true
+      },
+      {
+        "name": "animated WebP has four frames",
+        "passed": true
+      },
+      {
+        "name": "normalization leaves input untouched",
+        "passed": true
+      },
+      {
+        "name": "pack_frames.py exit 2",
+        "passed": true
+      },
+      {
+        "name": "pack_frames.py exit 2",
+        "passed": true
+      },
+      {
+        "name": "invalid fps does not create output",
+        "passed": true
+      },
+      {
+        "name": "pack_frames.py exit 2",
+        "passed": true
+      },
+      {
+        "name": "empty frame rejected before writing",
+        "passed": true
+      },
+      {
+        "name": "pack_frames.py exit 2",
+        "passed": true
+      },
+      {
+        "name": "pack_frames.py exit 0",
+        "passed": true
+      },
+      {
+        "name": "one-shot preview is not infinite",
+        "passed": true
+      }
+    ],
+    "python": "3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]",
+    "skill_path": "D:\\MyWork\\聚光灯game\\CodexDocu\\.installer\\skills\\maker-frame-animation"
+  },
+  "skill_manifest_validation": {
+    "official_validator": "C:\\Users\\X01\\.codex\\skills\\.system\\skill-creator\\scripts\\quick_validate.py",
+    "passed": true,
+    "message": "Skill is valid!",
+    "agent_yaml_valid": true,
+    "PyYAML": "6.0.2",
+    "isolated_deps": ".tmp/frame-skill-research/validation-deps"
+  },
+  "maker_native_sprite_gen_added": false,
+  "mcp_configuration_modified": false,
+  "third_party_api_key_required": false,
+  "maker_generation_calls": 0,
+  "tap_points_generation_usage": "No generation was requested or called; no platform usage data queried.",
+  "balance_queried": false,
+  "limitations": [
+    "Local image-generation workflow adapter, not native sprite_gen service installation",
+    "Actual Maker frame generation and game integration not exercised",
+    "Upstream redistribution license unconfirmed; local only"
+  ],
+  "validation_note": "System and bundled Python lack PyYAML; installed PyYAML 6.0.2 into task-local .tmp validation-deps only, not global or game dependencies."
+}

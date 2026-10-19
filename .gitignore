@@ -44,3 +44,10 @@ Desktop.ini
 
 # Recoverable local cleanup content stays off GitHub
 /待回收/
+
+# Paused V0.4 animation drafts stay in the local project
+assets/image/employee_v04*/
+assets/image/employee_v04*
+assets/image/burger_employee_v04*
+assets/sprites/employee_v04*/
+docs/v04-*.html

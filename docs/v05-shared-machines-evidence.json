@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "scope": "Actual shared workshop machines with original conveyor sample; UI is stubbed; no native input verification",
+  "logs": [
+    "Sample route ws_raw ws_cooker 1 2.5",
+    "Sample route ws_cooker ws_assembler 3 3.5999999999999943",
+    "Sample route ws_bun ws_assembler 1 2.5",
+    "Sample route ws_lettuce ws_assembler 6 7.049999999999997",
+    "Sample route ws_assembler ws_buffer 5 6.25",
+    "Hybrid burger order 0 2 已到货 2/2",
+    "Hybrid burger order 5 2 已到货 2/2",
+    "Hybrid burger order 15 2 已到货 2/2",
+    "Hybrid burger order 30 2 已到货 2/2",
+    "Hybrid burger order 90 2 已到货 2/2",
+    "Shared original machines deliver all orders and keep conveyor sample running"
+  ]
+}

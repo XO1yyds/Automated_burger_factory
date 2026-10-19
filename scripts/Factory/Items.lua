@@ -169,6 +169,20 @@ function Items:Drop(position, facing)
     return false, "附近没有可放置的位置，物品仍在手中。"
 end
 
+-- Withdrawn terminal items fall nearby when the existing hand is occupied.
+function Items:PlaceNearby(itemType,position,facing)
+    for _,radius in ipairs({0.7,1.0,0.5}) do
+        for step=0,15 do
+            local angle=step*math.pi/8
+            local dx=facing.x*math.cos(angle)-facing.z*math.sin(angle)
+            local dz=facing.x*math.sin(angle)+facing.z*math.cos(angle)
+            local spot=Vector3(position.x+dx*radius,0.14,position.z+dz*radius)
+            if self:IsSpotFree(spot) then local item=self:SpawnGround(itemType,spot); if item then return item end end
+        end
+    end
+    return nil
+end
+
 ---@param position Vector3
 ---@param direction Vector3
 ---@param range number
