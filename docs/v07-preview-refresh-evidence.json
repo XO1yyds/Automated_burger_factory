@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-19",
+  "session_id": "fa1cad9c-45ae-476c-b3bb-3dac327297d4",
+  "reload_id": 2,
+  "runtime_pid": 51800,
+  "process_alive": true,
+  "qa_flags_disabled": true,
+  "visual_title_verified": true,
+  "visual_save_summary": "Day2, paused, remaining01:16, saved2026-10-19 16:39:04",
+  "lua_log": "lua-2026-10-19 17_21_17_676.log",
+  "lua_errors": [],
+  "platform_check": "FAIL: existing DDS/themis errors; distinct from GUI title and current Lua log checks",
+  "scope": "Explicit user refresh to normal entry; no game actions, no subjective listening or Android claim"
+}

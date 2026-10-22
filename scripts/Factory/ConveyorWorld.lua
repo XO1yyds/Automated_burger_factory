@@ -1,6 +1,7 @@
 local G = require("Factory/ConveyorGeometry")
 local Network = require("Factory/ConveyorNetwork")
 local Definitions = require("Factory/Items").Definitions
+local StaticArt=require('Factory/StaticArt')
 ---@class FactoryConveyorWorld
 ---@field network FactoryConveyorNetwork?
 ---@field root Node
@@ -134,6 +135,8 @@ function World:Update(network,builder,stations,buffers,visible,selectedBelt,buff
         for _,station in ipairs(stations) do
             local storage=buffers[station.id]
             if storage and station.component then
+                local badge=StaticArt.Quad(self.inventory,'AttachedComponentArt',station.component=='order' and 'order_badge' or 'delivery_badge',0.65,0.65,1.62)
+                if badge then badge.position=Vector3(station.x+(station.buildingKind=='buffer' and 0.83 or 0),0,station.z+(station.buildingKind=='buffer' and 0 or 0.85)) end
                 local color=station.component=='order' and Color(0.2,0.65,1) or Color(1,0.7,0.2)
                 if station.buildingKind=='buffer' then
                     -- Keep all six slot faces unobscured; the component uses the rim.

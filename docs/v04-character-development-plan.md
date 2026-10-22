@@ -1,3 +1,5 @@
+> **当前规则（2026-10-19）：V0.4角色动画已恢复开发，改为每组4帧、简单动作。优先复用现有素材。** 当前计划以[v04-character-four-frame-plan.md](v04-character-four-frame-plan.md)及[复用清单](v04-character-four-frame-reuse-list.md)为准；下文8帧要求、暂停和未接入状态属于历史。 <!-- current-four-frame-20261019 -->
+
 # V0.4 首批策划：可操控四向纸片人员工
 
 > **V0.4已暂停更新（2026-10-19）** <!-- v04-paused-for-v05-20261019 -->

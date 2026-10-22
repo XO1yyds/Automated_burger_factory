@@ -54,3 +54,12 @@ docs/v04-*.html
 
 # Player campaign files stay on the local machine
 .local-saves/
+
+# Accepted runtime atlases and frames are included explicitly in V0.7.
+!assets/image/employee_v04/
+assets/image/employee_v04/*
+!assets/image/employee_v04/four_frame_v1/
+assets/image/employee_v04/four_frame_v1/*
+!assets/image/employee_v04/four_frame_v1/runtime/
+!assets/image/employee_v04/four_frame_v1/manifest.json
+!assets/image/employee_v04/four_frame_v1/selected.json

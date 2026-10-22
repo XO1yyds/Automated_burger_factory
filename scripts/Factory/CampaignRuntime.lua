@@ -47,7 +47,10 @@ end
 function Runtime:Command(command,value,ui)
     local c=self.context.get(); local loop=c.loop
     local function notify(ok,message) if message then ui:Notify(message) end; return ok end
-    if command=='newGame' then
+    if command=='uiDetails' then self.presentationDetails=not self.presentationDetails; return true
+    elseif command=='uiMachines' then self.presentationMachines=not self.presentationMachines; return true
+    elseif command=='uiHistory' then self.presentationHistory=not self.presentationHistory; return true
+    elseif command=='newGame' then
         if loop.state~='title' and loop.state~='complete' then return true end
         if self.future then ui:Notify('存在更高版本存档，已保护；请使用对应版本继续。'); return true end
         if self.record then ui:ConfirmDialog('v06New','开始新游戏并覆盖本地经营档案？') else self.context.rebuild({new=true}) end
@@ -113,7 +116,7 @@ function Runtime.Modal(c,ui,phase)
         end
         if r.loadMessage and not r.record then lines[#lines+1]=r.loadMessage end
         local tools={a('设置','settings')}; if desktop then tools[#tools+1]=a('退出游戏','exitGame') end
-        return {title='自动化汉堡工厂',lines=lines,tools=tools,buttons={a('继续游戏','loadGame',nil,not r.record),a('新游戏','newGame')}}
+        return {title='自动化汉堡工厂',lines=r.record and {lines[1],lines[2]} or lines,entries=r.record and {{text='本地经营档案',detail=table.concat(lines,'\n',3)}} or {},tools=tools,buttons={a('继续游戏','loadGame',nil,not r.record),a('新游戏','newGame')}}
     elseif phase=='briefing' or phase=='lesson' then
         local lines={'今日主题：'..d.title,d.lesson,
             string.format('基础计划最多%d个汉堡 · 达标%d个 · 同时%d单',Config.Total(d),d.goal,d.limit),
@@ -122,9 +125,13 @@ function Runtime.Modal(c,ui,phase)
             '操作：WASD/摇杆移动，Shift/摇杆外圈奔跑，F交互，B建造；场景点击仅选取，放置须点击确认。',
             c.campaign.lessons[d.objective] and '本日操作教学已完成，可复习或继续优化。' or '本日操作教学待体验；不影响下一天解锁。'}
         if c.campaign.bonusAvailable then lines[#lines+1]='上一日效率达标，可自愿增加最多'..math.max(1,math.floor(Config.Total(d)*0.25))..'件需求；当前'..(c.campaign.bonusEnabled and '已选择' or '未选择') end
-        if phase=='lesson' then return {title='当日教学 · '..c.loop.day,back='继续',lines=lines} end
-        return {title='第'..c.loop.day..'/10天 · 开店准备',lines=lines,
-            tools=c.campaign.bonusAvailable and {a('切换可选加量单','bonusOrders')} or {},
+        local cards={{text=d.title,detail=d.lesson},{text=string.format('今日目标  %d件汉堡',d.goal),detail=lines[3]..'\n'..lines[4]},
+            {text='经营与进度',detail=lines[5]..'\n'..lines[7]}}
+        local tools={a(r.presentationDetails and '收起操作说明' or '展开操作说明','uiDetails')}
+        if c.campaign.bonusAvailable then tools[#tools+1]=a('切换可选加量单','bonusOrders'); cards[#cards+1]={text='可选加量单',detail=lines[8]} end
+        if phase=='lesson' then return {title='当日教学 · '..c.loop.day,back='继续',entries=cards,lines=r.presentationDetails and {lines[6]} or {},tools=tools} end
+        return {title='第'..c.loop.day..'/10天 · 开店准备',entries=cards,lines=r.presentationDetails and {lines[6]} or {},
+            tools=tools,
             buttons={a('先整理工厂','arrange'),a('开始营业','beginTrading')}}
     elseif phase=='paused' then
         local tools={a('当日教学','lesson'),a('运行统计','statistics'),a('操作与显示设置','settings'),a('保存并返回标题','saveTitle'),a('提前结束当天','pauseEnd',nil,c.loop.pausedFrom=='preparation')}
@@ -134,24 +141,31 @@ function Runtime.Modal(c,ui,phase)
     elseif phase=='settlement' then
         local s=c.loop.history[#c.loop.history]
         return {title='第'..s.day..'天结算 · '..(s.achieved and '达标' or '继续练习'),
-            lines={string.format('交付%d/%d件 · 完成%d单\n产量%d（手工%d / 自动%d）',s.delivered,s.goal,s.orders,s.total,s.manual,s.automatic),
-                string.format('收入%d · 购置%d · 余额%d\n营业产量 %.1f个/分',s.income,s.spent,s.coins,s.rate),
-                s.early and '提前结束，未完成顾客订单已清除。' or '未完成顾客订单已清除。',
-                '建筑、库存与生产任务保留。未达标可继续；重试恢复日初快照，不叠加收益。'},
+            entries={{text=string.format('交付 %d/%d件  ·  完成%d单',s.delivered,s.goal,s.orders),detail=string.format('产量%d  |  手工%d  |  自动%d',s.total,s.manual,s.automatic)},
+                {text=string.format('余额 %d金币',s.coins),detail=string.format('收入%d  ·  购置%d  ·  %.1f个/分',s.income,s.spent,s.rate)}},
+            lines={s.early and '提前结束，未完成顾客订单已清除。' or '未完成顾客订单已清除。','建筑、库存和任务保留；重试恢复日初快照，不叠加收益。'},
             tools={a('保存并返回标题','saveTitle')},buttons={a('重试当天','retryDay',nil,not r.dayStart),a(s.day==10 and '十天总结' or '下一天准备','nextDay')}}
     elseif phase=='complete' then
         local lines={'十天经营完成。工厂已保存到本机。'}
-        for _,s in ipairs(c.loop.history) do lines[#lines+1]=string.format('第%d天 交付%d/%d · 产量%d · %.1f/分 · %s',s.day,s.delivered,s.goal,s.total,s.rate,s.achieved and '达标' or '未达标') end
+        for _,s in ipairs(c.loop.history) do if r.presentationHistory or s.day==1 or s.day==5 or s.day==10 then lines[#lines+1]=string.format('第%02d天  交付 %d/%d  |  产量 %d  |  %.1f/分  |  %s',s.day,s.delivered,s.goal,s.total,s.rate,s.achieved and '达标' or '未达标') end end
         lines[#lines+1]='对比第1、5、10天：你减少了多少搬运？下一轮尝试怎样布局？'
-        return {title='十天汉堡工厂',lines=lines,buttons={a('重试第10天','retryDay',nil,not r.dayStart),a('返回标题','saveTitle'),a('新游戏','newGame')}}
+        return {title='十天汉堡工厂',lines=lines,tools={a(r.presentationHistory and '仅看第1/5/10天' or '展开十天记录','uiHistory')},buttons={a('重试第10天','retryDay',nil,not r.dayStart),a('返回标题','saveTitle'),a('新游戏','newGame')}}
     elseif phase=='networkInfo' then
         return {title='电缆网络信息',back='返回编辑',lines=#(r.networkLines or {})>0 and r.networkLines or {'尚无电缆网络。连接建筑后在这里查看。','电缆本身不运输；第7天下单任务驱动索料。'}}
     elseif phase=='statistics' then
-        local lines={string.format('本日交付%d/%d · 产量%d\n金币%d · 收入%d · 购置%d',c.campaign.delivered,d.goal,c.loop.manual+c.loop.automatic,c.campaign.coins,c.campaign.income,c.campaign.spent),
-            '日初准备、暂停和零时整理不计入营业产能。'}
-        for id,t in pairs(c.campaign.machineTimes) do lines[#lines+1]=string.format('%s：加工%.0fs / 等料%.0fs / 堵塞%.0fs',id,t.processing or 0,t.waiting or 0,t.blocked or 0) end
-        for _,s in ipairs(c.loop.history) do lines[#lines+1]=string.format('第%d天：产量%d · 交付%d · %.1f个/分',s.day,s.total,s.delivered,s.rate) end
-        return {title='工厂效率统计',back='返回暂停',lines=lines}
+        local entries={{text=string.format('本日交付 %d/%d · 产量 %d',c.campaign.delivered,d.goal,c.loop.manual+c.loop.automatic),
+            detail=string.format('金币 %d · 收入 %d · 购置 %d',c.campaign.coins,c.campaign.income,c.campaign.spent)}}
+        if r.presentationMachines then
+            local ids={}; for id in pairs(c.campaign.machineTimes) do ids[#ids+1]=id end; table.sort(ids)
+            for _,id in ipairs(ids) do local t=c.campaign.machineTimes[id]; entries[#entries+1]={text=id,detail=string.format('加工 %.0fs / 等料 %.0fs / 堵塞 %.0fs',t.processing or 0,t.waiting or 0,t.blocked or 0)} end
+            if #ids==0 then entries[#entries+1]={text='暂无设备运行记录'} end
+        end
+        if r.presentationHistory then
+            for _,s in ipairs(c.loop.history) do entries[#entries+1]={text='第'..s.day..'天',detail=string.format('产量 %d · 交付 %d · %.1f个/分',s.total,s.delivered,s.rate)} end
+            if #c.loop.history==0 then entries[#entries+1]={text='暂无已结束日记录'} end
+        end
+        return {title='工厂效率统计',back='返回暂停',entries=entries,lines={'日初准备、暂停和零时整理不计入营业产能。'},
+            tools={a(r.presentationMachines and '收起设备明细' or '展开设备明细','uiMachines'),a(r.presentationHistory and '收起历史' or '展开历史','uiHistory')}}
     end
 end
 return Runtime

@@ -1,0 +1,127 @@
+{
+  "success": true,
+  "runtime": "local",
+  "audio_files": [
+    {
+      "kind": "sound_effect",
+      "name": "v07_step",
+      "audioUrl": "https://tapcode-sce.spark.xd.com/assets/audio/sfx/v07_step_29ded0bf8ddc4ae4.mp3",
+      "mimeType": "audio/mpeg",
+      "format": "mp3",
+      "suggestedFileName": "v07_step.mp3",
+      "targetDirectory": "assets/audio/sfx",
+      "durationSeconds": 0.5,
+      "localPath": "assets/audio/sfx/v07_step.mp3",
+      "absolutePath": "D:\\MyWork\\聚光灯game\\CodexDocu\\assets\\audio\\sfx\\v07_step.mp3",
+      "download": {
+        "success": true
+      }
+    },
+    {
+      "kind": "sound_effect",
+      "name": "v07_pickup",
+      "audioUrl": "https://tapcode-sce.spark.xd.com/assets/audio/sfx/v07_pickup_8eb13afce99e44cd.mp3",
+      "mimeType": "audio/mpeg",
+      "format": "mp3",
+      "suggestedFileName": "v07_pickup.mp3",
+      "targetDirectory": "assets/audio/sfx",
+      "durationSeconds": 0.5,
+      "localPath": "assets/audio/sfx/v07_pickup.mp3",
+      "absolutePath": "D:\\MyWork\\聚光灯game\\CodexDocu\\assets\\audio\\sfx\\v07_pickup.mp3",
+      "download": {
+        "success": true
+      }
+    },
+    {
+      "kind": "sound_effect",
+      "name": "v07_drop",
+      "audioUrl": "https://tapcode-sce.spark.xd.com/assets/audio/sfx/v07_drop_78eb632b288f941c.mp3",
+      "mimeType": "audio/mpeg",
+      "format": "mp3",
+      "suggestedFileName": "v07_drop.mp3",
+      "targetDirectory": "assets/audio/sfx",
+      "durationSeconds": 0.6,
+      "localPath": "assets/audio/sfx/v07_drop.mp3",
+      "absolutePath": "D:\\MyWork\\聚光灯game\\CodexDocu\\assets\\audio\\sfx\\v07_drop.mp3",
+      "download": {
+        "success": true
+      }
+    },
+    {
+      "kind": "sound_effect",
+      "name": "v07_build",
+      "audioUrl": "https://tapcode-sce.spark.xd.com/assets/audio/sfx/v07_build_010a468b1ab0672c.mp3",
+      "mimeType": "audio/mpeg",
+      "format": "mp3",
+      "suggestedFileName": "v07_build.mp3",
+      "targetDirectory": "assets/audio/sfx",
+      "durationSeconds": 0.88,
+      "localPath": "assets/audio/sfx/v07_build.mp3",
+      "absolutePath": "D:\\MyWork\\聚光灯game\\CodexDocu\\assets\\audio\\sfx\\v07_build.mp3",
+      "download": {
+        "success": true
+      }
+    },
+    {
+      "kind": "sound_effect",
+      "name": "v07_grill_loop",
+      "audioUrl": "https://tapcode-sce.spark.xd.com/assets/audio/sfx/v07_grill_loop_cdfe131607ab35a6.mp3",
+      "mimeType": "audio/mpeg",
+      "format": "mp3",
+      "suggestedFileName": "v07_grill_loop.mp3",
+      "targetDirectory": "assets/audio/sfx",
+      "durationSeconds": 4,
+      "localPath": "assets/audio/sfx/v07_grill_loop.mp3",
+      "absolutePath": "D:\\MyWork\\聚光灯game\\CodexDocu\\assets\\audio\\sfx\\v07_grill_loop.mp3",
+      "download": {
+        "success": true
+      }
+    },
+    {
+      "kind": "sound_effect",
+      "name": "v07_machine",
+      "audioUrl": "https://tapcode-sce.spark.xd.com/assets/audio/sfx/v07_machine_7ccc2c06dfdd2910.mp3",
+      "mimeType": "audio/mpeg",
+      "format": "mp3",
+      "suggestedFileName": "v07_machine.mp3",
+      "targetDirectory": "assets/audio/sfx",
+      "durationSeconds": 0.8,
+      "localPath": "assets/audio/sfx/v07_machine.mp3",
+      "absolutePath": "D:\\MyWork\\聚光灯game\\CodexDocu\\assets\\audio\\sfx\\v07_machine.mp3",
+      "download": {
+        "success": true
+      }
+    },
+    {
+      "kind": "sound_effect",
+      "name": "v07_order",
+      "audioUrl": "https://tapcode-sce.spark.xd.com/assets/audio/sfx/v07_order_5abd73ec9f6f49b3.mp3",
+      "mimeType": "audio/mpeg",
+      "format": "mp3",
+      "suggestedFileName": "v07_order.mp3",
+      "targetDirectory": "assets/audio/sfx",
+      "durationSeconds": 0.8,
+      "localPath": "assets/audio/sfx/v07_order.mp3",
+      "absolutePath": "D:\\MyWork\\聚光灯game\\CodexDocu\\assets\\audio\\sfx\\v07_order.mp3",
+      "download": {
+        "success": true
+      }
+    },
+    {
+      "kind": "sound_effect",
+      "name": "v07_delivery",
+      "audioUrl": "https://tapcode-sce.spark.xd.com/assets/audio/sfx/v07_delivery_5cb8ed2ebe0c4b09.mp3",
+      "mimeType": "audio/mpeg",
+      "format": "mp3",
+      "suggestedFileName": "v07_delivery.mp3",
+      "targetDirectory": "assets/audio/sfx",
+      "durationSeconds": 1.2,
+      "localPath": "assets/audio/sfx/v07_delivery.mp3",
+      "absolutePath": "D:\\MyWork\\聚光灯game\\CodexDocu\\assets\\audio\\sfx\\v07_delivery.mp3",
+      "download": {
+        "success": true
+      }
+    }
+  ],
+  "failed": []
+}

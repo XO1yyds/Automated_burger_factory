@@ -1,0 +1,10 @@
+{
+  "session_id": "7802cb5a-819d-4abc-b838-a3ccee03aea0",
+  "reload_id": 14,
+  "state": "stopped",
+  "process_alive": false,
+  "ready": false,
+  "message": "Process status only; game loading, visuals and cloud/server features are not verified.",
+  "date": "2026-10-19",
+  "action": "status_only_no_restart"
+}

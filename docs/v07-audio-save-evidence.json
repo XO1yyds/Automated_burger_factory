@@ -1,0 +1,13 @@
+{
+  "scope": "Campaign durable files during isolated audio QA",
+  "files": [
+    {
+      "file": "burger-v06-a.json",
+      "byte_identical": true
+    },
+    {
+      "file": "burger-v06-b.json",
+      "byte_identical": true
+    }
+  ]
+}

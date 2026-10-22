@@ -45,6 +45,7 @@ end
 function Controller:ApplyPreferences()
     local ratio=self.preferences.uiScale
     UI.SetScale(function() return UI.Scale.DEFAULT()*ratio end)
+    if self.context.audioPreferences then self.context.audioPreferences(self.preferences) end
 end
 
 function Controller:SavePreferences()
@@ -80,7 +81,7 @@ function Controller:Notify(message)
     if loss then table.insert(self.losses,message) end
     if self.toastLoss and self.elapsed<self.toastUntil and not loss then return end
     self.toast,self.toastLoss=message,loss
-    self.toastUntil=self.elapsed+(loss and 5 or 3)
+    self.toastUntil=self.elapsed+(loss and 5 or 2)
 end
 
 function Controller:ConfirmDialog(command,title)
@@ -89,6 +90,7 @@ function Controller:ConfirmDialog(command,title)
 end
 
 function Controller:Back(escape)
+    if self.audioSaveAt then self.audioSaveAt=nil;self:SavePreferences() end
     local c=self.context.get(); local phase=self:Phase(); local build,b=c.buildings,c.logistics.builder
     self:Release(); self.focus=0
     if self.overlay then if self.overlay=='lesson' or self.confirmCommand=='v06RecoverLoss' then c.loop.teaching=false end; self.overlay=nil; return end
@@ -134,6 +136,31 @@ end
 
 function Controller:Command(command,value)
     local c=self.context.get(); local phase=self:Phase(); local build,control=c.buildings,c.logistics
+    if self.context.sound and ({back=true,pause=true,resume=true,settings=true,settingsTab=true,statistics=true,
+        ordersToggle=true,selectRow=true,openBuild=true,enterKind=true,category=true,buildMenu=true,
+        terminalTab=true,loadGame=true,newGame=true,beginTrading=true,nextDay=true,confirmYes=true})[command] then self.context.sound('ui') end
+    if command=='settingsTab' and self.overlay=='settings' then self.settingsTab=value=='controls' and 'controls' or 'audio';self.focus=0;return true end
+    if (command=='audioVolume' or command=='audioStep') and self.overlay=='settings' and type(value)=='table' then
+        local key=value.key
+        if key=='masterVolume' or key=='musicVolume' or key=='effectsVolume' then
+            local amount=command=='audioStep' and self.preferences[key]+(value.delta or 0) or value.volume
+            if type(amount)=='number' and amount==amount then
+                self.preferences[key]=State.Clamp(amount,0,1);self:ApplyPreferences();self.audioSaveAt=self.elapsed+.3
+            end
+        end
+        return true
+    end
+    if command=='audioCommit' and self.overlay=='settings' then self.audioSaveAt=nil;self:SavePreferences();return true end
+    if command=='audioMute' and self.overlay=='settings' then
+        self.preferences.muted=not self.preferences.muted;self:SavePreferences();return true
+    end
+    if command=='audioDefaults' and self.overlay=='settings' then
+        local defaults=State.DefaultPreferences()
+        for _,key in ipairs({'masterVolume','musicVolume','effectsVolume','muted'}) do self.preferences[key]=defaults[key] end
+        self:SavePreferences();return true
+    end
+    if command=='audioTest' and self.overlay=='settings' then if self.context.sound then self.context.sound('order') end;return true end
+    if command=='settingsHelp' then self.settingsHelp=not self.settingsHelp; return true end
     local b=control.builder
     if c.runtime and c.runtime:Command(command,value,self) then return true end
     if command=='interactionHold' then
@@ -173,7 +200,10 @@ function Controller:Command(command,value)
         elseif value=='sensitivityDown' then self.preferences.sensitivity=self.preferences.sensitivity-0.1
         elseif value=='sensitivityUp' then self.preferences.sensitivity=self.preferences.sensitivity+0.1
         elseif value=='tutorials' then self.preferences.tutorials={}
-        elseif value=='defaults' then self.preferences=State.DefaultPreferences() end
+        elseif value=='defaults' then
+            local old=self.preferences;self.preferences=State.DefaultPreferences()
+            for _,key in ipairs({'masterVolume','musicVolume','effectsVolume','muted'}) do self.preferences[key]=old[key] end
+        end
         self:Release(); self:SavePreferences(); return true
     end
     if not c.loop:IsRunning() then return true end
@@ -193,7 +223,7 @@ function Controller:Command(command,value)
         if phase=='normal' and self.interactionValid and not self.suppressClick then self.context.resolve(); local _,message=self.context.interact(); self:Notify(message) end
         self.suppressClick=false; self.interactionValid=false; return true
     elseif command=='dropUI' then
-        if phase=='normal' then local _,message=c.items:Drop(c.player.position,c.facing); self:Notify(message) end; return true
+        if phase=='normal' then local ok,message=c.items:Drop(c.player.position,c.facing);self:Notify(message);if not ok and self.context.sound then self.context.sound('error') end end;return true
     elseif command=='openBuild' then if phase=='normal' then self:OpenBuild() end; return true
     elseif command=='category' and phase=='menu' then
         self.category=value; self.kind=State.Kinds[value][1]; self.focus=0; return true
@@ -222,6 +252,7 @@ function Controller:Command(command,value)
     elseif command=='rotateUI' and (phase=='preview' or phase=='move') then build:Rotate(); build.confirmFocus=false; return true
     elseif command=='confirmBuild' and (phase=='preview' or phase=='move') then
         build.confirmFocus=true; local ok,message=build:Confirm(c.player.position); self:Notify(message)
+        if not ok and self.context.sound then self.context.sound('error') end
         if ok then self.selected=nil; build.previewPinned=true end; self.focus=0; return true
     elseif (command=='moveManaged' or command=='rotateManaged') and phase=='selected' and self.selected then
         local ok,message=build:BeginMove(self.selected,c.player.position)
@@ -573,9 +604,27 @@ function Controller:Modal(phase)
             '设备说明（静态规则）','烹饪台 2.4×1.5格：3槽各3秒，手动生肉后进先出。\n组合台 2.4×1.5格：胚+熟肉+生菜，自动2秒。',
             '缓存台 2×2格：容量6，输出后进先出。\n库存 2×4格：容量24，空手取栈顶，禁止手动存换。\n下单/交付组件依附库存或缓存，不另占地。下单终端可在本机库存页任取。\n电缆整网共享2件/秒，任务按入库到货计数。\n接口 1×1格：无独立速度或缓存，按接入口收束/分散。','基础带 0.5格/秒，单入单出，不过滤，不重叠，禁止环路。'}
         return {title='统计与设备说明',back='返回暂停',lines=lines}
-    elseif phase=='settings' then return {title='操作与显示设置',back=loop.state=='title' and '返回标题' or '返回暂停',lines={State.PreferenceText(self.preferences),
-        c.campaign and '经营进度保存于本机；UI偏好独立保存。' or '仅保存本机 UI 偏好，不包含游戏进度。','WASD 移动 / 选项 / 节点；Shift 奔跑\nF 交互；手工铁板空手长按 F 3秒\nQ 放下；B 建造；R 旋转\nTab 选右下动作，F/Enter 执行\n右键逐层返回；ESC 返回建造首页 / 暂停\n鼠标中键平移、滚轮缩放；双指平移/捏合',
-        '手机：摇杆内圈步行，外圈奔跑；交互按钮可独立按住加工。\n场景点击只选取；最终放置必须点确认。\n切后台会暂停，回前台需主动继续。'},tools={
+    elseif phase=='settings' then
+        local tabs={action('声音','settingsTab','audio'),action('操作与显示','settingsTab','controls')}
+        if self.settingsTab~='controls' then
+            local rows={}
+            for _,entry in ipairs({{'masterVolume','总音量'},{'musicVolume','背景音乐'},{'effectsVolume','音效'}}) do
+                rows[#rows+1]={key=entry[1],label=entry[2],volume=self.preferences[entry[1]],
+                    minus=action('−','audioStep',{key=entry[1],delta=-.1}),plus=action('+','audioStep',{key=entry[1],delta=.1})}
+            end
+            return {title='设置',back=loop.state=='title' and '返回标题' or '返回暂停',tabs=tabs,scrollKey='audio',audio=rows,
+                lines={self.preferences.muted and '当前已静音；取消静音后保留原音量。' or '拖动滑块，或用 − / + 微调；Tab选按钮，F确认。',
+                    '设置保存于本机。暂停时音乐减弱，切到后台时静音。'},
+                buttons={action(self.preferences.muted and '取消静音' or '全部静音','audioMute'),action('试听提示音','audioTest'),action('恢复默认','audioDefaults')}}
+        end
+        local lines={State.PreferenceText(self.preferences),c.campaign and '经营进度保存于本机；UI偏好独立保存。' or '仅保存本机 UI 偏好，不包含游戏进度。'}
+        if self.settingsHelp then
+            local help={'WASD 移动 / 选项 / 节点；Shift 奔跑\nF 交互；手工铁板空手长按 F 3秒\nQ 放下；B 建造；R 旋转\nTab 选右下动作，F/Enter 执行\n右键逐层返回；ESC 返回建造首页 / 暂停\n鼠标中键平移、滚轮缩放；双指平移/捏合',
+        '手机：摇杆内圈步行，外圈奔跑；交互按钮可独立按住加工。\n场景点击只选取；最终放置必须点确认。\n切后台会暂停，回前台需主动继续。'}
+            for _,text in ipairs(help) do lines[#lines+1]=text end
+        end
+        return {title='设置',tabs=tabs,scrollKey='controls',back=loop.state=='title' and '返回标题' or '返回暂停',lines=lines,tools={
+            action(self.settingsHelp and '收起操作说明' or '查看键鼠 / 手机操作','settingsHelp'),
         action('切换：固定 / 浮动摇杆','preference','joystick'),action('切换：双端 / 键鼠 / 触屏','preference','display'),
         action('UI 缩小','preference','scaleDown'),action('UI 放大','preference','scaleUp'),action('降低镜头灵敏度','preference','sensitivityDown'),
         action('提高镜头灵敏度','preference','sensitivityUp'),action('重看全部阶段教学','preference','tutorials'),action('恢复默认 UI 设置','preference','defaults')}}
@@ -601,8 +650,10 @@ end
 
 function Controller:Update(dt)
     self.elapsed=self.elapsed+dt
+    if self.audioSaveAt and self.elapsed>=self.audioSaveAt then self.audioSaveAt=nil;self:SavePreferences() end
     local c=self.context.get(); local phase=self:Phase(); local build,b=c.buildings,c.logistics.builder
     if self.lastPhase~=phase then
+        self.phaseStarted=self.elapsed
         self:Release(); self.focus=0
         if phase~='adjust' then self.nodeSelected=false end
         self.lastPhase=phase
@@ -620,11 +671,12 @@ function Controller:Update(dt)
     local w=graphics:GetWidth()/scale-((insets.left or 0)+(insets.right or 0))
     local h=graphics:GetHeight()/scale-((insets.top or 0)+(insets.bottom or 0))
     local model={phase=phase,width=w,height=h,title=State.Titles[phase] or '',normal=phase=='normal',clock=string.format('第%d/%d天 · %s',c.loop.day,c.campaign and 10 or 3,c.loop.state=='preparation' and '准备中' or string.format('%02d:%02d',math.ceil(c.loop.remaining)//60,math.ceil(c.loop.remaining)%60)),
-        held='手持：'..name(c.items.held),orderCount=#c.orders.active,orderLimit=c.orders.limit or 5,category=self.category,kind=self.kind,
-        display=self.preferences.display,floating=self.preferences.joystick=='floating',toast=self.elapsed<self.toastUntil and self.toast or '',actions={}}
+        held='手持：'..name(c.items.held),heldType=c.items.held,orderCount=#c.orders.active,orderLimit=c.orders.limit or 5,category=self.category,kind=self.kind,
+        display=self.preferences.display,floating=self.preferences.joystick=='floating',toast=self.elapsed<self.toastUntil and self.toast or '',actions={},
+        phaseAge=self.elapsed-(self.phaseStarted or self.elapsed),reasonCritical=c.loop.remaining==0}
     local a=model.actions; local function add(text,command,value,disabled) table.insert(a,action(text,command,value,disabled)) end
     if phase=='normal' then
-        if c.campaign then add(c.loop.state=='preparation' and '准备 / 开业' or '当日教学',c.loop.state=='preparation' and 'dayBriefing' or 'lesson') end
+        if c.campaign then add(c.loop.state=='preparation' and '开店准备' or '当日教学',c.loop.state=='preparation' and 'dayBriefing' or 'lesson') end
         add('放下','dropUI',nil,c.items.held==nil); add('建造','openBuild',nil,c.area~='workshop')
         local text='交互'; if c.ground then text=c.items.held and '交换' or '拾取'
         elseif c.target then
@@ -714,10 +766,10 @@ function Controller:Update(dt)
             model.reason=(model.reason or '')..' · '..reason; if not cost then for _,act in ipairs(a) do if act.command=='confirmAttachment' then act.disabled=true end end end
         end
         if State.IsBuild(phase) then a[#a+1]=action(c.runtime.overview and '回到玩家' or '一览车间',c.runtime.overview and 'cameraPlayer' or 'overview') end
-        if c.loop.state=='preparation' and phase=='normal' then model.reason='准备中：加工与物流冻结；整理后点击“准备 / 开业”。' end
+        if c.loop.state=='preparation' and phase=='normal' then model.reason='准备中：加工与物流冻结；整理后点击“开店准备”。' end
     end
     local tutorialKey=self:TutorialKey(phase)
-    if tutorialKey~='' and not self.preferences.tutorials[tutorialKey] then
+    if tutorialKey~='' and not self.preferences.tutorials[tutorialKey] and model.phaseAge<8 then
         model.tutorial=({normal='摇杆移动，外圈奔跑；交互与放下在右下。',preview='拖动投影后松手固定；最终点击确认摆放。',adjust='路段长按0.35秒拖动；端点/转角先选再拖；确认后继续选A。'})[tutorialKey]
         model.tutorialKey=tutorialKey
     end
@@ -725,6 +777,7 @@ function Controller:Update(dt)
     self.focusActions=model.modal and {} or a
     if model.modal then
         for _,item in ipairs(model.modal.tabs or {}) do table.insert(self.focusActions,item) end
+        for _,row in ipairs(model.modal.audio or {}) do table.insert(self.focusActions,row.minus);table.insert(self.focusActions,row.plus) end
         for _,item in ipairs(model.modal.quantity and model.modal.quantity.actions or {}) do table.insert(self.focusActions,item) end
         for _,entry in ipairs(model.modal.entries or {}) do if entry.action then table.insert(self.focusActions,entry.action) end end
         for _,item in ipairs(model.modal.tools or {}) do table.insert(self.focusActions,item) end
@@ -770,5 +823,8 @@ function Controller:FocusLost()
     if self.context.get().runtime then self.context.get().runtime.pendingSave=true end
 end
 
-function Controller:Stop() self:Release(); self.view.onWorld,self.view.onJoystick=nil,nil end
+function Controller:Stop()
+    if self.audioSaveAt then self.audioSaveAt=nil;self:SavePreferences() end
+    self:Release(); self.view.onWorld,self.view.onJoystick=nil,nil
+end
 return Controller

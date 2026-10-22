@@ -1,7 +1,7 @@
 -- V0.6 campaign tuning. This is the runtime source of truth, not scattered UI constants.
 local Config={}
 Config.Prices={cooker=60,assembler=60,buffer=20,storage=60,junction=10,isolator_straight=15,isolator_corner=15,belt=1,cable=1,terminal=100,delivery_component=80}
-Config.UnlockDay={workshop=2,cooker=2,supply_raw=2,supply_bun=2,supply_lettuce=2,assembler=3,conveyor=4,belt=4,buffer=4,
+Config.UnlockDay={workshop=1,cooker=2,supply_raw=2,supply_bun=2,supply_lettuce=2,assembler=3,conveyor=4,belt=4,buffer=4,
     junction=5,isolator_straight=5,isolator_corner=5,storage=6,cable=6,network=6,terminal=7,delivery_component=8,manage=2}
 Config.Supplies={supply_raw='raw_beef',supply_bun='bun',supply_lettuce='lettuce'}
 Config.SupplyIds={supply_raw='ws_raw',supply_bun='ws_bun',supply_lettuce='ws_lettuce'}

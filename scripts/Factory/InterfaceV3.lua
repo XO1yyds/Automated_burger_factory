@@ -2,6 +2,9 @@ local UI=require("urhox-libs/UI")
 local State=require("Factory/UIState")
 local Projection=require("Factory/OrthographicView")
 local Buildings=require("Factory/Buildings")
+local StaticArt=require('Factory/StaticArt')
+local Skin=require('Factory/UIArt')
+local ArtLayout=require('Factory/UIArtLayout')
 ---@class FactoryInterface
 ---@field campaignStatus Label
 ---@field campaignStatusPanel Panel
@@ -33,6 +36,8 @@ local Buildings=require("Factory/Buildings")
 ---@field modalEntryData table[]
 ---@field modalTabButtons Button[]
 ---@field modalTabData table[]
+---@field audioRows table[]
+---@field audioSyncing? boolean
 ---@field version Label
 ---@field lifecycleTitle Label
 ---@field lifecycleHint Label
@@ -43,6 +48,8 @@ local Buildings=require("Factory/Buildings")
 ---@field clockPanel Panel
 ---@field modePanel Panel
 ---@field heldPanel Panel
+---@field heldIcon Panel
+---@field titleArt Panel
 ---@field actionBar Panel
 ---@field worldSurface Panel
 ---@field joystickKnob Panel
@@ -53,6 +60,7 @@ local Buildings=require("Factory/Buildings")
 ---@field weakSelector Panel
 ---@field orderList Panel
 ---@field modalContent Panel
+---@field modalTools Panel
 ---@field modalFooter Panel
 ---@field modalPanel Panel
 ---@field modalMask Panel
@@ -103,48 +111,41 @@ local Buildings=require("Factory/Buildings")
 local View={}
 View.__index=View
 
-local function label(text,size)
-    return UI.Label{text=text or "",fontSize=size or 18,fontColor={238,238,238,255},width="100%",height=28,lineHeight=1.1,whiteSpace="normal",flexShrink=0,pointerEvents="none"}
-end
-
-local function panel(props)
-    props.backgroundColor=props.backgroundColor or {36,38,40,235}
-    props.borderRadius=4; props.gap=props.gap or 6
-    return UI.Panel(props)
-end
-
-local function button(text,click)
-    return UI.Button{text=text,onClick=click,height=48,minWidth=48,fontSize=17,paddingHorizontal=12,
-        borderRadius=4,backgroundColor={77,80,83,255},hoverBackgroundColor={96,99,102,255},
-        pressedBackgroundColor={112,115,118,255},disabledBackgroundColor={49,51,53,235}}
-end
+local function label(text,size) return Skin.Label(text,size) end
+local function panel(props) return Skin.Panel(props) end
+local function button(text,click) return Skin.Button(text,click) end
 
 ---@return FactoryInterface
 function View.New(action)
     local self=setmetatable({action=action,category=1,actionData={},modalData={},focus=1},View) --[[@as FactoryInterface]]
     -- Legacy producers still write these labels. They no longer occupy the HUD.
     for _,name in ipairs({"prompt","feedback","grill","assembly","cooker","automaticAssembly","depot","dayStats","selectedLabel"}) do self[name]=label("") end
-    self.clock=label("Day 1/3 · 05:00",18); self.held=label("手持：空",17)
+    self.clock=label("第1/10天 · 准备中",18); self.held=label("手持：空",17)
     self.mode=label("",20); self.mode:SetStyle({textAlign="center",height=48})
     self.toast=label("",17); self.reason=label("",16); self.tutorial=label("",16)
     self.cardTitle=label("",20); self.cardBody=label("",17)
-    self.card=panel{position="absolute",width=260,padding=10,pointerEvents="none",zIndex=25,children={self.cardTitle,self.cardBody}}
-    self.toastPanel=panel{position="absolute",left="26%",right="26%",bottom=124,padding=10,pointerEvents="none",zIndex=40,children={self.toast}}
+    self.card=panel{position="absolute",width=260,padding=16,pointerEvents="none",zIndex=25,children={self.cardTitle,self.cardBody}}
+    self.toastPanel=panel{position="absolute",left="26%",right="26%",bottom=124,padding=14,pointerEvents="none",zIndex=40,children={self.toast}}
     self.reasonPanel=panel{position="absolute",left=156,right=20,bottom=82,padding=8,pointerEvents="none",children={self.reason}}
     self.tutorialClose=button("知道了",function() action("tutorialClose") end)
     self.tutorialClose:SetStyle({position="absolute",right=0,top=0,width=88,height=48})
-    self.tutorialPanel=panel{position="absolute",left=156,right=20,top=72,padding=6,pointerEvents="auto",children={self.tutorial,self.tutorialClose}}
+    self.tutorialPanel=Skin.Panel({position="absolute",left=156,right=20,top=72,padding=6,pointerEvents="auto",children={self.tutorial,self.tutorialClose}},'tooltip')
     self.back=button("返回",function() action("back") end)
     self.back:SetStyle({position="absolute",left=12,top=12,zIndex=30})
     self.pause=button("暂停",function() action("pause") end)
     self.pause:SetStyle({position="absolute",right=12,top=12,zIndex=30})
     self.orderSummary=button("待处理 0/5",function() action("ordersToggle") end)
     self.orderSummary:SetStyle({position="absolute",right=90,top=12,zIndex=30})
-    self.clockPanel=panel{position="absolute",left=88,top=12,width=218,height=48,padding=10,pointerEvents="none",children={self.clock}}
+    self.clockPanel=Skin.Panel({position="absolute",left=88,top=12,width=218,height=48,padding=10,pointerEvents="none",children={self.clock}},'status')
     self.campaignStatus=label('',16)
-    self.campaignStatusPanel=panel{position='absolute',left=152,top=66,width=330,height=42,padding=8,pointerEvents='none',children={self.campaignStatus}}
+    self.campaignStatusPanel=Skin.Panel({position='absolute',left=152,top=66,width=330,height=42,padding=8,pointerEvents='none',children={self.campaignStatus}},'status')
+    self.campaignStatusPanel:AddChild(UI.Panel{position='absolute',left=5,top=6,width=28,height=28,backgroundImage=StaticArt.Path('coin_icon'),backgroundFit='contain',pointerEvents='none'})
+    self.campaignStatus:SetStyle({paddingLeft=32,fontColor=Skin.White})
+    self.clock:SetStyle({fontColor=Skin.White})
     self.modePanel=panel{position="absolute",left="32%",right="29%",top=12,padding=0,pointerEvents="none",children={self.mode}}
     self.heldPanel=panel{position="absolute",left=156,bottom=16,width=210,height=48,padding=10,pointerEvents="none",children={self.held}}
+    self.heldIcon=UI.Panel{position='absolute',left=6,top=4,width=40,height=40,backgroundFit='contain',pointerEvents='none'}
+    self.heldPanel:AddChild(self.heldIcon)
 
     self.actions={}
     self.actionBar=UI.Panel{position="absolute",right=12,bottom=16,flexDirection="row",gap=12,pointerEvents="box-none",zIndex=30}
@@ -180,9 +181,9 @@ function View.New(action)
         onPointerDown=function(e) pointer("down",e) end,onPointerMove=function(e) pointer("move",e) end,
         onPointerUp=function(e) pointer("up",e) end,onPointerCancel=function(e) pointer("cancel",e) end}
     self.joystickKnob=UI.Panel{position="absolute",left=36,top=36,width=40,height=40,borderRadius=20,
-        backgroundColor={160,162,164,230},pointerEvents="none"}
-    self.joystickBase=UI.Panel{position="absolute",left=0,top=0,width=112,height=112,borderRadius=56,
-        borderWidth=2,borderColor={172,174,176,255},backgroundColor={42,44,46,160},pointerEvents="none",children={self.joystickKnob}}
+        backgroundColor={247,175,68,245},pointerEvents="none"}
+    self.joystickBase=UI.Panel{backgroundImage=Skin.Path('frame_joystick'),backgroundFit='contain',position="absolute",left=0,top=0,width=112,height=112,borderRadius=56,
+        borderWidth=0,borderColor={172,174,176,255},backgroundColor={0,0,0,0},pointerEvents="none",children={self.joystickKnob}}
     local function joy(phase,e)
         if self.onJoystick then self.onJoystick(phase,e,self.joystick:GetAbsoluteLayout()) end
     end
@@ -199,17 +200,19 @@ function View.New(action)
         self.tabs[i]=b; tabs:AddChild(b)
     end
     self.cardScroll=UI.ScrollView{height=82,scrollX=true,scrollY=false,showScrollbar=true}
-    self.cardsRow=UI.Panel{flexDirection="row",gap=8,flexShrink=0,height=76}
+    self.cardsRow=UI.Panel{flexDirection="row",gap=8,flexShrink=0,height=94}
     self.cardScroll:AddChild(self.cardsRow); self.selector:AddChild(tabs); self.selector:AddChild(self.cardScroll)
     self.buildButtons={}; self.buildCardTitles={}; self.buildCardDetails={}
-    for _,kind in ipairs({"cooker","assembler","junction","isolator_straight","isolator_corner","buffer","storage","terminal","delivery_component","conveyor","cable","manage"}) do
+    for _,kind in ipairs({"cooker","assembler","junction","isolator_straight","isolator_corner","buffer","storage","terminal","delivery_component","conveyor","cable","manage","supply_raw","supply_bun","supply_lettuce"}) do
         local key=kind
         local name=Buildings.Definitions[kind] and Buildings.Definitions[kind].name or (kind=="conveyor" and "基础传送带" or kind=="cable" and "传物电缆" or "管理已有对象")
         local b=button(name,function() action("selectKind",key) end)
-        b:SetStyle({width=196,height=72,fontSize=16})
+        b:SetStyle({width=204,height=90,fontSize=12})
         b:SetText("")
-        local title=label(name,14); title:SetStyle({position="absolute",left=8,top=10,width=180,height=26,whiteSpace="nowrap"})
-        local detail=label("",12); detail:SetStyle({position="absolute",left=8,top=40,width=180,height=24,whiteSpace="nowrap"})
+        local icon=UI.Panel{position='absolute',left=12,top=16,width=38,height=38,backgroundImage=StaticArt.Icon(kind),backgroundFit='contain',pointerEvents='none'}
+        b:AddChild(icon)
+        local title=label(name,16); title:SetStyle({position="absolute",left=58,top=10,width=136,height=42,whiteSpace="normal"})
+        local detail=label("",14); detail:SetStyle({position="absolute",left=12,top=58,width=180,height=24,whiteSpace="nowrap",fontColor=Skin.Muted})
         b:AddChild(title); b:AddChild(detail)
         self.buildCardTitles[kind],self.buildCardDetails[kind]=title,detail
         self.buildButtons[kind]=b; self.cardsRow:AddChild(b)
@@ -251,22 +254,40 @@ function View.New(action)
     self.modalScroll=UI.ScrollView{flexGrow=1,flexBasis=0,scrollY=true}
     self.modalContent=UI.Panel{width="100%",gap=8,flexShrink=0}
     self.modalScroll:AddChild(self.modalContent)
+    self.audioRows={}
+    for i,key in ipairs({'masterVolume','musicVolume','effectsVolume'}) do
+        local index=i
+        local title=label('',18)
+        local minus=button('−',function() action('audioStep',{key=key,delta=-.1}) end)
+        local plus=button('+',function() action('audioStep',{key=key,delta=.1}) end)
+        minus:SetStyle({width=52,minWidth=52,flexShrink=0});plus:SetStyle({width=52,minWidth=52,flexShrink=0})
+        local slider=UI.Slider{value=80,min=0,max=100,step=1,flexGrow=1,flexBasis=0,height=48,thumbSize=26,trackHeight=8,
+            onChange=function(_,v) if not self.audioSyncing then action('audioVolume',{key=key,volume=v/100}) end end,
+            onChangeEnd=function() if not self.audioSyncing then action('audioCommit') end end}
+        local row=UI.Panel{width='100%',gap=4,flexShrink=0,paddingTop=4,paddingBottom=8,children={title,
+            UI.Panel{width='100%',flexDirection='row',alignItems='center',gap=8,children={minus,slider,plus}}}}
+        self.audioRows[index]={panel=row,label=title,slider=slider,minus=minus,plus=plus}
+        self.modalContent:AddChild(row);row:SetVisible(false)
+    end
     for i=1,32 do local item=label("",17); self.modalRows[i]=item; self.modalContent:AddChild(item) end
     self.modalEntries={}; self.modalEntryData={}
     for i=1,20 do
         local index=i
         local heading=label('',18); local detail=label('',15)
-        detail:SetStyle({fontColor={190,194,198,255}})
+        detail:SetStyle({fontColor=Skin.Muted})
         local texts=UI.Panel{flexGrow=1,flexBasis=0,gap=3,children={heading,detail}}
         local b=button('',function() local e=self.modalEntryData[index]; local d=e and e.action; if d and not d.disabled then action(d.command,d.value) end end)
         b:SetStyle({flexShrink=0,minWidth=72})
-        local line=panel{width='100%',padding=10,flexDirection='row',alignItems='center',flexShrink=0,gap=12,backgroundColor={47,50,53,255},children={texts,b}}
-        self.modalEntries[i]={panel=line,heading=heading,detail=detail,button=b}; self.modalContent:AddChild(line)
+        local icon=UI.Panel{width=36,height=36,flexShrink=0,backgroundFit='contain',pointerEvents='none'}
+        local line=panel{width='100%',padding=10,flexDirection='row',alignItems='center',flexShrink=0,gap=12,children={icon,texts,b}}
+        self.modalEntries[i]={panel=line,heading=heading,detail=detail,button=b,icon=icon}; self.modalContent:AddChild(line)
     end
+    self.modalTools=UI.Panel{width='100%',flexDirection='row',flexWrap='wrap',gap=8,flexShrink=0}
+    self.modalContent:AddChild(self.modalTools)
     for i=1,32 do
         local index=i
         local b=button("",function() local d=self.modalToolData[index]; if d and not d.disabled then action(d.command,d.value) end end)
-        self.modalButtons[i]=b; self.modalContent:AddChild(b)
+        self.modalButtons[i]=b; self.modalTools:AddChild(b)
     end
     self.modalFooter=UI.Panel{flexDirection="row",justifyContent="flex-end",gap=12}
     self.footerButtons={}
@@ -275,8 +296,9 @@ function View.New(action)
         local b=button("",function() local d=self.modalFooterData[index]; if d and not d.disabled then action(d.command,d.value) end end)
         self.footerButtons[i]=b; self.modalFooter:AddChild(b)
     end
-    self.modalPanel=panel{position="absolute",padding=16,gap=10,children={self.modalTitle,self.modalTabs,self.modalSummary,self.modalQuantity,self.modalScroll,self.modalFooter}}
-    self.modalMask=UI.Panel{position="absolute",left=0,top=0,right=0,bottom=0,zIndex=100,backgroundColor={0,0,0,155},children={self.modalPanel}}
+    self.modalPanel=Skin.Panel({position="absolute",padding=24,gap=10,children={self.modalTitle,self.modalTabs,self.modalSummary,self.modalQuantity,self.modalScroll,self.modalFooter}},'main')
+    self.titleArt=UI.Panel{position='absolute',left=0,top=0,right=0,bottom=0,backgroundImage=StaticArt.Path('title_bg'),backgroundFit='cover',pointerEvents='none'}
+    self.modalMask=UI.Panel{position="absolute",left=0,top=0,right=0,bottom=0,zIndex=100,backgroundColor={21,35,39,165},children={self.titleArt,self.modalPanel}}
     self.version=label("自动化汉堡工厂 · "..State.Version,14)
     self.version:SetStyle({position="absolute",right=16,bottom=12,width=290,height=26}); self.modalMask:AddChild(self.version)
     self.modalBack=button("返回",function() action("back") end)
@@ -305,7 +327,7 @@ end
 local function setData(buttons,data)
     for i,b in ipairs(buttons) do
         local d=data[i]; b:SetVisible(d~=nil)
-        if d then b:SetText(d.text); b:SetDisabled(not not d.disabled); b:SetStyle({marginLeft=d.command=="deleteManaged" and 24 or 0}) end
+        if d then b:SetText(d.text:gsub("%[F%] ",""):gsub("● ","")); b:SetDisabled(not not d.disabled); Skin.Apply(b,d,d.text:find("[F]",1,true)~=nil or d.text:find("●",1,true)~=nil); b:SetStyle({marginLeft=d.command=="deleteManaged" and 24 or 0}) end
     end
 end
 
@@ -314,32 +336,37 @@ end
 function View.Render(self,model)
     self.model=model
     local w,h=model.width,model.height; local layout=State.Layout(w,h)
+    local art=ArtLayout.For(w,h,model.phase,model)
     self.clock:SetText(model.clock); self.held:SetText(model.held)
-    self.clock:SetStyle({height=28,whiteSpace="nowrap",fontSize=18})
-    local narrow=w<1000
-    self.clockPanel:SetStyle({left=152,width=narrow and 190 or 218})
-    self.modePanel:SetStyle({top=narrow and 66 or 12,left=narrow and 12 or w*0.32,right=narrow and 90 or w*0.29})
-    self.tutorialPanel:SetStyle({top=narrow and model.title~="" and 122 or 72})
-    self.mode:SetStyle({fontSize=(model.phase=="destination" or model.phase=="adjust") and 16 or 20})
-    self.mode:SetText(model.title or ""); self.modePanel:SetVisible(model.title~="" and not model.modal)
+    self.heldIcon:SetVisible(model.heldType~=nil)
+    if model.heldType then self.heldIcon:SetStyle({backgroundImage=StaticArt.Path(model.heldType)}) end
+    self.held:SetStyle({paddingLeft=model.heldType and 38 or 0})
+    self.titleArt:SetVisible(model.phase=='title' or model.phase=='complete')
+    self.clock:SetStyle({height=28,whiteSpace="nowrap",fontSize=13.5})
+    local narrow=art.narrow
+    self.clockPanel:SetStyle({left=144,top=12,width=240,height=48,padding=10})
+    self.campaignStatusPanel:SetStyle({left=narrow and 144 or 396,top=narrow and 66 or 12,width=math.min(338,w-170),height=48})
+    self.modePanel:SetStyle({top=narrow and 120 or 68,left=144,right=12,height=48})
+    self.mode:SetStyle({fontSize=13.5,height=30})
+    self.mode:SetText(model.title or ''); self.modePanel:SetVisible(model.title~='' and not model.modal)
     self.clockPanel:SetVisible(not model.modal); self.pause:SetVisible(not model.modal)
+    Skin.Apply(self.pause,{command='pause'}); Skin.Apply(self.back,{command='back'})
+    Skin.Apply(self.orderSummary,{command='ordersToggle'})
     self.campaignStatusPanel:SetVisible(model.status~=nil and not model.modal)
     self.campaignStatus:SetText(model.status or '')
-    if model.status then
-        self.campaignStatusPanel:SetStyle({width=math.min(360,w-180)})
-        self.modePanel:SetStyle({top=narrow and 112 or 12})
-        self.tutorialPanel:SetStyle({top=narrow and model.title~='' and 166 or 114})
-    end
+    self.tutorialPanel:SetStyle({top=art.tutorialTop,left=math.max(16,w-math.min(430,w-32)-16),right=16,width=math.min(430,w-32),padding=14})
+    self.pause:SetStyle({width=124}); self.orderSummary:SetStyle({right=148}); self.orderSummary:SetWidthAuto()
     self.orderSummary:SetText(State.OrderSummary(model.orderCount,model.orderLimit)); self.orderSummary:SetVisible(model.normal or model.phase=="orders")
     self.back:SetVisible(model.back~=nil and not model.modal); if model.back then self.back:SetText(model.back) end
     self.heldPanel:SetVisible(not model.modal and model.phase~="menu")
+    self.heldPanel:SetStyle({left=art.heldLeft,width=math.min(240,w-320),height=52,padding=12})
     self.joystick:SetVisible(model.normal and model.display~="keyboard")
     self.joystick:SetStyle({width=model.floating and 180 or 112,height=model.floating and 160 or 112})
     self.selector:SetVisible(model.phase=="menu")
-    self.selector:SetStyle({height=layout.selectorHeight,right=180})
-    self.cardScroll:SetHeight(layout.selectorHeight-62)
+    self.selector:SetStyle({height=art.selectorHeight,right=184,padding=10})
+    self.cardScroll:SetHeight(art.selectorHeight-72)
     self.weakSelector:SetVisible(model.phase=="preview")
-    for i,b in ipairs(self.tabs) do b:SetText((model.category==i and "[选] " or "")..State.Categories[i]) end
+    for i,b in ipairs(self.tabs) do b:SetText(State.Categories[i]); Skin.Apply(b,{command="category",value=i},model.category==i) end
     for kind,b in pairs(self.buildButtons) do
         local visible=false
         for _,k in ipairs(State.Kinds[model.category]) do if k==kind then visible=true end end
@@ -348,7 +375,8 @@ function View.Render(self,model)
         local name=def and def.name or (kind=="conveyor" and "基础传送带" or kind=="cable" and "传物电缆" or "管理已有对象")
         b:SetText("")
         local selected=model.kind==kind
-        b:SetStyle({borderWidth=selected and 3 or 1,borderColor=selected and {238,238,238,255} or {95,95,95,255}})
+        b:SetStyle({borderWidth=selected and 3 or 0,borderColor={38,112,125,255},imageTint=selected and {166,228,231,255} or {255,255,255,255},height=art.cardHeight})
+        self.buildCardDetails[kind]:SetStyle({top=art.compact and 48 or 60,fontSize=10.5})
         self.buildCardTitles[kind]:SetText(name)
         local detail=def and string.format("%.1f×%.1f格",def.width,def.depth) or (kind=="conveyor" and "单入单出 · 0.5格/s" or kind=="cable" and "下单驱动 · 整网2件/s" or "选择现有对象")
         if kind=='terminal' or kind=='delivery_component' then detail=kind=='terminal' and '依附库存 · 不另占地' or '依附库存/缓存 · 不另占地' end
@@ -357,14 +385,26 @@ function View.Render(self,model)
     end
     self.actionData=model.actions or {}; setData(self.actions,self.actionData)
     self.actionBar:SetVisible(not model.modal)
-    self.reasonPanel:SetVisible(not model.modal and model.reason and model.reason~="")
-    self.reason:SetText(model.reason or ""); self.reason:SetStyle({height=layout.compact and 44 or 48})
-    self.reasonPanel:SetStyle({bottom=model.phase=="menu" and layout.selectorHeight+24 or ((model.phase=="preview" or model.phase=="move") and 142 or 76)})
-    self.toastPanel:SetVisible(model.toast~=nil and model.toast~="")
-    self.toast:SetText(model.toast or ""); self.toast:SetStyle({height=48})
-    self.toastPanel:SetStyle({bottom=(model.phase=="preview" or model.phase=="move") and 218 or layout.toastBottom,zIndex=model.modal and 120 or 40})
-    self.tutorial:SetText(model.tutorial or ""); self.tutorial:SetStyle({height=48,paddingRight=90})
-    self.tutorialPanel:SetVisible(not model.modal and model.tutorial and model.tutorial~="")
+    self.actionBar:SetStyle({width=model.normal and 292 or model.phase=='menu' and 156 or math.min(760,w-172),height=(model.normal or model.phase=='menu') and 112 or 48,justifyContent='flex-end'})
+    for i,b in ipairs(self.actions) do
+        local d=self.actionData[i]
+        if d then
+            if model.normal then
+                local lower=d.command=='interactUI' or d.command=='dropUI'
+                local right=d.command=='interactUI' or d.command=='openBuild'
+                b:SetStyle({position='absolute',left=right and 148 or 0,right=0,bottom=lower and 0 or 60,width=136,height=48,marginLeft=0})
+            elseif model.phase=='menu' then b:SetStyle({position='absolute',left=0,right=0,bottom=(#self.actionData-i)*60,width=156,height=48,marginLeft=0})
+            else b:SetStyle({position='relative',left=0,right=0,bottom=0,width=(math.min(760,w-172)-12*(#self.actionData-1))/#self.actionData,height=48,minWidth=104}) end
+        end
+    end
+    self.reasonPanel:SetVisible(not model.modal and model.reason and model.reason~="" and (not model.normal or model.reasonCritical or (model.phaseAge or 0)<7))
+    self.reason:SetText(model.reason or ""); self.reason:SetStyle({height=model.phase=='menu' and art.compact and 24 or 48,fontSize=12})
+    self.reasonPanel:SetStyle({left=156,right=0,width=art.reasonWidth,bottom=model.normal and 140 or art.reasonBottom,padding=model.phase=='menu' and art.compact and 8 or 12})
+    self.toastPanel:SetVisible(model.toast~=nil and model.toast~='')
+    self.toast:SetText(model.toast or ''); self.toast:SetStyle({height=48})
+    self.toastPanel:SetStyle({left=(w-art.toastWidth)/2,right=0,width=art.toastWidth,bottom=(model.phase=='preview' or model.phase=='move') and 214 or 150,zIndex=model.modal and 120 or 40})
+    self.tutorial:SetText(model.tutorial or ''); self.tutorial:SetStyle({height=64,paddingRight=88,fontSize=12})
+    self.tutorialPanel:SetVisible(not model.modal and model.tutorial and model.tutorial~='')
     self.orderList:SetVisible(model.phase=="orders")
     self.orderList:SetStyle({width=math.min(330,w-114),height=math.min(330,h-100),maxHeight=h-100})
     self.card:SetVisible(model.card~=nil and not model.modal)
@@ -373,7 +413,7 @@ function View.Render(self,model)
         if self.cardBody.props.text~=model.card.text then self.cardBody:SetText(model.card.text); self.cardBody:SetHeightAuto() end
         self.cardTitle:SetStyle({height=30})
         local cardHeight=math.max(90,self.card:GetAbsoluteLayout().h)
-        local x,y=Projection.Card(model.card.anchorX,model.card.anchorY,layout.cardWidth,cardHeight,w,h,narrow and 118 or 72,150)
+        local x,y=Projection.Card(model.card.anchorX,model.card.anchorY,layout.cardWidth,cardHeight,w,h,art.headerBottom,model.normal and 146 or 200)
         self.card:SetVisible(x~=nil)
         if x then self.card:SetStyle({width=layout.cardWidth,left=x,top=y}) end
     end
@@ -382,12 +422,22 @@ function View.Render(self,model)
     self.modalMask:SetVisible(model.modal~=nil)
     if model.modal then
         local m=model.modal
-        self.modalPanel:SetStyle({left=(w-layout.modalWidth)/2,top=62,width=layout.modalWidth,height=h-98})
+        self.modalPanel:SetStyle({left=(w-art.modalWidth)/2,top=art.modalTop,width=art.modalWidth,height=art.modalHeight,padding=32})
+        self.modalFooter:SetStyle({flexWrap="wrap",gap=12,flexShrink=0})
         self.modalTitle:SetText(m.title)
         local scrollKey=model.phase..':'..(m.scrollKey or '')
         if self.modalPhase~=scrollKey then self.modalScroll:ScrollToTop(); self.modalPhase=scrollKey end
         self.modalTabs:SetVisible(m.tabs~=nil)
         self.modalTabData=m.tabs or {}; setData(self.modalTabButtons,self.modalTabData)
+        for i,row in ipairs(self.audioRows) do
+            local d=m.audio and m.audio[i];row.panel:SetVisible(d~=nil)
+            if d then
+                row.label:SetText(d.label..'  '..math.floor(d.volume*100+.5)..'%')
+                local percent=math.floor(d.volume*100+.5)
+                if row.slider:GetValue()~=percent then self.audioSyncing=true;row.slider:SetValue(percent);self.audioSyncing=false end
+                for _,pair in ipairs({{row.minus,d.minus},{row.plus,d.plus}}) do pair[1]:SetText(pair[2].text);Skin.Apply(pair[1],pair[2],pair[2].text:find('[F]',1,true)~=nil) end
+            end
+        end
         self.modalSummary:SetVisible(m.summary~=nil); self.modalSummary:SetText(m.summary or '')
         self.modalQuantity:SetVisible(m.quantity~=nil)
         self.modalQuantityData=m.quantity and m.quantity.actions or {}; setData(self.modalQuantityButtons,self.modalQuantityData)
@@ -396,13 +446,15 @@ function View.Render(self,model)
         for i,entry in ipairs(self.modalEntries) do
             local d=self.modalEntryData[i]; entry.panel:SetVisible(d~=nil)
             if d then
+                entry.icon:SetVisible(d.itemType~=nil)
+                if d.itemType then entry.icon:SetStyle({backgroundImage=StaticArt.Path(d.itemType)}) end
                 for _,pair in ipairs({{entry.heading,d.text or ''},{entry.detail,d.detail or ''}}) do
                     local widget,text=pair[1],pair[2]
                     if widget.props.text~=text then widget:SetText(text); widget:SetHeightAuto() end
                 end
                 entry.detail:SetVisible(d.detail~=nil and d.detail~='')
                 entry.button:SetVisible(d.action~=nil)
-                if d.action then entry.button:SetText(d.action.text); entry.button:SetDisabled(not not d.action.disabled) end
+                if d.action then entry.button:SetText(d.action.text); entry.button:SetDisabled(not not d.action.disabled); Skin.Apply(entry.button,d.action) end
             end
         end
         for i,item in ipairs(self.modalRows) do
@@ -412,9 +464,12 @@ function View.Render(self,model)
             end
         end
         self.modalToolData=m.tools or {}; setData(self.modalButtons,self.modalToolData)
+        self.modalTools:SetVisible(#self.modalToolData>0)
+        for _,b in ipairs(self.modalButtons) do b:SetStyle({width=art.modalWidth>=580 and '48%' or '100%',minWidth=0}) end
         self.modalFooterData=m.buttons or {}; setData(self.footerButtons,self.modalFooterData)
         self.modalBack:SetVisible(m.back~=nil); if m.back then self.modalBack:SetText(m.back) end
         self.version:SetVisible(model.phase=="paused")
+        Skin.Apply(self.modalBack,{command="back"})
     end
 end
 

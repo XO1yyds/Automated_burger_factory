@@ -1,0 +1,207 @@
+{
+  "scope": "Actual pure Lua animation clock/priorities and campaign unlock rules; not image quality or native input/render",
+  "passed": 50,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "not thinking before30s",
+      "passed": true
+    },
+    {
+      "name": "thinking begins at30s frame1",
+      "passed": true
+    },
+    {
+      "name": "think advances",
+      "passed": true
+    },
+    {
+      "name": "think finishes once and rearms",
+      "passed": true
+    },
+    {
+      "name": "effective input resets idle",
+      "passed": true
+    },
+    {
+      "name": "input interrupts thinking",
+      "passed": true
+    },
+    {
+      "name": "holding never thinks",
+      "passed": true
+    },
+    {
+      "name": "carrying walk",
+      "passed": true
+    },
+    {
+      "name": "carrying run",
+      "passed": true
+    },
+    {
+      "name": "empty run",
+      "passed": true
+    },
+    {
+      "name": "empty walk",
+      "passed": true
+    },
+    {
+      "name": "true cooking selects operate",
+      "passed": true
+    },
+    {
+      "name": "completion/release immediately ends operate",
+      "passed": true
+    },
+    {
+      "name": "pause freezes frame time and idle",
+      "passed": true
+    },
+    {
+      "name": "editing blocks movement animation",
+      "passed": true
+    },
+    {
+      "name": "editing blocks thinking",
+      "passed": true
+    },
+    {
+      "name": "editing holding selects static carry",
+      "passed": true
+    },
+    {
+      "name": "turn resets clip clock",
+      "passed": true
+    },
+    {
+      "name": "front idle four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "front walk four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "front run four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "front carry_idle four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "front carry_walk four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "front carry_run four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "front operate four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "left idle four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "left walk four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "left run four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "left carry_idle four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "left carry_walk four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "left carry_run four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "left operate four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "right idle four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "right walk four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "right run four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "right carry_idle four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "right carry_walk four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "right carry_run four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "right operate four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "back idle four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "back walk four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "back run four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "back carry_idle four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "back carry_walk four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "back carry_run four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "back operate four-frame loop",
+      "passed": true
+    },
+    {
+      "name": "area/restart clears transient state",
+      "passed": true
+    },
+    {
+      "name": "day1 workshop open",
+      "passed": true
+    },
+    {
+      "name": "day2 machine and supplies unchanged",
+      "passed": true
+    },
+    {
+      "name": "later automation unlocks unchanged",
+      "passed": true
+    }
+  ]
+}

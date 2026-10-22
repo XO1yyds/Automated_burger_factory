@@ -1,0 +1,435 @@
+{
+  "passed": 107,
+  "failed": 0,
+  "checks": [
+    {
+      "passed": true,
+      "name": "central movement keeps camera still"
+    },
+    {
+      "passed": true,
+      "name": "right edge pans right smoothly without rotation or zoom inputs"
+    },
+    {
+      "passed": true,
+      "name": "top edge pans positive Z"
+    },
+    {
+      "passed": true,
+      "name": "bottom edge pans negative Z"
+    },
+    {
+      "passed": true,
+      "name": "no camera takeover shop UI pause"
+    },
+    {
+      "passed": true,
+      "name": "no camera takeover manual pan"
+    },
+    {
+      "passed": true,
+      "name": "no camera takeover stationary"
+    },
+    {
+      "passed": true,
+      "name": "pushing into wall with no displacement never pans"
+    },
+    {
+      "passed": true,
+      "name": "area transition discards old movement sample"
+    },
+    {
+      "passed": true,
+      "name": "zero time is stable"
+    },
+    {
+      "passed": true,
+      "name": "moving after far manual pan restores visibility immediately"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect0.560 zoom0.8 fps15"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect0.560 zoom0.8 fps15"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect0.560 zoom0.8 fps30"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect0.560 zoom0.8 fps30"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect0.560 zoom0.8 fps60"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect0.560 zoom0.8 fps60"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect0.560 zoom0.8 fps144"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect0.560 zoom0.8 fps144"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect0.560 zoom1.0 fps15"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect0.560 zoom1.0 fps15"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect0.560 zoom1.0 fps30"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect0.560 zoom1.0 fps30"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect0.560 zoom1.0 fps60"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect0.560 zoom1.0 fps60"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect0.560 zoom1.0 fps144"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect0.560 zoom1.0 fps144"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect0.560 zoom2.5 fps15"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect0.560 zoom2.5 fps15"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect0.560 zoom2.5 fps30"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect0.560 zoom2.5 fps30"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect0.560 zoom2.5 fps60"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect0.560 zoom2.5 fps60"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect0.560 zoom2.5 fps144"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect0.560 zoom2.5 fps144"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.333 zoom0.8 fps15"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.333 zoom0.8 fps15"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.333 zoom0.8 fps30"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.333 zoom0.8 fps30"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.333 zoom0.8 fps60"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.333 zoom0.8 fps60"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.333 zoom0.8 fps144"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.333 zoom0.8 fps144"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.333 zoom1.0 fps15"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.333 zoom1.0 fps15"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.333 zoom1.0 fps30"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.333 zoom1.0 fps30"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.333 zoom1.0 fps60"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.333 zoom1.0 fps60"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.333 zoom1.0 fps144"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.333 zoom1.0 fps144"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.333 zoom2.5 fps15"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.333 zoom2.5 fps15"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.333 zoom2.5 fps30"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.333 zoom2.5 fps30"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.333 zoom2.5 fps60"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.333 zoom2.5 fps60"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.333 zoom2.5 fps144"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.333 zoom2.5 fps144"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.778 zoom0.8 fps15"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.778 zoom0.8 fps15"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.778 zoom0.8 fps30"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.778 zoom0.8 fps30"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.778 zoom0.8 fps60"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.778 zoom0.8 fps60"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.778 zoom0.8 fps144"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.778 zoom0.8 fps144"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.778 zoom1.0 fps15"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.778 zoom1.0 fps15"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.778 zoom1.0 fps30"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.778 zoom1.0 fps30"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.778 zoom1.0 fps60"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.778 zoom1.0 fps60"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.778 zoom1.0 fps144"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.778 zoom1.0 fps144"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.778 zoom2.5 fps15"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.778 zoom2.5 fps15"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.778 zoom2.5 fps30"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.778 zoom2.5 fps30"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.778 zoom2.5 fps60"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.778 zoom2.5 fps60"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect1.778 zoom2.5 fps144"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect1.778 zoom2.5 fps144"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect2.167 zoom0.8 fps15"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect2.167 zoom0.8 fps15"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect2.167 zoom0.8 fps30"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect2.167 zoom0.8 fps30"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect2.167 zoom0.8 fps60"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect2.167 zoom0.8 fps60"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect2.167 zoom0.8 fps144"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect2.167 zoom0.8 fps144"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect2.167 zoom1.0 fps15"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect2.167 zoom1.0 fps15"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect2.167 zoom1.0 fps30"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect2.167 zoom1.0 fps30"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect2.167 zoom1.0 fps60"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect2.167 zoom1.0 fps60"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect2.167 zoom1.0 fps144"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect2.167 zoom1.0 fps144"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect2.167 zoom2.5 fps15"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect2.167 zoom2.5 fps15"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect2.167 zoom2.5 fps30"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect2.167 zoom2.5 fps30"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect2.167 zoom2.5 fps60"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect2.167 zoom2.5 fps60"
+    },
+    {
+      "passed": true,
+      "name": "full paper stays visible sprint aspect2.167 zoom2.5 fps144"
+    },
+    {
+      "passed": true,
+      "name": "stopping does not drift aspect2.167 zoom2.5 fps144"
+    }
+  ],
+  "scope": "Actual Lua edge-follow math at 48 combinations, full paper bounds, camera limits and control ownership; not native projection/Android"
+}

@@ -28,6 +28,13 @@ local DayConfig=require('Factory/DayConfig')
 local CampaignService=require('Factory/Campaign')
 local CampaignRuntime=require('Factory/CampaignRuntime')
 local CampaignWorld=require('Factory/CampaignWorld')
+local StaticArt=require('Factory/StaticArt')
+local CameraFollow=require('Factory/CameraFollow')
+local cameraFollow=CameraFollow.New()
+local Soundscape=require('Factory/Soundscape')
+---@type FactorySoundscape?
+local soundscape=nil
+local audioBuildVersion=0
 ---@type FactoryCampaign?
 local campaign=nil
 ---@type table?
@@ -45,6 +52,8 @@ local gridNodes = {}
 ---@type Node?
 local playerVisual = nil
 local presentationEditing = false
+---@type Vector3?
+local animationPosition=nil
 
 ---@type table<string, FactoryItemType>
 local SOURCE_TYPES = { bun = "bun", raw = "raw_beef", lettuce = "lettuce",
@@ -257,6 +266,7 @@ local function MakeBox(parent, name, position, size, color, solid)
     model:SetModel(cache:GetResource("Model", "Models/Box.mdl"))
     model:SetMaterial(MakeMaterial(color))
     model.castShadows = true
+    StaticArt.DecorateBox(node,name,size)
     if solid then
         local body = node:CreateComponent("RigidBody")
         body.mass = 0
@@ -319,6 +329,7 @@ local function CreateStation(station)
     background.enabled = false
     nameNode.enabled = false
     station.nameNode, station.nameText, station.nameBackground = nameNode, text, background
+    StaticArt.Station(station)
 end
 
 local function CreateScene()
@@ -331,6 +342,12 @@ local function CreateScene()
     physics.maxSubSteps = 8
     local lightGroup = scene:CreateChild("LightGroup")
     lightGroup:LoadXML(cache:GetResource("XMLFile", "LightGroup/Daytime.xml"):GetRoot())
+    -- Indoor paper artwork must keep its source colors at the 30m overhead camera.
+    local artZone=lightGroup:GetComponent('Zone',true) --[[@as Zone?]]
+    if artZone then
+        artZone.fogDensity=0; artZone.heightFog=false; artZone.volumetricFogEnabled=false
+        artZone.autoExposureEnabled=false; artZone.tonemapMode=TONEMAP_MODE_NONE
+    end
 
     MakeBox(scene, "Floor", Vector3(0, -0.15, 0), Vector3(CONFIG.roomWidth, 0.3, CONFIG.roomDepth), Color(0.72, 0.73, 0.73), true)
     local lineColor = Color(0.55, 0.57, 0.58)
@@ -364,6 +381,8 @@ local function CreateCharacter()
     player.position = Vector3(0, 0.55, 1)
     playerVisual = MakeBox(player, "PlayerVisual", Vector3.ZERO, Vector3(0.55, 1.1, 0.55), Color(0.20, 0.37, 0.56), false)
     facingMarker = MakeBox(player, "FacingMarker", facing * 0.40 + Vector3(0, 0.40, 0), Vector3(0.18, 0.12, 0.18), Color(0.98, 0.93, 0.66), false)
+    StaticArt.Player(player,assert(playerVisual),facing,nil,false)
+    facingMarker.enabled=false
     playerBody = player:CreateComponent("RigidBody")
     playerBody.mass = 1
     playerBody.useGravity = false
@@ -492,15 +511,15 @@ local function UpdateProductionVisuals()
             if machine.kind == "cooker" then
                 for index = 1, 3 do
                     local slot = machine.slots[index]
-                    if slot then placeItem(slot.itemType, (index - 2) * 0.65, -0.2) end
+                    if slot then placeItem(slot.itemType, (index - 2) * 0.76, 0.16) end
                 end
             else
                 for index, ingredient in ipairs(ManualService.Recipe) do
                     local itemType = ingredient
                     if itemType == "cooked_beef" and machine.materials.raw_beef then itemType = "raw_beef" end
-                    if machine.materials[itemType] then placeItem(itemType, (index - 2) * 0.65, -0.25) end
+                    if machine.materials[itemType] then placeItem(itemType, (index - 2) * 0.65, 0.32) end
                 end
-                if machine.burgerReady then placeItem("burger", 0, 0.35) end
+                if machine.burgerReady then placeItem("burger", 0, -0.36) end
             end
         end
     end
@@ -521,7 +540,6 @@ end
 ---@return boolean,string
 local function SwitchArea(destination)
     if not player or not playerBody or not cameraNode or not items then return false, "区域尚未就绪。" end
-    if campaign and destination=='workshop' and not campaign:Unlocked('workshop') then return false,'自动化车间第2天开放，今天先完成手工制作与交单。' end
     local x, z = destination == "workshop" and -33.5 or -6.7, destination == "workshop" and -4.5 or 4.2
     if campaign and destination=='workshop' then x,z=-26,-10 end
     -- Buildings reserve portal footprints. Ground items may still occupy them:
@@ -542,6 +560,7 @@ local function SwitchArea(destination)
     if campaign then cameraNode.position=Vector3(arrival.x,30.2,arrival.z) end
     target, groundTarget, worldMousePending, worldMouseMoved = nil, nil, false, false
     facing = screenForward
+    StaticArt.ResetPlayer(player);animationPosition=nil;cameraFollow:Reset()
     return true, destination == "workshop" and "进入自动化车间：B 建筑 → 传送带布置；成品送入缓存台。"
         or "返回汉堡店；车间继续运行，成品保存在缓存台，携带汉堡到店内交付。"
 end
@@ -577,6 +596,7 @@ local function SetupBuildings()
                 record.automaticKind=automaticKind; automatics[record.id]=NewAutomatic(automaticKind)
             end
             table.insert(stations,record); CreateStation(record)
+            audioBuildVersion=audioBuildVersion+1
             if logistics then
                 if kind=="buffer" or kind=="storage" then logistics.buffers[record.id]=BufferService.New(kind=="storage" and 24 or 6) end
                 if automation then automation.cables.revision=automation.cables.revision+1 end
@@ -585,6 +605,7 @@ local function SetupBuildings()
             return record
         end,
         update = function(record,x,z,quarter)
+            audioBuildVersion=audioBuildVersion+1
             if campaign then campaign.dirty=true end
             local definition=BuildingService.Definitions[assert(record.buildingKind or record.automaticKind)] --[[@as {name:string,width:number,depth:number}]]
             local width,depth=definition.width,definition.depth
@@ -597,6 +618,7 @@ local function SetupBuildings()
             if record.highlight then record.highlight.scale=Vector3(width+0.06,0.04,depth+0.06) end
             if record.nameNode then record.nameNode.position=Vector3(0,0.65,depth/2+0.1) end
             if record.nameBackground then record.nameBackground.position=Vector3(0,0.62,depth/2+0.24) end
+            StaticArt.Station(record)
         end,
         processing=function(record)
             local machine=automatics[record.id]
@@ -623,6 +645,7 @@ local function SetupBuildings()
             automatics[record.id]=nil
             if logistics then logistics.buffers[record.id]=nil end
             assert(record.node):Remove()
+            audioBuildVersion=audioBuildVersion+1
             for index,value in ipairs(stations) do if value==record then table.remove(stations,index); break end end
             return true,assert(logistics):Spill(contents,record.x,record.z)
         end,
@@ -651,6 +674,7 @@ local function UpdateBuildingGhost()
         material:SetTechnique(0, cache:GetResource("Technique", "Techniques/PBR/PBRNoTextureAlpha.xml"))
         material:SetShaderParameter("MatDiffColor", Variant(color))
         model:SetMaterial(material)
+        StaticArt.Preview(buildingGhost,buildings.kind,buildings.quarter)
         if buildings.previewPinned then
             for _,edge in ipairs({{0,0.52,-0.5,1,0.02,0.025},{0,0.52,0.5,1,0.02,0.025},{-0.5,0.52,0,0.025,0.02,1},{0.5,0.52,0,0.025,0.02,1}}) do
                 MakeBox(buildingGhost,"PinnedOutline",Vector3(edge[1],edge[2],edge[3]),Vector3(edge[4],edge[5],edge[6]),Color(0.95,0.95,0.95),false)
@@ -661,7 +685,7 @@ local function UpdateBuildingGhost()
 end
 
 ---@return boolean, string
-local function Interact()
+local function InteractAction()
     if not items then return false, "" end
     if groundTarget then return items:Pickup(groundTarget.id) end
     if target then
@@ -691,6 +715,11 @@ local function Interact()
         return false, target.name .. "的生产或交付功能将在后续阶段加入。"
     end
     return false, "前方没有范围内的有效交互对象。"
+end
+local function Interact()
+    local ok,message=InteractAction()
+    if soundscape and not ok then soundscape:Emit('error') end
+    return ok,message
 end
 
 ---@param position Vector3
@@ -796,6 +825,7 @@ local function StepSimulation(dt)
                 end
                 local completed, message = machine:Update(step)
                 if completed then
+                    if soundscape then soundscape:Machine(station.x,station.z,AreaService.At(station.x,station.z)) end
                     automaticMessage=message
                     if campaign and machine.kind=='cooker' then campaign:Learn('cooker') end
                     if campaign and machine.kind=='assembler' then
@@ -1173,6 +1203,27 @@ function Phase1.MovementVelocity(horizontal, vertical, running, blocked)
     return direction:Normalized() * CONFIG.moveSpeed * (running and 2 or 1)
 end
 
+local function UpdateCharacterPresentation(dt,activity)
+    if not player or not playerVisual or not items or not playerBody then return end
+    local position=player.position
+    local phase=uiController and uiController:Phase() or 'normal'
+    local controllable=phase=='normal' and gameLoop and not gameLoop.briefing and not gameLoop.teaching
+    local delta=animationPosition and position-animationPosition or Vector3.ZERO
+    local moving=controllable and delta.x*delta.x+delta.z*delta.z>0.0000001 and playerBody.linearVelocity:LengthSquared()>0.001
+    animationPosition=position
+    local active=gameLoop and gameLoop:IsRunning() and input.focus and not gameLoop.briefing and not gameLoop.teaching
+    local operation=controllable and manual and manual.grillItem=='raw_beef' and manual.grillProgress>0 and not moving and not items.held
+    for _,key in ipairs({KEY_W,KEY_A,KEY_S,KEY_D,KEY_F,KEY_Q,KEY_E,KEY_R,KEY_B,KEY_TAB,KEY_ESCAPE,KEY_RETURN,KEY_UP,KEY_DOWN,KEY_LEFT,KEY_RIGHT,KEY_LSHIFT,KEY_RSHIFT}) do
+        activity=activity or input:GetKeyDown(key)
+    end
+    activity=activity or worldUICommand or input:GetMouseButtonDown(MOUSEB_LEFT) or input:GetMouseButtonDown(MOUSEB_RIGHT)
+        or input:GetMouseButtonDown(MOUSEB_MIDDLE) or input:GetMouseMoveWheel()~=0
+        or (uiController and next(uiController.touch.pointers)~=nil)
+    StaticArt.AnimatePlayer(player,playerVisual,facing,items.heldNode,presentationEditing,dt,{
+        active=active,controllable=controllable,moving=moving,operating=operation,activity=activity,
+        running=input:GetKeyDown(KEY_LSHIFT) or input:GetKeyDown(KEY_RSHIFT) or (uiController and uiController.touch.running),carrying=items.held~=nil})
+end
+
 ---@param eventType string
 ---@param eventData UpdateEventData
 function Phase1.Update(eventType, eventData)
@@ -1194,12 +1245,12 @@ function Phase1.Update(eventType, eventData)
     RefreshLifecycle()
     if uiController then uiController:Update(dt) end
     if campaignRuntime then campaignRuntime:Frame(dt) end
-    if gameLoop and not gameLoop:IsRunning() then return end
-    if gameLoop and (gameLoop.briefing or gameLoop.teaching) then playerBody.linearVelocity=Vector3.ZERO; return end
-    if gameLoop and gameLoop:CanSimulate() and not wasSimulating then return end
+    if gameLoop and not gameLoop:IsRunning() then UpdateCharacterPresentation(0,inputConsumed);return end
+    if gameLoop and (gameLoop.briefing or gameLoop.teaching) then playerBody.linearVelocity=Vector3.ZERO;UpdateCharacterPresentation(0,true);return end
+    if gameLoop and gameLoop:CanSimulate() and not wasSimulating then UpdateCharacterPresentation(0,true);return end
     -- Resume/next-day clicks own this frame. Do not reset saved manual progress
     -- or advance the new day's clock merely because their F/UI input was used.
-    if not wasRunning then return end
+    if not wasRunning then UpdateCharacterPresentation(0,true);return end
     local horizontal = (input:GetKeyDown(KEY_D) and 1 or 0) - (input:GetKeyDown(KEY_A) and 1 or 0)
     local vertical = (input:GetKeyDown(KEY_W) and 1 or 0) - (input:GetKeyDown(KEY_S) and 1 or 0)
     local touchRunning = false
@@ -1321,6 +1372,7 @@ function Phase1.Update(eventType, eventData)
     end
     heldLabel:SetText(items.held and ("手持：" .. ItemService.Definitions[items.held].name .. " ×1") or "手持：空")
     if items.heldNode then items.heldNode.position = facing * 0.45 + Vector3(0, 0.75, 0) end
+    UpdateCharacterPresentation(dt,inputConsumed or acted)
     if manual then
         if grillStatusLabel then grillStatusLabel:SetText(manual:GrillStatus()) end
         if assemblyStatusLabel then assemblyStatusLabel:SetText(manual:AssemblyStatus()) end
@@ -1355,6 +1407,7 @@ function Phase1.Update(eventType, eventData)
         position.z = math.max(-ad/2+2, math.min(ad/2-2, position.z+delta.y*units))
         cameraNode.position = position
     end
+    Phase1.UpdateCameraFollow(dt)
     if uiController then uiController:Update(0) end
     if RUN_LOOP_CHECKS and not loopChecksDone and elapsed > 6 and (not RUN_STAGE_CHECKS or stageChecksDone) then
         if RUN_HUD_DIAGNOSIS and interface then HudDiagnostics.Capture("pre_loop_suite", interface) end
@@ -1558,6 +1611,49 @@ local function CampaignContext()
         player=assert(player),camera=assert(camera),cameraNode=assert(cameraNode),zoom=zoom,
         target=target,ground=groundTarget,facing=facing,area=currentArea,cashier=cashierOpen,nextBuildingId=nextBuildingId}
 end
+function Phase1.UpdateCameraFollow(dt)
+    if not player or not playerBody or not camera or not cameraNode or not gameLoop then return end
+    local p,cp=player.position,cameraNode.position
+    local paper=player:GetChild('EmployeePaper')
+    local focus=Vector3(p.x,p.y,p.z+(paper and paper.position.z or .75))
+    local screen=camera:WorldToScreenPoint(focus)
+    local phase=uiController and uiController:Phase() or 'normal'
+    local viewHeight=camera.orthoSize/math.max(.01,camera.zoom)
+    local width,depth=AreaService.Size(currentArea);local center=AreaService.Center(currentArea)
+    local x,z,moved=cameraFollow:Step(dt,{
+        x=p.x,z=p.z,area=currentArea,cx=cp.x,cz=cp.z,screenX=screen.x,screenY=screen.y,
+        viewHeight=viewHeight,viewWidth=viewHeight*camera.aspectRatio,
+        minX=center-width/2+2,maxX=center+width/2-2,minZ=-depth/2+2,maxZ=depth/2-2,
+        enabled=(currentArea=='workshop' or currentArea=='shop') and phase=='normal' and gameLoop:IsRunning() and input.focus and not gameLoop.briefing and not gameLoop.teaching,
+        moving=playerBody.linearVelocity:LengthSquared()>.001,
+        manual=input:GetMouseButtonDown(MOUSEB_MIDDLE) or input:GetMouseMoveWheel()~=0 or (uiController~=nil and uiController.touch.gesture~=nil)})
+    if moved then cameraNode.position=Vector3(x,cp.y,z) end
+end
+function Phase1.UpdateAudio(dt)
+    if not soundscape or not player or not playerBody or not gameLoop or not orders or not items or not uiController then return end
+    local phase=uiController:Phase();local p=player.position
+    local clock=StaticArt.PlayerState(player)
+    local edges,attached=0,0
+    if automation then for _ in pairs(automation.cables.edges) do edges=edges+1 end end
+    local grill=0
+    if phase=='normal' and manual and manual.grillItem=='raw_beef' and manual.grillProgress>0 then grill=1 end
+    for _,station in ipairs(stations) do
+        if station.component then attached=attached+1 end
+        local machine=automatics[station.id]
+        if gameLoop:CanSimulate() and machine and machine.kind=='cooker' and machine:IsProcessing() and AreaService.At(station.x,station.z)==currentArea then
+            local distance=math.sqrt((p.x-station.x)^2+(p.z-station.z)^2)
+            if distance<9 then grill=math.max(grill,.45*(1-distance/9)) end
+        end
+    end
+    soundscape:Frame(dt,{focused=input.focus,state=gameLoop.state,day=gameLoop.day,normal=phase=='normal',
+        frozen=gameLoop.briefing or gameLoop.teaching,area=currentArea,x=p.x,z=p.z,held=items.heldNode,
+        moving=playerBody.linearVelocity:LengthSquared()>.001 and clock~=nil and (clock.action=='walk' or clock.action=='run' or clock.action=='carry_walk' or clock.action=='carry_run'),
+        running=clock~=nil and (clock.action=='run' or clock.action=='carry_run'),grill=grill,
+        orders=orders.nextId,delivered=campaign and campaign.delivered or 0,
+        manualReady=manual and manual.grillItem=='cooked_beef',editing=phase~='normal' and phase~='title',
+        layout=audioBuildVersion..':'..(logistics and #logistics.network.belts or 0)..':'..edges..':'..attached})
+end
+function Phase1.AudioReport() return soundscape and soundscape:Report() end
 local function CloseCampaignEditors()
     assert(buildings):Cancel(); assert(logistics):Cancel(); assert(automation):Close()
     cashierOpen=false; assert(components).mode,assert(components).selected=nil,nil
@@ -1609,6 +1705,7 @@ local function RestoreCampaign(state,retry)
     CloseCampaignEditors(); campaign.dirty=true
     assert(logistics).network.revision=assert(logistics).network.revision+1
     assert(logistics):Refresh(); UpdateProductionVisuals()
+    StaticArt.ResetPlayer(assert(player));animationPosition=nil;cameraFollow:Reset()
 end
 
 function Phase1.V06()
@@ -1632,6 +1729,7 @@ function Phase1.Start()
     facing = screenForward
     zoom = 1
     presentationEditing=false
+    cameraFollow:Reset()
     target = nil
     groundTarget = nil
     itemChecksDone = false
@@ -1640,7 +1738,7 @@ function Phase1.Start()
     automaticRouteChecked = false
     stageChecksDone = false
     labelCheckStage, labelCheckCount, labelCheckFailures = 0, 0, 0
-    graphics.windowTitle = "自动化汉堡工厂 · Demo V0.6 · 十天工厂经营"
+    graphics.windowTitle = "自动化汉堡工厂 · Demo V0.7 · 音乐与音效"
     currentArea = "shop"
     restartPending, lifecycleSelection = false, 1
     uiCommands, cashierOpen, nextBuildingId = {}, false, 1
@@ -1648,12 +1746,16 @@ function Phase1.Start()
     input.mouseMode = MM_ABSOLUTE
     input.mouseVisible = true
     CreateScene()
+    audioBuildVersion=0;soundscape=Soundscape.New(assert(scene))
     CreateCharacter()
     SetupCamera()
     CreateUI()
     CreateItems()
     manual = ManualService.New(assert(items))
-    manual.onProduced = function() if gameLoop then gameLoop:RecordBurger("manual") end end
+    manual.onProduced = function()
+        if gameLoop then gameLoop:RecordBurger("manual") end
+        if soundscape then soundscape:Emit('machine',.75) end
+    end
     automatics = {}
     for _, station in ipairs(stations) do
         if station.automaticKind then automatics[station.id] = NewAutomatic(station.automaticKind) end
@@ -1682,6 +1784,8 @@ function Phase1.Start()
     assert(orders).deliveryStores=function() return assert(components):DeliveryStores() end
     uiController = UIController.New({
         get=CampaignContext,
+        sound=function(key) if soundscape then soundscape:Emit(key) end end,
+        audioPreferences=function(p) if soundscape then soundscape:Preferences(p) end end,
         resolve=ResolveInteractionTarget,interact=Interact,
         cashier=function(open) cashierOpen=open end,
         zoom=function(value) zoom=value; assert(camera).zoom=value end,
@@ -1705,6 +1809,7 @@ function Phase1.Start()
     if entry and entry.state then RestoreCampaign(entry.state,entry.retry)
     elseif entry and entry.new then assert(gameLoop):Prepare(); campaign.dirty=true end
     uiController:Update(0)
+    Phase1.UpdateAudio(0)
     stationContents, contentsSignature = {}, ""
     UpdateProductionVisuals()
     RefreshLifecycle()
@@ -1785,6 +1890,11 @@ function Phase1.Restart()
 end
 
 function Phase1.Stop()
+    cameraFollow:Reset()
+    if soundscape then soundscape:Stop();soundscape=nil end
+    StaticArt.Reset()
+    animationPosition=nil
+    Phase1.PresentationReview=nil
     if campaignRuntime and not restartPending then campaignRuntime:Flush() end
     campaignRuntime=nil
     if uiController then uiController:Stop(); uiController=nil end
@@ -1811,6 +1921,8 @@ end
 -- Global event bridge required by UrhoX's string callback interface.
 function FactoryPhase1Update(eventType, eventData)
     Phase1.Update(eventType, eventData)
+    Phase1.UpdateAudio(eventData:GetFloat('TimeStep'))
+    if Phase1.PresentationReview then Phase1.PresentationReview(eventData:GetFloat('TimeStep')) end
 end
 
 function FactoryBuildingLabelsUpdate()

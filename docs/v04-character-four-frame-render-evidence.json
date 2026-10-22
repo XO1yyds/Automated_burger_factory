@@ -1,0 +1,67 @@
+{
+  "passed": 15,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "player display plane clears machine tops without actor movement",
+      "passed": true
+    },
+    {
+      "name": "atlas frame1 texture and guard UV",
+      "passed": true
+    },
+    {
+      "name": "frame2 changes UV without moving paper pivot",
+      "passed": true
+    },
+    {
+      "name": "animation UV rebuild preserves elevated display plane",
+      "passed": true
+    },
+    {
+      "name": "independent actor UV clocks",
+      "passed": true
+    },
+    {
+      "name": "held fades to25percent during construction",
+      "passed": true
+    },
+    {
+      "name": "held fade never changes shared ground opacity",
+      "passed": true
+    },
+    {
+      "name": "held opacity restores",
+      "passed": true
+    },
+    {
+      "name": "rear cargo is behind body plane",
+      "passed": true
+    },
+    {
+      "name": "cargo planes clear machines and retain front back ordering",
+      "passed": true
+    },
+    {
+      "name": "missing texture falls back to whole static direction",
+      "passed": true
+    },
+    {
+      "name": "missing texture keeps same elevated paper layer",
+      "passed": true
+    },
+    {
+      "name": "missing clip also resets atlas UV to whole static frame",
+      "passed": true
+    },
+    {
+      "name": "restored clip returns to atlas",
+      "passed": true
+    },
+    {
+      "name": "reset clears animation while retaining fixed quad",
+      "passed": true
+    }
+  ],
+  "scope": "Actual StaticArt Lua with recording geometry/material mocks; texture coordinates, ownership and failure paths, not native shader output"
+}

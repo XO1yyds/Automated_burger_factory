@@ -1,0 +1,801 @@
+{
+  "date": "2026-10-19",
+  "baseline": "user-accepted V0.6 gameplay; V0.4 static art resumed",
+  "assets": [
+    {
+      "id": "bun",
+      "source": "assets/image/v04_static_food_clean_r2_20261019053048.png",
+      "source_region": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "source_alpha_bounds": [
+        84,
+        107,
+        447,
+        487
+      ],
+      "path": "assets/image/v04_static/runtime/bun.png",
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "87d1613a0bd6fb2f0a343e94903be5cd9ef1fd75253c5997136cb21bdad3e75e",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "raw_beef",
+      "source": "assets/image/v04_static_food_clean_r2_20261019053048.png",
+      "source_region": [
+        512,
+        0,
+        1024,
+        512
+      ],
+      "source_alpha_bounds": [
+        57,
+        151,
+        455,
+        472
+      ],
+      "path": "assets/image/v04_static/runtime/raw_beef.png",
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "c9ac12f6d0e40e26e9ce172fee60c0431a55ed3d89810996ac6928363ddb8f38",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "cooked_beef",
+      "source": "assets/image/v04_static_food_clean_r2_20261019053048.png",
+      "source_region": [
+        1024,
+        0,
+        1536,
+        512
+      ],
+      "source_alpha_bounds": [
+        49,
+        150,
+        443,
+        474
+      ],
+      "path": "assets/image/v04_static/runtime/cooked_beef.png",
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "f4bb58e9d68444539a16928313d1f6f2918f75ab75e183052927c75c1208d6fe",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "lettuce",
+      "source": "assets/image/v04_static_food_clean_r2_20261019053048.png",
+      "source_region": [
+        0,
+        512,
+        512,
+        1024
+      ],
+      "source_alpha_bounds": [
+        68,
+        76,
+        460,
+        403
+      ],
+      "path": "assets/image/v04_static/runtime/lettuce.png",
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "1a5b1e53cf8e8143076af534c9dee8e303e02a9f6d3d0cca219974384254f062",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "burger",
+      "source": "assets/image/v04_static_food_clean_r2_20261019053048.png",
+      "source_region": [
+        512,
+        512,
+        1024,
+        1024
+      ],
+      "source_alpha_bounds": [
+        45,
+        32,
+        470,
+        440
+      ],
+      "path": "assets/image/v04_static/runtime/burger.png",
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "1e3271f6d752fc65de77d754e9a54fe7b9cf1828b3a6228a625f3e3f4d8e0334",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "cooker_top",
+      "source": "assets/image/v04_static_cooker_top_r1_20261019052752.png",
+      "source_region": null,
+      "source_alpha_bounds": [
+        30,
+        91,
+        738,
+        416
+      ],
+      "path": "assets/image/v04_static/runtime/cooker_top.png",
+      "size": [
+        708,
+        325
+      ],
+      "sha256": "12387c46245bfda858c49fe5984c48ad12bfe10640ad850f9d7afa348dab61e0",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "assembler_top",
+      "source": "assets/image/v04_static_assembler_top_r1_20261019053110.png",
+      "source_region": null,
+      "source_alpha_bounds": [
+        20,
+        72,
+        749,
+        444
+      ],
+      "path": "assets/image/v04_static/runtime/assembler_top.png",
+      "size": [
+        729,
+        372
+      ],
+      "sha256": "4e75d91f71155f67d46e56f5cfa92a3c7950b1c08d8bdba31e42e9b85d4391db",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "manual_grill_top",
+      "source": "assets/image/v04_static_manual_grill_top_r1_20261019053110.png",
+      "source_region": null,
+      "source_alpha_bounds": [
+        22,
+        71,
+        747,
+        439
+      ],
+      "path": "assets/image/v04_static/runtime/manual_grill_top.png",
+      "size": [
+        725,
+        368
+      ],
+      "sha256": "676bbfd93149e4faf3ac836416b6107c8b2ad7ec29f966a9fd83163156cf06c4",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "manual_assembly_top",
+      "source": "assets/image/v04_static_manual_assembly_top_r1_20261019053110.png",
+      "source_region": null,
+      "source_alpha_bounds": [
+        33,
+        103,
+        735,
+        402
+      ],
+      "path": "assets/image/v04_static/runtime/manual_assembly_top.png",
+      "size": [
+        702,
+        299
+      ],
+      "sha256": "b49c2fea1c4c12c62b130680f244f4373903e5ea3821147b3c2d68c95e44d46c",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "supply_top",
+      "source": "assets/image/v04_static_supply_top_r1_20261019053110.png",
+      "source_region": null,
+      "source_alpha_bounds": [
+        24,
+        108,
+        744,
+        387
+      ],
+      "path": "assets/image/v04_static/runtime/supply_top.png",
+      "size": [
+        720,
+        279
+      ],
+      "sha256": "b032e5140bf18d616bfd89bfa3376849251e72333a7943e2055b208af76bfbaa",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "buffer_top",
+      "source": "assets/image/v04_static_buffer_top_r1_20261019053110.png",
+      "source_region": null,
+      "source_alpha_bounds": [
+        29,
+        27,
+        483,
+        485
+      ],
+      "path": "assets/image/v04_static/runtime/buffer_top.png",
+      "size": [
+        454,
+        458
+      ],
+      "sha256": "9922d47e5670dc64dbad52a1c2545ddb9bb3795b3af556bb3f2d626364ddf2fb",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "storage_top",
+      "source": "assets/image/v04_static_storage_top_r1_20261019053110.png",
+      "source_region": null,
+      "source_alpha_bounds": [
+        120,
+        25,
+        392,
+        487
+      ],
+      "path": "assets/image/v04_static/runtime/storage_top.png",
+      "size": [
+        272,
+        462
+      ],
+      "sha256": "5b81ff7ebb406853b7cc8940d12559c6736ff0275c3a6ca4ab5ff25add86a76b",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "cashier_top",
+      "source": "assets/image/v04_static_cashier_top_r1_20261019053110.png",
+      "source_region": null,
+      "source_alpha_bounds": [
+        24,
+        88,
+        746,
+        421
+      ],
+      "path": "assets/image/v04_static/runtime/cashier_top.png",
+      "size": [
+        722,
+        333
+      ],
+      "sha256": "aa5d78f75ddf48815154472c2f9ebb5362c667383d3574d6450ee1cb63fab85c",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "trash_top",
+      "source": "assets/image/v04_static_trash_top_r1_20261019053110.png",
+      "source_region": null,
+      "source_alpha_bounds": [
+        44,
+        32,
+        462,
+        456
+      ],
+      "path": "assets/image/v04_static/runtime/trash_top.png",
+      "size": [
+        418,
+        424
+      ],
+      "sha256": "20428e1f5403b9e43eb2fb29c12c5c4ba5892cb53fcaff132183657cec7d9df7",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "employee_front",
+      "source": "assets/image/employee_v04/basis_v1/front.png",
+      "source_region": null,
+      "source_alpha_bounds": [
+        134,
+        42,
+        377,
+        494
+      ],
+      "path": "assets/image/v04_static/runtime/employee_front.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "e1a3ecf1959deb7182697afd5d7fa21735799ae3c470cae91fe73d2773a13c5e",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "employee_left",
+      "source": "assets/image/employee_v04/basis_v1/left.png",
+      "source_region": null,
+      "source_alpha_bounds": [
+        131,
+        44,
+        380,
+        494
+      ],
+      "path": "assets/image/v04_static/runtime/employee_left.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "82c28ae1c7818116ec536013fe2c0f28cf4978c8221ea2cff21f5376343b82a5",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "employee_right",
+      "source": "assets/image/employee_v04/basis_v1/right.png",
+      "source_region": null,
+      "source_alpha_bounds": [
+        132,
+        49,
+        379,
+        494
+      ],
+      "path": "assets/image/v04_static/runtime/employee_right.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "71d4588a1a95ab6753aaa8e97249cdb70dd1fadd041c21441c27cb74836e1344",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "employee_back",
+      "source": "assets/image/employee_v04/basis_v1/back.png",
+      "source_region": null,
+      "source_alpha_bounds": [
+        141,
+        50,
+        370,
+        494
+      ],
+      "path": "assets/image/v04_static/runtime/employee_back.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "58626fd86a1dbba751fdb77e126d5dea6e9e9d08d13f468f3b36edce25bb4074",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "shop_floor",
+      "source": "assets/image/v04_static_shop_floor_r1_20261019053532.png",
+      "source_region": null,
+      "source_alpha_bounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "path": "assets/image/v04_static/runtime/shop_floor.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "04b0fd73a329405912608cc9f584f24adde4188fce3edea701e341e89978d824",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "workshop_floor",
+      "source": "assets/image/v04_static_workshop_floor_r1_20261019053532.png",
+      "source_region": null,
+      "source_alpha_bounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "path": "assets/image/v04_static/runtime/workshop_floor.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "528d71f3768f2eb3726f76ecb0c8085706e16e42fa41923ade5c3a05b40c573a",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "belt_tile",
+      "source": "assets/image/v04_static_belt_tile_r1_20261019053532.png",
+      "source_region": null,
+      "source_alpha_bounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "path": "assets/image/v04_static/runtime/belt_tile.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "937ae681f732d8280bfd5f23d8885e0814a37a3d41326cf71ec496574a8e3ac9",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "title_bg",
+      "source": "assets/image/v04_static_title_bg_r1_20261019053532.png",
+      "source_region": null,
+      "source_alpha_bounds": [
+        0,
+        0,
+        1536,
+        864
+      ],
+      "path": "assets/image/v04_static/runtime/title_bg.png",
+      "size": [
+        1536,
+        864
+      ],
+      "sha256": "090ef4817c0d4af75f72ecc1b1b08de089e95d868e146a5991f5bfaef411a5cc",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "order_badge",
+      "source": "assets/image/v04_static_symbols_atlas_r1_20261019053532.png",
+      "source_region": [
+        0,
+        0,
+        256,
+        768
+      ],
+      "source_alpha_bounds": [
+        17,
+        418,
+        239,
+        647
+      ],
+      "path": "assets/image/v04_static/runtime/order_badge.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "e4fc786483b0f6bfe42f99dddec58879e5402fbc1ce4490236eaca5b43ad9840",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "delivery_badge",
+      "source": "assets/image/v04_static_symbols_atlas_r1_20261019053532.png",
+      "source_region": [
+        256,
+        0,
+        512,
+        768
+      ],
+      "source_alpha_bounds": [
+        21,
+        411,
+        238,
+        633
+      ],
+      "path": "assets/image/v04_static/runtime/delivery_badge.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "60e48f572b0444aabf0f2f67a8b8a9bd2ec4cc69f7e878e15da67fddf256924c",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "stock_icon",
+      "source": "assets/image/v04_static_symbols_atlas_r1_20261019053532.png",
+      "source_region": [
+        512,
+        0,
+        768,
+        768
+      ],
+      "source_alpha_bounds": [
+        11,
+        419,
+        254,
+        634
+      ],
+      "path": "assets/image/v04_static/runtime/stock_icon.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "64bd5b18ba3ce5fabf050786ba22dca80367dc6be0ef9d3ac1c54e2958e5f11a",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "coin_icon",
+      "source": "assets/image/v04_static_symbols_atlas_r1_20261019053532.png",
+      "source_region": [
+        768,
+        0,
+        1024,
+        768
+      ],
+      "source_alpha_bounds": [
+        20,
+        411,
+        239,
+        638
+      ],
+      "path": "assets/image/v04_static/runtime/coin_icon.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "d9707c2688c8d01f38519d23c1dec6a29977602ab7c792d4599e6226d4f8e332",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "junction_icon",
+      "source": "assets/image/v04_static_symbols_atlas_r1_20261019053532.png",
+      "source_region": [
+        0,
+        768,
+        256,
+        1536
+      ],
+      "source_alpha_bounds": [
+        15,
+        96,
+        243,
+        359
+      ],
+      "path": "assets/image/v04_static/runtime/junction_icon.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "513ec959b3072ee9f173ea7c0654fdf7a6b8e7e0206e3b3f1b4fb847d64cb29d",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "save_icon",
+      "source": "assets/image/v04_static_symbols_atlas_r1_20261019053532.png",
+      "source_region": [
+        256,
+        768,
+        512,
+        1536
+      ],
+      "source_alpha_bounds": [
+        18,
+        117,
+        241,
+        344
+      ],
+      "path": "assets/image/v04_static/runtime/save_icon.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "40def21fad0d699e3ee139f3cad6bbb770c99d8dbb93d8f82bc9e642183eb067",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source review passed; reserved icon, no new save action",
+      "runtime_enabled": false
+    },
+    {
+      "id": "workshop_icon",
+      "source": "assets/image/v04_static_symbols_atlas_r1_20261019053532.png",
+      "source_region": [
+        512,
+        768,
+        768,
+        1536
+      ],
+      "source_alpha_bounds": [
+        15,
+        101,
+        247,
+        360
+      ],
+      "path": "assets/image/v04_static/runtime/workshop_icon.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "18a2f43742b517d67852180c695491aef74228e78fbbf662544550a1ba1b66f2",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    },
+    {
+      "id": "shop_icon",
+      "source": "assets/image/v04_static_symbols_atlas_r1_20261019053532.png",
+      "source_region": [
+        768,
+        768,
+        1024,
+        1536
+      ],
+      "source_alpha_bounds": [
+        10,
+        94,
+        250,
+        357
+      ],
+      "path": "assets/image/v04_static/runtime/shop_icon.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "97f5ab31162c8f2a404ee2f164e5e8944dd40477543410809004e811556b9cd4",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "method": "crop/common canvas/resize/clear invisible RGB only",
+      "art_review": "Agent source and Windows scene/UI review passed",
+      "runtime_enabled": true
+    }
+  ],
+  "total": 30,
+  "character_pivot": [
+    0.5,
+    0.96875
+  ],
+  "animation_added": false,
+  "source_receipts": "assets/image/v04_static/receipts",
+  "review_evidence": "docs/v04-static-art-runtime-evidence.json",
+  "runtime_enabled_total": 29,
+  "reserved_total": 1
+}

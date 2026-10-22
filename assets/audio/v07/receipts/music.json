@@ -1,0 +1,20 @@
+{
+  "success": true,
+  "taskId": "temp_8ebed0bd-d2d3-4f47-b15c-9bb6a133af19",
+  "totalSeconds": 42,
+  "music": {
+    "id": "31f5f805-9e5a-4b7a-9cca-c279e21d1310",
+    "title": "Burger Factory — A Little More Each Day",
+    "tags": "Light bossa nova jazz, instrumental; warm electric piano, soft plucked bass, muted guitar, brushed drums, tiny marimba lead; gentle 104 BPM sway; playful hand-drawn cartoon mood, restrained dynamics, uncluttered mix.",
+    "duration": 156.8,
+    "modelName": "chirp-hawk",
+    "audioUrl": "https://tempfile.aiquickdraw.com/r/31f5f805-9e5a-4b7a-9cca-c279e21d1310.mp3",
+    "createTime": 1792399471860,
+    "oggPath": null,
+    "localPath": "assets/audio/Burger_Factory_—_A_Little_More_Each_Day_20261019084438.mp3",
+    "absolutePath": "D:\\MyWork\\聚光灯game\\CodexDocu\\assets\\audio\\Burger_Factory_—_A_Little_More_Each_Day_20261019084438.mp3",
+    "download": {
+      "success": true
+    }
+  }
+}

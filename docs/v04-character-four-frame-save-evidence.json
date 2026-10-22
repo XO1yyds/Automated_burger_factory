@@ -1,0 +1,13 @@
+{
+  "scope": "production durable save files vs pre-animation baseline",
+  "files": [
+    {
+      "file": "burger-v06-a.json",
+      "byte_identical": true
+    },
+    {
+      "file": "burger-v06-b.json",
+      "byte_identical": true
+    }
+  ]
+}

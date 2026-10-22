@@ -1,0 +1,307 @@
+{
+  "session_id": "fa1cad9c-45ae-476c-b3bb-3dac327297d4",
+  "reload_id": 2,
+  "scope": "Preview source snapshot only; not visual or audio playback acceptance",
+  "files": [
+    {
+      "path": "scripts/main.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/AttachedComponents.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/AudioAssets.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/AudioNativeChecks.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/AutomaticChecks.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/AutomaticWorkstation.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/AutomationArea.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/BufferStorage.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/Buildings.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/CableNetwork.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/Campaign.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/CampaignRecovery.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/CampaignRuntime.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/CampaignWorld.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/CharacterAnimation.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/CharacterAnimationChecks.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/CharacterFrames.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/CharacterNativeChecks.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/CommerceChecks.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/ConveyorBuilder.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/ConveyorChecks.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/ConveyorControl.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/ConveyorEditingChecks.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/ConveyorGeometry.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/ConveyorNetwork.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/ConveyorWorld.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/DayConfig.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/GameLoop.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/HudDiagnostics.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/Interface.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/InterfaceV3.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/ItemChecks.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/Items.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/LocalSave.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/LoopChecks.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/ManualChecks.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/ManualProduction.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/OrderAutomation.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/OrderAutomationControl.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/Orders.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/OrderTerminalModel.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/OrthographicView.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/Phase1.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/ProductionPlanner.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/ReviewFixChecks.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/SaveCodec.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/Soundscape.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/StageChecks.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/StaticArt.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/StaticArtChecks.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/TouchInput.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/UIArt.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/UIArtLayout.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/UIArtReview.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/UIChecks.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/UIController.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/UIPreferences.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/UIState.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/V05AttachedChecks.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/V05Checks.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/V05RuntimeChecks.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/V06Checks.lua",
+      "matches": true
+    },
+    {
+      "path": "scripts/Factory/V06RuntimeChecks.lua",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/v07/runtime/build.wav",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/v07/runtime/day.wav",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/v07/runtime/delivery.wav",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/v07/runtime/drop.wav",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/v07/runtime/error.wav",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/v07/runtime/grill.wav",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/v07/runtime/machine.wav",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/v07/runtime/music.ogg",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/v07/runtime/order.wav",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/v07/runtime/pickup.wav",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/v07/runtime/step.wav",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/v07/runtime/ui.wav",
+      "matches": true
+    }
+  ]
+}

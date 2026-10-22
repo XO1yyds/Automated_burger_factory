@@ -1,0 +1,1567 @@
+{
+  "front_idle": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/front_idle_first_style_v5/full_frame_v6/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/front_idle_first_style_v5/full_frame_v6/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/front_idle_first_style_v5/full_frame_v6/export256/spritesheet.png",
+        "rect": [
+          262,
+          262,
+          518,
+          518
+        ],
+        "normalized": true,
+        "original_index": 4,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/front_idle_first_style_v5/full_frame_v6/export256/spritesheet.png",
+        "rect": [
+          2,
+          522,
+          258,
+          778
+        ],
+        "normalized": true,
+        "original_index": 6,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse complete authored poses; no head/eye replacement"
+  },
+  "front_carry_idle": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/front_carry_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/front_carry_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          262,
+          2,
+          518,
+          258
+        ],
+        "normalized": true,
+        "original_index": 1,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/front_carry_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/front_carry_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          262,
+          258,
+          518
+        ],
+        "normalized": true,
+        "original_index": 3,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse complete authored poses; no head/eye replacement"
+  },
+  "front_operate": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/front_operate/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/front_operate/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/front_operate/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          262,
+          262,
+          518,
+          518
+        ],
+        "normalized": true,
+        "original_index": 4,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/front_operate/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          522,
+          258,
+          778
+        ],
+        "normalized": true,
+        "original_index": 6,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse complete authored poses; no head/eye replacement"
+  },
+  "front_think": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/front_think/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/front_think/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          262,
+          258,
+          518
+        ],
+        "normalized": true,
+        "original_index": 3,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/front_think/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          522,
+          258,
+          778
+        ],
+        "normalized": true,
+        "original_index": 6,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/front_think/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          782,
+          258,
+          1038
+        ],
+        "normalized": true,
+        "original_index": 9,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse complete authored poses; no head/eye replacement"
+  },
+  "left_idle": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/left_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/left_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/left_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          262,
+          262,
+          518,
+          518
+        ],
+        "normalized": true,
+        "original_index": 4,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/left_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          522,
+          258,
+          778
+        ],
+        "normalized": true,
+        "original_index": 6,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse complete authored poses; no head/eye replacement"
+  },
+  "left_carry_idle": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/left_carry_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/left_carry_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          262,
+          2,
+          518,
+          258
+        ],
+        "normalized": true,
+        "original_index": 1,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/left_carry_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/left_carry_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          262,
+          258,
+          518
+        ],
+        "normalized": true,
+        "original_index": 3,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse complete authored poses; no head/eye replacement"
+  },
+  "left_operate": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/left_operate/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/left_operate/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/left_operate/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          262,
+          262,
+          518,
+          518
+        ],
+        "normalized": true,
+        "original_index": 4,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/left_operate/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          522,
+          258,
+          778
+        ],
+        "normalized": true,
+        "original_index": 6,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse complete authored poses; no head/eye replacement"
+  },
+  "left_think": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/left_think/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/left_think/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          262,
+          258,
+          518
+        ],
+        "normalized": true,
+        "original_index": 3,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/left_think/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          522,
+          258,
+          778
+        ],
+        "normalized": true,
+        "original_index": 6,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/left_think/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          782,
+          258,
+          1038
+        ],
+        "normalized": true,
+        "original_index": 9,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse complete authored poses; no head/eye replacement"
+  },
+  "right_idle": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/right_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          262,
+          262,
+          518,
+          518
+        ],
+        "normalized": true,
+        "original_index": 4,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          522,
+          258,
+          778
+        ],
+        "normalized": true,
+        "original_index": 6,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse complete authored poses; no head/eye replacement"
+  },
+  "right_carry_idle": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/right_carry_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_carry_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          262,
+          2,
+          518,
+          258
+        ],
+        "normalized": true,
+        "original_index": 1,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_carry_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_carry_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          262,
+          258,
+          518
+        ],
+        "normalized": true,
+        "original_index": 3,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse complete authored poses; no head/eye replacement"
+  },
+  "right_operate": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/right_operate/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_operate/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_operate/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          262,
+          262,
+          518,
+          518
+        ],
+        "normalized": true,
+        "original_index": 4,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_operate/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          522,
+          258,
+          778
+        ],
+        "normalized": true,
+        "original_index": 6,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse complete authored poses; no head/eye replacement"
+  },
+  "right_think": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/right_think/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_think/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          262,
+          258,
+          518
+        ],
+        "normalized": true,
+        "original_index": 3,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_think/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          522,
+          258,
+          778
+        ],
+        "normalized": true,
+        "original_index": 6,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_think/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          782,
+          258,
+          1038
+        ],
+        "normalized": true,
+        "original_index": 9,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse complete authored poses; no head/eye replacement"
+  },
+  "back_idle": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/back_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/back_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/back_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          262,
+          262,
+          518,
+          518
+        ],
+        "normalized": true,
+        "original_index": 4,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/back_idle/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          522,
+          258,
+          778
+        ],
+        "normalized": true,
+        "original_index": 6,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse complete authored poses; no head/eye replacement"
+  },
+  "back_carry_idle": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/back_carry_idle/candidate_v6/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/back_carry_idle/candidate_v6/export256/spritesheet.png",
+        "rect": [
+          262,
+          2,
+          518,
+          258
+        ],
+        "normalized": true,
+        "original_index": 1,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/back_carry_idle/candidate_v6/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/back_carry_idle/candidate_v6/export256/spritesheet.png",
+        "rect": [
+          2,
+          262,
+          258,
+          518
+        ],
+        "normalized": true,
+        "original_index": 3,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse complete authored poses; no head/eye replacement"
+  },
+  "back_operate": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/back_operate/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/back_operate/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/back_operate/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          262,
+          262,
+          518,
+          518
+        ],
+        "normalized": true,
+        "original_index": 4,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/back_operate/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          522,
+          258,
+          778
+        ],
+        "normalized": true,
+        "original_index": 6,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse complete authored poses; no head/eye replacement"
+  },
+  "back_think": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/back_think/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/back_think/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          262,
+          258,
+          518
+        ],
+        "normalized": true,
+        "original_index": 3,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/back_think/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          522,
+          258,
+          778
+        ],
+        "normalized": true,
+        "original_index": 6,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/back_think/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          782,
+          258,
+          1038
+        ],
+        "normalized": true,
+        "original_index": 9,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse complete authored poses; no head/eye replacement"
+  },
+  "front_walk": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/front_walk/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/front_walk/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/front_walk/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          262,
+          262,
+          518,
+          518
+        ],
+        "normalized": true,
+        "original_index": 4,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_four_front_walk_r2_pose_20261019073040.png",
+        "provenance": "current_task_existing_delivered_asset",
+        "cell": 0
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Neutral/step/neutral/opposite lifting foot; simple4, not smooth8"
+  },
+  "left_walk": {
+    "frames": [
+      {
+        "source": "assets/image/employee_left_walk_four_r3_20261019072330.png",
+        "provenance": "current_task_existing_delivered_asset",
+        "cell": 0
+      },
+      {
+        "source": "assets/image/employee_left_walk_four_r3_20261019072330.png",
+        "provenance": "current_task_existing_delivered_asset",
+        "cell": 1
+      },
+      {
+        "source": "assets/image/employee_left_walk_four_r3_20261019072330.png",
+        "provenance": "current_task_existing_delivered_asset",
+        "cell": 2
+      },
+      {
+        "source": "assets/image/employee_left_walk_four_r3_20261019072330.png",
+        "provenance": "current_task_existing_delivered_asset",
+        "cell": 3
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reviewed4-pose strip, near/far overlap changes after half-cycle"
+  },
+  "right_walk": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/right_walk/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_walk/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          262,
+          2,
+          518,
+          258
+        ],
+        "normalized": true,
+        "original_index": 1,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_walk/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          262,
+          258,
+          518
+        ],
+        "normalized": true,
+        "original_index": 3,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_walk/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          522,
+          258,
+          778
+        ],
+        "normalized": true,
+        "original_index": 6,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse same-batch complete poses including odd-index transitions; simple4 gait"
+  },
+  "back_walk": {
+    "frames": [
+      {
+        "source": "assets/image/employee_four_back_walk_r2_pose_20261019073150.png",
+        "provenance": "current_task_existing_delivered_asset",
+        "cell": 0
+      },
+      {
+        "source": "assets/image/employee_four_back_walk_r2_pose_20261019073150.png",
+        "provenance": "current_task_existing_delivered_asset",
+        "cell": 1
+      },
+      {
+        "source": "assets/image/employee_four_back_walk_r2_pose_20261019073150.png",
+        "provenance": "current_task_existing_delivered_asset",
+        "cell": 2
+      },
+      {
+        "source": "assets/image/employee_four_back_walk_r2_pose_20261019073150.png",
+        "provenance": "current_task_existing_delivered_asset",
+        "cell": 3
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Rear4-pose strip; alternate lifting foot"
+  },
+  "front_run": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/front_run_depth_demo_v2/export_v2/frames256/frame_01.png",
+        "normalized": true,
+        "provenance": "pre_task_depth_guided_full_pose"
+      },
+      {
+        "source": "assets/image/employee_v04/front_run_depth_demo_v2/export_v2/frames256/frame_03.png",
+        "normalized": true,
+        "provenance": "pre_task_depth_guided_full_pose"
+      },
+      {
+        "source": "assets/image/employee_v04/front_run_depth_demo_v2/export_v2/frames256/frame_05.png",
+        "normalized": true,
+        "provenance": "pre_task_depth_guided_full_pose"
+      },
+      {
+        "source": "assets/image/employee_v04/front_run_depth_demo_v2/export_v2/frames256/frame_07.png",
+        "normalized": true,
+        "provenance": "pre_task_depth_guided_full_pose"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse depth-guided complete run poses across both half-cycles"
+  },
+  "back_run": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/back_run_depth_demo_v1/export_v1/frames256/frame_01.png",
+        "normalized": true,
+        "provenance": "pre_task_depth_guided_full_pose"
+      },
+      {
+        "source": "assets/image/employee_v04/back_run_depth_demo_v1/export_v1/frames256/frame_03.png",
+        "normalized": true,
+        "provenance": "pre_task_depth_guided_full_pose"
+      },
+      {
+        "source": "assets/image/employee_v04/back_run_depth_demo_v1/export_v1/frames256/frame_05.png",
+        "normalized": true,
+        "provenance": "pre_task_depth_guided_full_pose"
+      },
+      {
+        "source": "assets/image/employee_v04/back_run_depth_demo_v1/export_v1/frames256/frame_07.png",
+        "normalized": true,
+        "provenance": "pre_task_depth_guided_full_pose"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse depth-guided complete run poses across both half-cycles"
+  },
+  "left_run": {
+    "frames": [
+      {
+        "source": "assets/image/employee_four_left_run_r1_20261019072803.png",
+        "provenance": "current_task_existing_delivered_asset",
+        "cell": 0
+      },
+      {
+        "source": "assets/image/employee_four_left_run_r1_20261019072803.png",
+        "provenance": "current_task_existing_delivered_asset",
+        "cell": 1
+      },
+      {
+        "source": "assets/image/employee_four_left_run_r1_20261019072803.png",
+        "provenance": "current_task_existing_delivered_asset",
+        "cell": 2
+      },
+      {
+        "source": "assets/image/employee_four_left_run_r1_20261019072803.png",
+        "provenance": "current_task_existing_delivered_asset",
+        "cell": 3
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Simple run poses, complete head/body and different knee bends"
+  },
+  "right_run": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/right_run/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_run/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_run/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          262,
+          262,
+          518,
+          518
+        ],
+        "normalized": true,
+        "original_index": 4,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_run/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          262,
+          778,
+          518
+        ],
+        "normalized": true,
+        "original_index": 5,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse same-batch high-knee poses and odd-index transition; not only accelerated walk"
+  },
+  "front_carry_walk": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/front_carry_walk/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/front_carry_walk/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/front_carry_walk/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          262,
+          262,
+          518,
+          518
+        ],
+        "normalized": true,
+        "original_index": 4,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/four_frame_v1/builtin/front_carry_walk_b.png",
+        "provenance": "current_task_existing_delivered_asset"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Existing neutral and step poses with already-delivered opposite-leg whole pose; no props baked in"
+  },
+  "front_carry_run": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/front_carry_run/candidate_v5/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/front_carry_run/candidate_v5/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/front_carry_run/candidate_v5/export256/spritesheet.png",
+        "rect": [
+          262,
+          262,
+          518,
+          518
+        ],
+        "normalized": true,
+        "original_index": 4,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/front_carry_run/candidate_v5/export256/spritesheet.png",
+        "rect": [
+          2,
+          522,
+          258,
+          778
+        ],
+        "normalized": true,
+        "original_index": 6,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse same-batch full-body poses; prefer odd-index passing phase over newly generated proportion changes"
+  },
+  "left_carry_walk": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/left_carry_walk/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/left_carry_walk/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/left_carry_walk/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          262,
+          262,
+          518,
+          518
+        ],
+        "normalized": true,
+        "original_index": 4,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/four_frame_v1/builtin/left_carry_walk_b_r2.png",
+        "provenance": "current_task_existing_delivered_asset"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Existing neutral and step poses with already-delivered opposite-leg whole pose; no props baked in"
+  },
+  "left_carry_run": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/left_carry_run/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/left_carry_run/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/left_carry_run/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          262,
+          262,
+          518,
+          518
+        ],
+        "normalized": true,
+        "original_index": 4,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/left_carry_run/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          262,
+          778,
+          518
+        ],
+        "normalized": true,
+        "original_index": 5,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse same-batch full-body poses; prefer odd-index passing phase over newly generated proportion changes"
+  },
+  "right_carry_walk": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/right_carry_walk/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_carry_walk/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_carry_walk/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          262,
+          262,
+          518,
+          518
+        ],
+        "normalized": true,
+        "original_index": 4,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_carry_run/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          262,
+          778,
+          518
+        ],
+        "normalized": true,
+        "original_index": 5,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse one existing carrying run passing pose; all complete characters, simple4"
+  },
+  "right_carry_run": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/right_carry_run/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_carry_run/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_carry_run/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          262,
+          262,
+          518,
+          518
+        ],
+        "normalized": true,
+        "original_index": 4,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/right_carry_run/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          262,
+          778,
+          518
+        ],
+        "normalized": true,
+        "original_index": 5,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse same-batch full-body poses; prefer odd-index passing phase over newly generated proportion changes"
+  },
+  "back_carry_walk": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/back_carry_walk/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/back_carry_walk/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/back_carry_walk/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          262,
+          778,
+          518
+        ],
+        "normalized": true,
+        "original_index": 5,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/back_carry_run/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          262,
+          258,
+          518
+        ],
+        "normalized": true,
+        "original_index": 3,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Reuse rear carry_run frame4 for opposite heel; no new rear request"
+  },
+  "back_carry_run": {
+    "frames": [
+      {
+        "source": "assets/image/employee_v04/states_v1/back_carry_run/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          2,
+          258,
+          258
+        ],
+        "normalized": true,
+        "original_index": 0,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/back_carry_run/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          522,
+          2,
+          778,
+          258
+        ],
+        "normalized": true,
+        "original_index": 2,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/back_carry_run/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          2,
+          262,
+          258,
+          518
+        ],
+        "normalized": true,
+        "original_index": 3,
+        "provenance": "pre_task_catalog"
+      },
+      {
+        "source": "assets/image/employee_v04/states_v1/back_carry_run/candidate_v4/export256/spritesheet.png",
+        "rect": [
+          262,
+          522,
+          518,
+          778
+        ],
+        "normalized": true,
+        "original_index": 7,
+        "provenance": "pre_task_catalog"
+      }
+    ],
+    "art_review": "selected_for_simple_four_frame_runtime_review",
+    "note": "Includes original frame4 opposite outsole, missed by even-index extraction"
+  }
+}

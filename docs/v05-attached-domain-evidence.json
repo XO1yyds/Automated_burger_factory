@@ -2,7 +2,7 @@
   "runtime": "Lua 5.4",
   "passed": 32,
   "failed": 0,
-  "duration_seconds": 0.027,
+  "duration_seconds": 0.035,
   "checks": [
     {
       "name": "order component cannot bind a buffer",

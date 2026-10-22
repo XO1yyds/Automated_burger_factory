@@ -1,0 +1,179 @@
+{
+  "passed": 43,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "old preferences receive safe audio defaults",
+      "passed": true
+    },
+    {
+      "name": "audio ranges and invalid fields sanitized",
+      "passed": true
+    },
+    {
+      "name": "loading inventory or pending orders has no fake cue",
+      "passed": true
+    },
+    {
+      "name": "music starts once in focused scene",
+      "passed": true
+    },
+    {
+      "name": "real order arrival cues once",
+      "passed": true
+    },
+    {
+      "name": "real partial delivery cues once",
+      "passed": true
+    },
+    {
+      "name": "held identity exchange cues once",
+      "passed": true
+    },
+    {
+      "name": "stable state never repeats reward cues",
+      "passed": true
+    },
+    {
+      "name": "held release cues once",
+      "passed": true
+    },
+    {
+      "name": "committed layout changes cue",
+      "passed": true
+    },
+    {
+      "name": "non editing background changes stay silent",
+      "passed": true
+    },
+    {
+      "name": "actual cooking enables one grill loop",
+      "passed": true
+    },
+    {
+      "name": "pause stops world but retains soft music",
+      "passed": true
+    },
+    {
+      "name": "paused music is attenuated",
+      "passed": true
+    },
+    {
+      "name": "paused world emission rejected",
+      "passed": true
+    },
+    {
+      "name": "paused UI still responds",
+      "passed": true
+    },
+    {
+      "name": "background mutes all categories immediately",
+      "passed": true
+    },
+    {
+      "name": "background refuses notifications",
+      "passed": true
+    },
+    {
+      "name": "focus return never starts production audio",
+      "passed": true
+    },
+    {
+      "name": "dense machines coalesce completion sounds",
+      "passed": true
+    },
+    {
+      "name": "off area machine remains silent",
+      "passed": true
+    },
+    {
+      "name": "distant machine remains silent",
+      "passed": true
+    },
+    {
+      "name": "actual distance drives footsteps",
+      "passed": true
+    },
+    {
+      "name": "blocked movement does not make footsteps",
+      "passed": true
+    },
+    {
+      "name": "teleports do not produce step bursts",
+      "passed": true
+    },
+    {
+      "name": "area switch resets footstep distance",
+      "passed": true
+    },
+    {
+      "name": "independent gains multiply master and category",
+      "passed": true
+    },
+    {
+      "name": "mute preserves preferences but silences output",
+      "passed": true
+    },
+    {
+      "name": "unmute restores sound",
+      "passed": true
+    },
+    {
+      "name": "settlement emits one jingle",
+      "passed": true
+    },
+    {
+      "name": "settlement jingle never repeats per frame",
+      "passed": true
+    },
+    {
+      "name": "day changes do not replay save inventory or orders",
+      "passed": true
+    },
+    {
+      "name": "stop is idempotent and blocks later cues",
+      "passed": true
+    },
+    {
+      "name": "fixed pool creates exactly ten sources",
+      "passed": true
+    },
+    {
+      "name": "native effect uses actual sample rate not pitch multiplier",
+      "passed": true
+    },
+    {
+      "name": "native category gain applies immediately",
+      "passed": true
+    },
+    {
+      "name": "UI uses separate two voice pool",
+      "passed": true
+    },
+    {
+      "name": "many simultaneous events never grow source count",
+      "passed": true
+    },
+    {
+      "name": "music resource explicitly loops",
+      "passed": true
+    },
+    {
+      "name": "pause stops world voices but leaves UI pool",
+      "passed": true
+    },
+    {
+      "name": "focus loss stops every voice and music",
+      "passed": true
+    },
+    {
+      "name": "missing effect never crashes or pretends success",
+      "passed": true
+    },
+    {
+      "name": "native root removed on teardown",
+      "passed": true
+    }
+  ],
+  "scope": "Actual Lua policy and native adapter with recording SoundSource; not device audibility or Android"
+}

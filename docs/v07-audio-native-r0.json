@@ -1,0 +1,150 @@
+{
+  "checks": [
+    {
+      "passed": true,
+      "name": "step native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "day native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "pickup native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "music native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "ui native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "error native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "machine native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "build native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "drop native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "order native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "delivery native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "grill native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "normal game BGM starts"
+    },
+    {
+      "passed": true,
+      "name": "real hand cooking enables sizzling loop"
+    },
+    {
+      "passed": true,
+      "name": "cooking still completes in three seconds"
+    },
+    {
+      "passed": true,
+      "name": "completed cooking stops sizzling"
+    },
+    {
+      "passed": false,
+      "name": "real order generated"
+    },
+    {
+      "passed": true,
+      "name": "pause stops production loop"
+    },
+    {
+      "passed": true,
+      "name": "pause retains quiet music"
+    },
+    {
+      "passed": true,
+      "name": "master zero mutes native music"
+    },
+    {
+      "passed": true,
+      "name": "restoring defaults resumes music"
+    },
+    {
+      "passed": true,
+      "name": "real gameplay emits pickup"
+    },
+    {
+      "passed": true,
+      "name": "real gameplay emits drop"
+    },
+    {
+      "passed": true,
+      "name": "real gameplay emits step"
+    },
+    {
+      "passed": true,
+      "name": "real gameplay emits machine"
+    },
+    {
+      "passed": false,
+      "name": "real gameplay emits order"
+    },
+    {
+      "passed": false,
+      "name": "real gameplay emits delivery"
+    },
+    {
+      "passed": true,
+      "name": "native source pool stays bounded"
+    },
+    {
+      "passed": true,
+      "name": "no runtime audio assets missing"
+    },
+    {
+      "passed": true,
+      "name": "three audio sliders in actual settings"
+    }
+  ],
+  "failed": 3,
+  "passed": 27,
+  "scope": "Actual native Sound resource decode, source state and isolated gameplay route; device listening and Android excluded",
+  "audio": {
+    "native": {
+      "grillGain": 0,
+      "voices": 8,
+      "missing": {},
+      "musicGain": 0.09849829226732254,
+      "playing": 0,
+      "music": true,
+      "grill": false
+    },
+    "active": false,
+    "focused": true,
+    "counts": {
+      "step": 3,
+      "pickup": 1,
+      "machine": 1,
+      "drop": 1,
+      "ui": 1
+    }
+  },
+  "session_id": "fa1cad9c-45ae-476c-b3bb-3dac327297d4",
+  "reload_id": 0,
+  "fixture_issue": "Prepare disabled orders; fixture corrected to StartTrading for next run."
+}

@@ -1,0 +1,324 @@
+{
+  "passed": 78,
+  "scope": "Native texture/UV clock, real movement/carry/cooking route and day1 workshop; synthetic touch joystick context, not Android touch",
+  "failed": 0,
+  "checks": [
+    {
+      "name": "actual Lua clock suite50",
+      "passed": true
+    },
+    {
+      "name": "first day can enter workshop",
+      "passed": true
+    },
+    {
+      "name": "day1 entrance does not grant supplies or unlock cooker",
+      "passed": true
+    },
+    {
+      "name": "front_idle atlas available",
+      "passed": true
+    },
+    {
+      "name": "front_walk atlas available",
+      "passed": true
+    },
+    {
+      "name": "front_run atlas available",
+      "passed": true
+    },
+    {
+      "name": "front_carry_idle atlas available",
+      "passed": true
+    },
+    {
+      "name": "front_carry_walk atlas available",
+      "passed": true
+    },
+    {
+      "name": "front_carry_run atlas available",
+      "passed": true
+    },
+    {
+      "name": "front_operate atlas available",
+      "passed": true
+    },
+    {
+      "name": "front_think atlas available",
+      "passed": true
+    },
+    {
+      "name": "left_idle atlas available",
+      "passed": true
+    },
+    {
+      "name": "left_walk atlas available",
+      "passed": true
+    },
+    {
+      "name": "left_run atlas available",
+      "passed": true
+    },
+    {
+      "name": "left_carry_idle atlas available",
+      "passed": true
+    },
+    {
+      "name": "left_carry_walk atlas available",
+      "passed": true
+    },
+    {
+      "name": "left_carry_run atlas available",
+      "passed": true
+    },
+    {
+      "name": "left_operate atlas available",
+      "passed": true
+    },
+    {
+      "name": "left_think atlas available",
+      "passed": true
+    },
+    {
+      "name": "right_idle atlas available",
+      "passed": true
+    },
+    {
+      "name": "right_walk atlas available",
+      "passed": true
+    },
+    {
+      "name": "right_run atlas available",
+      "passed": true
+    },
+    {
+      "name": "right_carry_idle atlas available",
+      "passed": true
+    },
+    {
+      "name": "right_carry_walk atlas available",
+      "passed": true
+    },
+    {
+      "name": "right_carry_run atlas available",
+      "passed": true
+    },
+    {
+      "name": "right_operate atlas available",
+      "passed": true
+    },
+    {
+      "name": "right_think atlas available",
+      "passed": true
+    },
+    {
+      "name": "back_idle atlas available",
+      "passed": true
+    },
+    {
+      "name": "back_walk atlas available",
+      "passed": true
+    },
+    {
+      "name": "back_run atlas available",
+      "passed": true
+    },
+    {
+      "name": "back_carry_idle atlas available",
+      "passed": true
+    },
+    {
+      "name": "back_carry_walk atlas available",
+      "passed": true
+    },
+    {
+      "name": "back_carry_run atlas available",
+      "passed": true
+    },
+    {
+      "name": "back_operate atlas available",
+      "passed": true
+    },
+    {
+      "name": "back_think atlas available",
+      "passed": true
+    },
+    {
+      "name": "real manual cooking still completes in3s",
+      "passed": true
+    },
+    {
+      "name": "pause freezes actual player frame and clock",
+      "passed": true
+    },
+    {
+      "name": "real player thinks after30s idle",
+      "passed": true
+    },
+    {
+      "name": "actual gameplay state idle",
+      "passed": true
+    },
+    {
+      "name": "actual gameplay state walk",
+      "passed": true
+    },
+    {
+      "name": "actual gameplay state run",
+      "passed": true
+    },
+    {
+      "name": "actual gameplay state carry_idle",
+      "passed": true
+    },
+    {
+      "name": "actual gameplay state carry_walk",
+      "passed": true
+    },
+    {
+      "name": "actual gameplay state carry_run",
+      "passed": true
+    },
+    {
+      "name": "actual gameplay state operate",
+      "passed": true
+    },
+    {
+      "name": "actual gameplay state think",
+      "passed": true
+    },
+    {
+      "name": "front_operate renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "front_think renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "back_operate renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "right_carry_walk renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "front_walk renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "front_carry_walk renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "back_think renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "left_run renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "left_walk renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "back_carry_walk renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "front_run renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "left_operate renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "left_carry_walk renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "left_think renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "right_carry_idle renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "left_carry_run renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "back_walk renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "right_walk renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "right_carry_run renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "back_run renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "right_think renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "front_carry_idle renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "back_idle renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "right_operate renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "back_carry_idle renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "left_idle renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "right_run renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "right_idle renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "back_carry_run renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "front_carry_run renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "left_carry_idle renders all4 frames",
+      "passed": true
+    },
+    {
+      "name": "front_idle renders all4 frames",
+      "passed": true
+    }
+  ],
+  "log": "lua-2026-10-19 16_18_28_294.log",
+  "session": "4e709d0e-787d-4766-867c-41a39ed3a3b6",
+  "reload": 2,
+  "lua_errors": [],
+  "human_visual": "gallery viewed in native window; final player-scale review separate"
+}

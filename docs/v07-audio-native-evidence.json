@@ -1,0 +1,156 @@
+{
+  "audio": {
+    "counts": {
+      "ui": 1,
+      "pickup": 1,
+      "order": 1,
+      "drop": 1,
+      "step": 3,
+      "machine": 1,
+      "delivery": 1
+    },
+    "focused": true,
+    "native": {
+      "grill": false,
+      "musicGain": 0.09849818795919418,
+      "playing": 0,
+      "missing": {},
+      "grillGain": 0,
+      "voices": 8,
+      "music": true
+    },
+    "active": false
+  },
+  "scope": "Actual native Sound resource decode, source state and isolated gameplay route; device listening and Android excluded",
+  "checks": [
+    {
+      "passed": true,
+      "name": "grill native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "step native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "build native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "music native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "ui native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "day native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "error native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "drop native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "order native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "machine native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "pickup native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "delivery native resource decodes"
+    },
+    {
+      "passed": true,
+      "name": "normal game BGM starts"
+    },
+    {
+      "passed": true,
+      "name": "real hand cooking enables sizzling loop"
+    },
+    {
+      "passed": true,
+      "name": "cooking still completes in three seconds"
+    },
+    {
+      "passed": true,
+      "name": "completed cooking stops sizzling"
+    },
+    {
+      "passed": true,
+      "name": "real order generated"
+    },
+    {
+      "passed": true,
+      "name": "real delivery accepted"
+    },
+    {
+      "passed": true,
+      "name": "pause stops production loop"
+    },
+    {
+      "passed": true,
+      "name": "pause retains quiet music"
+    },
+    {
+      "passed": true,
+      "name": "master zero mutes native music"
+    },
+    {
+      "passed": true,
+      "name": "restoring defaults resumes music"
+    },
+    {
+      "passed": true,
+      "name": "real gameplay emits pickup"
+    },
+    {
+      "passed": true,
+      "name": "real gameplay emits drop"
+    },
+    {
+      "passed": true,
+      "name": "real gameplay emits step"
+    },
+    {
+      "passed": true,
+      "name": "real gameplay emits machine"
+    },
+    {
+      "passed": true,
+      "name": "real gameplay emits order"
+    },
+    {
+      "passed": true,
+      "name": "real gameplay emits delivery"
+    },
+    {
+      "passed": true,
+      "name": "native source pool stays bounded"
+    },
+    {
+      "passed": true,
+      "name": "no runtime audio assets missing"
+    },
+    {
+      "passed": true,
+      "name": "three audio sliders in actual settings"
+    }
+  ],
+  "failed": 0,
+  "passed": 31,
+  "session_id": "fa1cad9c-45ae-476c-b3bb-3dac327297d4",
+  "reload_id": 1,
+  "log": "lua-2026-10-19 17_13_23_083.log"
+}

@@ -1,0 +1,651 @@
+{
+  "total": 28,
+  "assets": [
+    {
+      "id": "frame_main",
+      "source": "assets/image/v04_ui_frames_r1_20261019062042.png",
+      "region": [
+        0,
+        0,
+        512,
+        384
+      ],
+      "alpha_bounds": [
+        44,
+        103,
+        512,
+        371
+      ],
+      "path": "assets/image/v04_ui/runtime/frame_main.png",
+      "size": [
+        224,
+        128
+      ],
+      "sha256": "5850a9fbb5af72983af86ff3d0284754e2ca13d62218e818785000b2e46ec867",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "frame_card",
+      "source": "assets/image/v04_ui_frames_r1_20261019062042.png",
+      "region": [
+        512,
+        0,
+        1024,
+        384
+      ],
+      "alpha_bounds": [
+        50,
+        153,
+        471,
+        348
+      ],
+      "path": "assets/image/v04_ui/runtime/frame_card.png",
+      "size": [
+        138,
+        64
+      ],
+      "sha256": "7b0049c7da830ee4ea1637ef7cc7be76b9facec12a382d1b477cff42d5082009",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "frame_status",
+      "source": "assets/image/v04_ui_frames_r1_20261019062042.png",
+      "region": [
+        0,
+        384,
+        512,
+        768
+      ],
+      "alpha_bounds": [
+        32,
+        125,
+        512,
+        277
+      ],
+      "path": "assets/image/v04_ui/runtime/frame_status.png",
+      "size": [
+        152,
+        48
+      ],
+      "sha256": "20a60f86df7a9b5d98ad9aeb40ba52251f23313bf2fc2003502eb940cde13031",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "frame_button",
+      "source": "assets/image/v04_ui_frames_r1_20261019062042.png",
+      "region": [
+        512,
+        384,
+        1024,
+        768
+      ],
+      "alpha_bounds": [
+        54,
+        115,
+        481,
+        303
+      ],
+      "path": "assets/image/v04_ui/runtime/frame_button.png",
+      "size": [
+        109,
+        48
+      ],
+      "sha256": "4d0a753b74e4b4ee4266b79e8cce43ecf07a845a4613a270656c7067ce389e34",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "frame_tab",
+      "source": "assets/image/v04_ui_frames_r1_20261019062042.png",
+      "region": [
+        0,
+        768,
+        512,
+        1152
+      ],
+      "alpha_bounds": [
+        38,
+        76,
+        512,
+        274
+      ],
+      "path": "assets/image/v04_ui/runtime/frame_tab.png",
+      "size": [
+        115,
+        48
+      ],
+      "sha256": "0efd04903c7341215ae8adcbebe449316a02035412bdc33800dc7c0e5e5cad74",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "frame_slot",
+      "source": "assets/image/v04_ui_frames_r1_20261019062042.png",
+      "region": [
+        512,
+        768,
+        1024,
+        1152
+      ],
+      "alpha_bounds": [
+        84,
+        55,
+        462,
+        280
+      ],
+      "path": "assets/image/v04_ui/runtime/frame_slot.png",
+      "size": [
+        108,
+        64
+      ],
+      "sha256": "bc8469bf356b4ec40547279b585cc1aa9e8fa2472b9a560b7a91096fa1989c31",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "frame_tooltip",
+      "source": "assets/image/v04_ui_frames_r1_20261019062042.png",
+      "region": [
+        0,
+        1152,
+        512,
+        1536
+      ],
+      "alpha_bounds": [
+        49,
+        53,
+        512,
+        279
+      ],
+      "path": "assets/image/v04_ui/runtime/frame_tooltip.png",
+      "size": [
+        197,
+        96
+      ],
+      "sha256": "754c204cb734f48b3dc1e3e14c517c70e7d2586ad4c76f724ba55d08defef341",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "frame_joystick",
+      "source": "assets/image/v04_ui_frames_r1_20261019062042.png",
+      "region": [
+        512,
+        1152,
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        104,
+        0,
+        428,
+        322
+      ],
+      "path": "assets/image/v04_ui/runtime/frame_joystick.png",
+      "size": [
+        129,
+        128
+      ],
+      "sha256": "c226e7b892c1639f9c8290a68237531756a2b725de324e636f95c8611f3e162d",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_back",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        0,
+        0,
+        307,
+        256
+      ],
+      "alpha_bounds": [
+        57,
+        66,
+        268,
+        252
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_back.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "727974a38e4be4a49091ef087358d091181a2e93f5562bae47e08686adc9cde6",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_close",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        307,
+        0,
+        614,
+        256
+      ],
+      "alpha_bounds": [
+        55,
+        65,
+        243,
+        253
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_close.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "6aedb9acf190d6c05399f171748dbc8123f7def2da4cba71be826b2e67c14a1f",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_pause",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        614,
+        0,
+        921,
+        256
+      ],
+      "alpha_bounds": [
+        79,
+        67,
+        230,
+        248
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_pause.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "50c2b121516604f9ede141c651dcb7fd69ff36346a6316772ad88bd3da556734",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_play",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        921,
+        0,
+        1228,
+        256
+      ],
+      "alpha_bounds": [
+        72,
+        65,
+        242,
+        252
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_play.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "1d15163fe27568f80acbf146b556930347048a03e1498f6efaba1f4a71cf2def",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_settings",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        1228,
+        0,
+        1536,
+        256
+      ],
+      "alpha_bounds": [
+        34,
+        57,
+        241,
+        256
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_settings.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "43dcea406fd7168a361c5716fd32cbb248b2ab7d7134abeffd6b6df7ae30f7f4",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_build",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        0,
+        256,
+        307,
+        512
+      ],
+      "alpha_bounds": [
+        60,
+        41,
+        266,
+        233
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_build.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "17c6dffd169e710a583b37a1eb0c6f35541a27759210190c0fc793f9fa406903",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_rotate",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        307,
+        256,
+        614,
+        512
+      ],
+      "alpha_bounds": [
+        55,
+        43,
+        241,
+        238
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_rotate.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "aa3f6b7fe17cd778c08a1473a150d73c89e5d3e1a297bd67c30dfcb6052dc431",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_move",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        614,
+        256,
+        921,
+        512
+      ],
+      "alpha_bounds": [
+        41,
+        36,
+        268,
+        251
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_move.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "c9080b91fccc1f5fe2de811ad8d5b2f82fe9d9412b2622dd2e10087c699bc19b",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_delete",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        921,
+        256,
+        1228,
+        512
+      ],
+      "alpha_bounds": [
+        58,
+        44,
+        239,
+        239
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_delete.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "9dafab650fa7e0f71eea7e33eab2093e534c686b306f57ca9d2980ad6214c4f4",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_cable",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        1228,
+        256,
+        1536,
+        512
+      ],
+      "alpha_bounds": [
+        24,
+        0,
+        251,
+        227
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_cable.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "a86c7b272c27426078df58936db14d7030e273b68d3890a11d63e2c867ddb383",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_reverse",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        0,
+        512,
+        307,
+        768
+      ],
+      "alpha_bounds": [
+        70,
+        38,
+        264,
+        219
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_reverse.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "8476bc006ee9fff01618711441c9fb66b9e60ce33ff91795000cfcd84cd215fe",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_network",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        307,
+        512,
+        614,
+        768
+      ],
+      "alpha_bounds": [
+        40,
+        35,
+        262,
+        227
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_network.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "215368ac49422f9798ace8944cf7b432e264d28b2709641f093244bf1584098c",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_tasks",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        614,
+        512,
+        921,
+        768
+      ],
+      "alpha_bounds": [
+        61,
+        32,
+        258,
+        228
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_tasks.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "1b65e1fe79b46137c50ea723f4ca9bacad622be15a9482fe2095a4f21f58028b",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_warning",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        921,
+        512,
+        1228,
+        768
+      ],
+      "alpha_bounds": [
+        39,
+        32,
+        257,
+        224
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_warning.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "f353eba219c34be8b75c48f2c38cbb8fb5527fb73ccff72c2a360db7d940b35b",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_help",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        1228,
+        512,
+        1536,
+        768
+      ],
+      "alpha_bounds": [
+        41,
+        30,
+        238,
+        229
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_help.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "1562d586ad2475c9cb3f0a1dd969a331d44fa10173c49fd0e580b0f5185b4288",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_clock",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        0,
+        768,
+        307,
+        1024
+      ],
+      "alpha_bounds": [
+        73,
+        0,
+        259,
+        206
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_clock.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "5d81b61a8182da1250176dc7d9a65afea6e86c0bf67d9b0bf897cc4f7c8c341f",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_confirm",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        307,
+        768,
+        614,
+        1024
+      ],
+      "alpha_bounds": [
+        53,
+        9,
+        247,
+        203
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_confirm.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "13f0072d98b3d7c1934e612b6126e8624307f5cfc1b225d62f88f33dd3697954",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_minus",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        614,
+        768,
+        921,
+        1024
+      ],
+      "alpha_bounds": [
+        44,
+        47,
+        262,
+        186
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_minus.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "88e22f23dcdade037bb64a61e9e3209b772ed4ddd988f987437373810ae8427b",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_plus",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        921,
+        768,
+        1228,
+        1024
+      ],
+      "alpha_bounds": [
+        43,
+        43,
+        254,
+        194
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_plus.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "b44d988f91d83b785bfe3a883adc03e036ea6be82b9e3daab76aaf83677306b9",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    },
+    {
+      "id": "icon_orders",
+      "source": "assets/image/v04_ui_actions_r1_20261019062042.png",
+      "region": [
+        1228,
+        768,
+        1536,
+        1024
+      ],
+      "alpha_bounds": [
+        60,
+        6,
+        222,
+        207
+      ],
+      "path": "assets/image/v04_ui/runtime/icon_orders.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "3d4fe8b786cb37f6780d5429dd279ac604bbe58cdd219e58bf3b540cb4dd48d5",
+      "review": "Source alpha and crop reviewed; shared skin Windows runtime reviewed; Android pending"
+    }
+  ],
+  "actual_points": "platform did not return",
+  "runtime_review": "docs/v04-ui-art-runtime-evidence.json"
+}

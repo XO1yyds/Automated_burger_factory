@@ -284,3 +284,21 @@
 | 2026-10-19 | Windows预览临时缓存存档兼容 | LOCAL | 官方预览文档与日志、本地PowerShell、computer-use | 定位Maker0.0.36按轮清理TEMP/savedata；一键启动器增设本项目双槽校验备份与恢复，5项宿主检查通过；跨进程结果见v06-final-preview-evidence.json | 否（未调用Tap生成） |
 | 2026-10-19 | V0.6最终预览、跨进程继续与源码交付核对 | MAKER-FREE | 官方固定版本preview status/refresh/logs/check、computer-use、SHA256 | reload7→8实际恢复第1天02:50/50金币，读档先暂停；一键启动复用通过，最终留在标题。51份Lua一致、QA关闭、当前Lua零ERROR；平台check仍为既有DDS/themis FAIL。人工验收见v06-manual-acceptance.md | 免费能力 |
 | 2026-10-19 | V0.6用户验收确认与GitHub有效版本整理 | LOCAL | 用户确认、Markdown、Git、SHA256 | 用户确认V0.6验收；整理51份Lua、启动/存档保护及相关文档，排除玩家存档与V0.4草稿，保留Maker绑定与GitHub历史；上传结果见github-v06-upload-result.json | 否（未调用Tap生成） |
+| 2026-10-19 | V0.4正式用途静态资源生成与Agent原图评审 | MAKER-POINTS | Maker batch_generate_images / edit_image | 16张源图返回；设备/食材/地面/图标/标题背景按清单小批量制作，保留四批回执；消费与余额平台未返回 | 是，实际积分平台未返回 |
+| 2026-10-19 | V0.4静态美术导出与呈现层接入 | LOCAL | Python/Pillow、Lua、SurfaceShader、Lua LSP | 30张PNG、29启用+1备用；保留来源映射；整张角色四向、真实设备槽位、环境、建造与终端缩略图接入，149项回归通过、53份Lua语法及LSP零ERROR | 否 |
+| 2026-10-19 | V0.4静态美术Windows原生验收与正常存档恢复 | MAKER-FREE | 固定Maker0.0.36 preview、computer-use、SHA256 | 检查旋转/槽位/库存/组件/电缆/投影/实际取物落地；色彩加修经用户授权；正常继续第2天115金币03:30，再保存回标题；84运行文件一致。平台check仍为既有DDS/themis FAIL，Android与动画未验 | 免费能力 |
+| 2026-10-19 | V0.4下一阶段UI正式美术与易读排版策划 | LOCAL | 当前Lua界面、历史规范、UI九宫格文档、Markdown | 保存v04-ui-art-layout-plan.md；覆盖HUD/建造物流/下单/收银/十天经营菜单与手机；推荐复用素材+8类底图+20图标，先做三张原型，尚未生成素材或改游戏 | 否 |
+
+| 2026-10-19 | V0.4 UI正式底框与操作图标生成 | MAKER-POINTS | Maker batch_generate_images | 2张源图、28张运行PNG；原图透明合成审核，回执ui-batch-r1.json；真实积分与余额未返回 | 是，实际积分平台未返回 |
+| 2026-10-19 | V0.4 UI统一皮肤、版型和信息分组 | LOCAL | Python/Pillow、Lua、UI文档、Lua LSP | 共享UIArt/UIArtLayout接入HUD、建筑、终端和经营菜单；149项领域回归通过、56份Lua解析及LSP零ERROR；Windows最终检查进行中 | 否 |
+| 2026-10-19 | V0.4 UI真实窗口与1.2缩放验收 | MAKER-FREE | Maker0.0.36 preview status/refresh、computer-use、原生控件边界 | 固定测试画布移除，普通/最大化窗口切换正常；11类页面16组真实边界无越界，Lua零运行错误；下单/取消/数量及既有取出通过；正式入口恢复中，Android另验 | 免费能力 |
+| 2026-10-19 | V0.4 UI正常入口恢复与交付核对 | MAKER-FREE | Maker0.0.36 preview status/refresh/check、computer-use、SHA256 | 最终reload12普通标题→继续→统计核对50金币→保存回标题；第1天约02:38保持。115份运行文件hash一致，QA关闭、Lua日志零ERROR；平台check仍为既有DDS/themis FAIL，人工清单21项待用户验收 | 免费能力 |
+| 2026-10-19 | 四帧员工完整姿势候选 | MAKER-POINTS | Maker edit_image | 12次调用，11张本地返回、1次执行未知后用户授权补生成；失败步态不视为通过。真实积分与余额未返回 | 是，实际积分平台未返回 |
+| 2026-10-19 | 四帧完整姿势补充 | LOCAL | Codex内置image_gen | 10次图片调用，不通过Tap计费；保留来源/提示词与候选，不冒称GPT6.1或Maker返回 <!-- four-frame-builtin-20261019 --> | 否（未调用Tap生成） |
+| 2026-10-19 | 复用动画清单与四帧绑定 | LOCAL | 现有素材、Pillow打包、Lua | 32组/128帧位；107帧位来自本轮前资产，21帧位来自已返回候选；新生成降低优先级，暂停追加。50动画规则+80经营+29UI检查通过，Windows自检中 | 否 |
+| 2026-10-19 | 四帧员工最终复用与角色遮挡修复 | LOCAL | Lua、Pillow资源检查、显示几何记录测试 | 最终113/128旧帧位+15已返回候选；50动画、225资源、15显示绑定通过，60Lua解析通过；统一人物/持物显示深度，保留碰撞和脚底XZ，无新增生成 | 否 |
+| 2026-10-19 | 角色遮挡Windows回归与普通入口核对 | MAKER-FREE | 固定版本preview、computer-use、SHA256 | 恢复会话8c70471a/reload0，正常第2天存档铁板前背面和左向移动侧面完整可见；93运行文件一致，QA关闭，Lua零运行错误；预览EPERM及启动等待超时独立记录，DDS/themis仍既有错误；游戏已暂停，人工17项待验 | 免费能力 |
+| 2026-10-19 | V0.4用户验收与V0.7音频制作 | MAKER-POINTS | Maker text_to_music/batch_sound_effects | 用户确认V0.4通过；V0.7收到1首正式BGM和8类音效，处理中；原始素材与远端映射保留 | 是，真实积分平台未返回 |
+| 2026-10-19 | V0.7音频接入、音量设置与受控混音 | LOCAL | Lua、音频转码、43项声音/6项偏好桥接检查、LSP | 12运行音频约2.6MB；三类音量、静音、循环/冷却/后台静音；旧经营80/组件32/物流37/UI29/动画50通过；63Lua解析、LSP零ERROR | 否 |
+| 2026-10-19 | V0.7 Windows音频隔离复验 | MAKER-FREE | 官方固定CLI、原生SoundSource、computer-use | 首轮夹具未StartTrading已修；复验31/0。用户物理Esc停止电脑操作，磁盘QA关闭，未继续刷新；当前窗口仍自检副本，正式入口与真实跨进程偏好待最终核对，见v07-delivery.md | 免费能力 |
+| 2026-10-19 | 用户要求刷新V0.7正式入口 | MAKER-FREE | 固定版本preview status/refresh/check、只读窗口确认、SHA256 | reload2已运行，QA全关，75份Lua/音频副本一致；正常标题与原第2天暂停01:16档案可见；当前Lua零ERROR；平台check仍是既有DDS/themis FAIL，未操作玩家游戏进度 | 免费能力 |

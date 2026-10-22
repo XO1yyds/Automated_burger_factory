@@ -1,0 +1,910 @@
+{
+  "passed": 225,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "32 direction/action groups",
+      "passed": true
+    },
+    {
+      "name": "front_idle atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "front_idle four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "front_idle atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "front_idle transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "front_idle four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "front_idle four preview frames",
+      "passed": true
+    },
+    {
+      "name": "front_idle sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "front_walk atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "front_walk four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "front_walk atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "front_walk transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "front_walk four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "front_walk four preview frames",
+      "passed": true
+    },
+    {
+      "name": "front_walk sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "front_run atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "front_run four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "front_run atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "front_run transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "front_run four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "front_run four preview frames",
+      "passed": true
+    },
+    {
+      "name": "front_run sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "front_carry_idle atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "front_carry_idle four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "front_carry_idle atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "front_carry_idle transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "front_carry_idle four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "front_carry_idle four preview frames",
+      "passed": true
+    },
+    {
+      "name": "front_carry_idle sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "front_carry_walk atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "front_carry_walk four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "front_carry_walk atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "front_carry_walk transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "front_carry_walk four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "front_carry_walk four preview frames",
+      "passed": true
+    },
+    {
+      "name": "front_carry_walk sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "front_carry_run atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "front_carry_run four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "front_carry_run atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "front_carry_run transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "front_carry_run four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "front_carry_run four preview frames",
+      "passed": true
+    },
+    {
+      "name": "front_carry_run sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "front_operate atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "front_operate four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "front_operate atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "front_operate transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "front_operate four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "front_operate four preview frames",
+      "passed": true
+    },
+    {
+      "name": "front_operate sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "front_think atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "front_think four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "front_think atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "front_think transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "front_think four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "front_think four preview frames",
+      "passed": true
+    },
+    {
+      "name": "front_think sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "left_idle atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "left_idle four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "left_idle atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "left_idle transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "left_idle four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "left_idle four preview frames",
+      "passed": true
+    },
+    {
+      "name": "left_idle sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "left_walk atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "left_walk four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "left_walk atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "left_walk transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "left_walk four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "left_walk four preview frames",
+      "passed": true
+    },
+    {
+      "name": "left_walk sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "left_run atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "left_run four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "left_run atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "left_run transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "left_run four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "left_run four preview frames",
+      "passed": true
+    },
+    {
+      "name": "left_run sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "left_carry_idle atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "left_carry_idle four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "left_carry_idle atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "left_carry_idle transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "left_carry_idle four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "left_carry_idle four preview frames",
+      "passed": true
+    },
+    {
+      "name": "left_carry_idle sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "left_carry_walk atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "left_carry_walk four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "left_carry_walk atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "left_carry_walk transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "left_carry_walk four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "left_carry_walk four preview frames",
+      "passed": true
+    },
+    {
+      "name": "left_carry_walk sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "left_carry_run atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "left_carry_run four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "left_carry_run atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "left_carry_run transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "left_carry_run four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "left_carry_run four preview frames",
+      "passed": true
+    },
+    {
+      "name": "left_carry_run sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "left_operate atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "left_operate four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "left_operate atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "left_operate transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "left_operate four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "left_operate four preview frames",
+      "passed": true
+    },
+    {
+      "name": "left_operate sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "left_think atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "left_think four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "left_think atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "left_think transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "left_think four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "left_think four preview frames",
+      "passed": true
+    },
+    {
+      "name": "left_think sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "right_idle atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "right_idle four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "right_idle atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "right_idle transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "right_idle four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "right_idle four preview frames",
+      "passed": true
+    },
+    {
+      "name": "right_idle sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "right_walk atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "right_walk four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "right_walk atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "right_walk transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "right_walk four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "right_walk four preview frames",
+      "passed": true
+    },
+    {
+      "name": "right_walk sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "right_run atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "right_run four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "right_run atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "right_run transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "right_run four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "right_run four preview frames",
+      "passed": true
+    },
+    {
+      "name": "right_run sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "right_carry_idle atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "right_carry_idle four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "right_carry_idle atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "right_carry_idle transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "right_carry_idle four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "right_carry_idle four preview frames",
+      "passed": true
+    },
+    {
+      "name": "right_carry_idle sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "right_carry_walk atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "right_carry_walk four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "right_carry_walk atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "right_carry_walk transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "right_carry_walk four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "right_carry_walk four preview frames",
+      "passed": true
+    },
+    {
+      "name": "right_carry_walk sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "right_carry_run atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "right_carry_run four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "right_carry_run atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "right_carry_run transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "right_carry_run four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "right_carry_run four preview frames",
+      "passed": true
+    },
+    {
+      "name": "right_carry_run sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "right_operate atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "right_operate four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "right_operate atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "right_operate transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "right_operate four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "right_operate four preview frames",
+      "passed": true
+    },
+    {
+      "name": "right_operate sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "right_think atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "right_think four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "right_think atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "right_think transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "right_think four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "right_think four preview frames",
+      "passed": true
+    },
+    {
+      "name": "right_think sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "back_idle atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "back_idle four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "back_idle atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "back_idle transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "back_idle four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "back_idle four preview frames",
+      "passed": true
+    },
+    {
+      "name": "back_idle sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "back_walk atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "back_walk four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "back_walk atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "back_walk transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "back_walk four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "back_walk four preview frames",
+      "passed": true
+    },
+    {
+      "name": "back_walk sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "back_run atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "back_run four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "back_run atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "back_run transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "back_run four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "back_run four preview frames",
+      "passed": true
+    },
+    {
+      "name": "back_run sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "back_carry_idle atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "back_carry_idle four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "back_carry_idle atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "back_carry_idle transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "back_carry_idle four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "back_carry_idle four preview frames",
+      "passed": true
+    },
+    {
+      "name": "back_carry_idle sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "back_carry_walk atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "back_carry_walk four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "back_carry_walk atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "back_carry_walk transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "back_carry_walk four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "back_carry_walk four preview frames",
+      "passed": true
+    },
+    {
+      "name": "back_carry_walk sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "back_carry_run atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "back_carry_run four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "back_carry_run atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "back_carry_run transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "back_carry_run four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "back_carry_run four preview frames",
+      "passed": true
+    },
+    {
+      "name": "back_carry_run sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "back_operate atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "back_operate four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "back_operate atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "back_operate transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "back_operate four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "back_operate four preview frames",
+      "passed": true
+    },
+    {
+      "name": "back_operate sockets inside image",
+      "passed": true
+    },
+    {
+      "name": "back_think atlas1088x272 RGBA",
+      "passed": true
+    },
+    {
+      "name": "back_think four metadata frames",
+      "passed": true
+    },
+    {
+      "name": "back_think atlas matches all4 exported frames",
+      "passed": true
+    },
+    {
+      "name": "back_think transparent safe margin",
+      "passed": true
+    },
+    {
+      "name": "back_think four distinct exported images",
+      "passed": true
+    },
+    {
+      "name": "back_think four preview frames",
+      "passed": true
+    },
+    {
+      "name": "back_think sockets inside image",
+      "passed": true
+    }
+  ],
+  "groups": 32,
+  "frames": 128,
+  "atlas_gpu_bytes_uncompressed": 37879808,
+  "scope": "Deterministic image/atlas/pivot metadata checks; not artistic quality, fps or Android memory measurement"
+}

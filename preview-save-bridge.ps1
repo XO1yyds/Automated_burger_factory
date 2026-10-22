@@ -2,7 +2,7 @@ param([switch]$Watch)
 
 # Windows Maker 0.0.36 manifest previews discard their per-run TEMP cache,
 # including native savedata. This host-side companion preserves only our two
-# validated campaign slots; it does not patch Maker, change its service, or
+# validated campaign slots and UI/audio preferences; it does not patch Maker, change its service, or
 # bypass the game's File sandbox. Android uses native storage without it.
 $ErrorActionPreference = 'Stop'
 $script:BurgerSlotCache = @{}
@@ -76,6 +76,42 @@ function Sync-BurgerSlots {
     }
 }
 
+function Read-BurgerPreferences {
+    param([string]$Path)
+    try {
+        $bytes=[IO.File]::ReadAllBytes($Path)
+        if ($bytes.Length -gt 16384) { return $null }
+        $record=[Text.Encoding]::UTF8.GetString($bytes).TrimEnd([char]0) | ConvertFrom-Json
+        if ($record.display -notin @('both','keyboard','touch') -or $record.joystick -notin @('fixed','floating')) { return $null }
+        if ($record.uiScale -lt .9 -or $record.uiScale -gt 1.2 -or $record.sensitivity -lt .5 -or $record.sensitivity -gt 1.5) { return $null }
+        foreach ($key in @('masterVolume','musicVolume','effectsVolume')) {
+            if ($null -ne $record.$key -and ($record.$key -isnot [ValueType] -or $record.$key -is [bool] -or $record.$key -lt 0 -or $record.$key -gt 1)) { return $null }
+        }
+        if ($null -ne $record.muted -and $record.muted -isnot [bool]) { return $null }
+        return @{Bytes=$bytes;Text=[Convert]::ToBase64String($bytes)}
+    } catch { return $null }
+}
+
+function Sync-BurgerPreferences {
+    param([string]$NativeDirectory,[string]$BackupDirectory,[switch]$Restore)
+    # Called only after Sync-BurgerSlots has verified both directory boundaries.
+    $name='burger-ui-v03.json';$native=Join-Path $NativeDirectory $name;$backup=Join-Path $BackupDirectory $name
+    foreach ($path in @($native,$backup)) {
+        if ((Test-Path -LiteralPath $path) -and ((Get-Item -LiteralPath $path -Force).Attributes -band [IO.FileAttributes]::ReparsePoint)) { throw 'Preferences bridge refuses linked files.' }
+    }
+    $n=Read-BurgerPreferences $native;$b=Read-BurgerPreferences $backup
+    if ($Restore -and -not (Test-Path -LiteralPath $native) -and $b) {
+        $null=[IO.Directory]::CreateDirectory($NativeDirectory);[IO.File]::WriteAllBytes($native,$b.Bytes);$n=$b
+    }
+    if ($n -and (-not $b -or $n.Text -ne $b.Text)) {
+        if (-not $b -and (Test-Path -LiteralPath $backup)) { throw 'Unrecognized preferences backup preserved.' }
+        $null=[IO.Directory]::CreateDirectory($BackupDirectory)
+        $pending=$backup+'.pending';[IO.File]::WriteAllBytes($pending,$n.Bytes)
+        if (-not (Read-BurgerPreferences $pending)) { throw 'Preferences validation failed.' }
+        Move-Item -LiteralPath $pending -Destination $backup -Force
+    }
+}
+
 if ($Watch) {
     $projectDirectory = [IO.Path]::GetFullPath($PSScriptRoot).TrimEnd('\')
     $hasher = [Security.Cryptography.SHA256]::Create()
@@ -112,12 +148,14 @@ if ($Watch) {
                         $nativeDirectory = Join-Path (Join-Path (Join-Path (Join-Path $cacheRoot ($url.Host + '_' + $url.Port)) $url.AbsolutePath.Trim('/')) 'savedata') '0'
                         $bridgeStage = 'restore'
                         Sync-BurgerSlots $nativeDirectory $durableDirectory -Restore
+                        Sync-BurgerPreferences $nativeDirectory $durableDirectory -Restore
                         $currentKey = $key
                     }
                 }
                 if ($nativeDirectory -and (Get-Process -Id ([int]$record.runtime_pid) -ErrorAction SilentlyContinue)) {
                     $bridgeStage = 'backup'
                     Sync-BurgerSlots $nativeDirectory $durableDirectory
+                    Sync-BurgerPreferences $nativeDirectory $durableDirectory
                     $lastSeen = [DateTime]::UtcNow
                     if (($lastSeen - $lastSync).TotalSeconds -ge 3) {
                         @{ state = 'watching'; date = $lastSeen.ToString('o'); reload = $record.reload_id; pid = $PID } |

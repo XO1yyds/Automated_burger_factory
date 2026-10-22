@@ -1,0 +1,1819 @@
+{
+  "date": "2026-10-19",
+  "state": "IMPLEMENTED_WINDOWS_REVIEW_PASSED_MANUAL_ACCEPTANCE_PENDING",
+  "lua_error_messages": [],
+  "source_log": "lua-2026-10-19 14_37_07_220.log",
+  "visual_findings": {
+    "fixed": [
+      "Atlas neighbour fragments removed",
+      "Build menu actions moved to separate right column",
+      "Native numeric nine-slice arrays preserve corners",
+      "Collapsed widgets skip sliced rendering",
+      "Setting instructions collapsed by default",
+      "Fixed QA canvas removed from active review; production root unmodified"
+    ],
+    "known_current_ui_blockers": []
+  },
+  "checks": {
+    "v06": 80,
+    "attached": 32,
+    "conveyor_editing": 37,
+    "ui_policy": 29,
+    "total_passed": 178,
+    "failed": 0,
+    "syntax_files": 56,
+    "syntax_errors": 0,
+    "lsp_errors": 0
+  },
+  "limits": [
+    "Windows live viewport and constrained logical canvas review; not Android hardware",
+    "Manual acceptance and Android15/Xiaomi14 check pending",
+    "Existing DDS/themis platform errors remain separate"
+  ],
+  "production_save_before": [
+    {
+      "path": ".local-saves\\v06\\burger-v06-a.json",
+      "sha256": "f1c8c3369ff566d92278623f9b1a3c977b6f70f1020665bd8f5d7bc04cb6d398",
+      "stamp": "2026-10-19 14:24:45",
+      "day": 1,
+      "state": "paused",
+      "remaining": 157.17013856349513,
+      "coins": 50
+    },
+    {
+      "path": ".local-saves\\v06\\burger-v06-b.json",
+      "sha256": "41401fc7bd96377bd9f5031965a7739a3538b63beb45e963d7a09f8b0fee0244",
+      "stamp": "2026-10-19 14:25:15",
+      "day": 1,
+      "state": "paused",
+      "remaining": 157.17013856349513,
+      "coins": 50
+    }
+  ],
+  "historical_review": [
+    {
+      "page": "PAGE normal / 1",
+      "time": "2026-10-19 14_37_20_015"
+    },
+    {
+      "page": "PAGE menu / 1",
+      "time": "2026-10-19 14_37_36_719"
+    },
+    {
+      "page": "PAGE terminal / 1",
+      "time": "2026-10-19 14_37_49_484"
+    },
+    {
+      "page": "PAGE paused / 2",
+      "time": "2026-10-19 14_39_14_860"
+    },
+    {
+      "page": "PAGE settings / 2",
+      "time": "2026-10-19 14_39_32_568"
+    },
+    {
+      "page": "PAGE briefing / 2",
+      "time": "2026-10-19 14_40_16_004"
+    },
+    {
+      "canvas": [
+        800,
+        400,
+        1.2
+      ],
+      "widgets": {
+        "modalTabs": {
+          "x": 60,
+          "w": 0,
+          "h": 0,
+          "y": 24
+        },
+        "campaignStatusPanel": {
+          "x": 0,
+          "w": 0,
+          "h": 0,
+          "y": 0
+        },
+        "selector": {
+          "x": 0,
+          "w": 0,
+          "h": 0,
+          "y": 0
+        },
+        "modalTitle": {
+          "x": 108,
+          "w": 584,
+          "h": 36,
+          "y": 72
+        },
+        "modalPanel": {
+          "x": 60,
+          "w": 680,
+          "h": 352,
+          "y": 24
+        },
+        "modalScroll": {
+          "x": 108,
+          "w": 584,
+          "h": 152,
+          "y": 118
+        },
+        "modalFooter": {
+          "x": 108,
+          "w": 584,
+          "h": 48,
+          "y": 280
+        },
+        "clockPanel": {
+          "x": 0,
+          "w": 0,
+          "h": 0,
+          "y": 0
+        },
+        "actionBar": {
+          "x": 0,
+          "w": 0,
+          "h": 0,
+          "y": 0
+        }
+      },
+      "actions": {},
+      "phase": "briefing"
+    },
+    {
+      "page": "PAGE cashier / 3",
+      "time": "2026-10-19 14_41_05_675"
+    },
+    {
+      "page": "PAGE settlement / 3",
+      "time": "2026-10-19 14_41_16_858"
+    },
+    {
+      "page": "PAGE complete / 3",
+      "time": "2026-10-19 14_41_42_475"
+    }
+  ],
+  "native_live_review": {
+    "log": "lua-2026-10-19 15_00_06_052.log",
+    "records": [
+      {
+        "problems": {},
+        "phase": "normal",
+        "liveViewport": true,
+        "actions": [
+          {
+            "rect": {
+              "y": 794,
+              "h": 48,
+              "w": 136,
+              "x": 1328
+            },
+            "command": "dayBriefing"
+          },
+          {
+            "rect": {
+              "y": 854,
+              "h": 48,
+              "w": 136,
+              "x": 1328
+            },
+            "command": "dropUI"
+          },
+          {
+            "rect": {
+              "y": 794,
+              "h": 48,
+              "w": 136,
+              "x": 1476
+            },
+            "command": "openBuild"
+          },
+          {
+            "rect": {
+              "y": 854,
+              "h": 48,
+              "w": 136,
+              "x": 1476
+            },
+            "command": "interactUI"
+          }
+        ],
+        "widgets": {
+          "campaignStatusPanel": {
+            "y": 12,
+            "h": 48,
+            "w": 338,
+            "x": 396
+          },
+          "clockPanel": {
+            "y": 12,
+            "h": 48,
+            "w": 240,
+            "x": 144
+          },
+          "selector": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalScroll": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalTitle": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalTabs": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "actionBar": {
+            "y": 790,
+            "h": 112,
+            "w": 292,
+            "x": 1328
+          },
+          "modalFooter": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          }
+        },
+        "canvas": [
+          1632,
+          918,
+          1
+        ]
+      },
+      {
+        "problems": {},
+        "phase": "menu",
+        "liveViewport": true,
+        "actions": [
+          {
+            "rect": {
+              "y": 794,
+              "h": 48,
+              "w": 156,
+              "x": 1464
+            },
+            "command": "enterKind"
+          },
+          {
+            "rect": {
+              "y": 854,
+              "h": 48,
+              "w": 156,
+              "x": 1464
+            },
+            "command": "overview"
+          }
+        ],
+        "widgets": {
+          "campaignStatusPanel": {
+            "y": 12,
+            "h": 48,
+            "w": 338,
+            "x": 396
+          },
+          "clockPanel": {
+            "y": 12,
+            "h": 48,
+            "w": 240,
+            "x": 144
+          },
+          "selector": {
+            "y": 738,
+            "h": 168,
+            "w": 1436,
+            "x": 12
+          },
+          "modalScroll": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalTitle": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalTabs": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "actionBar": {
+            "y": 790,
+            "h": 112,
+            "w": 156,
+            "x": 1464
+          },
+          "modalFooter": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          }
+        },
+        "canvas": [
+          1632,
+          918,
+          1
+        ]
+      },
+      {
+        "problems": {},
+        "phase": "preview",
+        "liveViewport": true,
+        "actions": [
+          {
+            "rect": {
+              "y": 854,
+              "h": 48,
+              "w": 245,
+              "x": 860
+            },
+            "command": "rotateUI"
+          },
+          {
+            "rect": {
+              "y": 854,
+              "h": 48,
+              "w": 246,
+              "x": 1117
+            },
+            "command": "confirmBuild"
+          },
+          {
+            "rect": {
+              "y": 854,
+              "h": 48,
+              "w": 245,
+              "x": 1375
+            },
+            "command": "overview"
+          }
+        ],
+        "widgets": {
+          "campaignStatusPanel": {
+            "y": 12,
+            "h": 48,
+            "w": 338,
+            "x": 396
+          },
+          "clockPanel": {
+            "y": 12,
+            "h": 48,
+            "w": 240,
+            "x": 144
+          },
+          "selector": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalScroll": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalTitle": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalTabs": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "actionBar": {
+            "y": 854,
+            "h": 48,
+            "w": 760,
+            "x": 860
+          },
+          "modalFooter": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          }
+        },
+        "canvas": [
+          1632,
+          918,
+          1
+        ]
+      },
+      {
+        "problems": {},
+        "phase": "terminal",
+        "liveViewport": true,
+        "actions": {},
+        "widgets": {
+          "campaignStatusPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "clockPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "selector": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalScroll": {
+            "y": 412,
+            "h": 230,
+            "w": 616,
+            "x": 508
+          },
+          "modalTitle": {
+            "y": 266,
+            "h": 36,
+            "w": 616,
+            "x": 508
+          },
+          "modalTabs": {
+            "y": 312,
+            "h": 48,
+            "w": 616,
+            "x": 508
+          },
+          "modalPanel": {
+            "y": 234,
+            "h": 450,
+            "w": 680,
+            "x": 476
+          },
+          "actionBar": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalFooter": {
+            "y": 652,
+            "h": 0,
+            "w": 616,
+            "x": 508
+          }
+        },
+        "canvas": [
+          1632,
+          918,
+          1
+        ]
+      },
+      {
+        "problems": {},
+        "phase": "terminal",
+        "liveViewport": true,
+        "actions": {},
+        "widgets": {
+          "campaignStatusPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "clockPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "selector": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalScroll": {
+            "y": 482,
+            "h": 230,
+            "w": 616,
+            "x": 652
+          },
+          "modalTitle": {
+            "y": 336,
+            "h": 36,
+            "w": 616,
+            "x": 652
+          },
+          "modalTabs": {
+            "y": 382,
+            "h": 48,
+            "w": 616,
+            "x": 652
+          },
+          "modalPanel": {
+            "y": 304,
+            "h": 450,
+            "w": 680,
+            "x": 620
+          },
+          "actionBar": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalFooter": {
+            "y": 722,
+            "h": 0,
+            "w": 616,
+            "x": 652
+          }
+        },
+        "canvas": [
+          1920,
+          1057,
+          1
+        ]
+      },
+      {
+        "problems": {},
+        "phase": "terminal",
+        "liveViewport": true,
+        "actions": {},
+        "widgets": {
+          "campaignStatusPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "clockPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "selector": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalScroll": {
+            "y": 535,
+            "h": 134,
+            "w": 616,
+            "x": 652
+          },
+          "modalTitle": {
+            "y": 331,
+            "h": 36,
+            "w": 616,
+            "x": 652
+          },
+          "modalTabs": {
+            "y": 377,
+            "h": 48,
+            "w": 616,
+            "x": 652
+          },
+          "modalPanel": {
+            "y": 299,
+            "h": 460,
+            "w": 680,
+            "x": 620
+          },
+          "actionBar": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalFooter": {
+            "y": 679,
+            "h": 48,
+            "w": 616,
+            "x": 652
+          }
+        },
+        "canvas": [
+          1920,
+          1057,
+          1
+        ]
+      },
+      {
+        "problems": {},
+        "phase": "terminal",
+        "liveViewport": true,
+        "actions": {},
+        "widgets": {
+          "campaignStatusPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "clockPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "selector": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalScroll": {
+            "y": 482,
+            "h": 230,
+            "w": 616,
+            "x": 652
+          },
+          "modalTitle": {
+            "y": 336,
+            "h": 36,
+            "w": 616,
+            "x": 652
+          },
+          "modalTabs": {
+            "y": 382,
+            "h": 48,
+            "w": 616,
+            "x": 652
+          },
+          "modalPanel": {
+            "y": 304,
+            "h": 450,
+            "w": 680,
+            "x": 620
+          },
+          "actionBar": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalFooter": {
+            "y": 722,
+            "h": 0,
+            "w": 616,
+            "x": 652
+          }
+        },
+        "canvas": [
+          1920,
+          1057,
+          1
+        ]
+      },
+      {
+        "problems": {},
+        "phase": "terminal",
+        "liveViewport": true,
+        "actions": {},
+        "widgets": {
+          "campaignStatusPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "clockPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "selector": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalScroll": {
+            "y": 393,
+            "h": 230,
+            "w": 616,
+            "x": 492
+          },
+          "modalTitle": {
+            "y": 247,
+            "h": 36,
+            "w": 616,
+            "x": 492
+          },
+          "modalTabs": {
+            "y": 293,
+            "h": 48,
+            "w": 616,
+            "x": 492
+          },
+          "modalPanel": {
+            "y": 215,
+            "h": 450,
+            "w": 680,
+            "x": 460
+          },
+          "actionBar": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalFooter": {
+            "y": 633,
+            "h": 0,
+            "w": 616,
+            "x": 492
+          }
+        },
+        "canvas": [
+          1600,
+          880.8333333333334,
+          1.2
+        ]
+      },
+      {
+        "problems": {},
+        "phase": "paused",
+        "liveViewport": true,
+        "actions": {},
+        "widgets": {
+          "campaignStatusPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "clockPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "selector": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalScroll": {
+            "y": 342,
+            "h": 232,
+            "w": 616,
+            "x": 492
+          },
+          "modalTitle": {
+            "y": 296,
+            "h": 36,
+            "w": 616,
+            "x": 492
+          },
+          "modalTabs": {
+            "y": 264,
+            "h": 0,
+            "w": 0,
+            "x": 460
+          },
+          "modalPanel": {
+            "y": 264,
+            "h": 352,
+            "w": 680,
+            "x": 460
+          },
+          "actionBar": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalFooter": {
+            "y": 584,
+            "h": 0,
+            "w": 616,
+            "x": 492
+          }
+        },
+        "canvas": [
+          1600,
+          880.8333333333334,
+          1.2
+        ]
+      },
+      {
+        "problems": {},
+        "phase": "settings",
+        "liveViewport": true,
+        "actions": {},
+        "widgets": {
+          "campaignStatusPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "clockPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "selector": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalScroll": {
+            "y": 254,
+            "h": 408,
+            "w": 616,
+            "x": 492
+          },
+          "modalTitle": {
+            "y": 208,
+            "h": 36,
+            "w": 616,
+            "x": 492
+          },
+          "modalTabs": {
+            "y": 176,
+            "h": 0,
+            "w": 0,
+            "x": 460
+          },
+          "modalPanel": {
+            "y": 176,
+            "h": 528,
+            "w": 680,
+            "x": 460
+          },
+          "actionBar": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalFooter": {
+            "y": 672,
+            "h": 0,
+            "w": 616,
+            "x": 492
+          }
+        },
+        "canvas": [
+          1600,
+          880.8333333333334,
+          1.2
+        ]
+      },
+      {
+        "problems": {},
+        "phase": "settings",
+        "liveViewport": true,
+        "actions": {},
+        "widgets": {
+          "campaignStatusPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "clockPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "selector": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalScroll": {
+            "y": 196.66665649414062,
+            "h": 407.4999694824219,
+            "w": 616.6666259765625,
+            "x": 371.6666660308838
+          },
+          "modalTitle": {
+            "y": 149.9999942779541,
+            "h": 35.83332824707031,
+            "w": 616.6666259765625,
+            "x": 371.6666660308838
+          },
+          "modalTabs": {
+            "y": 118.33332824707031,
+            "h": 0,
+            "w": 0,
+            "x": 340
+          },
+          "modalPanel": {
+            "y": 118.33332824707031,
+            "h": 528.3333129882812,
+            "w": 679.9999389648438,
+            "x": 340
+          },
+          "actionBar": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalFooter": {
+            "y": 614.1666412353516,
+            "h": 0,
+            "w": 616.6666259765625,
+            "x": 371.6666660308838
+          }
+        },
+        "canvas": [
+          1360,
+          765,
+          1.2
+        ]
+      },
+      {
+        "problems": {},
+        "phase": "briefing",
+        "liveViewport": true,
+        "actions": {},
+        "widgets": {
+          "campaignStatusPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "clockPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "selector": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalScroll": {
+            "y": 216.66665649414062,
+            "h": 319.9999694824219,
+            "w": 616.6666259765625,
+            "x": 371.6666660308838
+          },
+          "modalTitle": {
+            "y": 169.9999942779541,
+            "h": 35.83332824707031,
+            "w": 616.6666259765625,
+            "x": 371.6666660308838
+          },
+          "modalTabs": {
+            "y": 138.3333282470703,
+            "h": 0,
+            "w": 0,
+            "x": 340
+          },
+          "modalPanel": {
+            "y": 138.3333282470703,
+            "h": 488.33331298828125,
+            "w": 679.9999389648438,
+            "x": 340
+          },
+          "actionBar": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalFooter": {
+            "y": 546.6666412353516,
+            "h": 47.5,
+            "w": 616.6666259765625,
+            "x": 371.6666660308838
+          }
+        },
+        "canvas": [
+          1360,
+          765,
+          1.2
+        ]
+      },
+      {
+        "problems": {},
+        "phase": "cashier",
+        "liveViewport": true,
+        "actions": {},
+        "widgets": {
+          "campaignStatusPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "clockPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "selector": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalScroll": {
+            "y": 290.83331298828125,
+            "h": 171.66665649414062,
+            "w": 616.6666259765625,
+            "x": 371.6666660308838
+          },
+          "modalTitle": {
+            "y": 244.16665077209473,
+            "h": 36.666656494140625,
+            "w": 616.6666259765625,
+            "x": 371.6666660308838
+          },
+          "modalTabs": {
+            "y": 212.49998474121094,
+            "h": 0,
+            "w": 0,
+            "x": 340
+          },
+          "modalPanel": {
+            "y": 212.49998474121094,
+            "h": 340,
+            "w": 679.9999389648438,
+            "x": 340
+          },
+          "actionBar": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalFooter": {
+            "y": 472.49998474121094,
+            "h": 48.333343505859375,
+            "w": 616.6666259765625,
+            "x": 371.6666660308838
+          }
+        },
+        "canvas": [
+          1360,
+          765,
+          1.2
+        ]
+      },
+      {
+        "problems": {},
+        "phase": "settlement",
+        "liveViewport": true,
+        "actions": {},
+        "widgets": {
+          "campaignStatusPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "clockPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "selector": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalScroll": {
+            "y": 226.66665649414062,
+            "h": 299.9999694824219,
+            "w": 616.6666259765625,
+            "x": 371.6666660308838
+          },
+          "modalTitle": {
+            "y": 179.9999942779541,
+            "h": 35.83332824707031,
+            "w": 616.6666259765625,
+            "x": 371.6666660308838
+          },
+          "modalTabs": {
+            "y": 148.3333282470703,
+            "h": 0,
+            "w": 0,
+            "x": 340
+          },
+          "modalPanel": {
+            "y": 148.3333282470703,
+            "h": 468.33331298828125,
+            "w": 679.9999389648438,
+            "x": 340
+          },
+          "actionBar": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalFooter": {
+            "y": 536.6666412353516,
+            "h": 47.5,
+            "w": 616.6666259765625,
+            "x": 371.6666660308838
+          }
+        },
+        "canvas": [
+          1360,
+          765,
+          1.2
+        ]
+      },
+      {
+        "problems": {},
+        "phase": "complete",
+        "liveViewport": true,
+        "actions": {},
+        "widgets": {
+          "campaignStatusPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "clockPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "selector": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalScroll": {
+            "y": 262.49998474121094,
+            "h": 228.33331298828125,
+            "w": 616.6666259765625,
+            "x": 371.6666660308838
+          },
+          "modalTitle": {
+            "y": 215.8333225250244,
+            "h": 35.83332824707031,
+            "w": 616.6666259765625,
+            "x": 371.6666660308838
+          },
+          "modalTabs": {
+            "y": 184.16665649414062,
+            "h": 0,
+            "w": 0,
+            "x": 340
+          },
+          "modalPanel": {
+            "y": 184.16665649414062,
+            "h": 396.6666564941406,
+            "w": 679.9999389648438,
+            "x": 340
+          },
+          "actionBar": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalFooter": {
+            "y": 499.9999694824219,
+            "h": 47.500030517578125,
+            "w": 616.6666259765625,
+            "x": 371.6666660308838
+          }
+        },
+        "canvas": [
+          1360,
+          765,
+          1.2
+        ]
+      },
+      {
+        "problems": {},
+        "phase": "title",
+        "liveViewport": true,
+        "actions": {},
+        "widgets": {
+          "campaignStatusPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "clockPanel": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "selector": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalScroll": {
+            "y": 236.66665649414062,
+            "h": 279.9999694824219,
+            "w": 556.6666259765625,
+            "x": 401.6666660308838
+          },
+          "modalTitle": {
+            "y": 189.9999942779541,
+            "h": 35.83332824707031,
+            "w": 556.6666259765625,
+            "x": 401.6666660308838
+          },
+          "modalTabs": {
+            "y": 158.3333282470703,
+            "h": 0,
+            "w": 0,
+            "x": 370
+          },
+          "modalPanel": {
+            "y": 158.3333282470703,
+            "h": 448.33331298828125,
+            "w": 619.9999389648438,
+            "x": 370
+          },
+          "actionBar": {
+            "y": 0,
+            "h": 0,
+            "w": 0,
+            "x": 0
+          },
+          "modalFooter": {
+            "y": 526.6666412353516,
+            "h": 47.5,
+            "w": 556.6666259765625,
+            "x": 401.6666660308838
+          }
+        },
+        "canvas": [
+          1360,
+          765,
+          1.2
+        ]
+      }
+    ],
+    "lua_errors": []
+  },
+  "scope": "Shared UI art and presentation on accepted V0.6 gameplay; no remote build or Git push",
+  "native_interactions": [
+    "build selection and preview entry",
+    "product selection and quantity increment",
+    "submit order and cancel task",
+    "terminal specified-item withdrawal with held item lands withdrawn item (prior fixture)",
+    "statistics expansion and internal settings scrollbar (prior fixture)",
+    "native maximize/restore and UI1.2"
+  ],
+  "normal_entry_qa_disabled": true,
+  "production_save_hashes_unchanged_before_final_reload": true,
+  "final_preview": {
+    "reload": 12,
+    "lua_log": "lua-2026-10-19 15_07_31_877.log",
+    "lua_errors": [],
+    "qa_messages": [],
+    "entry_qa": false,
+    "file_hashes": [
+      {
+        "path": "scripts/main.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/AttachedComponents.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/AutomaticChecks.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/AutomaticWorkstation.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/AutomationArea.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/BufferStorage.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/Buildings.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/CableNetwork.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/Campaign.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/CampaignRecovery.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/CampaignRuntime.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/CampaignWorld.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/CommerceChecks.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/ConveyorBuilder.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/ConveyorChecks.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/ConveyorControl.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/ConveyorEditingChecks.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/ConveyorGeometry.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/ConveyorNetwork.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/ConveyorWorld.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/DayConfig.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/GameLoop.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/HudDiagnostics.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/Interface.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/InterfaceV3.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/ItemChecks.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/Items.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/LocalSave.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/LoopChecks.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/ManualChecks.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/ManualProduction.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/OrderAutomation.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/OrderAutomationControl.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/Orders.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/OrderTerminalModel.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/OrthographicView.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/Phase1.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/ProductionPlanner.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/ReviewFixChecks.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/SaveCodec.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/StageChecks.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/StaticArt.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/StaticArtChecks.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/TouchInput.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/UIArt.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/UIArtLayout.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/UIArtReview.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/UIChecks.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/UIController.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/UIPreferences.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/UIState.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/V05AttachedChecks.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/V05Checks.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/V05RuntimeChecks.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/V06Checks.lua",
+        "match": true
+      },
+      {
+        "path": "scripts/Factory/V06RuntimeChecks.lua",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/frame_button.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/frame_card.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/frame_joystick.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/frame_main.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/frame_slot.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/frame_status.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/frame_tab.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/frame_tooltip.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_back.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_build.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_cable.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_clock.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_close.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_confirm.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_delete.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_help.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_minus.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_move.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_network.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_orders.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_pause.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_play.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_plus.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_reverse.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_rotate.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_settings.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_tasks.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_ui/runtime/icon_warning.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/assembler_top.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/belt_tile.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/buffer_top.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/bun.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/burger.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/cashier_top.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/coin_icon.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/cooked_beef.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/cooker_top.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/delivery_badge.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/employee_back.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/employee_front.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/employee_left.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/employee_right.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/junction_icon.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/lettuce.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/manual_assembly_top.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/manual_grill_top.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/order_badge.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/raw_beef.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/save_icon.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/shop_floor.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/shop_icon.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/stock_icon.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/storage_top.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/supply_top.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/title_bg.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/trash_top.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/workshop_floor.png",
+        "match": true
+      },
+      {
+        "path": "assets/image/v04_static/runtime/workshop_icon.png",
+        "match": true
+      },
+      {
+        "path": "assets/Shaders/BLGL/FactoryStaticArt.shader",
+        "match": true
+      }
+    ],
+    "native_continue_and_save_return_title": true,
+    "end_screen": "normal title",
+    "production_save_after": {
+      "path": ".local-saves/v06/burger-v06-a.json",
+      "sequence": 53,
+      "stamp": "2026-10-19 15:09:18",
+      "day": 1,
+      "state": "paused",
+      "remaining": 157.17013856349513,
+      "coins": 50
+    },
+    "production_progress_unchanged": true,
+    "platform_check": {
+      "result": "FAIL",
+      "scope": "readiness_and_evidence_only",
+      "errors": [
+        "Could not find resource Cube/Day/DaySpecularHDR.dds",
+        "Can not load themis_x64.dll."
+      ],
+      "note": "Existing environment errors; native UI observed separately"
+    }
+  }
+}

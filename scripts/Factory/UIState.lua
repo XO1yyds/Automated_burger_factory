@@ -1,6 +1,6 @@
 -- Engine-independent UI policy. Recommendations are implemented in one place.
 local State = {}
-State.Version = "Demo V0.6"
+State.Version = "Demo V0.7"
 State.Categories = {"生产", "接口", "物流", "储存", "管理"}
 ---@type string[][]
 State.Kinds = {{"cooker","assembler","terminal","delivery_component","supply_raw","supply_bun","supply_lettuce"},{"junction","isolator_straight","isolator_corner"},{"conveyor","cable"},{"buffer","storage"},{"manage"}}
@@ -51,7 +51,7 @@ end
 function State.OrderSummary(count,limit) return "待处理 "..count..'/'..(limit or 5) end
 
 function State.DefaultPreferences()
-    return {display="both",joystick="fixed",uiScale=1,sensitivity=1,tutorials={}}
+    return {display="both",joystick="fixed",uiScale=1,sensitivity=1,tutorials={},masterVolume=.8,musicVolume=.6,effectsVolume=.8,muted=false}
 end
 
 function State.SanitizePreferences(data)
@@ -61,6 +61,10 @@ function State.SanitizePreferences(data)
     if data.joystick=="fixed" or data.joystick=="floating" then result.joystick=data.joystick end
     if type(data.uiScale)=="number" and data.uiScale==data.uiScale then result.uiScale=State.Clamp(data.uiScale,0.9,1.2) end
     if type(data.sensitivity)=="number" and data.sensitivity==data.sensitivity then result.sensitivity=State.Clamp(data.sensitivity,0.5,1.5) end
+    for _,key in ipairs({'masterVolume','musicVolume','effectsVolume'}) do
+        if type(data[key])=='number' and data[key]==data[key] then result[key]=State.Clamp(data[key],0,1) end
+    end
+    result.muted=data.muted==true
     if type(data.tutorials)=="table" then
         for _,key in ipairs({"normal","preview","adjust"}) do result.tutorials[key]=data.tutorials[key]==true end
     end

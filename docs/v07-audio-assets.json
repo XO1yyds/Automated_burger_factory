@@ -1,0 +1,186 @@
+{
+  "sample_rate": 44100,
+  "runtime_files": [
+    {
+      "path": "assets/audio/v07/runtime/build.wav",
+      "seconds": 0.7122,
+      "bytes": 62864,
+      "peak_dbfs": -6.02,
+      "rms_dbfs": -23.96,
+      "clipped_samples": 0,
+      "seam_jump": 0.0,
+      "sha256": "a8d5aee9c02da658e5073d692221b6024dae39445d17a3b5b45e235d41e0b0a3"
+    },
+    {
+      "path": "assets/audio/v07/runtime/day.wav",
+      "seconds": 1.05,
+      "bytes": 92654,
+      "peak_dbfs": -6.94,
+      "rms_dbfs": -18.58,
+      "clipped_samples": 0,
+      "seam_jump": 0.0,
+      "sha256": "b84813b2009b38d2861dfcb26edd552531ff3470123d790425a0ca0555129134"
+    },
+    {
+      "path": "assets/audio/v07/runtime/delivery.wav",
+      "seconds": 1.0578,
+      "bytes": 93340,
+      "peak_dbfs": -6.02,
+      "rms_dbfs": -26.79,
+      "clipped_samples": 0,
+      "seam_jump": 0.0,
+      "sha256": "4650ea17960c740c534373d77a2739d3ea3d8d7d28a3514a402ce854337d2cb3"
+    },
+    {
+      "path": "assets/audio/v07/runtime/drop.wav",
+      "seconds": 0.5828,
+      "bytes": 51444,
+      "peak_dbfs": -6.02,
+      "rms_dbfs": -26.67,
+      "clipped_samples": 0,
+      "seam_jump": 0.0,
+      "sha256": "4129e9b0481223a7bc907512c91262b9e51d1df308c2c7045650ebe900f1370a"
+    },
+    {
+      "path": "assets/audio/v07/runtime/error.wav",
+      "seconds": 0.25,
+      "bytes": 22094,
+      "peak_dbfs": -10.28,
+      "rms_dbfs": -17.73,
+      "clipped_samples": 0,
+      "seam_jump": 0.0,
+      "sha256": "4d6b894057274aeed5a88f9609d9e77917e17969b43774efa96e098d4a8c3bf6"
+    },
+    {
+      "path": "assets/audio/v07/runtime/grill.wav",
+      "seconds": 3.812,
+      "bytes": 336264,
+      "peak_dbfs": -6.02,
+      "rms_dbfs": -36.58,
+      "clipped_samples": 0,
+      "seam_jump": 0.040283,
+      "sha256": "efbd583cd23f42c46b790345819d89fd1eea796873db62b51b5e6a9721981099"
+    },
+    {
+      "path": "assets/audio/v07/runtime/machine.wav",
+      "seconds": 0.7225,
+      "bytes": 63766,
+      "peak_dbfs": -6.02,
+      "rms_dbfs": -27.68,
+      "clipped_samples": 0,
+      "seam_jump": 0.0,
+      "sha256": "4cfe6a4f68f73bb0fa593cfa07b3eec700dff0803f9be4378f932e6886f9ea6b"
+    },
+    {
+      "path": "assets/audio/v07/runtime/music.ogg",
+      "seconds": 117.6923,
+      "bytes": 1721722,
+      "peak_dbfs": -6.1,
+      "rms_dbfs": -20.81,
+      "clipped_samples": 0,
+      "seam_jump": 0.001006,
+      "sha256": "d14b9d5374d1330884342c48c15ce32d7faeca1e3dcd681813f2e483bec5dac5"
+    },
+    {
+      "path": "assets/audio/v07/runtime/order.wav",
+      "seconds": 0.6295,
+      "bytes": 55568,
+      "peak_dbfs": -6.02,
+      "rms_dbfs": -24.87,
+      "clipped_samples": 0,
+      "seam_jump": 0.0,
+      "sha256": "db9471838032319d24dbe6cb2090a0b790eb52126afad1e1c33e4d422e4e7ac4"
+    },
+    {
+      "path": "assets/audio/v07/runtime/pickup.wav",
+      "seconds": 0.4081,
+      "bytes": 36040,
+      "peak_dbfs": -6.02,
+      "rms_dbfs": -25.87,
+      "clipped_samples": 0,
+      "seam_jump": 0.0,
+      "sha256": "9ff284192949a9aabcd4876548d7c0e57a2f9e1c8ff8277f1883b4da450ca2dd"
+    },
+    {
+      "path": "assets/audio/v07/runtime/step.wav",
+      "seconds": 0.3627,
+      "bytes": 32036,
+      "peak_dbfs": -6.02,
+      "rms_dbfs": -28.58,
+      "clipped_samples": 0,
+      "seam_jump": 0.0,
+      "sha256": "db0b665928d45d01641e87440c26bb934e0f11cc43ba93ecd572d43c3a15ef50"
+    },
+    {
+      "path": "assets/audio/v07/runtime/ui.wav",
+      "seconds": 0.065,
+      "bytes": 5776,
+      "peak_dbfs": -10.42,
+      "rms_dbfs": -17.21,
+      "clipped_samples": 0,
+      "seam_jump": 0.0,
+      "sha256": "b0164b0ada2eca7d9e37d1205b7ec14e8ddcb27e6e0bda9a6c85784674c3c346"
+    }
+  ],
+  "total_bytes": 2573568,
+  "sources": {
+    "music": {
+      "source": "assets/audio/Burger_Factory_—_A_Little_More_Each_Day_20261019084438.mp3",
+      "provider_id": "31f5f805-9e5a-4b7a-9cca-c279e21d1310",
+      "processing": "6s intro/outro exclusion, <=120s core, 1 bar circular crossfade at nominal104BPM, normalize, Vorbis q4"
+    },
+    "step": {
+      "source": "assets/audio/sfx/v07_step.mp3",
+      "remote": "https://tapcode-sce.spark.xd.com/assets/audio/sfx/v07_step_29ded0bf8ddc4ae4.mp3",
+      "processing": "mono44100 PCM16, bounded gain, trim/fade or circular crossfade"
+    },
+    "pickup": {
+      "source": "assets/audio/sfx/v07_pickup.mp3",
+      "remote": "https://tapcode-sce.spark.xd.com/assets/audio/sfx/v07_pickup_8eb13afce99e44cd.mp3",
+      "processing": "mono44100 PCM16, bounded gain, trim/fade or circular crossfade"
+    },
+    "drop": {
+      "source": "assets/audio/sfx/v07_drop.mp3",
+      "remote": "https://tapcode-sce.spark.xd.com/assets/audio/sfx/v07_drop_78eb632b288f941c.mp3",
+      "processing": "mono44100 PCM16, bounded gain, trim/fade or circular crossfade"
+    },
+    "build": {
+      "source": "assets/audio/sfx/v07_build.mp3",
+      "remote": "https://tapcode-sce.spark.xd.com/assets/audio/sfx/v07_build_010a468b1ab0672c.mp3",
+      "processing": "mono44100 PCM16, bounded gain, trim/fade or circular crossfade"
+    },
+    "grill": {
+      "source": "assets/audio/sfx/v07_grill_loop.mp3",
+      "remote": "https://tapcode-sce.spark.xd.com/assets/audio/sfx/v07_grill_loop_cdfe131607ab35a6.mp3",
+      "processing": "mono44100 PCM16, bounded gain, trim/fade or circular crossfade"
+    },
+    "machine": {
+      "source": "assets/audio/sfx/v07_machine.mp3",
+      "remote": "https://tapcode-sce.spark.xd.com/assets/audio/sfx/v07_machine_7ccc2c06dfdd2910.mp3",
+      "processing": "mono44100 PCM16, bounded gain, trim/fade or circular crossfade"
+    },
+    "order": {
+      "source": "assets/audio/sfx/v07_order.mp3",
+      "remote": "https://tapcode-sce.spark.xd.com/assets/audio/sfx/v07_order_5abd73ec9f6f49b3.mp3",
+      "processing": "mono44100 PCM16, bounded gain, trim/fade or circular crossfade"
+    },
+    "delivery": {
+      "source": "assets/audio/sfx/v07_delivery.mp3",
+      "remote": "https://tapcode-sce.spark.xd.com/assets/audio/sfx/v07_delivery_5cb8ed2ebe0c4b09.mp3",
+      "processing": "mono44100 PCM16, bounded gain, trim/fade or circular crossfade"
+    },
+    "ui": {
+      "source": "local additive synthesis",
+      "processing": "simple decaying sine tones, fade and PCM16"
+    },
+    "error": {
+      "source": "local additive synthesis",
+      "processing": "simple decaying sine tones, fade and PCM16"
+    },
+    "day": {
+      "source": "local additive synthesis",
+      "processing": "simple decaying sine tones, fade and PCM16"
+    }
+  },
+  "scope": "decoded waveform/size/seam checks, not a claim of human listening or Android verification"
+}

@@ -494,3 +494,32 @@
 | 2026-10-19 | edit_image | back_run_depth_f08 single_back_depth_r2修订，1帧 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；平台成功=unconfirmed；美术质量另行审核；结果见assets/image/employee_v04/back_run_depth_demo_v1/receipts/frame_08-r2.json <!-- char-state-back_run_depth_f08-single_back_depth_r2 --> |
 | 2026-10-19 | Codex独立image_gen | 补齐背面跑动第8帧 | 是 | 不涉及Tap计费 | 未查询 | 用户要求停止Maker后使用独立图片工具；未把图片模型记为GPT6.1；详见builtin-frame08-request.json <!-- depth-back08-nontap-20261019 --> |
 | 2026-10-19 | 本地开发与官方preview CLI | V0.6十天经营、金币、存档及Windows运行验证 | 否 | 不涉及生成计费 | 未查询 | LOCAL / MAKER-FREE；未调用Tap生成能力，未查询余额，不填写估算积分 |
+| 2026-10-19 | batch_generate_images | V0.4静态五食材图集与三槽烹饪顶面样板 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；2/2返回，食材光晕待修、烹饪顶面初审通过；原始结果assets/image/v04_static/receipts/sample-batch-r1.json |
+| 2026-10-19 | edit_image | V0.4食材透明边缘修订 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；返回成功，真实透明合成后轮廓通过，隐藏RGB导出时清零；food-clean-r2.json |
+| 2026-10-19 | batch_generate_images | V0.4其余八类设备顶面 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；8/8返回，九设备联系表初审通过；devices-batch-r1.json |
+| 2026-10-19 | batch_generate_images | V0.4两区地面、传送带、功能标识与标题背景 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；5/5返回，功能图集实际1024×1536与请求不同，按实图核对后适配；environment-batch-r1.json |
+| 2026-10-19 | batch_generate_images | V0.4 UI八类底框与二十操作图标图集 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；2/2返回；actualSize底框1024×1536、图标1536×1024；保留ui-batch-r1.json，按实图裁切审核 |
+| 2026-10-19 | edit_image | 左侧走路4帧样板 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；腿相位重复，拒收；assets/image/employee_v04/four_frame_v1/receipts/left_walk-r1.json <!-- four-frame-left_walk-r1 --> |
+| 2026-10-19 | edit_image | 左侧走路第一次修订 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；仍有重复相位，拒收；assets/image/employee_v04/four_frame_v1/receipts/left_walk-r2.json <!-- four-frame-left_walk-r2 --> |
+| 2026-10-19 | edit_image | 左侧走路第二次修订 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；完整四姿势，简化腿部交替样板通过；assets/image/employee_v04/four_frame_v1/receipts/left_walk-r3.json <!-- four-frame-left_walk-r3 --> |
+
+| 2026-10-19 | edit_image | 四帧员工 back_walk-r1 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；响应中断，执行/收费未知；用户已明确授权背面走路补生成；assets/image/employee_v04/four_frame_v1/receipts/back_walk-r1.json <!-- four-frame-back_walk-r1 --> |
+
+| 2026-10-19 | edit_image | 四帧员工 back_walk-r2 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；本地已返回；素材质量另审；assets/image/employee_v04/four_frame_v1/receipts/back_walk-r2.json <!-- four-frame-back_walk-r2 --> |
+
+| 2026-10-19 | edit_image | 四帧员工 front_walk-r1 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；本地已返回；素材质量另审；assets/image/employee_v04/four_frame_v1/receipts/front_walk-r1.json <!-- four-frame-front_walk-r1 --> |
+
+| 2026-10-19 | edit_image | 四帧员工 front_walk-r2 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；本地已返回；素材质量另审；assets/image/employee_v04/four_frame_v1/receipts/front_walk-r2.json <!-- four-frame-front_walk-r2 --> |
+
+| 2026-10-19 | edit_image | 四帧员工 left_run-r1 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；本地已返回；素材质量另审；assets/image/employee_v04/four_frame_v1/receipts/left_run-r1.json <!-- four-frame-left_run-r1 --> |
+
+| 2026-10-19 | edit_image | 四帧员工 right_run-r1 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；本地已返回；素材质量另审；assets/image/employee_v04/four_frame_v1/receipts/right_run-r1.json <!-- four-frame-right_run-r1 --> |
+
+| 2026-10-19 | edit_image | 四帧员工 right_walk-r1 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；本地已返回；素材质量另审；assets/image/employee_v04/four_frame_v1/receipts/right_walk-r1.json <!-- four-frame-right_walk-r1 --> |
+
+| 2026-10-19 | edit_image | 四帧员工 right_walk-r2 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；本地已返回；素材质量另审；assets/image/employee_v04/four_frame_v1/receipts/right_walk-r2.json <!-- four-frame-right_walk-r2 --> |
+
+| 2026-10-19 | edit_image | 四帧员工 right_walk-single3 | 是 | 平台未返回 | 未取得 | MAKER-POINTS；本地已返回；素材质量另审；assets/image/employee_v04/four_frame_v1/receipts/right_walk-single3.json <!-- four-frame-right_walk-single3 --> |
+| 2026-10-19 | Codex内置image_gen | 四帧员工完整姿势补充与候选修订，共10次调用 | 是 | 不涉及Tap调用 | 未查询 | 已返回文件保留，部分未采用；非Tap平台消费不填Tap扣费；提供方模型未暴露 <!-- four-frame-builtin-20261019 --> |
+| 2026-10-19 | text_to_music | V0.7正式经营BGM，1首156.8秒 | 是 | 平台未返回 | 未取得 | 已本地返回；任务temp_8ebed0bd-d2d3-4f47-b15c-9bb6a133af19，回执assets/audio/v07/receipts/music.json；未声称控制扣费来源 |
+| 2026-10-19 | batch_sound_effects | V0.7脚步/取放/建造/煎肉/机器/订单/交付，共8类 | 是 | 平台未返回 | 未取得 | 8项成功，失败0；回执assets/audio/v07/receipts/sfx.json，单次批量调用不重复计数 |

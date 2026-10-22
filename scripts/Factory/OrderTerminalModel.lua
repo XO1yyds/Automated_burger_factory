@@ -96,6 +96,14 @@ function Model.Build(c)
             if c.showHistory then for i=1,math.min(4,#history) do local job=history[i]; row(m,title(job.product)..'  '..job.delivered..'/'..job.quantity,job.state) end end
         end
     end
+    -- Presentation metadata only; inventory/task services remain authoritative.
+    for _,entry in ipairs(m.entries) do
+        for _,kind in ipairs({'cooked_beef','raw_beef','lettuce','bun','burger'}) do
+            local name=Definitions[kind].name
+            if entry.text:sub(1,#name)==name then entry.itemType=kind; break end
+        end
+        if entry.action and entry.action.command=='terminalProduct' then entry.itemType=entry.action.value end
+    end
     return m
 end
 return Model

@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-19",
+  "requested_frames": 24,
+  "delivered_frames": 24,
+  "directions": [
+    {
+      "direction": "left",
+      "frames": 8,
+      "fps": 14,
+      "export": "export_v1",
+      "evidence": "assets/image/employee_v04/left_run_depth_demo_v1/export_v1/evidence.json",
+      "selected_receipts": {
+        "1": "receipts/frame_01-r2.json",
+        "2": "receipts/frame_02-r1.json",
+        "3": "receipts/frame_03-r1.json",
+        "4": "receipts/frame_04-r1.json",
+        "5": "receipts/frame_05-r1.json",
+        "6": "receipts/frame_06-r1.json",
+        "7": "receipts/frame_07-r1.json",
+        "8": "receipts/frame_08-r1.json"
+      },
+      "source_pose_visual_review": "performed_against_supplied_row_major_reference",
+      "gait_and_art_acceptance": "pending_user_review",
+      "integrated_in_game": false
+    },
+    {
+      "direction": "right",
+      "frames": 8,
+      "fps": 14,
+      "export": "export_v1",
+      "evidence": "assets/image/employee_v04/right_run_depth_demo_v1/export_v1/evidence.json",
+      "selected_receipts": {
+        "1": "receipts/frame_01-r1.json",
+        "2": "receipts/frame_02-r1.json",
+        "3": "receipts/frame_03-r1.json",
+        "4": "receipts/frame_04-r1.json",
+        "5": "receipts/frame_05-r1.json",
+        "6": "receipts/frame_06-r1.json",
+        "7": "receipts/frame_07-r1.json",
+        "8": "receipts/frame_08-r1.json"
+      },
+      "source_pose_visual_review": "performed_against_supplied_row_major_reference",
+      "gait_and_art_acceptance": "pending_user_review",
+      "integrated_in_game": false
+    },
+    {
+      "direction": "back",
+      "frames": 8,
+      "fps": 14,
+      "export": "export_v1",
+      "evidence": "assets/image/employee_v04/back_run_depth_demo_v1/export_v1/evidence.json",
+      "selected_receipts": {
+        "1": "receipts/frame_01-r1.json",
+        "2": "receipts/frame_02-r1.json",
+        "3": "receipts/frame_03-r1.json",
+        "4": "receipts/frame_04-r1.json",
+        "5": "receipts/frame_05-r1.json",
+        "6": "receipts/frame_06-r1.json",
+        "7": "receipts/frame_07-r1.json",
+        "8": "receipts/frame_08-r3.json"
+      },
+      "source_pose_visual_review": "performed_against_supplied_row_major_reference",
+      "gait_and_art_acceptance": "pending_user_review",
+      "integrated_in_game": false
+    }
+  ],
+  "generation_calls": 27,
+  "successful_calls": 24,
+  "maker_calls": 26,
+  "builtin_imagegen_calls": 1,
+  "credits": "platform_did_not_return",
+  "head_or_eye_local_edit": false,
+  "unknown_execution": [
+    "left frame 01 r1; user explicitly authorized replacement r2",
+    "back frame 08 r1 and r2; tools/call timed out after 300s each; r3 delivered by builtin image_gen after user stopped Maker"
+  ],
+  "runtime_integration": false,
+  "remote_build": false,
+  "git_push": false
+}

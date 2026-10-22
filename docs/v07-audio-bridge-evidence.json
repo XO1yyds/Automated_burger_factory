@@ -1,0 +1,31 @@
+{
+  "scope": "Host fixture preference backup/restore and preservation, not Android IO",
+  "checks": [
+    {
+      "name": "Legacy UI preferences remain valid",
+      "passed": true
+    },
+    {
+      "name": "Changed audio preferences backed up as exact bytes",
+      "passed": true
+    },
+    {
+      "name": "Fresh preview restores audio preferences",
+      "passed": true
+    },
+    {
+      "name": "Invalid native audio settings cannot replace backup",
+      "passed": true
+    },
+    {
+      "name": "Unrecognized backup preserved",
+      "passed": true
+    },
+    {
+      "name": "PowerShell helper parses",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "passed": 6
+}

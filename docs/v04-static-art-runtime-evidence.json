@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-19",
+  "scope": "Static art on accepted V0.6 gameplay; no animation or Android acceptance",
+  "assets": {
+    "runtime_png": 30,
+    "enabled": 29,
+    "reserved": 1,
+    "bytes": 5081642,
+    "manifest_hashes_verified": true,
+    "maker_output_images": 16,
+    "reused_character_views": 4,
+    "actual_points": "platform did not return"
+  },
+  "windows_visual_session": "0cd9cf58-1c4b-4a6e-a3ad-a28ccdb1124e",
+  "visual_reload": 3,
+  "display_settings": {
+    "fogDensity": 0,
+    "heightFog": false,
+    "autoExposureEnabled": false,
+    "tonemapMode": 0
+  },
+  "shared_materials": 26,
+  "missing_materials": [],
+  "observed": [
+    "whole-body four-view fixture",
+    "0 and 90 degree cooker food slots aligned",
+    "assembler ingredients aligned with upper slots",
+    "six-slot buffer with real item types",
+    "closed storage and actual load display",
+    "order and delivery component badges",
+    "conveyor surface and independent live cargo",
+    "title illustration and existing save information",
+    "real interaction button opens terminal",
+    "product thumbnails: burger and cooked beef",
+    "inventory thumbnails: all five item types",
+    "withdraw while holding: actual count 5 to 4, new ground burger, original held burger preserved",
+    "drop: held HUD becomes empty, second ground burger visible",
+    "build category thumbnails and existing placement flow",
+    "translucent building ghost and collision rejection",
+    "cable editing: cyan wires and gold plug endpoints remain readable"
+  ],
+  "checks": {
+    "v06_domain": {
+      "passed": 80,
+      "failed": 0
+    },
+    "attached_components": {
+      "passed": 32,
+      "failed": 0
+    },
+    "conveyor_editing": {
+      "passed": 37,
+      "failed": 0
+    },
+    "lua_files": 53,
+    "syntax_errors": 0,
+    "lsp_errors": 0,
+    "lsp_warnings": 447,
+    "lsp_hints": 86
+  },
+  "repairs": {
+    "automatic_visual_rounds": 2,
+    "extra_color_round_explicitly_authorized": true,
+    "qa_harness_event_issue_corrected": true
+  },
+  "save_protection": {
+    "qa_files": "burger-static-art-qa-a/b.json",
+    "real_campaign_not_replaced_by_fixture": true,
+    "qa_flag_final": false
+  },
+  "pending": [],
+  "boundaries": [
+    "Windows only; Android 15 Xiaomi14 not tested",
+    "Frame animations remain suspended",
+    "No Git commit/push or Maker remote build",
+    "Existing DaySpecularHDR.dds and themis_x64.dll errors retained",
+    "Preview protocol ready flag is not gameplay acceptance"
+  ],
+  "final_preview": {
+    "session_id": "0cd9cf58-1c4b-4a6e-a3ad-a28ccdb1124e",
+    "reload_id": 4,
+    "state": "running",
+    "process_alive": true,
+    "ready": false,
+    "files_compared": 84,
+    "mismatches": [],
+    "qa_entry_disabled": true,
+    "errors": [
+      "[2026-10-19 14_11_00_878][0] ERROR: Could not find resource Cube/Day/DaySpecularHDR.dds\r",
+      "[2026-10-19 14_11_00_940][0] ERROR: Can not load themis_x64.dll.\r",
+      "[2026-10-19 14_11_16_052][783] ERROR: Could not find resource Cube/Day/DaySpecularHDR.dds\r"
+    ]
+  },
+  "platform_check": {
+    "session_id": "0cd9cf58-1c4b-4a6e-a3ad-a28ccdb1124e",
+    "reload_id": 4,
+    "result": "FAIL",
+    "ready": false,
+    "process_alive": true,
+    "errors": [
+      "[2026-10-19 14_11_00_878][0] ERROR: Could not find resource Cube/Day/DaySpecularHDR.dds\r",
+      "[2026-10-19 14_11_00_940][0] ERROR: Can not load themis_x64.dll.\r",
+      "[2026-10-19 14_11_16_052][783] ERROR: Could not find resource Cube/Day/DaySpecularHDR.dds\r"
+    ],
+    "message": "Process status only; game loading, visuals and cloud/server features are not verified."
+  },
+  "final_normal_play_observed": {
+    "day": 2,
+    "coins": 115,
+    "remaining": "03:30",
+    "loaded_original_campaign": true,
+    "shop_art_visible": true,
+    "saved_and_returned_to_title": true,
+    "final_save_state": "paused from preparation",
+    "qa_factory_not_present": true
+  },
+  "agent_art_acceptance": "PASS for current Windows static-art scope; excluded Android and animations"
+}

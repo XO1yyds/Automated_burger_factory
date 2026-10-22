@@ -1,0 +1,3751 @@
+{
+  "version": "v04-four-frame-v1",
+  "groups": 32,
+  "frames": 128,
+  "entries": [
+    {
+      "id": "front_idle",
+      "direction": "front",
+      "action": "idle",
+      "frames": 4,
+      "fps": 2,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/front_idle.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/front_idle_first_style_v5/full_frame_v6/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/front_idle_first_style_v5/full_frame_v6/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/front_idle_first_style_v5/full_frame_v6/export256/spritesheet.png",
+            "rect": [
+              262,
+              262,
+              518,
+              518
+            ],
+            "normalized": true,
+            "original_index": 4,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/front_idle_first_style_v5/full_frame_v6/export256/spritesheet.png",
+            "rect": [
+              2,
+              522,
+              258,
+              778
+            ],
+            "normalized": true,
+            "original_index": 6,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse complete authored poses; no head/eye replacement"
+      },
+      "sockets": [
+        [
+          0.49696,
+          0.6745
+        ],
+        [
+          0.50052,
+          0.64617
+        ],
+        [
+          0.49976,
+          0.62183
+        ],
+        [
+          0.50026,
+          0.67214
+        ]
+      ],
+      "frame_hashes": [
+        "c1ac81d3c6a2780b52c0e663b0b64e651391af5b0cbe4fbf13195c8928e16a1d",
+        "798be773ff96badd414346e336910f5ee007261f3d10556b40883b65bfe03e68",
+        "91fdae79feb7bdec0473476196d5c808712681a2f8964e4c9fb61bd2986ba616",
+        "c099cb58d99859723918a196221b13b6346f2943f2174c66a373ea0e0990af86"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          70,
+          21,
+          186,
+          248
+        ],
+        [
+          70,
+          21,
+          185,
+          248
+        ],
+        [
+          70,
+          20,
+          185,
+          248
+        ],
+        [
+          70,
+          21,
+          185,
+          248
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "front_walk",
+      "direction": "front",
+      "action": "walk",
+      "frames": 4,
+      "fps": 6,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/front_walk.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/front_walk/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/front_walk/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/front_walk/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              262,
+              262,
+              518,
+              518
+            ],
+            "normalized": true,
+            "original_index": 4,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_four_front_walk_r2_pose_20261019073040.png",
+            "provenance": "current_task_existing_delivered_asset",
+            "cell": 0
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Neutral/step/neutral/opposite lifting foot; simple4, not smooth8"
+      },
+      "sockets": [
+        [
+          0.51772,
+          0.6224
+        ],
+        [
+          0.47709,
+          0.61754
+        ],
+        [
+          0.47957,
+          0.59034
+        ],
+        [
+          0.48037,
+          0.63162
+        ]
+      ],
+      "frame_hashes": [
+        "04ac330726c5d256e1c77c2cf79729eccc5c25f224f2376c64be4fe426f41196",
+        "cc4c3e48ca4e36fee87c6a92a16c94bfb111bb36b92dbb31c2a408630d3bbb92",
+        "e111701d88f2be6b173d3dcfb443a195d332243164b5f4c471e0b3a3306e1aa7",
+        "46b632a97256c901751c74c5cb169bf083f738eb83256e6d3af98a723ce7b989"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          77,
+          19,
+          191,
+          246
+        ],
+        [
+          73,
+          20,
+          185,
+          246
+        ],
+        [
+          71,
+          20,
+          183,
+          248
+        ],
+        [
+          72,
+          18,
+          185,
+          248
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "front_run",
+      "direction": "front",
+      "action": "run",
+      "frames": 4,
+      "fps": 8,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/front_run.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/front_run_depth_demo_v2/export_v2/frames256/frame_01.png",
+            "normalized": true,
+            "provenance": "pre_task_depth_guided_full_pose"
+          },
+          {
+            "source": "assets/image/employee_v04/front_run_depth_demo_v2/export_v2/frames256/frame_03.png",
+            "normalized": true,
+            "provenance": "pre_task_depth_guided_full_pose"
+          },
+          {
+            "source": "assets/image/employee_v04/front_run_depth_demo_v2/export_v2/frames256/frame_05.png",
+            "normalized": true,
+            "provenance": "pre_task_depth_guided_full_pose"
+          },
+          {
+            "source": "assets/image/employee_v04/front_run_depth_demo_v2/export_v2/frames256/frame_07.png",
+            "normalized": true,
+            "provenance": "pre_task_depth_guided_full_pose"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse depth-guided complete run poses across both half-cycles"
+      },
+      "sockets": [
+        [
+          0.49897,
+          0.62133
+        ],
+        [
+          0.49514,
+          0.61654
+        ],
+        [
+          0.51606,
+          0.62375
+        ],
+        [
+          0.51106,
+          0.63071
+        ]
+      ],
+      "frame_hashes": [
+        "9507afe2cc9eb180a1c4117f01c6ffaed9a4889d884aa40d5cbf8e2d5d35a37c",
+        "56696931f45650d504c09f98c66c535709c6121934e7836cbf4e85d8d08627a7",
+        "5d58049e0b726de651e9d27b2bce644280029643ce15c8ea3f42f1ab9d65f20c",
+        "475c040ca64388b5986e69efe37b008d74893d28c04b33ba9217b3032a5616ce"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          71,
+          29,
+          186,
+          245
+        ],
+        [
+          68,
+          28,
+          185,
+          244
+        ],
+        [
+          67,
+          28,
+          190,
+          248
+        ],
+        [
+          72,
+          30,
+          187,
+          247
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "front_carry_idle",
+      "direction": "front",
+      "action": "carry_idle",
+      "frames": 4,
+      "fps": 2,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/front_carry_idle.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/front_carry_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/front_carry_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              262,
+              2,
+              518,
+              258
+            ],
+            "normalized": true,
+            "original_index": 1,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/front_carry_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/front_carry_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              262,
+              258,
+              518
+            ],
+            "normalized": true,
+            "original_index": 3,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse complete authored poses; no head/eye replacement"
+      },
+      "sockets": [
+        [
+          0.54379,
+          0.6229
+        ],
+        [
+          0.49769,
+          0.59559
+        ],
+        [
+          0.48901,
+          0.57726
+        ],
+        [
+          0.47163,
+          0.62592
+        ]
+      ],
+      "frame_hashes": [
+        "e269a019520a3ea83cc9b9c26ea661d218afaf9e37438c6645657d2aef55aa8a",
+        "979bfedcd597ce38649850eff9ff85cf175b8024d0731236f340db92ddfb5047",
+        "2878f5dc173006b0c819e7492ea1fb8155713962d19f53fba13d7252bcd5abfa",
+        "a64a07f61fd3370073902929c4b0ebd5af8c6dd78c225ac05fc0d91f7932f75b"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          84,
+          21,
+          195,
+          248
+        ],
+        [
+          73,
+          20,
+          185,
+          248
+        ],
+        [
+          72,
+          19,
+          183,
+          248
+        ],
+        [
+          64,
+          21,
+          175,
+          248
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "front_carry_walk",
+      "direction": "front",
+      "action": "carry_walk",
+      "frames": 4,
+      "fps": 6,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/front_carry_walk.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/front_carry_walk/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/front_carry_walk/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/front_carry_walk/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              262,
+              262,
+              518,
+              518
+            ],
+            "normalized": true,
+            "original_index": 4,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/four_frame_v1/builtin/front_carry_walk_b.png",
+            "provenance": "current_task_existing_delivered_asset"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Existing neutral and step poses with already-delivered opposite-leg whole pose; no props baked in"
+      },
+      "sockets": [
+        [
+          0.49321,
+          0.6033
+        ],
+        [
+          0.50357,
+          0.6034
+        ],
+        [
+          0.49455,
+          0.60333
+        ],
+        [
+          0.49632,
+          0.60349
+        ]
+      ],
+      "frame_hashes": [
+        "9ee88eaba85095059f2682742e918f9819484a5e8674e6df2025a4622a1b02b4",
+        "c5effbe881dd9ca6ff967fdd73be56e9b3957b3c869349c2d3b65b8a74b791a7",
+        "be41c4349e03db6f9045489a136b566ca3819988c2fb088662c99c54e612823f",
+        "6dde4aa9aa7161066635602adecce2a20702b01e1345e0013afd22fe7ccb9974"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          73,
+          19,
+          182,
+          245
+        ],
+        [
+          76,
+          20,
+          185,
+          246
+        ],
+        [
+          74,
+          20,
+          182,
+          248
+        ],
+        [
+          72,
+          18,
+          183,
+          248
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "front_carry_run",
+      "direction": "front",
+      "action": "carry_run",
+      "frames": 4,
+      "fps": 8,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/front_carry_run.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/front_carry_run/candidate_v5/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/front_carry_run/candidate_v5/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/front_carry_run/candidate_v5/export256/spritesheet.png",
+            "rect": [
+              262,
+              262,
+              518,
+              518
+            ],
+            "normalized": true,
+            "original_index": 4,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/front_carry_run/candidate_v5/export256/spritesheet.png",
+            "rect": [
+              2,
+              522,
+              258,
+              778
+            ],
+            "normalized": true,
+            "original_index": 6,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse same-batch full-body poses; prefer odd-index passing phase over newly generated proportion changes"
+      },
+      "sockets": [
+        [
+          0.50675,
+          0.60519
+        ],
+        [
+          0.48929,
+          0.63288
+        ],
+        [
+          0.49401,
+          0.60825
+        ],
+        [
+          0.47118,
+          0.6356
+        ]
+      ],
+      "frame_hashes": [
+        "296f528977fabfa91c3dd5f7831648bfee25d98533d1a732e5a2af08cbc1daa4",
+        "b9249067329ec675ef48a223a8c5de3f42f4f05dec3f6cf6c0c84da6c688fbe0",
+        "37c37674aa22c3c6f6fb93437bad121dc9b595ba46a8ad83227bf205e1865baa",
+        "725d3351d655d17ccb910bf3ec485047764b598f0745c8cd0df6b2238ff80657"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          78,
+          25,
+          184,
+          247
+        ],
+        [
+          76,
+          22,
+          183,
+          247
+        ],
+        [
+          74,
+          24,
+          181,
+          249
+        ],
+        [
+          72,
+          21,
+          179,
+          229
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "front_operate",
+      "direction": "front",
+      "action": "operate",
+      "frames": 4,
+      "fps": 6,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/front_operate.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/front_operate/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/front_operate/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/front_operate/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              262,
+              262,
+              518,
+              518
+            ],
+            "normalized": true,
+            "original_index": 4,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/front_operate/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              522,
+              258,
+              778
+            ],
+            "normalized": true,
+            "original_index": 6,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse complete authored poses; no head/eye replacement"
+      },
+      "sockets": [
+        [
+          0.51932,
+          0.60933
+        ],
+        [
+          0.51882,
+          0.60522
+        ],
+        [
+          0.49711,
+          0.58326
+        ],
+        [
+          0.48135,
+          0.60656
+        ]
+      ],
+      "frame_hashes": [
+        "b868ee36c553f453f8d5c668782ddb7aefa576f7bc465c1290d14610b2e1e3ad",
+        "a78bdbe147d2dae58275a19a7fb05e10285cd71ea30cb28ea01fc7391123aef2",
+        "04ae6e061c37f389bfa44a6b8f3431b02e3470c9788fcbd10384109df7d275ca",
+        "f4360668abfe865e708b9d630e84448e7e505184a7fb3d013da408d57c52bbb1"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          76,
+          20,
+          192,
+          247
+        ],
+        [
+          80,
+          20,
+          194,
+          247
+        ],
+        [
+          66,
+          20,
+          180,
+          247
+        ],
+        [
+          64,
+          19,
+          179,
+          247
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "front_think",
+      "direction": "front",
+      "action": "think",
+      "frames": 4,
+      "fps": 2,
+      "loop": false,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/front_think.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/front_think/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/front_think/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              262,
+              258,
+              518
+            ],
+            "normalized": true,
+            "original_index": 3,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/front_think/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              522,
+              258,
+              778
+            ],
+            "normalized": true,
+            "original_index": 6,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/front_think/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              782,
+              258,
+              1038
+            ],
+            "normalized": true,
+            "original_index": 9,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse complete authored poses; no head/eye replacement"
+      },
+      "sockets": [
+        [
+          0.50029,
+          0.66275
+        ],
+        [
+          0.5125,
+          0.61334
+        ],
+        [
+          0.52382,
+          0.61097
+        ],
+        [
+          0.50234,
+          0.67489
+        ]
+      ],
+      "frame_hashes": [
+        "ba8c3f8bab11f20005fba6bf16d7318c722f890a07e1e687750c6c1df7eb7042",
+        "81dc82104b54521bd78267c0d5ece29b2b95910da47f70c306bc73adf9b634d8",
+        "dccfafcc9cd9a6e5a2b37747d11f521e2f3ba9addc01278d139f01a8ab6afa1e",
+        "ab0d09b409aa086e49d6f4e88f7f7a72cf345bd9cd5599782cd59d2cf2fb0707"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          73,
+          21,
+          183,
+          246
+        ],
+        [
+          72,
+          20,
+          184,
+          248
+        ],
+        [
+          71,
+          19,
+          184,
+          248
+        ],
+        [
+          72,
+          21,
+          184,
+          248
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "left_idle",
+      "direction": "left",
+      "action": "idle",
+      "frames": 4,
+      "fps": 2,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/left_idle.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/left_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/left_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/left_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              262,
+              262,
+              518,
+              518
+            ],
+            "normalized": true,
+            "original_index": 4,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/left_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              522,
+              258,
+              778
+            ],
+            "normalized": true,
+            "original_index": 6,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse complete authored poses; no head/eye replacement"
+      },
+      "sockets": [
+        [
+          0.50265,
+          0.68521
+        ],
+        [
+          0.47319,
+          0.67962
+        ],
+        [
+          0.48214,
+          0.67817
+        ],
+        [
+          0.50199,
+          0.68063
+        ]
+      ],
+      "frame_hashes": [
+        "fff5a162997ab7c633e2f2a8992349d5840a5bf0e805c1f668648166f5aa901d",
+        "01ad3cf4cfa93501a0290275538d85a9456345a8ffa392abf94934ab108adb26",
+        "429671254233e4296f2d6df8d44cfd552bc5736d5cfefc2632342622f857f62d",
+        "c00307a81befcc5caa38613ccdcc17149390dbfaf7d8569744b506f547161ff2"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          71,
+          21,
+          190,
+          246
+        ],
+        [
+          70,
+          22,
+          187,
+          247
+        ],
+        [
+          70,
+          22,
+          187,
+          247
+        ],
+        [
+          69,
+          22,
+          186,
+          247
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "left_walk",
+      "direction": "left",
+      "action": "walk",
+      "frames": 4,
+      "fps": 6,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/left_walk.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_left_walk_four_r3_20261019072330.png",
+            "provenance": "current_task_existing_delivered_asset",
+            "cell": 0
+          },
+          {
+            "source": "assets/image/employee_left_walk_four_r3_20261019072330.png",
+            "provenance": "current_task_existing_delivered_asset",
+            "cell": 1
+          },
+          {
+            "source": "assets/image/employee_left_walk_four_r3_20261019072330.png",
+            "provenance": "current_task_existing_delivered_asset",
+            "cell": 2
+          },
+          {
+            "source": "assets/image/employee_left_walk_four_r3_20261019072330.png",
+            "provenance": "current_task_existing_delivered_asset",
+            "cell": 3
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reviewed4-pose strip, near/far overlap changes after half-cycle"
+      },
+      "sockets": [
+        [
+          0.36607,
+          0.64207
+        ],
+        [
+          0.36674,
+          0.62968
+        ],
+        [
+          0.37155,
+          0.64152
+        ],
+        [
+          0.38317,
+          0.65867
+        ]
+      ],
+      "frame_hashes": [
+        "d6aa07892f47c56ae7da97f7aea3d59293b89d08ed7b2f3cfe738f6d33f91c78",
+        "f35bd37e95099ba2c76a9867a32cf28bb36fa675ced468edcd6b2cdab157d2a9",
+        "0f25568c6a5ab82bef88cc213720d41cae411dee056b27c6ad26758d3661870f",
+        "b74196f49c32be2b8a043046adf92a031b4c717b18fe5cada086c39854d14118"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          68,
+          18,
+          187,
+          248
+        ],
+        [
+          68,
+          18,
+          187,
+          248
+        ],
+        [
+          68,
+          18,
+          187,
+          248
+        ],
+        [
+          68,
+          18,
+          187,
+          248
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "left_run",
+      "direction": "left",
+      "action": "run",
+      "frames": 4,
+      "fps": 8,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/left_run.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_four_left_run_r1_20261019072803.png",
+            "provenance": "current_task_existing_delivered_asset",
+            "cell": 0
+          },
+          {
+            "source": "assets/image/employee_four_left_run_r1_20261019072803.png",
+            "provenance": "current_task_existing_delivered_asset",
+            "cell": 1
+          },
+          {
+            "source": "assets/image/employee_four_left_run_r1_20261019072803.png",
+            "provenance": "current_task_existing_delivered_asset",
+            "cell": 2
+          },
+          {
+            "source": "assets/image/employee_four_left_run_r1_20261019072803.png",
+            "provenance": "current_task_existing_delivered_asset",
+            "cell": 3
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Simple run poses, complete head/body and different knee bends"
+      },
+      "sockets": [
+        [
+          0.36824,
+          0.61219
+        ],
+        [
+          0.36734,
+          0.58773
+        ],
+        [
+          0.37114,
+          0.60608
+        ],
+        [
+          0.39293,
+          0.6482
+        ]
+      ],
+      "frame_hashes": [
+        "e3b833bb91bc16c13520865a562bc7f4968cdda41c728d795014681662e17abf",
+        "fd0faaa21d15d3b93a6af08cd67c4766393a95a75b25f0db806bc104365cb9ef",
+        "499a06bbf24bc120b4f6e91a68c8345d7f9a924fdd563a24d24ad386bc3b1830",
+        "cc88775d7409f629e007579e25961c7f16bcb7c761941884b9f21adc99840090"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          70,
+          18,
+          187,
+          248
+        ],
+        [
+          70,
+          18,
+          187,
+          248
+        ],
+        [
+          70,
+          18,
+          187,
+          248
+        ],
+        [
+          70,
+          18,
+          187,
+          248
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "left_carry_idle",
+      "direction": "left",
+      "action": "carry_idle",
+      "frames": 4,
+      "fps": 2,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/left_carry_idle.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/left_carry_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/left_carry_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              262,
+              2,
+              518,
+              258
+            ],
+            "normalized": true,
+            "original_index": 1,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/left_carry_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/left_carry_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              262,
+              258,
+              518
+            ],
+            "normalized": true,
+            "original_index": 3,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse complete authored poses; no head/eye replacement"
+      },
+      "sockets": [
+        [
+          0.46024,
+          0.64144
+        ],
+        [
+          0.45315,
+          0.61641
+        ],
+        [
+          0.43084,
+          0.61218
+        ],
+        [
+          0.43486,
+          0.63952
+        ]
+      ],
+      "frame_hashes": [
+        "aaabbaec5801da34d47fc54ee6f3df6e26a15dff9ed7cebf83dcaf92003c6558",
+        "b7f625eb0c67d7bc0e9f1d6460f87b5d81f741e6d9f80778394988a635bf8956",
+        "28e056bbb1471d852e6e4fa242e1a244bd648aed200679a10f5e08881ccf275a",
+        "70bdbb63d6407200ddbe54b7d9a7307c457dd4f49d51558d09c104b322352f71"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          77,
+          25,
+          195,
+          248
+        ],
+        [
+          75,
+          24,
+          191,
+          247
+        ],
+        [
+          65,
+          25,
+          181,
+          247
+        ],
+        [
+          64,
+          25,
+          181,
+          247
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "left_carry_walk",
+      "direction": "left",
+      "action": "carry_walk",
+      "frames": 4,
+      "fps": 6,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/left_carry_walk.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/left_carry_walk/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/left_carry_walk/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/left_carry_walk/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              262,
+              262,
+              518,
+              518
+            ],
+            "normalized": true,
+            "original_index": 4,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/four_frame_v1/builtin/left_carry_walk_b_r2.png",
+            "provenance": "current_task_existing_delivered_asset"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Existing neutral and step poses with already-delivered opposite-leg whole pose; no props baked in"
+      },
+      "sockets": [
+        [
+          0.42519,
+          0.6315
+        ],
+        [
+          0.42286,
+          0.6318
+        ],
+        [
+          0.42415,
+          0.63155
+        ],
+        [
+          0.42183,
+          0.6294
+        ]
+      ],
+      "frame_hashes": [
+        "0ec7dd0df45bc4cb4e8b8999c3983417accbd071bb4ad7214227c322c6c132ba",
+        "b71f8517967004d9ee85fcce1e1498ea630b84624c90060111dffe36cc3b3cf3",
+        "b58f8c9fa52f2131cb4274e622130c8dcd5692a82e8e81ef41d1270545755e9f",
+        "810ece412fcfd4b7ceb51ec2986bab70a9aa0f142f5e98d2243e48832720283b"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          70,
+          20,
+          187,
+          249
+        ],
+        [
+          69,
+          20,
+          187,
+          249
+        ],
+        [
+          69,
+          20,
+          187,
+          249
+        ],
+        [
+          68,
+          18,
+          187,
+          248
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "left_carry_run",
+      "direction": "left",
+      "action": "carry_run",
+      "frames": 4,
+      "fps": 8,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/left_carry_run.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/left_carry_run/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/left_carry_run/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/left_carry_run/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              262,
+              262,
+              518,
+              518
+            ],
+            "normalized": true,
+            "original_index": 4,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/left_carry_run/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              262,
+              778,
+              518
+            ],
+            "normalized": true,
+            "original_index": 5,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse same-batch full-body poses; prefer odd-index passing phase over newly generated proportion changes"
+      },
+      "sockets": [
+        [
+          0.44098,
+          0.63313
+        ],
+        [
+          0.43506,
+          0.6466
+        ],
+        [
+          0.44386,
+          0.6335
+        ],
+        [
+          0.4485,
+          0.63049
+        ]
+      ],
+      "frame_hashes": [
+        "8dbf6ab63169d24489dc92cd94f3b33e41bb9099e56db6649bedbd7a9a4f563b",
+        "af4c2358e856aed2d22f66cff3514022b568e49d3017111e7962bfb8f217bcca",
+        "2a64bf2ab8c18d4fc5a98af47438162ebc198c6537c14af8d4a6cb23327bddd5",
+        "ef5e5301ecb2db3b642833abc34ac431ed0fea36f8426fdb957725fcf6d8c0aa"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          69,
+          23,
+          188,
+          248
+        ],
+        [
+          70,
+          21,
+          185,
+          248
+        ],
+        [
+          69,
+          22,
+          189,
+          248
+        ],
+        [
+          69,
+          23,
+          191,
+          244
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "left_operate",
+      "direction": "left",
+      "action": "operate",
+      "frames": 4,
+      "fps": 6,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/left_operate.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/left_operate/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/left_operate/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/left_operate/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              262,
+              262,
+              518,
+              518
+            ],
+            "normalized": true,
+            "original_index": 4,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/left_operate/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              522,
+              258,
+              778
+            ],
+            "normalized": true,
+            "original_index": 6,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse complete authored poses; no head/eye replacement"
+      },
+      "sockets": [
+        [
+          0.44416,
+          0.62638
+        ],
+        [
+          0.4107,
+          0.61848
+        ],
+        [
+          0.3892,
+          0.57876
+        ],
+        [
+          0.45607,
+          0.62544
+        ]
+      ],
+      "frame_hashes": [
+        "7bbfdd37ae4cb092871afa595ce9a96731b47b0bf970ac1f2eb10bdd0a145013",
+        "2444b890d8c2908874a30473a9b2ea1589c2c84c95669fbf9a6f338f374f2c49",
+        "7a6890d10817ea497cf5059d88aad9a12754958d65d4ee68ec7275a6e15ff5bf",
+        "567096b7dca0642d997acf0a4d6a4670c28b0b9e03e23a5292cacf5683f4556d"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          69,
+          36,
+          188,
+          247
+        ],
+        [
+          71,
+          36,
+          188,
+          248
+        ],
+        [
+          68,
+          35,
+          187,
+          248
+        ],
+        [
+          69,
+          36,
+          187,
+          247
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "left_think",
+      "direction": "left",
+      "action": "think",
+      "frames": 4,
+      "fps": 2,
+      "loop": false,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/left_think.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/left_think/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/left_think/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              262,
+              258,
+              518
+            ],
+            "normalized": true,
+            "original_index": 3,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/left_think/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              522,
+              258,
+              778
+            ],
+            "normalized": true,
+            "original_index": 6,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/left_think/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              782,
+              258,
+              1038
+            ],
+            "normalized": true,
+            "original_index": 9,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse complete authored poses; no head/eye replacement"
+      },
+      "sockets": [
+        [
+          0.51093,
+          0.6763
+        ],
+        [
+          0.39641,
+          0.57141
+        ],
+        [
+          0.42199,
+          0.60192
+        ],
+        [
+          0.36882,
+          0.67255
+        ]
+      ],
+      "frame_hashes": [
+        "851854e46fd62a259c803b77bda050dc1440b8c88a2f71b146ef4b522be1f1a8",
+        "3fa4e4ce66b7b0fd9ccfa48ec67a5cbf2eaebe2d6f7d3e0214bbcbc9aedddea7",
+        "848c53b2d65cef76e6e296763880bfa96f6b2a253b16a85ceceeb473e7b5b81e",
+        "47a80a7ee35f346ce9c25252c0eb9d5086406947db28abe7438b4557a9de3f46"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          75,
+          20,
+          191,
+          246
+        ],
+        [
+          74,
+          20,
+          188,
+          247
+        ],
+        [
+          71,
+          20,
+          184,
+          247
+        ],
+        [
+          72,
+          21,
+          182,
+          247
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "right_idle",
+      "direction": "right",
+      "action": "idle",
+      "frames": 4,
+      "fps": 2,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/right_idle.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/right_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              262,
+              262,
+              518,
+              518
+            ],
+            "normalized": true,
+            "original_index": 4,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              522,
+              258,
+              778
+            ],
+            "normalized": true,
+            "original_index": 6,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse complete authored poses; no head/eye replacement"
+      },
+      "sockets": [
+        [
+          0.48984,
+          0.69651
+        ],
+        [
+          0.48918,
+          0.70009
+        ],
+        [
+          0.48806,
+          0.69572
+        ],
+        [
+          0.48907,
+          0.6974
+        ]
+      ],
+      "frame_hashes": [
+        "904a5c97537f65dfdd281ca96b551e216c60c289cad360e32af73ea1021a0957",
+        "d7eb654ef187f5f2de467ca7ac70f4acfbdca05a1035c84fba836e199df6a177",
+        "c593d6ea58778b532f667fcd540125b6cc8c3acf17d79f03a93133acf1eb653b",
+        "6045ab5bcf92f40b5fe20866afb3cc8478813906eeec96c3264a614b4baee6f5"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          70,
+          31,
+          188,
+          249
+        ],
+        [
+          70,
+          31,
+          187,
+          249
+        ],
+        [
+          71,
+          30,
+          188,
+          249
+        ],
+        [
+          69,
+          31,
+          187,
+          249
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "right_walk",
+      "direction": "right",
+      "action": "walk",
+      "frames": 4,
+      "fps": 6,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/right_walk.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/right_walk/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_walk/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              262,
+              2,
+              518,
+              258
+            ],
+            "normalized": true,
+            "original_index": 1,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_walk/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              262,
+              258,
+              518
+            ],
+            "normalized": true,
+            "original_index": 3,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_walk/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              522,
+              258,
+              778
+            ],
+            "normalized": true,
+            "original_index": 6,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse same-batch complete poses including odd-index transitions; simple4 gait"
+      },
+      "sockets": [
+        [
+          0.63182,
+          0.63018
+        ],
+        [
+          0.63875,
+          0.62545
+        ],
+        [
+          0.63949,
+          0.62619
+        ],
+        [
+          0.63093,
+          0.62534
+        ]
+      ],
+      "frame_hashes": [
+        "a42c0cbbf5358f1f0fbaba53ab86cd33430e6187f1a8e79fca4c16b7a8093ab9",
+        "3af11380d00cb34849308548d6f4221d590fcb193bc81a9e380e7dc6515c5498",
+        "de9a16bc2d8d0c809f7978f060518e9f6cdf1a41c8a786bed5f62f8e68c9c31f",
+        "7c1c3d2dc85a8debddce66006e55f16680e8cc00ba27a9fbe99006daee831068"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          69,
+          29,
+          186,
+          247
+        ],
+        [
+          69,
+          30,
+          186,
+          247
+        ],
+        [
+          70,
+          30,
+          187,
+          248
+        ],
+        [
+          69,
+          29,
+          186,
+          247
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "right_run",
+      "direction": "right",
+      "action": "run",
+      "frames": 4,
+      "fps": 8,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/right_run.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/right_run/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_run/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_run/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              262,
+              262,
+              518,
+              518
+            ],
+            "normalized": true,
+            "original_index": 4,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_run/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              262,
+              778,
+              518
+            ],
+            "normalized": true,
+            "original_index": 5,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse same-batch high-knee poses and odd-index transition; not only accelerated walk"
+      },
+      "sockets": [
+        [
+          0.582,
+          0.58488
+        ],
+        [
+          0.60644,
+          0.637
+        ],
+        [
+          0.57138,
+          0.58371
+        ],
+        [
+          0.58939,
+          0.62206
+        ]
+      ],
+      "frame_hashes": [
+        "27092ea8854cf16fc92558ef2edd27225a81c1a802465f71d81f7d9c93f5390f",
+        "5c62ede07e254781851db7ca4484c82b3d0c62fe944103bc2a5c5e50c95c5482",
+        "28f5bb61b9099c1bbe000793e8a1ecf4aab17391defe164e21c61e301c93bd20",
+        "ac4ef11ddf0eb0e973eae6a99d47cfeff061811dd1716cb29c63dfc83cfeaf2c"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          69,
+          42,
+          188,
+          248
+        ],
+        [
+          70,
+          35,
+          187,
+          235
+        ],
+        [
+          65,
+          42,
+          187,
+          247
+        ],
+        [
+          69,
+          39,
+          186,
+          235
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "right_carry_idle",
+      "direction": "right",
+      "action": "carry_idle",
+      "frames": 4,
+      "fps": 2,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/right_carry_idle.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/right_carry_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_carry_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              262,
+              2,
+              518,
+              258
+            ],
+            "normalized": true,
+            "original_index": 1,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_carry_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_carry_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              262,
+              258,
+              518
+            ],
+            "normalized": true,
+            "original_index": 3,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse complete authored poses; no head/eye replacement"
+      },
+      "sockets": [
+        [
+          0.57243,
+          0.64778
+        ],
+        [
+          0.57017,
+          0.62484
+        ],
+        [
+          0.57511,
+          0.6044
+        ],
+        [
+          0.56967,
+          0.65125
+        ]
+      ],
+      "frame_hashes": [
+        "8b2aa1e67c332825c6b6b21ca9955c768ae4aae19378bc693fb372a805622482",
+        "4e5b23aba0af72c9de8980b33045e8dd019733d4cec8167793efb01e631d92eb",
+        "34a0ccc9fbdd310d474d10a62c97254ccfbd9b7373e9bb29904696f1023c5a35",
+        "c2b65b782b53402cdebc6e34ccd6a1136d64ae523f4ddfc4e1e3515856a68a1b"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          70,
+          26,
+          186,
+          248
+        ],
+        [
+          69,
+          27,
+          186,
+          248
+        ],
+        [
+          69,
+          26,
+          187,
+          248
+        ],
+        [
+          68,
+          26,
+          184,
+          248
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "right_carry_walk",
+      "direction": "right",
+      "action": "carry_walk",
+      "frames": 4,
+      "fps": 6,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/right_carry_walk.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/right_carry_walk/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_carry_walk/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_carry_walk/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              262,
+              262,
+              518,
+              518
+            ],
+            "normalized": true,
+            "original_index": 4,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_carry_run/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              262,
+              778,
+              518
+            ],
+            "normalized": true,
+            "original_index": 5,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse one existing carrying run passing pose; all complete characters, simple4"
+      },
+      "sockets": [
+        [
+          0.56968,
+          0.6345
+        ],
+        [
+          0.5776,
+          0.6348
+        ],
+        [
+          0.57646,
+          0.63472
+        ],
+        [
+          0.59012,
+          0.61065
+        ]
+      ],
+      "frame_hashes": [
+        "8450d5b44c377c0aafb06ee96ded64202a12212e2937d0f0b97c67ad2b7c483a",
+        "e9a897359c0ca197a4cc81ba8544db5172194f3d2c0621a0b2f04cfa059529f0",
+        "58748de5b31982a0f1dca5f853eda28f1cce810f4a9ecf3dac9f9594e4292ff8",
+        "5dfbe616d4b183cd8c1557ad04b678b179e3a3c7b09ab35afe7fb0d8e021a6cd"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          69,
+          27,
+          187,
+          247
+        ],
+        [
+          70,
+          27,
+          188,
+          247
+        ],
+        [
+          71,
+          28,
+          187,
+          249
+        ],
+        [
+          69,
+          27,
+          185,
+          241
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "right_carry_run",
+      "direction": "right",
+      "action": "carry_run",
+      "frames": 4,
+      "fps": 8,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/right_carry_run.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/right_carry_run/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_carry_run/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_carry_run/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              262,
+              262,
+              518,
+              518
+            ],
+            "normalized": true,
+            "original_index": 4,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_carry_run/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              262,
+              778,
+              518
+            ],
+            "normalized": true,
+            "original_index": 5,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse same-batch full-body poses; prefer odd-index passing phase over newly generated proportion changes"
+      },
+      "sockets": [
+        [
+          0.59398,
+          0.60948
+        ],
+        [
+          0.58047,
+          0.63062
+        ],
+        [
+          0.59695,
+          0.61249
+        ],
+        [
+          0.59012,
+          0.61065
+        ]
+      ],
+      "frame_hashes": [
+        "8ed2170b444a6ed59154391c238e953168d69d70f69c93dc583e1b3b523b8d12",
+        "d4197db305253f8e76508a3c8d03fcd93ca306143e01ccbecd02c1d2ca83e192",
+        "d89e06573bd0a926195501e6e3e3c885b7ca87b3763cfbf255e148c00cb84d9f",
+        "5dfbe616d4b183cd8c1557ad04b678b179e3a3c7b09ab35afe7fb0d8e021a6cd"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          66,
+          28,
+          188,
+          246
+        ],
+        [
+          71,
+          27,
+          188,
+          248
+        ],
+        [
+          73,
+          29,
+          187,
+          248
+        ],
+        [
+          69,
+          27,
+          185,
+          241
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "right_operate",
+      "direction": "right",
+      "action": "operate",
+      "frames": 4,
+      "fps": 6,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/right_operate.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/right_operate/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_operate/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_operate/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              262,
+              262,
+              518,
+              518
+            ],
+            "normalized": true,
+            "original_index": 4,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_operate/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              522,
+              258,
+              778
+            ],
+            "normalized": true,
+            "original_index": 6,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse complete authored poses; no head/eye replacement"
+      },
+      "sockets": [
+        [
+          0.56154,
+          0.62933
+        ],
+        [
+          0.5911,
+          0.58934
+        ],
+        [
+          0.65317,
+          0.57984
+        ],
+        [
+          0.55967,
+          0.62904
+        ]
+      ],
+      "frame_hashes": [
+        "f3c42af25ef2f4d97a9d5722c9d94573d9dd9f4a9ad847b607fc87bc1184c6d7",
+        "0f333afa0a1c78681bb593d93342fb4c00dd725975cea876b30bc7c0d8a24b53",
+        "56e35cc9a252a64a9183501e2f95a4f48fa302bfeec6d949abc55d71d932f313",
+        "bac77e5f95052ff62aa28a05bce67f09a130529759f50374ceba4bd2a7314504"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          69,
+          27,
+          188,
+          249
+        ],
+        [
+          68,
+          28,
+          188,
+          249
+        ],
+        [
+          70,
+          28,
+          198,
+          249
+        ],
+        [
+          70,
+          28,
+          186,
+          249
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "right_think",
+      "direction": "right",
+      "action": "think",
+      "frames": 4,
+      "fps": 2,
+      "loop": false,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/right_think.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/right_think/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_think/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              262,
+              258,
+              518
+            ],
+            "normalized": true,
+            "original_index": 3,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_think/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              522,
+              258,
+              778
+            ],
+            "normalized": true,
+            "original_index": 6,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/right_think/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              782,
+              258,
+              1038
+            ],
+            "normalized": true,
+            "original_index": 9,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse complete authored poses; no head/eye replacement"
+      },
+      "sockets": [
+        [
+          0.48559,
+          0.68207
+        ],
+        [
+          0.60077,
+          0.56852
+        ],
+        [
+          0.58451,
+          0.57046
+        ],
+        [
+          0.58779,
+          0.6861
+        ]
+      ],
+      "frame_hashes": [
+        "9f3e2ee4fd0b636317ed85d299da9539de81cdf7da67dde80fb2b9c782f0eb16",
+        "c60a87949dcd6589ead78d7b85d2f0715f66074ac376f713c51d16da8ab5e8e1",
+        "61fc1d9dfb504a56df0af72121e7df590801145af98bf6cff8aeba149cdb59d6",
+        "9fb129a73d4c1ddaa044a8a52d15fc18f68c2ea0e833ddc633ddd58e1d339bbf"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          69,
+          20,
+          187,
+          247
+        ],
+        [
+          70,
+          21,
+          187,
+          247
+        ],
+        [
+          70,
+          21,
+          186,
+          247
+        ],
+        [
+          72,
+          21,
+          184,
+          247
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "back_idle",
+      "direction": "back",
+      "action": "idle",
+      "frames": 4,
+      "fps": 2,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/back_idle.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/back_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/back_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/back_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              262,
+              262,
+              518,
+              518
+            ],
+            "normalized": true,
+            "original_index": 4,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/back_idle/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              522,
+              258,
+              778
+            ],
+            "normalized": true,
+            "original_index": 6,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse complete authored poses; no head/eye replacement"
+      },
+      "sockets": [
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ]
+      ],
+      "frame_hashes": [
+        "8acf2f20231d113493fc0c1a44fadbd25468a87d6b1179b78caacdb75fc1e974",
+        "c1948def5ec992ee2c360309a6289c8e12f22a20d280721975319d5eca8659e6",
+        "bcd00bfdb3131e0a2f9d593b9f8212eb1a9ed3ea07ac546b575cebe8df2256a2",
+        "8d4846b2f53f19d8309b9b9b911c19b11979f3734453891b6da68acbf8245a0b"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          78,
+          22,
+          192,
+          247
+        ],
+        [
+          73,
+          22,
+          185,
+          247
+        ],
+        [
+          71,
+          19,
+          183,
+          248
+        ],
+        [
+          67,
+          22,
+          180,
+          247
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "back_walk",
+      "direction": "back",
+      "action": "walk",
+      "frames": 4,
+      "fps": 6,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/back_walk.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_four_back_walk_r2_pose_20261019073150.png",
+            "provenance": "current_task_existing_delivered_asset",
+            "cell": 0
+          },
+          {
+            "source": "assets/image/employee_four_back_walk_r2_pose_20261019073150.png",
+            "provenance": "current_task_existing_delivered_asset",
+            "cell": 1
+          },
+          {
+            "source": "assets/image/employee_four_back_walk_r2_pose_20261019073150.png",
+            "provenance": "current_task_existing_delivered_asset",
+            "cell": 2
+          },
+          {
+            "source": "assets/image/employee_four_back_walk_r2_pose_20261019073150.png",
+            "provenance": "current_task_existing_delivered_asset",
+            "cell": 3
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Rear4-pose strip; alternate lifting foot"
+      },
+      "sockets": [
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ]
+      ],
+      "frame_hashes": [
+        "0d6c162cc789c85fd095385a27ce21dc206669e4b51a92b123ef118edfd94578",
+        "2f678338b566d04caafd881d66ee60b32d431c3d371c365b9abff707e43beca9",
+        "9ef1523c669ace8a55f3170ad324f5a46d79a02e5605b6798a9611bd6759e0d7",
+        "f9b49f0831e95100e8983e6ab10a824b5d77f5c1e2a2c10bb5f27276eee433a9"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          78,
+          18,
+          179,
+          248
+        ],
+        [
+          78,
+          18,
+          178,
+          248
+        ],
+        [
+          78,
+          18,
+          178,
+          248
+        ],
+        [
+          78,
+          18,
+          178,
+          248
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "back_run",
+      "direction": "back",
+      "action": "run",
+      "frames": 4,
+      "fps": 8,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/back_run.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/back_run_depth_demo_v1/export_v1/frames256/frame_01.png",
+            "normalized": true,
+            "provenance": "pre_task_depth_guided_full_pose"
+          },
+          {
+            "source": "assets/image/employee_v04/back_run_depth_demo_v1/export_v1/frames256/frame_03.png",
+            "normalized": true,
+            "provenance": "pre_task_depth_guided_full_pose"
+          },
+          {
+            "source": "assets/image/employee_v04/back_run_depth_demo_v1/export_v1/frames256/frame_05.png",
+            "normalized": true,
+            "provenance": "pre_task_depth_guided_full_pose"
+          },
+          {
+            "source": "assets/image/employee_v04/back_run_depth_demo_v1/export_v1/frames256/frame_07.png",
+            "normalized": true,
+            "provenance": "pre_task_depth_guided_full_pose"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse depth-guided complete run poses across both half-cycles"
+      },
+      "sockets": [
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ]
+      ],
+      "frame_hashes": [
+        "75d059adaeb6d8cfe2b58c431d59d4e6696adde35dc351bd1fcf4cb1d5dfbf12",
+        "4cbae0845321a27913188ef877731dd53faf8eca92a14574febd061da42e1e94",
+        "2aa8bce60024f1a613e5e76b2ef4a245b616f6134302592f3320a44321e955f8",
+        "0302f5fd2a2c5f327536c0f91d976354c87a094d31e4346e63a13074621c3de5"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          76,
+          35,
+          181,
+          245
+        ],
+        [
+          74,
+          30,
+          183,
+          247
+        ],
+        [
+          75,
+          25,
+          179,
+          241
+        ],
+        [
+          74,
+          25,
+          182,
+          246
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "back_carry_idle",
+      "direction": "back",
+      "action": "carry_idle",
+      "frames": 4,
+      "fps": 2,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/back_carry_idle.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/back_carry_idle/candidate_v6/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/back_carry_idle/candidate_v6/export256/spritesheet.png",
+            "rect": [
+              262,
+              2,
+              518,
+              258
+            ],
+            "normalized": true,
+            "original_index": 1,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/back_carry_idle/candidate_v6/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/back_carry_idle/candidate_v6/export256/spritesheet.png",
+            "rect": [
+              2,
+              262,
+              258,
+              518
+            ],
+            "normalized": true,
+            "original_index": 3,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse complete authored poses; no head/eye replacement"
+      },
+      "sockets": [
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ]
+      ],
+      "frame_hashes": [
+        "bed53587bf6f957bb5988a611c914e882bc65c5f289858cf107331e3520e5fef",
+        "88b896bec7170a0f7c38993dc2c03a8170583e5f9405b250e9adc154a568d2be",
+        "136e5d6f5330008bac69d61e695fecf96f0292025288d12b28d6d9effc93fee2",
+        "65e5220a0265ccd9240c0af4cf9526ee6a10a41769071ca24622e861b6c716e1"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          75,
+          20,
+          181,
+          249
+        ],
+        [
+          75,
+          20,
+          181,
+          249
+        ],
+        [
+          75,
+          20,
+          181,
+          249
+        ],
+        [
+          76,
+          20,
+          181,
+          249
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "back_carry_walk",
+      "direction": "back",
+      "action": "carry_walk",
+      "frames": 4,
+      "fps": 6,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/back_carry_walk.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/back_carry_walk/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/back_carry_walk/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/back_carry_walk/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              262,
+              778,
+              518
+            ],
+            "normalized": true,
+            "original_index": 5,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/back_carry_run/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              262,
+              258,
+              518
+            ],
+            "normalized": true,
+            "original_index": 3,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse rear carry_run frame4 for opposite heel; no new rear request"
+      },
+      "sockets": [
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ]
+      ],
+      "frame_hashes": [
+        "c02d211f0f2f49aa4387fa7571f972bda2882a3b46342897fc5a160039367efe",
+        "27027f704cf29895bc8831131d1b136903ab255c11dab14eaaa00fb30f9589ea",
+        "1be4c68b62694e30f669a301ce2b36018b132a670cf53d4970effb88ebd8195f",
+        "d995935d7f9426072205c3fb3c5e3af40ba961fa1b24cb2e683f6dcb4ebfd102"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          71,
+          19,
+          184,
+          247
+        ],
+        [
+          72,
+          19,
+          184,
+          248
+        ],
+        [
+          72,
+          19,
+          184,
+          248
+        ],
+        [
+          74,
+          20,
+          185,
+          247
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "back_carry_run",
+      "direction": "back",
+      "action": "carry_run",
+      "frames": 4,
+      "fps": 8,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/back_carry_run.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/back_carry_run/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/back_carry_run/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/back_carry_run/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              262,
+              258,
+              518
+            ],
+            "normalized": true,
+            "original_index": 3,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/back_carry_run/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              262,
+              522,
+              518,
+              778
+            ],
+            "normalized": true,
+            "original_index": 7,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Includes original frame4 opposite outsole, missed by even-index extraction"
+      },
+      "sockets": [
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ]
+      ],
+      "frame_hashes": [
+        "269ac2ecbf80a468fe8496567601fa359318cce2def6af9acae7132a2bde462b",
+        "675e79241ec2a5b7e20caf78948e497aa30c6da4dd5d93b933d715bccdf56688",
+        "d995935d7f9426072205c3fb3c5e3af40ba961fa1b24cb2e683f6dcb4ebfd102",
+        "53e70ad65ca097cdfc65ed57fd442aeff900fd2c764ea632b54cb770a077dcd0"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          76,
+          20,
+          189,
+          247
+        ],
+        [
+          72,
+          20,
+          185,
+          247
+        ],
+        [
+          74,
+          20,
+          185,
+          247
+        ],
+        [
+          68,
+          20,
+          181,
+          246
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "back_operate",
+      "direction": "back",
+      "action": "operate",
+      "frames": 4,
+      "fps": 6,
+      "loop": true,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/back_operate.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/back_operate/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/back_operate/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              522,
+              2,
+              778,
+              258
+            ],
+            "normalized": true,
+            "original_index": 2,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/back_operate/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              262,
+              262,
+              518,
+              518
+            ],
+            "normalized": true,
+            "original_index": 4,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/back_operate/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              522,
+              258,
+              778
+            ],
+            "normalized": true,
+            "original_index": 6,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse complete authored poses; no head/eye replacement"
+      },
+      "sockets": [
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ]
+      ],
+      "frame_hashes": [
+        "640c6e8a61ff1ace2d8561cfbd7d24b557ba40740416270ba649785f601a21d8",
+        "dbd832eb1f55314c76063ea098d02810b95bc6ae4adbf8ac8e7d997b664d71f1",
+        "707f0d3ee1239427f38ff81f2c9dbc33e01a6ca5ba4a3da443423ee812710612",
+        "3a5e2b6c901dd03618f50685f8d9cd36f58b7fdfe05037677e014733c8a9dd14"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          72,
+          20,
+          182,
+          248
+        ],
+        [
+          74,
+          20,
+          183,
+          248
+        ],
+        [
+          72,
+          20,
+          192,
+          248
+        ],
+        [
+          73,
+          20,
+          183,
+          248
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    },
+    {
+      "id": "back_think",
+      "direction": "back",
+      "action": "think",
+      "frames": 4,
+      "fps": 2,
+      "loop": false,
+      "atlas": "image/employee_v04/four_frame_v1/runtime/back_think.png",
+      "source_selection": {
+        "frames": [
+          {
+            "source": "assets/image/employee_v04/states_v1/back_think/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              2,
+              258,
+              258
+            ],
+            "normalized": true,
+            "original_index": 0,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/back_think/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              262,
+              258,
+              518
+            ],
+            "normalized": true,
+            "original_index": 3,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/back_think/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              522,
+              258,
+              778
+            ],
+            "normalized": true,
+            "original_index": 6,
+            "provenance": "pre_task_catalog"
+          },
+          {
+            "source": "assets/image/employee_v04/states_v1/back_think/candidate_v4/export256/spritesheet.png",
+            "rect": [
+              2,
+              782,
+              258,
+              1038
+            ],
+            "normalized": true,
+            "original_index": 9,
+            "provenance": "pre_task_catalog"
+          }
+        ],
+        "art_review": "selected_for_simple_four_frame_runtime_review",
+        "note": "Reuse complete authored poses; no head/eye replacement"
+      },
+      "sockets": [
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ],
+        [
+          0.5,
+          0.625
+        ]
+      ],
+      "frame_hashes": [
+        "2fd3290c902789b926b4ffab886ebf1c1478accb8e2952785814ab7120c14ccd",
+        "ae7f78a74eb067a2d86a1a530b6130bdb9dec853d2de7c9702fea6b2d61c5e83",
+        "d664a11dc5caf30785790598135800825a1a16db8181161def8260e2efc839d7",
+        "70f57128be5cf10fb2658bdfd71c8c8e0780c98d82c4dea58fd44f0fd57cb6c6"
+      ],
+      "unique_frames": 4,
+      "bounds": [
+        [
+          72,
+          20,
+          184,
+          248
+        ],
+        [
+          73,
+          20,
+          183,
+          248
+        ],
+        [
+          73,
+          20,
+          183,
+          249
+        ],
+        [
+          73,
+          20,
+          183,
+          249
+        ]
+      ],
+      "pivot": [
+        0.5,
+        0.96875
+      ],
+      "complete_pose_only": true,
+      "head_eye_local_edit": false,
+      "runtime_config": "Factory/CharacterFrames.lua",
+      "art_review": "selected_for_simple_four_frame_runtime_review"
+    }
+  ],
+  "art_pending": [],
+  "normalization": "complete-pose uniform fit to230px high, foot baseline248px; no head/eye cuts or limb synthesis",
+  "android_validation": "not_tested"
+}
